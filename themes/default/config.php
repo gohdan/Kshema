@@ -59,8 +59,8 @@ $config['base']['ftp_username'] = "kshema";
 $config['base']['ftp_password'] = "kshems";
 $config['base']['ftp_root'] = '/home/kshema/www/';
 
-$config['base']['categories']['chain_divider'] = " / ";
 $config['base']['categories']['list_prefix'] = " .";
+$config['base']['categories']['chain_divider'] = " / ";
 
 $config['base']['ext_links_redirect'] = "yes";
 $config['base']['use_captcha'] = "no";
@@ -153,7 +153,6 @@ $config['modules']['core'][] = "uploads";
 $config['modules']['core'][] = "users";
 $config['modules']['core'][] = "updater";
 
-
 $config['modules']['installed'][] = "news";
 $config['modules']['installed'][] = "pages";
 $config['modules']['installed'][] = "articles";
@@ -186,7 +185,7 @@ $config['rss']['use'] = "yes";
 $config['rss']['feeds'][] = "";
 $config['rss']['max_items'] = 100;
 
-$config['satellite']['use'] = "yes";
+$config['satellite']['use'] = "no";
 $config['satellite']['table'] = "ksh_bbcpanel_bbs";
 $config['satellite']['id'] = "1";
 
@@ -225,7 +224,7 @@ $config['updater']['file_all'] = "all.zip";
 $config['updater']['rights_files'] = "664";
 $config['updater']['rights_dirs'] = "774";
 
-$config['users']['xmlrpc_use'] = "1";
+$config['users']['xmlrpc_use'] = "0";
 $config['users']['table'] = "ksh_users";
 $config['users']['categories_table'] = "ksh_users_groups";
 $config['users']['additional_fields'][0]['name'] = "";
