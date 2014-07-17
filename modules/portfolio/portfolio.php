@@ -279,15 +279,12 @@ function portfolio_view_all()
 	
 
 	debug ("page template: ".$config['themes']['page_tpl']);
-	debug ("category template: ".$config['portfolio']['category_template']);
-	debug ("portfolio list template: ".$config['portfolio']['portfoliolist_template']);	
 	debug ("menu template: ".$config['themes']['menu_tpl']);	
 
     $content = array(
     	'content' => '',
         'result' => '',
         'category' => '',
-        $config['portfolio']['portfoliolist_template'] => '',
         'admin_link' => '',
         'edit_link' => '',
         'descr' => '',
@@ -306,7 +303,7 @@ function portfolio_view_all()
         else
             debug ("don't have portfolio to delete");
 
-        $content['admin_link'] .= "<a href=\"/index.php?module=portfolio&amp;action=admin\">Администрирование</a><br><a href=\"/index.php?module=portfolio&amp;action=view_categories\">Просмотр всех категорий</a><br><a href=\"/index.php?module=portfolio&amp;action=add_portfolio&amp;category=".$category."\">Добавить портфолио</a>";
+        $content['admin_link'] .= "<a href=\"/index.php?module=portfolio&amp;action=admin\">Администрирование</a><br><a href=\"/index.php?module=portfolio&amp;action=view_categories\">Просмотр всех категорий</a><br><a href=\"/index.php?module=portfolio&amp;action=add_portfolio&amp;\">Добавить портфолио</a>";
 		
 	}
 

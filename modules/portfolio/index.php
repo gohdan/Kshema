@@ -132,6 +132,12 @@ function portfolio_default_action()
                         case "category_edit":
                                 $content .= gen_content("portfolio", "categories_edit", portfolio_categories_edit());
                         break;
+
+                        case "view_all":
+								$content_data = portfolio_view_all();
+                                $content .= gen_content("portfolio", "view_all", $content_data);
+                        break;
+
                 }
         }
 
