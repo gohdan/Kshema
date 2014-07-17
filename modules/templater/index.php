@@ -94,7 +94,6 @@ function gen_content($module, $template, $content)
 		dump($content);
         foreach ($content as $k => $v)
         {
-            debug ($k.":".$v, 2);
 	    	if (is_array($v))
 	    	{
 				debug ("> > > got a list in ".$k.", ".count($v)." elements", 2);
@@ -108,6 +107,7 @@ function gen_content($module, $template, $content)
 	    	else
 	    	{
 				debug ("got casual data", 2);
+	            debug ($k.":".$v, 2);
 				$tpl = str_replace ("#".$k."#", $v, $tpl);
 	    	}
         }
