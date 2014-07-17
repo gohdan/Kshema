@@ -136,7 +136,6 @@ function pages_tables_update()
 {
 	global $user;
 	global $config;
-	global $db_name;
 
 	debug ("*** pages_tables_update ***");
     $content = array(
@@ -144,6 +143,13 @@ function pages_tables_update()
         'result' => '',
         'queries_qty' => ''
     );
+
+	$if_change = array(
+		'title' => 0,
+		'full_text' => 0,
+		'meta_keywords' => 0,
+		'meta_description' => 0
+	);
 
 	if ("yes" == $config['db']['old_engine'])
 	{
@@ -156,19 +162,10 @@ function pages_tables_update()
 		$charset = " charset='cp1251'";
 	}
 
-
     $queries = array();
     // $queries[] = ""; // Write your SQL queries here
 
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
+	$tables = db_tables_list();
 
 	if (!in_array("ksh_pages_categories", $tables))
 	{
@@ -196,12 +193,14 @@ function pages_tables_update()
 
 	/* Checking fields in ksh_pages */
 
+	$i = 0;
 	$sql_query = "SHOW FIELDS IN `ksh_pages`";
 	$result = exec_query($sql_query);
 	while ($row = mysql_fetch_array($result))
 	{
 		$field_names[$i] = stripslashes($row['Field']);
 		$field_types[$i] = stripslashes($row['Type']);
+		$i++;
 	}
 	mysql_free_result($result);
 
@@ -212,16 +211,44 @@ function pages_tables_update()
 	if (!in_array("position", $field_names))
 		$queries[] = "ALTER TABLE `ksh_pages` ADD `position` int";
 
+	if (in_array("title", $field_names))
+	{
+		$queries[] = "ALTER TABLE `ksh_pages` CHANGE `title` `title_".$config['base']['lang']['default']."` TINYTEXT";
+		$if_change['title'] = 1;
+	}
+
+	if (in_array("full_text", $field_names))
+	{
+		$queries[] = "ALTER TABLE `ksh_pages` CHANGE `full_text` `full_text_".$config['base']['lang']['default']."` MEDIUMTEXT";
+		$if_change['full_text'] = 1;
+	}
+
+	if (in_array("meta_keywords", $field_names))
+	{
+		$queries[] = "ALTER TABLE `ksh_pages` CHANGE `meta_keywords` `meta_keywords_".$config['base']['lang']['default']."` TEXT";
+		$if_change['meta_keywords'] = 1;
+	}
+
+	if (in_array("meta_description", $field_names))
+	{
+		$queries[] = "ALTER TABLE `ksh_pages` CHANGE `meta_description` `meta_description_".$config['base']['lang']['default']."` TEXT";
+		$if_change['meta_description'] = 1;
+	}
+
 	foreach ($config['base']['lang']['list'] as $k => $v)
 	{
 		if (!in_array("title_".$v, $field_names))
-			$queries[] = "ALTER TABLE `ksh_pages` ADD `title_".$v."` tinytext";
+			if ($if_change['title'] && ($v != $config['base']['lang']['default']))
+				$queries[] = "ALTER TABLE `ksh_pages` ADD `title_".$v."` tinytext";
 		if (!in_array("full_text_".$v, $field_names))
-			$queries[] = "ALTER TABLE `ksh_pages` ADD `full_text_".$v."` mediumtext";
+			if ($if_change['full_text'] && ($v != $config['base']['lang']['default']))
+				$queries[] = "ALTER TABLE `ksh_pages` ADD `full_text_".$v."` mediumtext";
 		if (!in_array("meta_keywords_".$v, $field_names))
-			$queries[] = "ALTER TABLE `ksh_pages` ADD `meta_keywords_".$v."` text";
+			if ($if_change['meta_keywords'] && ($v != $config['base']['lang']['default']))
+				$queries[] = "ALTER TABLE `ksh_pages` ADD `meta_keywords_".$v."` text";
 		if (!in_array("meta_description_".$v, $field_names))
-			$queries[] = "ALTER TABLE `ksh_pages` ADD `meta_description_".$v."` text";
+			if ($if_change['meta_description'] && ($v != $config['base']['lang']['default']))
+				$queries[] = "ALTER TABLE `ksh_pages` ADD `meta_description_".$v."` text";
 	}
 
 	/* End: Checking fields in ksh_pages */

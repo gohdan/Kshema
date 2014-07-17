@@ -88,7 +88,6 @@ function update_table($table_name)
 {
 	global $config;
 	global $user;
-	global $db_name;
 
 	debug ("=== category: update_table ===");
 
@@ -102,18 +101,7 @@ function update_table($table_name)
 
 		$queries_qty = array();
 
-		$tables = array();
-		$sql_query = "SHOW TABLES";
-		$result = exec_query($sql_query);
-		while ($row = mysql_fetch_array($result))
-			$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-		mysql_free_result($result);
-
-		debug("tables:", 2);
-		dump($tables);
-
-
-		if (!in_array($table_name, $tables))
+		if (!in_array($table_name, db_tables_list()))
 			$this -> create_table($table_name);
 
 		$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table_name)."`";

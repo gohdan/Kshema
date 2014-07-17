@@ -55,7 +55,6 @@ function uploads_tables_update()
 {
 	global $user;
 	global $config;
-	global $db_name;
 
 	debug ("*** uploads_tables_update ***");
     $content = array(
@@ -77,27 +76,8 @@ function uploads_tables_update()
 
 
     $queries = array();
-/*
-	$version = modules_get_version("uploads");
 
-	if ($version < 0.1)
-	{
-		$priv = new Privileges();
-		$result =  $priv -> create_table("ksh_uploads_privileges");
-		$content['result'] .= $result['result'];
-	}
-*/
-    // $queries[] = ""; // Write your SQL queries here
-
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
+	$tables = db_tables_list();
 
 	if (!in_array("ksh_uploads_privileges", $tables))
 	{

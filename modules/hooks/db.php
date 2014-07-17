@@ -105,31 +105,8 @@ function hooks_tables_update()
     );
 
     $queries = array();
-    // $queries[] = ""; // Write your SQL queries here
 
-/*	
-	$cat = new Category();
-	$result = $cat -> create_table("ksh_hooks_categories");
-	$content['result'] .= $result['result'];
-	$result = $cat -> update_table("ksh_hooks_categories");
-	$content['result'] .= $result['result'];
-
-	$queries[] = "ALTER TABLE `ksh_hooks` ADD `category` int";
-	$queries[] = "ALTER TABLE `ksh_hooks` ADD `name` tinytext";
-	$queries[] = "ALTER TABLE `ksh_hooks` ADD `title` tinytext";
-*/
-
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
-
-	if (!in_array("ksh_hooks_categories", $tables))
+	if (!in_array("ksh_hooks_categories", db_tables_list()))
 	{
 		$cat = new Category();
 		$cat -> create_table("ksh_hooks_categories");

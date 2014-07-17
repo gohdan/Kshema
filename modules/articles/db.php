@@ -166,7 +166,6 @@ function articles_update_tables()
 {
 	global $user;
 	global $config;
-	global $db_name;
 
 	debug ("*** articles_update_tables ***");
     $content = array(
@@ -189,17 +188,7 @@ function articles_update_tables()
 		$charset = " charset='cp1251'";
 	}
 
-
-
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
+	$tables = db_tables_list();
 
 	if (!in_array("ksh_articles_categories", $tables))
 	{

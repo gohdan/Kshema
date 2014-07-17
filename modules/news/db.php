@@ -105,7 +105,6 @@ function news_update_tables()
 {
 	global $user;
 	global $config;
-	global $db_name;
 
 	debug ("*** news_update_tables ***");
 
@@ -116,30 +115,7 @@ function news_update_tables()
     );
 
     $queries = array();
-/*
-	$version = modules_get_version("news");
 
-	if ($version < 0.1)
-	{
-	    // $queries[] = ""; // Write your SQL queries here
-		// $queries[] = "ALTER TABLE ksh_news ADD url tinytext";
-		// $queries[] = "ALTER TABLE ksh_news CHANGE descr descr text";
-		$queries[] = "ALTER TABLE ksh_news_categories ADD template tinytext";
-		$queries[] = "ALTER TABLE ksh_news_categories ADD list_template tinytext";
-		$queries[] = "ALTER TABLE ksh_news_categories ADD news_template tinytext";
-		$queries[] = "ALTER TABLE ksh_news_categories ADD page_template tinytext";
-		$queries[] = "ALTER TABLE ksh_news ADD short_descr text";
-		$queries[] = "ALTER TABLE ksh_news_categories ADD menu_template tinytext";
-
-	}
-
-	if ($version < 0.2)
-	{
-		$priv = new Privileges();
-		$result =  $priv -> create_table("ksh_news_privileges");
-		$content['result'] .= $result['result'];
-	}
-*/
 	if ("yes" == $config['db']['old_engine'])
 	{
 		debug ("db engine is too old, don't using charsets");
@@ -151,15 +127,7 @@ function news_update_tables()
 		$charset = " charset='cp1251'";
 	}
 
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
+	$tables = db_tables_list();
 
 	if (!in_array("ksh_news_categories", $tables))
 		$queries[] = "create table if not exists ksh_news_categories (

@@ -15,7 +15,7 @@ include_once($config['base']['doc_root']."/modules/templater/index.php");
 include_once($config['base']['doc_root']."/libs/xmlrpc/xmlrpc.inc");
 include_once($config['base']['doc_root']."/libs/xmlrpc/xmlrpc_wrappers.inc");
 include_once($config['base']['doc_root']."/libs/xmlrpc/xmlrpcs.inc");
-connect_2db ($db_user, $db_password, $db_host, $db_name);
+connect_2db ($config['db']['db_user'], $config['db']['db_password'], $config['db']['db_host'], $config['db']['db_name']);
 
 function articles_get_ctitle($bb_id, $category_id)
 {

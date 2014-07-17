@@ -83,17 +83,7 @@ function base_update()
 	global $config;
 	debug ("*** base_update ***");
 
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
-
-	if (!in_array("ksh_base_privileges", $tables))
+	if (!in_array("ksh_base_privileges", db_tables_list()))
 	{
 		$priv = new Privileges();
 		$priv -> create_table("ksh_base_privileges");

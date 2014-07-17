@@ -10,13 +10,10 @@
 //
 
 $config['db']['old_engine'] = "no";
-$config['db']['charset'] = "cp1251"; // cp1251 or utf8
-$config['db']['collation'] = "cp1251_general_ci"; // cp1251_general_ci or utf8
 
-
-$db_user = "kshema";
-$db_password = "kshema";
-$db_name = "kshema";
-$db_host = "localhost";
+$config['db']['db_user'] = "kshema";
+$config['db']['db_password'] = "kshema";
+$config['db']['db_name'] = "kshema";
+$config['db']['db_host'] = "localhost";
 
 ?>

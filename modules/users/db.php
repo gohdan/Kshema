@@ -225,7 +225,6 @@ function users_update_tables()
 {
     global $config;
 	global $user;
-	global $db_name;
 
 	debug ("*** users_update_tables ***");
     $content = array(
@@ -238,15 +237,7 @@ function users_update_tables()
 
     // $queries[] = ""; // Write your SQL queries here
 
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
+	$tables = db_tables_list();
 
 	if ("yes" == $config['db']['old_engine'])
 	{

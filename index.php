@@ -25,7 +25,7 @@ include_once ($mods_dir."/templater/index.php");
 include_once ($mods_dir."/modules/index.php");
 include_once ($mods_dir."/db/index.php");
 
-connect_2db ($db_user, $db_password, $db_host, $db_name);
+connect_2db ($config['db']['db_user'], $config['db']['db_password'], $config['db']['db_host'], $config['db']['db_name']);
 base_process_request();
 
 date_default_timezone_set($config['base']['timezone']);
