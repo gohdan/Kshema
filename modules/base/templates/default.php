@@ -1,0 +1,2 @@
+#content#
+#full_text#

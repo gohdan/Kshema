@@ -1,0 +1,18 @@
+table.bills_sending
+{
+
+}
+
+td.bills_sending_bbs_selection
+{
+	vertical-align: top;
+	padding: 0px 0px 0px 30px;
+}
+
+div.bbs_sections
+{
+	display: none;
+	padding: 0px 0px 0px 15px;
+}
+
+

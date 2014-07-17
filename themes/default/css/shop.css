@@ -1,0 +1,30 @@
+table.shop_last_goods_table
+{
+	border-collapse: collapse;
+}
+
+td.shop_last_goods_title
+{
+
+}
+
+table.shop_last_goods_row_table
+{
+	width: 100%;
+}
+
+table.shop_last_goods_row_table td
+{
+	padding: 0px;
+	text-align: center;
+}
+
+img.shop_last_goods_image
+{
+	border: 1px solid #cccccc;
+}
+
+span.shop_last_goods_title
+{
+
+}

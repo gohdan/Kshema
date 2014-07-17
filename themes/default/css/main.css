@@ -1,0 +1,11 @@
+@import url("reset.css");
+@import url("bbcpanel.css");
+@import url("bills.css");
+@import url("shop.css");
+
+textarea
+{
+	width: 800px;
+}
+
+
