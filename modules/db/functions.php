@@ -35,12 +35,12 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
 		}
 		else
 		{
-			exec_query("SET names 'cp1251'");
-			//exec_query("set character_set 'cp1251'");
-			exec_query("set character_set_client='cp1251'");
-			exec_query("set character_set_results='cp1251'");
-			exec_query("set collation_connection='cp1251_general_ci'");
-			exec_query("set SESSION collation_connection='cp1251_general_ci'");
+			exec_query("SET names '".$config['db']['charset']."'");
+			//exec_query("set character_set '".$config['db']['charset']."'");
+			exec_query("set character_set_client='".$config['db']['charset']."'");
+			exec_query("set character_set_results='".$config['db']['charset']."'");
+			exec_query("set collation_connection='".$config['db']['collation']."'");
+			exec_query("set SESSION collation_connection='".$config['db']['collation']."'");
 			exec_query("set @@session.time_zone = '".$config['db']['timezone']."'");
 		}
     }
