@@ -114,7 +114,7 @@ function gen_content($module, $template, $content)
 		debug("; end: proceeding lists");
 
 		debug ("cleaning empty vars");
-		$tpl = ereg_replace("#([[:alnum:]_]+)#", "", $tpl);
+		$tpl = preg_replace("/#([[:alnum:]_]+)#/i", "", $tpl);
 
 		debug ("; catching hooks");
 		$tpl = templater_catch_hooks($tpl);
@@ -124,29 +124,33 @@ function gen_content($module, $template, $content)
         $tpl = templater_logic($tpl, $content);
         debug ("; end: proceeding logical structure");
 
-        while (ereg("\{\{([a-z0-9\:]+)\}\}", $tpl, $dynamic_content))
+		$pattern="/\{\{([a-z0-9\:]+)\}\}/i";
+        if (preg_match_all($pattern, $tpl, $dynamic_content))
         {
             debug ("dynamic content exists");
-            foreach ($dynamic_content as $k => $v)
+			print_r($dynamic_content);
+
+            foreach ($dynamic_content[1] as $k => $v)
             {
-                debug ($k.":".$v, 2);
-            }
-            $dc = explode(":", $dynamic_content[0]);
-            $dc[0] = str_replace("{", "", $dc[0]);
-            $dc[1] = $dc[1];
-            $dc[2] = str_replace("}", "", $dc[2]);
-            debug($dc[0].":".$dc[1].":".$dc[2], 2);
-            debug ("including module ".$dc[0]);
-            include_once ($mods_dir."/".$dc[0]."/index.php");
-            debug ("dyn content 0: ".$dynamic_content[0], 2);
-            debug ("dc 1: ".$dc[1], 2);
-            debug ("dc 2: ".$dc[2],2 );
-            $new_tpl = str_replace ($dynamic_content[0], $dc[1]($dc[2]), $tpl);
-            debug ("changing template ".$tpl." on ".$new_tpl);
-            $tpl = $new_tpl;
-            $dynamic_content = "";
+                debug ("dynamic content ".$k.":".$v, 2);
+
+	            $dc = explode(":", $v);
+	            $dc[0] = str_replace("{", "", $dc[0]);
+	            $dc[1] = $dc[1];
+	            $dc[2] = str_replace("}", "", $dc[2]);
+	            debug($dc[0].":".$dc[1].":".$dc[2], 2);
+	            debug ("including module ".$dc[0]);
+	            include_once ($mods_dir."/".$dc[0]."/index.php");
+	            debug ("dyn content 0: ".$v, 2);
+	            debug ("dc 1: ".$dc[1], 2);
+	            debug ("dc 2: ".$dc[2], 2 );
+	            $new_tpl = str_replace ($v, $dc[1]($dc[2]), $tpl);
+	            debug ("changing template ".$tpl." on ".$new_tpl);
+	            $tpl = $new_tpl;
+			}
         }
-        debug ("dynamic content doesn't exist");
+		else
+	        debug ("dynamic content doesn't exist");
 
 	}
     else debug ("template file doesn't exist!");
@@ -242,38 +246,51 @@ function templater_default_action()
     return 1;
 }
 
+
 function templater_logic($tpl, $content)
 {
 	debug ("*** templater_logic ***");
 	global $config;
 
-    while (ereg("\{\{if:([a-z0-9\:_]+):([a-zA-Zа-яА-ЯёЁ0-9?&/ 	~_<>=#\n\r\::\"\'\.\,|;\%\!\$\+\*@[.[.] [.].]\\)\\(-]*)\}\}", $tpl, $branches))
+	$pattern = "/\{\{if:([a-z0-9_]+):([^.^{^}]+)\}\}/i";
+    if(preg_match_all($pattern, $tpl, $branches))
     {
     	debug ("there are logic!", 2);
-        debug ("; branches:", 2);
-        foreach ($branches as $k => $v)
-        	debug ($k.":".$v, 2);
-        debug ("; end: branches", 2);
-        if  ((isset($content[$branches[1]])) && ("" != $content[$branches[1]]) && !( ("0" == $content[$branches[1]]) && ("no" == $config['templater']['show_null_values']) ))
-        {
-	       	debug ("outputting ".$branches[2], 2);
-            debug ("string to replace: \{\{if:".$branches[1].":".$branches[2]."\}\}", 2);
 
-            //$tpl = ereg_replace ("\{\{if:".$branches[1].":".$branches[2]."\}\}", $branches[2], $tpl);
-            //$tpl = ereg_replace ("\{\{if:([a-z0-9\:]+):([]a-zA-Zа-яА-Я0-9/ _<>=#\:\"\.\\)\\(]+)\}\}", $branches[2], $tpl);
-            $tpl = str_replace ("{{if:".$branches[1].":".$branches[2]."}}", $branches[2], $tpl);
-        }
-        else
-        {
-        	debug ("not outputting ".$branches[2], 2);
-            //$tpl = ereg_replace ("\{\{if:".$branches[1].":".$branches[2]."\}\}", "", $tpl);
-            //$tpl = ereg_replace ("\{\{if:([a-z0-9\:]+):([]a-zA-Zа-яА-Я0-9/ _<>=#\:\"\.\\)\\(]+)\}\}", "", $tpl);
-            $tpl = str_replace ("{{if:".$branches[1].":".$branches[2]."}}", "", $tpl);
-        }
+		dump($branches);
+
+		foreach($branches[0] as $branch_idx => $branch_text)
+		{
+			debug("; branch_idx: ".$branch_idx);
+			debug("branch_text: ".$branch_text);
+			$condition_name = $branches[1][$branch_idx];
+			if (isset($content[$condition_name]))
+				$condition_trigger = $content[$condition_name];
+			else
+				$condition_trigger = "";
+			$condition_text = $branches[2][$branch_idx];
+			debug("condition_name: ".$condition_name);
+			debug("condition_trigger: ".$condition_trigger);
+			debug("condition_text: ".$condition_text);
+
+	        if  (("" != $condition_trigger) &&
+				!(
+					("0" == $condition_trigger)
+					&& ("no" == $config['templater']['show_null_values'])
+				))
+	        {
+		       	debug ("outputting", 2);
+	            $tpl = str_replace ($branch_text, $condition_text, $tpl);
+	        }
+	        else
+	        {
+	        	debug ("not outputting", 2);
+	            $tpl = str_replace ($branch_text, "", $tpl);
+	        }
+		}
     }
-
-    debug ("there are no logic", 2);
-
+	else
+	    debug ("there are no logic", 2);
 
     debug ("*** end: templater_logic ***");
     return $tpl;
@@ -365,15 +382,16 @@ function templater_catch_hooks($tpl)
 	debug ("*** templater_catch_hooks ***");
 
 	$catch_strings = array(
-		"\{\{hook:([a-z0-9]+)\}\}",
-		"\{\{hook:([a-z0-9]+):([a-z0-9_]+)\}\}",
-		"\{\{hook:([a-z0-9]+):([a-z0-9_]+):([a-z0-9]*)\}\}"
+		"/\{\{hook:([a-z0-9]+)\}\}/i",
+		"/\{\{hook:([a-z0-9]+):([a-z0-9_]+)\}\}/i",
+		"/\{\{hook:([a-z0-9]+):([a-z0-9_]+):([a-z0-9]*)\}\}/i"
 	);
 
 	foreach($catch_strings as $catch_string_idx => $catch_string)
-		while (ereg($catch_string, $tpl, $hooks_catched))
+		if (preg_match_all($catch_string, $tpl, $hooks_catched))
 		{
 			debug("got hook");
+			dump($hooks_catched);
 
 			if (isset($hook_module))
 				unset($hook_module);
@@ -382,18 +400,20 @@ function templater_catch_hooks($tpl)
 			if (isset($hook_value))
 				unset($hook_value);
 
-			if (isset($hooks_catched[1]))
-				$hook_module = $hooks_catched[1];
-			if (isset($hooks_catched[2]))
-				$hook_parameter = $hooks_catched[2];
-			if (isset($hooks_catched[3]))
-				$hook_value = $hooks_catched[3];
+			if (isset($hooks_catched[1][0]))
+				$hook_module = $hooks_catched[1][0];
+			if (isset($hooks_catched[2][0]))
+				$hook_parameter = $hooks_catched[2][0];
+			if (isset($hooks_catched[3][0]))
+				$hook_value = $hooks_catched[3][0];
 
 			$hook_function = $hook_module."_hook";
 
 			debug("module: ".$hook_module);
-			debug("parameter: ".$hook_parameter);
-			debug("value: ".$hook_value);
+			if (isset($hook_parameter))
+				debug("parameter: ".$hook_parameter);
+			if (isset($hook_value))
+				debug("value: ".$hook_value);
 
 			include_once ($config['modules']['location'].$hook_module."/index.php");
 
@@ -404,8 +424,9 @@ function templater_catch_hooks($tpl)
 			else if (isset($hook_module))
 				$tpl = str_replace ("{{hook:".$hook_module."}}", $hook_function(), $tpl);
 		}
+		else
+			debug ("got no hooks");
 
-	debug ("got no hooks");
 
 	debug ("*** end: templater_catch_hooks ***");
 
