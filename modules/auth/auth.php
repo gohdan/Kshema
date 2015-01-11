@@ -213,7 +213,7 @@ function auth_logout()
     debug ("user role: ".$user['role']);
 
     //$content = gen_auth_form();
-    $content['content'] .= "<p>Выход выполнен успешено.</p>";
+    $content['content'] .= "<p>Р’С‹С…РѕРґ РІС‹РїРѕР»РЅРµРЅ СѓСЃРїРµС€РµРЅРѕ.</p>";
 
 	if (isset($config['base']['inst_root']) && "" != $config['base']['inst_root'])
 		$redirect_url = $config['base']['inst_root'];
@@ -476,7 +476,7 @@ function auth_register()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -547,7 +547,7 @@ function auth_register()
 			$cnt['password'] = $_POST['password1'];
 			$cnt['admin_email'] = $config['base']['admin_email'];
 
-			$headers = "Content-type: text/plain; charset=windows-1251 \r\n";
+			$headers = "Content-type: text/plain; charset=utf-8 \r\n";
 			$to = $_POST['login'];
 			$subject = gen_content("auth", "mail_register_user_subject", $cnt);
 			$message = gen_content("auth", "mail_register_user_message", $cnt);
@@ -607,11 +607,11 @@ function auth_check_password_strength($password)
         $password_complexity++;
     
     // Letters in uppercase
-    if((preg_match("/([A-Z]+)/", $password)) || (preg_match("/([А-Я]+)/", $password)))
+    if((preg_match("/([A-Z]+)/", $password)) || (preg_match("/([Рђ-РЇ]+)/", $password)))
         $password_complexity++;
     
     // Letters in lowercase
-    if((preg_match("/([a-z]+)/", $password)) || (preg_match("/([а-я]+)/", $password)))
+    if((preg_match("/([a-z]+)/", $password)) || (preg_match("/([Р°-СЏ]+)/", $password)))
         $password_complexity++;
 
     if($password_complexity == 4)

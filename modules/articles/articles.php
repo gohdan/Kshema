@@ -31,14 +31,14 @@ function articles($category)
         if ("" != $row['descr']) $content .= $row['descr'];
         else $content .= substr(stripslashes($row['full_text']), 0, 100)."...";
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/index.php?module=articles&action=view&articles=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=articles&action=view&articles=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=articles&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=articles&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: articles ***");
@@ -71,15 +71,15 @@ function articles_view_by_category()
         {
             debug ("have articles to delete");
             exec_query("DELETE FROM ksh_articles WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Статья успешно удалена";
+            $content['result'] .= "РЎС‚Р°С‚СЊСЏ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
         }
         else
         {
             debug ("don't have articles to delete");
         }
-		$content['add_category_link'] .= "<a href=\"/index.php?module=articles&action=add_category&category=".$category."\">Добавить подкатегорию</a>";
-        $content['add_article_link'] .= "<a href=\"/index.php?module=articles&action=add_articles&category=".$category."\">Добавить статью</a>";
-        $content['admin_link'] .= "<a href=\"/index.php?module=articles&action=admin\">Администрирование статей</a>";
+		$content['add_category_link'] .= "<a href=\"/index.php?module=articles&action=add_category&category=".$category."\">Р”РѕР±Р°РІРёС‚СЊ РїРѕРґРєР°С‚РµРіРѕСЂРёСЋ</a>";
+        $content['add_article_link'] .= "<a href=\"/index.php?module=articles&action=add_articles&category=".$category."\">Р”РѕР±Р°РІРёС‚СЊ СЃС‚Р°С‚СЊСЋ</a>";
+        $content['admin_link'] .= "<a href=\"/index.php?module=articles&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃС‚Р°С‚РµР№</a>";
     }
 
 	$i = 0;
@@ -90,8 +90,8 @@ function articles_view_by_category()
 		$content['categories'][$i]['name'] = stripslashes($row['name']);
 		if (1 == $user['id'])
             {
-				$content['categories'][$i]['edit_link'] = "<a href=\"/index.php?module=articles&action=category_edit&category=".stripslashes($row['id'])."\">Редактировать</a>";
-	            $content['categories'][$i]['del_link'] = "<a href=\"/index.php?module=articles&action=del_category&category=".stripslashes($row['id'])."\">Удалить</a>";
+				$content['categories'][$i]['edit_link'] = "<a href=\"/index.php?module=articles&action=category_edit&category=".stripslashes($row['id'])."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+	            $content['categories'][$i]['del_link'] = "<a href=\"/index.php?module=articles&action=del_category&category=".stripslashes($row['id'])."\">РЈРґР°Р»РёС‚СЊ</a>";
 			}
 		$i++;
 
@@ -206,7 +206,7 @@ $content = array(
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -231,7 +231,7 @@ $content = array(
                     if (filesize($home.$doc_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$doc_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $doc_path = "";
@@ -259,12 +259,12 @@ $content = array(
 					'".mysql_real_escape_string($_POST['full_text'])."',
 					CURDATE()
 					)");
-                $content['result'] .= "Добавлено";
+                $content['result'] .= "Р”РѕР±Р°РІР»РµРЅРѕ";
             }
             else
             {
                 debug ("articles name is empty");
-                $content['result'] .= "Пожалуйста, задайте название";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ";
             }
         }
         else
@@ -275,7 +275,7 @@ $content = array(
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_add ***");
@@ -345,7 +345,7 @@ function articles_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -370,7 +370,7 @@ function articles_edit()
                     if (filesize($home.$doc_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$doc_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $doc_path = $_POST['old_doc'];
@@ -403,12 +403,12 @@ function articles_edit()
 					descr='".mysql_real_escape_string($_POST['descr'])."',  
 					full_text='".mysql_real_escape_string($_POST['full_text'])."' 
 					WHERE id='".mysql_real_escape_string($articles_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("articles name is empty");
-                $content['result'] .= "Пожалуйста, задайте название статьи";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ СЃС‚Р°С‚СЊРё";
             }
         }
         else
@@ -441,7 +441,7 @@ function articles_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_edit ***");
@@ -474,7 +474,7 @@ function articles_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_del ***");
@@ -520,7 +520,7 @@ function articles_archive()
     global $config;
 	global $page_title;
 
-	$page_title .= " | Архив статей".
+	$page_title .= " | РђСЂС…РёРІ СЃС‚Р°С‚РµР№".
 
     $content = array(
     	'content' => '',
@@ -546,7 +546,7 @@ function articles_archive()
     }
     mysql_free_result($result);
 
-    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=articles&action=admin\">Администрирование</a>";
+    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=articles&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a>";
 
     return $content;
     debug("*** end: articles_archive ***");

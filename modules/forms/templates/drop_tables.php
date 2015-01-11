@@ -1,17 +1,17 @@
-<h1>Удаление таблиц базы данных анкет</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р°РЅРєРµС‚</h1>
 
-<a href="/index.php?module=forms&action=admin">Вернуться в меню администрирования анкет</a>
+<a href="/index.php?module=forms&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ Р°РЅРєРµС‚</a>
 
 #content#
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=forms&action=drop_tables" method="post">
-<input type="checkbox" name="drop_forms_categories_table" value="ksh_forms_categories">Категории анкет<br>
-<input type="checkbox" name="drop_forms_table" value="ksh_forms">Анкеты<br>
-<input type="checkbox" name="drop_forms_submitted_table" value="ksh_forms_submitted">Заполненные анкеты<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_forms_categories_table" value="ksh_forms_categories">РљР°С‚РµРіРѕСЂРёРё Р°РЅРєРµС‚<br>
+<input type="checkbox" name="drop_forms_table" value="ksh_forms">РђРЅРєРµС‚С‹<br>
+<input type="checkbox" name="drop_forms_submitted_table" value="ksh_forms_submitted">Р—Р°РїРѕР»РЅРµРЅРЅС‹Рµ Р°РЅРєРµС‚С‹<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

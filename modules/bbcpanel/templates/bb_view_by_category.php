@@ -2,15 +2,15 @@
 
 {{if:show_admin_link:
 <p>
-<a href="/bbcpanel/admin/">Меню администрирования</a>
+<a href="/bbcpanel/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 }}
 
-<p><a href="/users/profile_view/">Ваш профиль</a></p>
+<p><a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a></p>
 
 {{if:show_add_link:
 <p>
-<a href="/bbcpanel/bb_add/">Добавить сателлит</a>
+<a href="/bbcpanel/bb_add/">Р”РѕР±Р°РІРёС‚СЊ СЃР°С‚РµР»Р»РёС‚</a>
 </p>
 }}
 
@@ -31,23 +31,23 @@
 ID
 </th>
 <th style="padding: 0px 3px 0px 3px">
-Название
+РќР°Р·РІР°РЅРёРµ
 </th>
 <th style="padding: 0px 3px 0px 3px">
 URL
 </th>
 <th style="padding: 0px 3px 0px 3px">
-Тематика
+РўРµРјР°С‚РёРєР°
 </th>
 </tr>
 #bbs#
 </table>
 
 <p>
-С отмеченными: <select name="action">
-<option value="updater|update_all">Обновить программный код</option>
-<option value="bills|update_tables">Обновить БД объявлений</option>
-<option value="articles|update_tables">Обновить БД статей</option>
+РЎ РѕС‚РјРµС‡РµРЅРЅС‹РјРё: <select name="action">
+<option value="updater|update_all">РћР±РЅРѕРІРёС‚СЊ РїСЂРѕРіСЂР°РјРјРЅС‹Р№ РєРѕРґ</option>
+<option value="bills|update_tables">РћР±РЅРѕРІРёС‚СЊ Р‘Р” РѕР±СЉСЏРІР»РµРЅРёР№</option>
+<option value="articles|update_tables">РћР±РЅРѕРІРёС‚СЊ Р‘Р” СЃС‚Р°С‚РµР№</option>
 </select>
-<input type="submit" name="do_action" value="Поехали">
+<input type="submit" name="do_action" value="РџРѕРµС…Р°Р»Рё">
 </form>

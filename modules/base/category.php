@@ -28,7 +28,7 @@ function create_table($table_name)
 		else
 		{
 			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='cp1251'";
+			$charset = " charset='utf8'";
 		}
 
 		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
@@ -45,7 +45,7 @@ function create_table($table_name)
 		)".$charset;
 
 		exec_query($sql_query);
-		$content['result'] .= "<p>Таблица категорий успешно создана</p>";
+		$content['result'] .= "<p>РўР°Р±Р»РёС†Р° РєР°С‚РµРіРѕСЂРёР№ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°</p>";
 
 		$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table_name)."`";
 		$result = exec_query($sql_query);
@@ -67,17 +67,17 @@ function create_table($table_name)
 				'0',
 				'1',
 				'main',
-				'Главная',
+				'Р“Р»Р°РІРЅР°СЏ',
 				'default'
 				)";
 			exec_query($sql_query);
-			$content['result'] .= "<p>Основная категория успешно создана</p>";
+			$content['result'] .= "<p>РћСЃРЅРѕРІРЅР°СЏ РєР°С‚РµРіРѕСЂРёСЏ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°</p>";
 		}
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: category: create_table ===");
@@ -117,7 +117,7 @@ function update_table($table_name)
 		{
 			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int";
 			$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '1'"; 
-			$content['result'] .= "<p>В таблицу категорий успешно добавлено поле position</p>";
+			$content['result'] .= "<p>Р’ С‚Р°Р±Р»РёС†Сѓ РєР°С‚РµРіРѕСЂРёР№ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅРѕ РїРѕР»Рµ position</p>";
 		}
 
 		if ($queries_qty > 0)
@@ -128,7 +128,7 @@ function update_table($table_name)
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: category: update_table ===");
@@ -154,12 +154,12 @@ function drop_table($table_name)
 
 		$sql_query = "DROP TABLE IF EXISTS `".mysql_real_escape_string($table_name)."`";
 		exec_query($sql_query);
-		$content['result'] = "<p>Таблица категорий успешно удалена</p>";
+		$content['result'] = "<p>РўР°Р±Р»РёС†Р° РєР°С‚РµРіРѕСЂРёР№ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°</p>";
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: category: drop_table ===");
@@ -316,13 +316,13 @@ function add($table_name)
 			$acc = new Access();
 			$acc -> add_default($module, "category", $last_id);
 
-			$content['result'] .= "<p>Категория успешно добавлена</p>";
+			$content['result'] .= "<p>РљР°С‚РµРіРѕСЂРёСЏ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР°</p>";
 		}
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	$content['categories_select'] = $this -> get_select($table_name, $_POST['parent']);
@@ -352,20 +352,20 @@ function del($categories_table, $elements_table, $category_id, $if_del_elements 
 		{
 			$sql_query = "DELETE FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
 			exec_query($sql_query);
-			$content['result'] .= "<p>Категория успешно удалена</p>";
+			$content['result'] .= "<p>РљР°С‚РµРіРѕСЂРёСЏ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°</p>";
 		
 			if ($if_del_elements)
 			{
 				$sql_query = "DELETE FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".mysql_real_escape_string($category_id)."'";
 				exec_query($sql_query);
-				$content['result'] .= "<p>Элементы категории успешно удалены</p>";
+				$content['result'] .= "<p>Р­Р»РµРјРµРЅС‚С‹ РєР°С‚РµРіРѕСЂРёРё СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹</p>";
 			}
 		}
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	if (!isset($_POST['do_del_category']))
@@ -426,13 +426,13 @@ function edit($categories_table, $category_id)
 			$sql_query .= " WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
 
 			exec_query($sql_query);
-			$content['result'] .= "<p>Изменения успешно записаны</p>";
+			$content['result'] .= "<p>РР·РјРµРЅРµРЅРёСЏ СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅС‹</p>";
 		}
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";

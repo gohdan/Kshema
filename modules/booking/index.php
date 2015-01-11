@@ -18,7 +18,7 @@ function booking_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Администрирование страниц сайта";
+    $content['heading'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃС‚СЂР°РЅРёС† СЃР°Р№С‚Р°";
 	debug ("*** end: booking_admin ***");
     return $content;
 }
@@ -64,10 +64,10 @@ function booking_default_action()
 
 		$module_data = array (
 			'module_name' => "booking",
-			'module_title' => "Бронирование номеров"
+			'module_title' => "Р‘СЂРѕРЅРёСЂРѕРІР°РЅРёРµ РЅРѕРјРµСЂРѕРІ"
 		);
 		$config['booking']['page_title'] = $module_data['module_title'];
-		$config['themes']['page_title']['module'] = "Бронирование номеров";
+		$config['themes']['page_title']['module'] = "Р‘СЂРѕРЅРёСЂРѕРІР°РЅРёРµ РЅРѕРјРµСЂРѕРІ";
 
 
         debug("<br>=== mod: booking ===");
@@ -90,27 +90,27 @@ function booking_default_action()
                         break;
 
                         case "help":
-							$config['themes']['page_title']['action'] = "Справка";
+							$config['themes']['page_title']['action'] = "РЎРїСЂР°РІРєР°";
                             $content .= gen_content("booking", "help", booking_help());
                         break;
 
                         case "create_tables":
-							$config['themes']['page_title']['action'] = "Создание таблиц БД";
+							$config['themes']['page_title']['action'] = "РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("booking", "tables_create", booking_tables_create());
                         break;
 
                         case "drop_tables":
-							$config['themes']['page_title']['action'] = "Удаление таблиц БД";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("booking", "drop_tables", booking_tables_drop());
                         break;
 
                         case "update_tables":
-							$config['themes']['page_title']['action'] = "Обновление таблиц БД";
+							$config['themes']['page_title']['action'] = "РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
 					        $content .= gen_content("booking", "tables_update", booking_tables_update());
                         break;
 
                         case "add":
-							$config['themes']['page_title']['action'] = "Добавление брони";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ Р±СЂРѕРЅРё";
 
 							if (isset($_POST['do_add']))
 							{
@@ -120,42 +120,42 @@ function booking_default_action()
 								mysql_free_result($result);
 								$last_id = stripslashes($row['MAX(id)']);
 								$log = new Log();
-								$log -> add("booking", "add", "Добавлена <a href=\"/booking/view/".$last_id."/\">бронь</a>");
+								$log -> add("booking", "add", "Р”РѕР±Р°РІР»РµРЅР° <a href=\"/booking/view/".$last_id."/\">Р±СЂРѕРЅСЊ</a>");
 							}
                             $content .= gen_content("booking", "add", booking_add());
                         break;
 
 						case "del":
-							$config['themes']['page_title']['action'] = "Удаление брони";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ Р±СЂРѕРЅРё";
 							$config['themes']['page_tpl'] = "orders_calendar";
 
 							if (isset($_POST['do_del']))
 							{
 								$log = new Log();
-								$log -> add("booking", "del", "Удалена бронь ".$_GET['element']);
+								$log -> add("booking", "del", "РЈРґР°Р»РµРЅР° Р±СЂРѕРЅСЊ ".$_GET['element']);
 							}
                             $content .= gen_content("booking", "del", booking_del());
                         break;
 
                         case "edit":
 							$config['themes']['page_tpl'] = "orders_calendar";
-							$config['themes']['page_title']['action'] = "Редактирование брони";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р±СЂРѕРЅРё";
 
 							if (isset($_POST['do_update']))
 							{
 								$log = new Log();
-								$log -> add("booking", "edit", "Изменена <a href=\"/booking/view/".$_GET['element']."/\">бронь</a>");	
+								$log -> add("booking", "edit", "РР·РјРµРЅРµРЅР° <a href=\"/booking/view/".$_GET['element']."/\">Р±СЂРѕРЅСЊ</a>");	
 							}
                             $content .= gen_content("booking", "edit", booking_edit());
                         break;
 
                         case "admin":
-							$config['themes']['page_title']['action'] = "Администрирование";
+							$config['themes']['page_title']['action'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ";
                             $content .= gen_content("booking", "admin", booking_admin());
                         break;
 
                         case "view":
-							$config['themes']['page_title']['action'] = "Просмотр брони";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ Р±СЂРѕРЅРё";
 							$_GET['module'] = "booking";
 							$_GET['action'] = "view";
 							$config['themes']['page_tpl'] = "orders_calendar";
@@ -164,72 +164,72 @@ function booking_default_action()
                         break;
 
                         case "list_view":
-							$config['themes']['page_title']['action'] = "Список броней";
+							$config['themes']['page_title']['action'] = "РЎРїРёСЃРѕРє Р±СЂРѕРЅРµР№";
 							$config['themes']['page_tpl'] = "orders_calendar";
 							
 							if (isset($_POST['do_del']))
 							{
 								$log = new Log();
-								$log -> add("booking", "del", "Удалена бронь ".$_POST['id']);
+								$log -> add("booking", "del", "РЈРґР°Р»РµРЅР° Р±СЂРѕРЅСЊ ".$_POST['id']);
 							}
                             $content .= gen_content("booking", "list_view", booking_list_view());
                         break;
 
                         case "orders_list":
 							$config['themes']['page_tpl'] = "orders_list";
-							$config['themes']['page_title']['action'] = "Список заказов";
+							$config['themes']['page_title']['action'] = "РЎРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ";
                             $content .= gen_content("booking", "orders_list", booking_orders_list());
                         break;
 
                         case "orders_calendar":
 							$config['themes']['page_tpl'] = "orders_calendar";
-							$config['themes']['page_title']['action'] = "Календарь заказов";
+							$config['themes']['page_title']['action'] = "РљР°Р»РµРЅРґР°СЂСЊ Р·Р°РєР°Р·РѕРІ";
                             $content .= gen_content("booking", "orders_calendar", booking_orders_calendar());
                         break;
 
                         case "rooms_edit":
-							$config['themes']['page_title']['action'] = "Редактирование номеров";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РЅРѕРјРµСЂРѕРІ";
 
 							if (isset($_POST['do_update']))
 							{
 								$log = new Log();
-								$log -> add("booking", "rooms_edit", "Отредактированы номера");
+								$log -> add("booking", "rooms_edit", "РћС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅС‹ РЅРѕРјРµСЂР°");
 							}
                             $content .= gen_content("booking", "rooms_edit", booking_rooms_edit());
                         break;
 
                         case "prices_edit":
-							$config['themes']['page_title']['action'] = "Редактирование цен";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С†РµРЅ";
 
 							if (isset($_POST['do_update']))
 							{
 								$log = new Log();
-								$log -> add("booking", "prices_edit", "Отредактированы цены");
+								$log -> add("booking", "prices_edit", "РћС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅС‹ С†РµРЅС‹");
 							}
                             $content .= gen_content("booking", "prices_edit", booking_prices_edit());
                         break;
 						
                         case "prices_get":
-							$config['themes']['page_title']['action'] = "Получение цены";
+							$config['themes']['page_title']['action'] = "РџРѕР»СѓС‡РµРЅРёРµ С†РµРЅС‹";
                             $content .= gen_content("booking", "prices_get", booking_prices_get());
                         break;
 						
 						case "privileges_edit":
-							$config['themes']['page_title']['action'] = "Назначение прав";						
-							$template['title'] .= " - Назначение прав";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";						
+							$template['title'] .= " - РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";
 							$priv = new Privileges();
 							$cnt = $priv -> edit("booking");
 
 							if (isset($_POST['do_update']))
 							{
 								$log = new Log();
-								$log -> add("booking", "privileges_edit", "Изменены права доступа");
+								$log -> add("booking", "privileges_edit", "РР·РјРµРЅРµРЅС‹ РїСЂР°РІР° РґРѕСЃС‚СѓРїР°");
 							}
 							$content .= gen_content("bbcpanel", "privileges_edit", array_merge($module_data, $cnt));
 						break;
 						
                         case "transfer_add":
-							$config['themes']['page_title']['action'] = "Добавление трансфера";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ С‚СЂР°РЅСЃС„РµСЂР°";
 
 							if (isset($_POST['do_add']))
 							{
@@ -239,48 +239,48 @@ function booking_default_action()
 								mysql_free_result($result);
 								$last_id = stripslashes($row['MAX(id)']);
 								$log = new Log();
-								$log -> add("booking", "add", "Добавлена <a href=\"/booking/view/".$last_id."/\">бронь</a>");
+								$log -> add("booking", "add", "Р”РѕР±Р°РІР»РµРЅР° <a href=\"/booking/view/".$last_id."/\">Р±СЂРѕРЅСЊ</a>");
 
 								$log = new Log();
-								$log -> add("booking", "transfer_add", "Добавлен <a href=\"/booking/transfer_view/".$last_id."/page_template:orders_calendar\">трансфер</a>");
+								$log -> add("booking", "transfer_add", "Р”РѕР±Р°РІР»РµРЅ <a href=\"/booking/transfer_view/".$last_id."/page_template:orders_calendar\">С‚СЂР°РЅСЃС„РµСЂ</a>");
 							}
                             $content .= gen_content("booking", "transfer_add", booking_transfer_add());
                         break;
 						
                         case "transfer_edit":
-							$config['themes']['page_title']['action'] = "Редактирование трансфера";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚СЂР°РЅСЃС„РµСЂР°";
 
 							if (isset($_POST['do_update']))
 							{
 								$log = new Log();
-								$log -> add("booking", "transfer_edit", "Отредактирован <a href=\"/booking/transfer_view/".$_GET['element']."/page_template:orders_calendar\">трансфер </a>");
+								$log -> add("booking", "transfer_edit", "РћС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ <a href=\"/booking/transfer_view/".$_GET['element']."/page_template:orders_calendar\">С‚СЂР°РЅСЃС„РµСЂ </a>");
 							}
                             $content .= gen_content("booking", "transfer_edit", booking_transfer_edit());
                         break;
 						
                         case "transfer_del":
-							$config['themes']['page_title']['action'] = "Удаление трансфера";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С‚СЂР°РЅСЃС„РµСЂР°";
                             $content .= gen_content("booking", "transfer_del", booking_transfer_del());
                         break;
 						
                         case "transfer_view":
-							$config['themes']['page_title']['action'] = "Просмотр трансфера";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ С‚СЂР°РЅСЃС„РµСЂР°";
                             $content .= gen_content("booking", "transfer_view", booking_transfer_view());
                         break;
 						
                         case "transfer_calendar_view":
-							$config['themes']['page_title']['action'] = "Планирование трансфера";
+							$config['themes']['page_title']['action'] = "РџР»Р°РЅРёСЂРѕРІР°РЅРёРµ С‚СЂР°РЅСЃС„РµСЂР°";
 
 							if (isset($_POST['do_del']))
 							{
 								$log = new Log();
-								$log -> add("booking", "transfer_del", "Удалён трансфер ".$_POST['element']);
+								$log -> add("booking", "transfer_del", "РЈРґР°Р»С‘РЅ С‚СЂР°РЅСЃС„РµСЂ ".$_POST['element']);
 							}
                             $content .= gen_content("booking", "transfer_calendar_view", booking_transfer_calendar_view());
                         break;
 												
                         case "log_view":
-							$config['themes']['page_title']['action'] = "Просмотр уведомлений";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ СѓРІРµРґРѕРјР»РµРЅРёР№";
 
 							$log = new Log();
 							$cnt = $log -> view("booking");

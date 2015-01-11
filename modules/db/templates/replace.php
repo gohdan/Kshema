@@ -1,11 +1,11 @@
-<h1>Поиск и замена по БД</h1>
+<h1>РџРѕРёСЃРє Рё Р·Р°РјРµРЅР° РїРѕ Р‘Р”</h1>
 
 <form action="/index.php?module=db&action=replace" method="post">
-Таблица: <input type="text" name="search_table" value="#search_table#"><br>
-Поле: <input type="text" name="search_field" value="#search_field#"><br>
-Что ищем: <input type="text" name="search_string" value="#search_string#"><br>
-<input type="checkbox" name="if_replace"#if_replace#> Заменяем на: <input type="text" name="replace_string" value="#replace_string#"><br>
-<input type="submit" name="do_replace" value="Поехали!">
+РўР°Р±Р»РёС†Р°: <input type="text" name="search_table" value="#search_table#"><br>
+РџРѕР»Рµ: <input type="text" name="search_field" value="#search_field#"><br>
+Р§С‚Рѕ РёС‰РµРј: <input type="text" name="search_string" value="#search_string#"><br>
+<input type="checkbox" name="if_replace"#if_replace#> Р—Р°РјРµРЅСЏРµРј РЅР°: <input type="text" name="replace_string" value="#replace_string#"><br>
+<input type="submit" name="do_replace" value="РџРѕРµС…Р°Р»Рё!">
 </form>
 
 <p>#result#</p>

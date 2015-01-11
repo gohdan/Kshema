@@ -29,13 +29,13 @@ function shop_authors_view()
 		{
 			debug ("user is admin, deleting from DB");
 			exec_query ("delete from ksh_shop_authors where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Автор удалён";
+			$content['result'] = "РђРІС‚РѕСЂ СѓРґР°Р»С‘РЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Автор не удалён";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РђРІС‚РѕСЂ РЅРµ СѓРґР°Р»С‘РЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -174,7 +174,7 @@ function shop_authors_add()
 		if (filesize($home.$file_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$file_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$file_path = "";
@@ -204,13 +204,13 @@ function shop_authors_add()
 				'".mysql_real_escape_string($_POST['descr'])."',
 				'".mysql_real_escape_string($_POST['image'])."'
 				)");
-			$content['result'] = "Автор добавлен";
+			$content['result'] = "РђРІС‚РѕСЂ РґРѕР±Р°РІР»РµРЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Автор не добавлен";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РђРІС‚РѕСЂ РЅРµ РґРѕР±Р°РІР»РµРЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -279,7 +279,7 @@ function shop_authors_edit()
 		if (filesize($home.$file_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$file_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$file_path = "";
@@ -309,13 +309,13 @@ function shop_authors_edit()
 				`descr` = '".mysql_real_escape_string($_POST['descr'])."',
 				`if_hide` = '".mysql_real_escape_string($_POST['if_hide'])."'
 				where id='".mysql_real_escape_string($author_id)."'");
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ РЅРµ Р·Р°РїРёСЃР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 

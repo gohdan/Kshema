@@ -1,6 +1,6 @@
-<h1>Добавление фотографии</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё</h1>
 
-<a href="/index.php?module=photos&action=admin">Возврат к администрированию фотографий</a>
+<a href="/index.php?module=photos&action=admin">Р’РѕР·РІСЂР°С‚ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ С„РѕС‚РѕРіСЂР°С„РёР№</a>
 
 <p>#result#</p>
 
@@ -8,11 +8,11 @@
 
 <form action="/index.php?module=photos&action=add&gallery=#gallery#" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="gallery" value="#gallery#">
-    Превью: <input type="file" name="thumb"><br>
-    Изображение: <input type="file" name="image"><br>
-    Название <input type="text" name="name"><br>
+    РџСЂРµРІСЊСЋ: <input type="file" name="thumb"><br>
+    РР·РѕР±СЂР°Р¶РµРЅРёРµ: <input type="file" name="image"><br>
+    РќР°Р·РІР°РЅРёРµ <input type="text" name="name"><br>
     <br>
-    Описание:<br>
+    РћРїРёСЃР°РЅРёРµ:<br>
     <textarea cols="40" rows="10" name="descr"></textarea><br>
-    <input type="submit" name="do_add" value="Добавить">
+    <input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

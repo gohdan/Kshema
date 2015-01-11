@@ -1,5 +1,5 @@
-<h1>Страницы</h1>
+<h1>РЎС‚СЂР°РЅРёС†С‹</h1>
 
-{{if:if_show_admin_link:<a href="/pages/admin/">Администрировать страницы</a>}}
+{{if:if_show_admin_link:<a href="/pages/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЃС‚СЂР°РЅРёС†С‹</a>}}
 
 #content#

@@ -20,7 +20,7 @@ function create_tables($tables)
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content .= "<p>Запросы выполнены</p>";
+		$content .= "<p>Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹</p>";
 	}
 
 	return $content;
@@ -32,7 +32,7 @@ function drop_tables($tables)
 	debug ("*** drop_tables");
 
 	foreach ($tables as $k => $v) exec_query ("DROP TABLE ".$v);
-	$content = "<p>Таблицы БД успешно удалены</p>";
+	$content = "<p>РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹</p>";
 
 	debug ("*** end: drop_tables");
 	return $content;
@@ -45,7 +45,7 @@ function incoming($user, $tables)
 
 	$result = exec_query ("SELECT id,prior,name,deadline FROM ".$tables['tasks']." where user_to='".$user['id']."'");
 
-	$content .= "<table style=\"width: 100%\"><tr><td style=\"background-color: #eeeeee\"></td><td style=\"background-color: #eeeeee; text-align: center\">Поручение</td><td style=\"background-color: #ff9900; color: white; font-weight: bold; text-align: center\">Срок исполнения <img src=\"/themes/default/images/sort_ascend.gif\"></td></tr>";
+	$content .= "<table style=\"width: 100%\"><tr><td style=\"background-color: #eeeeee\"></td><td style=\"background-color: #eeeeee; text-align: center\">РџРѕСЂСѓС‡РµРЅРёРµ</td><td style=\"background-color: #ff9900; color: white; font-weight: bold; text-align: center\">РЎСЂРѕРє РёСЃРїРѕР»РЅРµРЅРёСЏ <img src=\"/themes/default/images/sort_ascend.gif\"></td></tr>";
 	while ($row = mysql_fetch_array ($result))
 	{
 		$content .= "<tr>";
@@ -75,7 +75,7 @@ function outgoing($user, $tables)
 
 	$result = exec_query ("SELECT id,prior,name,deadline FROM ".$tables['tasks']." where user_from='".$user['id']."'");
 
-	$content .= "<table style=\"width: 100%\"><tr><td style=\"background-color: #eeeeee\"></td><td style=\"background-color: #eeeeee; text-align: center\">Поручение</td><td style=\"background-color: #ff9900; color: white; font-weight: bold; text-align: center\">Срок исполнения <img src=\"/themes/default/images/sort_ascend.gif\"></td></tr>";
+	$content .= "<table style=\"width: 100%\"><tr><td style=\"background-color: #eeeeee\"></td><td style=\"background-color: #eeeeee; text-align: center\">РџРѕСЂСѓС‡РµРЅРёРµ</td><td style=\"background-color: #ff9900; color: white; font-weight: bold; text-align: center\">РЎСЂРѕРє РёСЃРїРѕР»РЅРµРЅРёСЏ <img src=\"/themes/default/images/sort_ascend.gif\"></td></tr>";
 	while ($row = mysql_fetch_array ($result))
 	while ($row = mysql_fetch_array ($result))
 	{
@@ -108,7 +108,7 @@ function own($user, $tables)
 	debug ("table: ".$tables['tasks']);
 	$result = exec_query ("SELECT id,prior,name,deadline FROM ".$tables['tasks']." where user_to='".$user['id']."' and user_from='".$user['id']."'");
 
-	$content .= "<table style=\"width: 100%\"><tr><td style=\"background-color: #eeeeee\"></td><td style=\"background-color: #eeeeee; text-align: center\">Поручение</td><td style=\"background-color: #ff9900; color: white; font-weight: bold; text-align: center\">Срок исполнения <img src=\"/themes/default/images/sort_ascend.gif\"></td></tr>";
+	$content .= "<table style=\"width: 100%\"><tr><td style=\"background-color: #eeeeee\"></td><td style=\"background-color: #eeeeee; text-align: center\">РџРѕСЂСѓС‡РµРЅРёРµ</td><td style=\"background-color: #ff9900; color: white; font-weight: bold; text-align: center\">РЎСЂРѕРє РёСЃРїРѕР»РЅРµРЅРёСЏ <img src=\"/themes/default/images/sort_ascend.gif\"></td></tr>";
 	while ($row = mysql_fetch_array ($result))
 	{
 		$content .= "<tr>";
@@ -141,17 +141,17 @@ function view($user, $table, $id)
 	$row = mysql_fetch_array ($result);
 	mysql_free_result ($result);
 
-	$content .= "<div align=right><img src=\"/themes/default/images/accept.gif\" alt=\"Подтвердить\" title=\"Подтвердить\"><img src=\"/themes/default/images/reject.gif\" alt=\"Отказаться\" title=\"Отказаться\"></div>";
+	$content .= "<div align=right><img src=\"/themes/default/images/accept.gif\" alt=\"РџРѕРґС‚РІРµСЂРґРёС‚СЊ\" title=\"РџРѕРґС‚РІРµСЂРґРёС‚СЊ\"><img src=\"/themes/default/images/reject.gif\" alt=\"РћС‚РєР°Р·Р°С‚СЊСЃСЏ\" title=\"РћС‚РєР°Р·Р°С‚СЊСЃСЏ\"></div>";
 	$content .= "<p>";
-	if ($user['id'] != $row['user_from']) $content .= "<b>Получено от:</b> ".$row['user_from']."<br>";
-	if ($user['id'] != $row['user_to']) $content .= "<b>Направлено:</b> ".$row['user_to']."<br>";
-	$content .= "<b>Название:</b> <font color=\"blue\">".$row['name']."</font><br>";
-	$content .= "<b>Срок исполнения:</b> <font color=\"blue\">".$row['deadline']."</font><br>";
-	$content .= "<b>Приоритет:</b> <b>".$row['prior']."</b><br>";
-	$content .= "<div style=\"display: inline; clear: right; text-align: left\"><b>Описание:</b></div> ".$row['descr']."";
+	if ($user['id'] != $row['user_from']) $content .= "<b>РџРѕР»СѓС‡РµРЅРѕ РѕС‚:</b> ".$row['user_from']."<br>";
+	if ($user['id'] != $row['user_to']) $content .= "<b>РќР°РїСЂР°РІР»РµРЅРѕ:</b> ".$row['user_to']."<br>";
+	$content .= "<b>РќР°Р·РІР°РЅРёРµ:</b> <font color=\"blue\">".$row['name']."</font><br>";
+	$content .= "<b>РЎСЂРѕРє РёСЃРїРѕР»РЅРµРЅРёСЏ:</b> <font color=\"blue\">".$row['deadline']."</font><br>";
+	$content .= "<b>РџСЂРёРѕСЂРёС‚РµС‚:</b> <b>".$row['prior']."</b><br>";
+	$content .= "<div style=\"display: inline; clear: right; text-align: left\"><b>РћРїРёСЃР°РЅРёРµ:</b></div> ".$row['descr']."";
 
 	$content .= "</p>";
-	$content .= "<div align=right><img src=\"/themes/default/images/discuss.gif\" alt=\"Обсудить\" title=\"Обсудить\"> <img src=\"/themes/default/images/send_report.gif\" alt=\"Отправить отчёт\" title=\"Отправить отчёт\"></div>";
+	$content .= "<div align=right><img src=\"/themes/default/images/discuss.gif\" alt=\"РћР±СЃСѓРґРёС‚СЊ\" title=\"РћР±СЃСѓРґРёС‚СЊ\"> <img src=\"/themes/default/images/send_report.gif\" alt=\"РћС‚РїСЂР°РІРёС‚СЊ РѕС‚С‡С‘С‚\" title=\"РћС‚РїСЂР°РІРёС‚СЊ РѕС‚С‡С‘С‚\"></div>";
 
 	debug ("*** end: view");
 	return $content;
@@ -165,7 +165,7 @@ function create($user, $tables)
 	$default_status = 1;
 
 	$content .= "
-		<h1>Создание задания</h1>
+		<h1>РЎРѕР·РґР°РЅРёРµ Р·Р°РґР°РЅРёСЏ</h1>
 		<form action=\"/index.php?module=tasks\" method=\"post\">
 			<input type=\"hidden\" name=\"table\" value=\"".$tables['tasks']."\">
 			<input type=\"hidden\" name=\"user_from\" value=\"".$user['id']."\">
@@ -173,49 +173,49 @@ function create($user, $tables)
 
 			<table>
 			<tr>
-				<td>Название:</td>
+				<td>РќР°Р·РІР°РЅРёРµ:</td>
 				<td><input type=\"text\" name=\"name\"></td>
 			</tr>
 			<tr>
-				<td>Исполнитель:</td>
+				<td>РСЃРїРѕР»РЅРёС‚РµР»СЊ:</td>
 				<td><input type=\"text\" name=\"user_to\">
-					<img src=\"/themes/default/images/userlist.gif\" alt=\"Адресная книга\" title=\"Адресная книга\">
+					<img src=\"/themes/default/images/userlist.gif\" alt=\"РђРґСЂРµСЃРЅР°СЏ РєРЅРёРіР°\" title=\"РђРґСЂРµСЃРЅР°СЏ РєРЅРёРіР°\">
 				</td>
 			</tr>
 			<tr>
-				<td>Время выполнения:</td>
+				<td>Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ:</td>
 				<td>
-					<select><option>Июнь</option></select>
+					<select><option>РСЋРЅСЊ</option></select>
 					<select><option>23</option></select>
 					<select><option>2006</option></select>
-					с <input type=\"text\" size=\"4\">
-					по <input type=\"text\" size=\"4\">
+					СЃ <input type=\"text\" size=\"4\">
+					РїРѕ <input type=\"text\" size=\"4\">
 				</td>
 			</tr>
 			<tr>
-				<td>Приоритет:</td>
+				<td>РџСЂРёРѕСЂРёС‚РµС‚:</td>
 				<td><input type=\"text\" name=\"prior\"></td>
 			</tr>
 			<tr>
-				<td>Вложение:</td>
+				<td>Р’Р»РѕР¶РµРЅРёРµ:</td>
 				<td><input type=\"text\" name=\"attach\">
-					<img src=\"/themes/default/images/attach.gif\" alt=\"Вложение\" title=\"Вложение\">
+					<img src=\"/themes/default/images/attach.gif\" alt=\"Р’Р»РѕР¶РµРЅРёРµ\" title=\"Р’Р»РѕР¶РµРЅРёРµ\">
 				</td>
 			</tr>
 			<tr>
-				<td>Описание:</td>
+				<td>РћРїРёСЃР°РЅРёРµ:</td>
 				<td><textarea rows=\"10\" cols=\"30\" name=\"descr\"></textarea></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<input type=\"radio\" checked>Без отчёта
-					<input type=\"radio\">Предоставить отчёт
+					<input type=\"radio\" checked>Р‘РµР· РѕС‚С‡С‘С‚Р°
+					<input type=\"radio\">РџСЂРµРґРѕСЃС‚Р°РІРёС‚СЊ РѕС‚С‡С‘С‚
 				</td>
 			</tr>
 			</table>
 			<div style=\"text-align: right\">
-			<input type=\"submit\" name=\"do_insert\" value=\"Отправить\">
+			<input type=\"submit\" name=\"do_insert\" value=\"РћС‚РїСЂР°РІРёС‚СЊ\">
 			</div>
 		</form>
 	";
@@ -238,13 +238,13 @@ function planner_week($user, $tables)
 <table class=\"planner_week\">
 <tr>
 	<td rowspan=\"2\" style=\"background-color: #cccccc\"></td>
-	<td class=\"header\" style=\"color: #00669a\">понедельник</td>
-	<td class=\"header\" style=\"color: #00669a\">вторник</td>
-	<td class=\"header\" style=\"color: #00669a\">среда</td>
-	<td class=\"header\" style=\"color: #00669a\">четверг</td>
-	<td class=\"header\" style=\"color: #00669a\">пятница</td>
-	<td class=\"header\" style=\"color: #00669a\">суббота</td>
-	<td class=\"header\" style=\"color: #00669a\">воскресенье</td>
+	<td class=\"header\" style=\"color: #00669a\">РїРѕРЅРµРґРµР»СЊРЅРёРє</td>
+	<td class=\"header\" style=\"color: #00669a\">РІС‚РѕСЂРЅРёРє</td>
+	<td class=\"header\" style=\"color: #00669a\">СЃСЂРµРґР°</td>
+	<td class=\"header\" style=\"color: #00669a\">С‡РµС‚РІРµСЂРі</td>
+	<td class=\"header\" style=\"color: #00669a\">РїСЏС‚РЅРёС†Р°</td>
+	<td class=\"header\" style=\"color: #00669a\">СЃСѓР±Р±РѕС‚Р°</td>
+	<td class=\"header\" style=\"color: #00669a\">РІРѕСЃРєСЂРµСЃРµРЅСЊРµ</td>
 </tr>
 <tr>
 	<td class=\"header\" style=\"background-color: #f0f0f0\">28</td>
@@ -370,13 +370,13 @@ function planner_month($user, $tables)
 	$content = "
 <table class=\"planner_month\">
 <tr>
-	<td class=\"header\" style=\"color: #00669a\">понедельник</td>
-	<td class=\"header\" style=\"color: #00669a\">вторник</td>
-	<td class=\"header\" style=\"color: #00669a\">среда</td>
-	<td class=\"header\" style=\"color: #00669a\">четверг</td>
-	<td class=\"header\" style=\"color: #00669a\">пятница</td>
-	<td class=\"header\" style=\"color: #00669a\">суббота</td>
-	<td class=\"header\" style=\"color: #00669a\">воскресенье</td>
+	<td class=\"header\" style=\"color: #00669a\">РїРѕРЅРµРґРµР»СЊРЅРёРє</td>
+	<td class=\"header\" style=\"color: #00669a\">РІС‚РѕСЂРЅРёРє</td>
+	<td class=\"header\" style=\"color: #00669a\">СЃСЂРµРґР°</td>
+	<td class=\"header\" style=\"color: #00669a\">С‡РµС‚РІРµСЂРі</td>
+	<td class=\"header\" style=\"color: #00669a\">РїСЏС‚РЅРёС†Р°</td>
+	<td class=\"header\" style=\"color: #00669a\">СЃСѓР±Р±РѕС‚Р°</td>
+	<td class=\"header\" style=\"color: #00669a\">РІРѕСЃРєСЂРµСЃРµРЅСЊРµ</td>
 </tr>
 <tr>
 	<td></td>
@@ -439,11 +439,11 @@ function tasks_default_action()
 	$content = "";
 	$nav_string = "
 		<p>
-			<a href=\"/index.php?module=tasks&action=incoming\">Входящие задания</a>
-			<a href=\"/index.php?module=tasks&action=outgoing\">Исходящие задания</a>
-			<a href=\"/index.php?module=tasks&action=create\">Создать задание</a>
-			<a href=\"/index.php?module=tasks&action=create_tables\">Создать таблицы</a>
-			<a href=\"/index.php?module=tasks&action=drop_tables\">Удалить таблицы</a>
+			<a href=\"/index.php?module=tasks&action=incoming\">Р’С…РѕРґСЏС‰РёРµ Р·Р°РґР°РЅРёСЏ</a>
+			<a href=\"/index.php?module=tasks&action=outgoing\">РСЃС…РѕРґСЏС‰РёРµ Р·Р°РґР°РЅРёСЏ</a>
+			<a href=\"/index.php?module=tasks&action=create\">РЎРѕР·РґР°С‚СЊ Р·Р°РґР°РЅРёРµ</a>
+			<a href=\"/index.php?module=tasks&action=create_tables\">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹</a>
+			<a href=\"/index.php?module=tasks&action=drop_tables\">РЈРґР°Р»РёС‚СЊ С‚Р°Р±Р»РёС†С‹</a>
 		</p>
 	";
 
@@ -471,7 +471,7 @@ function tasks_default_action()
 		$values = ereg_replace(",$", "", $values);
 		$sql_query = "INSERT INTO ".mysql_real_escape_string($table_name)." (".$keys.") values (".$values.")";
 		exec_query ($sql_query);
-		$content .= "<p>Задание создано</p>";
+		$content .= "<p>Р—Р°РґР°РЅРёРµ СЃРѕР·РґР°РЅРѕ</p>";
 	}
 
 	if (isset($_GET['action']))

@@ -1,18 +1,18 @@
-<h1>Удаление таблиц базы данных проектов</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ</h1>
 
-<a href="/index.php?module=projects&action=admin">Вернуться к администрированию проектов</a>
+<a href="/index.php?module=projects&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РїСЂРѕРµРєС‚РѕРІ</a>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=projects&action=drop_tables" method="post">
-<input type="checkbox" name="drop_projects_categories_table" value="ksh_projects_categories">Категории проектов<br>
-<input type="checkbox" name="drop_projects_table" value="ksh_projects">Проекты<br>
-<input type="checkbox" name="drop_projects_files_table" value="ksh_projects_files">Файлы проектов<br>
-<input type="checkbox" name="drop_projects_statuses_table" value="ksh_projects_statuses">Статусы проектов<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_projects_categories_table" value="ksh_projects_categories">РљР°С‚РµРіРѕСЂРёРё РїСЂРѕРµРєС‚РѕРІ<br>
+<input type="checkbox" name="drop_projects_table" value="ksh_projects">РџСЂРѕРµРєС‚С‹<br>
+<input type="checkbox" name="drop_projects_files_table" value="ksh_projects_files">Р¤Р°Р№Р»С‹ РїСЂРѕРµРєС‚РѕРІ<br>
+<input type="checkbox" name="drop_projects_statuses_table" value="ksh_projects_statuses">РЎС‚Р°С‚СѓСЃС‹ РїСЂРѕРµРєС‚РѕРІ<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

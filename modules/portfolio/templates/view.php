@@ -1,7 +1,7 @@
 {{if:if_show_admin_link:
 <p>
-<a href="/index.php?module=portfolio&amp;action=edit&amp;portfolio=#id#">Редактировать</a><br>
-<a href="/index.php?module=portfolio&amp;action=del&amp;portfolio=#id#">Удалить</a>
+<a href="/index.php?module=portfolio&amp;action=edit&amp;portfolio=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a><br>
+<a href="/index.php?module=portfolio&amp;action=del&amp;portfolio=#id#">РЈРґР°Р»РёС‚СЊ</a>
 </p>
 }}
 
@@ -11,4 +11,4 @@
 
 #full_text#
 
-<p><a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#category_id#">Все портфолио из категории "#category#"</a></p>
+<p><a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#category_id#">Р’СЃРµ РїРѕСЂС‚С„РѕР»РёРѕ РёР· РєР°С‚РµРіРѕСЂРёРё "#category#"</a></p>

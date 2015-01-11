@@ -1,21 +1,21 @@
-<h1>Добавление проекта</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РїСЂРѕРµРєС‚Р°</h1>
 
-<a href="/index.php?module=projects&action=admin">К администрированию проектов</a>
+<a href="/index.php?module=projects&action=admin">Рљ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РїСЂРѕРµРєС‚РѕРІ</a>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 <form action="/index.php?module=projects&action=add_projects" method="post" enctype="multipart/form-data">
-    Системное название (латинские буквы и цифры): <input type="text" name="name"><br>
-	Название для пользователей (любые символы): <input type="text" name="title"><br>
-    Категория:
+    РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹): <input type="text" name="name"><br>
+	РќР°Р·РІР°РЅРёРµ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹): <input type="text" name="title"><br>
+    РљР°С‚РµРіРѕСЂРёСЏ:
     <select name="category">
     #categories_select#
     </select><br>
-    Изображение-описание: <input type="file" name="image">
+    РР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image">
     <br>
-    Описание:<br>
+    РћРїРёСЃР°РЅРёРµ:<br>
     <textarea cols="40" rows="20" name="descr"></textarea><br>
-    <input type="submit" name="do_add" value="Добавить">
+    <input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

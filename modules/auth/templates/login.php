@@ -1,38 +1,38 @@
-<h1>Авторизация</h1>
+<h1>РђРІС‚РѕСЂРёР·Р°С†РёСЏ</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 {{if:if_empty_fields:
-<p>Пожалуйста, заполните оба поля.</p>
+<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РїРѕР»РЅРёС‚Рµ РѕР±Р° РїРѕР»СЏ.</p>
 }}
 
 {{if:if_user_not_exist:
-<p>Такого пользователя у нас нет.</p>
+<p>РўР°РєРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РЅР°СЃ РЅРµС‚.</p>
 }}
 
 {{if:if_password_dont_match:
-<p>Пароль не подходит.</p>
+<p>РџР°СЂРѕР»СЊ РЅРµ РїРѕРґС…РѕРґРёС‚.</p>
 }}
 
 
 {{if:if_success:
-<p>Авторизация прошла успешно. Добро пожаловать, #username#.</p>
+<p>РђРІС‚РѕСЂРёР·Р°С†РёСЏ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ. Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ, #username#.</p>
 }}
 
 {{if:if_show_admin_link:
-<p><a href="/index.php?module=base&action=admin">Администрировать сайт</a></p>
+<p><a href="/index.php?module=base&action=admin">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЃР°Р№С‚</a></p>
 }}
 
 {{if:if_fail:
 <form class="auth_login" action="/index.php?module=auth&action=login" method="post">
-Ваш e-mail: <input type="text" name="login" value="#login#"><br>
-Пароль: <input type="password" name="password"><br>
-<input type="submit" name="do_login" value="Войти">
+Р’Р°С€ e-mail: <input type="text" name="login" value="#login#"><br>
+РџР°СЂРѕР»СЊ: <input type="password" name="password"><br>
+<input type="submit" name="do_login" value="Р’РѕР№С‚Рё">
 </form>
 }}
 
 {{if:if_show_register_link:
-<p>Ещё не регистрировались? <a href="/index.php?module=auth&action=show_register_form">Зарегистрируйтесь!</a></p>
+<p>Р•С‰С‘ РЅРµ СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РёСЃСЊ? <a href="/index.php?module=auth&action=show_register_form">Р—Р°СЂРµРіРёСЃС‚СЂРёСЂСѓР№С‚РµСЃСЊ!</a></p>
 }}

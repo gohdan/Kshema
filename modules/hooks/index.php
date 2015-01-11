@@ -54,7 +54,7 @@ function hooks_default_action()
 
 		$module_data = array (
 			'module_name' => "hooks",
-			'module_title' => "Привязки динамического контента"
+			'module_title' => "РџСЂРёРІСЏР·РєРё РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р°"
 		);
 		$config['pages']['page_title'] = $module_data['module_title'];
 
@@ -85,80 +85,80 @@ function hooks_default_action()
                         break;
 
                         case "create_tables":
-							$config['pages']['page_title'] .= " - Создание таблиц";
+							$config['pages']['page_title'] .= " - РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†";
                                 $content .= gen_content("hooks", "tables_create", hooks_tables_create());
                         break;
 
                         case "drop_tables":
-							$config['pages']['page_title'] .= " - Удаление таблиц";
+							$config['pages']['page_title'] .= " - РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС†";
                                 $content .= gen_content("hooks", "drop_tables", hooks_tables_drop());
                         break;
 
                         case "update_tables":
-							$config['pages']['page_title'] .= " - Обновление таблиц";
+							$config['pages']['page_title'] .= " - РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС†";
                                 $content .= gen_content("hooks", "tables_update", hooks_tables_update());
                         break;
 
                         case "add":
-							$config['pages']['page_title'] .= " - Добавление привязки";
+							$config['pages']['page_title'] .= " - Р”РѕР±Р°РІР»РµРЅРёРµ РїСЂРёРІСЏР·РєРё";
                                 $content .= gen_content("hooks", "add", hooks_add());
                         break;
 
 						case "del":
-							$config['pages']['page_title'] .= " - Удаление привязки";
+							$config['pages']['page_title'] .= " - РЈРґР°Р»РµРЅРёРµ РїСЂРёРІСЏР·РєРё";
                                 $content .= gen_content("hooks", "del", hooks_del());
                         break;
 
                         case "edit":
-							$config['pages']['page_title'] .= " - Редактирование привязки";
+							$config['pages']['page_title'] .= " - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРёРІСЏР·РєРё";
                                 $content .= gen_content("hooks", "edit", hooks_edit());
                         break;
 
                         case "admin":
-							$config['pages']['page_title'] .= " - Администрирование";
+							$config['pages']['page_title'] .= " - РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ";
                                 $content .= gen_content("hooks", "admin", hooks_admin());
                         break;
 
                         case "help":
-							$config['pages']['page_title'] .= " - Справка";
+							$config['pages']['page_title'] .= " - РЎРїСЂР°РІРєР°";
                                 $content .= gen_content("hooks", "help", hooks_help());
                         break;
 
                         case "list_view":
-							$config['pages']['page_title'] .= " - Список всех привязок";
+							$config['pages']['page_title'] .= " - РЎРїРёСЃРѕРє РІСЃРµС… РїСЂРёРІСЏР·РѕРє";
                                 $content .= gen_content("hooks", "list_view", hooks_list_view());
                         break;
 
 						case "categories_view":
-							$config['pages']['page_title'] .= " - Категории";
+							$config['pages']['page_title'] .= " - РљР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_hooks_categories");
 							$content .= gen_content("hooks", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['pages']['page_title'] .= " - Добавление категории";
+							$config['pages']['page_title'] .= " - Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_hooks_categories");
                             $content .= gen_content("hooks", "categories_add", array_merge($module_data, $cnt));
                         break;
 
                         case "categories_del":
-							$config['pages']['page_title'] .= " - Удаление категории";
+							$config['pages']['page_title'] .= " - РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> del("ksh_hooks_categories", "ksh_hooks", $_GET['category']);
                             $content .= gen_content("hooks", "categories_del", array_merge($module_data, $cnt));
                         break;
 
 						case "categories_edit":
-							$config['pages']['page_title'] .= " - Редактирование категории";
+							$config['pages']['page_title'] .= " - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_hooks_categories", $_GET['category']);
 	                        $content .= gen_content("hooks", "categories_edit", array_merge($module_data, $cnt));
                         break;
 
 						case "view_by_category":
-							$config['pages']['page_title'] .= " - Просмотр категории";
+							$config['pages']['page_title'] .= " - РџСЂРѕСЃРјРѕС‚СЂ РєР°С‚РµРіРѕСЂРёРё";
 							if (!isset($_GET['category']) && isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
 							$dobj = new DataObject();

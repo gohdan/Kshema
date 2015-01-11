@@ -1,15 +1,15 @@
-<h1>Удаление объявления</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ</h1>
 
 <p>
-<a href="/bills/admin/">Вернуться в меню администрирования</a><br>
-<a href="/bills/help#bb_del">Справка</a>
+<a href="/bills/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/bills/help#bb_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
-{{if:show_user_bills_link:<a href="/bills/view_by_user/">Мои объявления</a>}}
+{{if:show_user_bills_link:<a href="/bills/view_by_user/">РњРѕРё РѕР±СЉСЏРІР»РµРЅРёСЏ</a>}}
 
 {{if:result:<p>#result#</p>}}
 
-{{if:title:<p>Вы действительно хотите удалить объявление <b>#title#</b>?</p>}}
+{{if:title:<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ <b>#title#</b>?</p>}}
 
 #content#
 
@@ -17,6 +17,6 @@
 {{if:satellite:<input type="hidden" name="satellite" value="#satellite#">}}
 {{if:show_del_form:<input type="hidden" name="category" value="#category#">
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>}}

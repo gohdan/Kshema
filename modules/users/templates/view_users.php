@@ -1,8 +1,8 @@
-<h1>Зарегистрированные пользователи</h1>
+<h1>Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё</h1>
 
 {{if:show_admin_link:
 <p>
-<a href="/users/admin/">Управление пользователями</a>
+<a href="/users/admin/">РЈРїСЂР°РІР»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё</a>
 </p>
 }}
 
@@ -16,9 +16,9 @@
 <tr>
 <th style="padding: 0px 5px 0px 5px; vertical-align: top">ID</th>
 <th style="padding: 0px 5px 0px 5px; vertical-align: top">login</th>
-<th style="padding: 0px 5px 0px 5px; vertical-align: top">Имя</th>
+<th style="padding: 0px 5px 0px 5px; vertical-align: top">РРјСЏ</th>
 <th style="padding: 0px 5px 0px 5px; vertical-align: top">email</th>
-<th style="padding: 0px 5px 0px 5px; vertical-align: top">Группа</th>
+<th style="padding: 0px 5px 0px 5px; vertical-align: top">Р“СЂСѓРїРїР°</th>
 </tr>
 #users#
 </table>

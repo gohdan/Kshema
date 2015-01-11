@@ -1,18 +1,18 @@
-<h1>Удаление новости</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РЅРѕРІРѕСЃС‚Рё</h1>
 
 <p>
-<a href="/news/view_by_category/#category_id#/">Вернуться к просмотру новостей в категории</a><br>
-<a href="/news/help#news_del">Справка</a>
+<a href="/news/view_by_category/#category_id#/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РЅРѕРІРѕСЃС‚РµР№ РІ РєР°С‚РµРіРѕСЂРёРё</a><br>
+<a href="/news/help#news_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
-<p>Вы действительно хотите удалить новость <b>#name#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РЅРѕРІРѕСЃС‚СЊ <b>#name#</b>?</p>
 
 #content#
 
 <form action="/news/view_by_category/#category_id#/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>
 

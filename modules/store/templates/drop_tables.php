@@ -1,19 +1,19 @@
-<h1>Удаление таблиц БД склада</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р” СЃРєР»Р°РґР°</h1>
 
-<p><a href="/index.php?module=store&action=admin">В главное меню администрирования склада</a></p>
+<p><a href="/index.php?module=store&action=admin">Р’ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃРєР»Р°РґР°</a></p>
 
 <p>#content#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=store&action=drop_tables" method="post">
-<input type="checkbox" name="drop_categories_table" value="ksh_store_categories">Категории<br>
-<input type="checkbox" name="drop_goods_table" value="ksh_store_goods">Товары<br>
-<input type="checkbox" name="drop_objects_table" value="ksh_store_objects">Объекты<br>
-<input type="checkbox" name="drop_users_table" value="ksh_store_users">Сотрудники<br>
-<input type="checkbox" name="drop_cart_table" value="ksh_store_cart">Корзина<br>
-<input type="checkbox" name="drop_inout_table" value="ksh_store_inout">Движение товаров<br>
+<input type="checkbox" name="drop_categories_table" value="ksh_store_categories">РљР°С‚РµРіРѕСЂРёРё<br>
+<input type="checkbox" name="drop_goods_table" value="ksh_store_goods">РўРѕРІР°СЂС‹<br>
+<input type="checkbox" name="drop_objects_table" value="ksh_store_objects">РћР±СЉРµРєС‚С‹<br>
+<input type="checkbox" name="drop_users_table" value="ksh_store_users">РЎРѕС‚СЂСѓРґРЅРёРєРё<br>
+<input type="checkbox" name="drop_cart_table" value="ksh_store_cart">РљРѕСЂР·РёРЅР°<br>
+<input type="checkbox" name="drop_inout_table" value="ksh_store_inout">Р”РІРёР¶РµРЅРёРµ С‚РѕРІР°СЂРѕРІ<br>
 
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

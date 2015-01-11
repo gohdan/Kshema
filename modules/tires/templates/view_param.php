@@ -1,1 +1,1 @@
-{{if:no_result:| нет вариантов }}| #elements#
+{{if:no_result:| РЅРµС‚ РІР°СЂРёР°РЅС‚РѕРІ }}| #elements#

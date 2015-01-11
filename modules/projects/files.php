@@ -30,13 +30,13 @@ function projects_files_view_by_project()
         {
             debug ("have files to delete");
             exec_query("DELETE FROM ksh_projects_files WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Файл успешно удалён";
+            $content['result'] .= "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ СѓРґР°Р»С‘РЅ";
         }
         else
         {
             debug ("don't have files to delete");
         }
-        $content['add_file_link'] .= "<a href=\"/index.php?module=projects&action=files_add&project=".$project."\">Добавить файл</a>";
+        $content['add_file_link'] .= "<a href=\"/index.php?module=projects&action=files_add&project=".$project."\">Р”РѕР±Р°РІРёС‚СЊ С„Р°Р№Р»</a>";
     }
 
 
@@ -53,8 +53,8 @@ function projects_files_view_by_project()
 
         	if (1 == $user['id'])
         	{
-	        	$content['files'][$i]['edit_link'] = "<a href=\"/index.php?module=projects&action=files_edit&file=".$file['id']."\">Редактировать</a>";
-            	$content['files'][$i]['del_link'] = "<a href=\"/index.php?module=projects&action=files_del&file=".$file['id']."\">Удалить</a>";
+	        	$content['files'][$i]['edit_link'] = "<a href=\"/index.php?module=projects&action=files_edit&file=".$file['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+            	$content['files'][$i]['del_link'] = "<a href=\"/index.php?module=projects&action=files_del&file=".$file['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
         	}
 			else
 			{
@@ -69,7 +69,7 @@ function projects_files_view_by_project()
 
 
 
-    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=projects&action=admin\">Администрирование</a>";
+    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=projects&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a>";
 
 	$page_title .= " | ".$content['project'];
     debug("*** end: projects_files_view_by_project ***");
@@ -250,7 +250,7 @@ function projects_files_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -275,12 +275,12 @@ function projects_files_add()
                 exec_query("INSERT INTO ksh_projects_files (name, number, part, project, descr, file_path, date) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['number'])."', '".mysql_real_escape_string($_POST['part'])."', '".mysql_real_escape_string($project_id)."',
 				'".mysql_real_escape_string($_POST['descr'])."',
                 '".mysql_real_escape_string($file_path)."', ".mysql_real_escape_string($file_mtime).")");
-                $content['result'] .= "Файл добавлен";
+                $content['result'] .= "Р¤Р°Р№Р» РґРѕР±Р°РІР»РµРЅ";
             }
             else
             {
                 debug ("file name is empty");
-                $content['result'] .= "Пожалуйста, задайте название файла";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°";
             }
         }
         else
@@ -291,7 +291,7 @@ function projects_files_add()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_files_add ***");
@@ -372,7 +372,7 @@ function projects_files_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] = "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] = "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -396,12 +396,12 @@ function projects_files_edit()
                 debug ("file name isn't empty");
                 exec_query("UPDATE ksh_projects_files set name='".mysql_real_escape_string($_POST['name'])."', number='".mysql_real_escape_string($_POST['number'])."', part='".mysql_real_escape_string($_POST['part'])."',
 				descr='".mysql_real_escape_string($_POST['descr'])."', date='".mysql_real_escape_string($_POST['date'])."', file_path='".mysql_real_escape_string($file_path)."' WHERE id='".mysql_real_escape_string($file_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("file name is empty");
-                $content['result'] .= "Пожалуйста, задайте название файла";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°";
             }
         }
         else
@@ -424,7 +424,7 @@ function projects_files_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_files_edit ***");
@@ -458,7 +458,7 @@ function projects_files_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['result'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_files_del ***");

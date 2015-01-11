@@ -1,6 +1,6 @@
-<h1>Редактирование файла</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»Р°</h1>
 
-<a href="/index.php?module=projects&action=files_view_by_project&project=#project#">Просмотр файлов в проекте</a>
+<a href="/index.php?module=projects&action=files_view_by_project&project=#project#">РџСЂРѕСЃРјРѕС‚СЂ С„Р°Р№Р»РѕРІ РІ РїСЂРѕРµРєС‚Рµ</a>
 
 <p>#result#</p>
 
@@ -9,15 +9,15 @@
 <form action="/index.php?module=projects&action=files_edit" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="#id#">
 	<input type="hidden" name="old_filepath" value="#file_path#">
-	Название файла, показываемое пользователю (любые символы): <input type="text" name="name" value="#name#"><br>
-	Дата (не меняйте формат!): <input type="text" name="date" size="10" value="#date#"><br>
-	Номер файла: <input type="text" name="number" value="#number#"><br>
-	Часть файла: <input type="text" name="part" value="#part#"><br>
-	Текущее расположение файла: <b>#file_path#</b><br>
-	Выберите другой файл для закачки: <input type="file" name="image"><br>
-	Или введите его расположение, если он уже закачан (пример: <b>/uploads/file.zip</b>): <input type="text" name="file_path"><br>
+	РќР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°, РїРѕРєР°Р·С‹РІР°РµРјРѕРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹): <input type="text" name="name" value="#name#"><br>
+	Р”Р°С‚Р° (РЅРµ РјРµРЅСЏР№С‚Рµ С„РѕСЂРјР°С‚!): <input type="text" name="date" size="10" value="#date#"><br>
+	РќРѕРјРµСЂ С„Р°Р№Р»Р°: <input type="text" name="number" value="#number#"><br>
+	Р§Р°СЃС‚СЊ С„Р°Р№Р»Р°: <input type="text" name="part" value="#part#"><br>
+	РўРµРєСѓС‰РµРµ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ С„Р°Р№Р»Р°: <b>#file_path#</b><br>
+	Р’С‹Р±РµСЂРёС‚Рµ РґСЂСѓРіРѕР№ С„Р°Р№Р» РґР»СЏ Р·Р°РєР°С‡РєРё: <input type="file" name="image"><br>
+	РР»Рё РІРІРµРґРёС‚Рµ РµРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ, РµСЃР»Рё РѕРЅ СѓР¶Рµ Р·Р°РєР°С‡Р°РЅ (РїСЂРёРјРµСЂ: <b>/uploads/file.zip</b>): <input type="text" name="file_path"><br>
     <br>
-    Описание:<br>
+    РћРїРёСЃР°РЅРёРµ:<br>
     <textarea cols="40" rows="10" name="descr">#descr#</textarea><br>
-    <input type="submit" name="do_update" value="Записать">
+    <input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

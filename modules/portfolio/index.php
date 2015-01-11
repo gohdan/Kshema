@@ -17,7 +17,7 @@ function portfolio_admin()
 		'content' => '',
 		'heading' => ''
 	);
-	$content['heading'] = "Администрирование новостей";
+	$content['heading'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РЅРѕРІРѕСЃС‚РµР№";
 	debug ("*** end: portfolio_admin ***");
 	return $content;
 }

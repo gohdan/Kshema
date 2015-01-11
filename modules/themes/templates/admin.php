@@ -2,16 +2,16 @@
 
 
 <p>
-<a href="/users/profile_view/">Ваш профиль</a>
-{{if:show_admin_link:<br><a href="/index.php?module=modules&amp;action=admin">Вернуться в главное меню администрирования</a>}}
+<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a>
+{{if:show_admin_link:<br><a href="/index.php?module=modules&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>}}
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных тем</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… С‚РµРј</h2>
 
 <p>
-{{if:show_create_tables_link:<a href="/themes/create_tables/">Создать таблицы базы данных</a><br>}}
-{{if:show_drop_tables_link:<a href="/themes/drop_tables/">Уничтожить таблицы базы данных</a><br>}}
-{{if:show_update_tables_link:<a href="/themes/update_tables/">Обновить таблицы базы данных</a><br>}}
+{{if:show_create_tables_link:<a href="/themes/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>}}
+{{if:show_drop_tables_link:<a href="/themes/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>}}
+{{if:show_update_tables_link:<a href="/themes/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>}}
 </p>

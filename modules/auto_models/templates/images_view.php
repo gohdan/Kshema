@@ -1,9 +1,9 @@
-<h1>Фотогалерея #model_title#</h1>
+<h1>Р¤РѕС‚РѕРіР°Р»РµСЂРµСЏ #model_title#</h1>
 
 <p>#result#</p>
 
 <p>
-{{if:if_show_add_link:<a href="/index.php?module=auto_models&action=images_add&model=#model_id#">Добавить</a><br>}}
+{{if:if_show_add_link:<a href="/index.php?module=auto_models&action=images_add&model=#model_id#">Р”РѕР±Р°РІРёС‚СЊ</a><br>}}
 </p>
 
 <table>

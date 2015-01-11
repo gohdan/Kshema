@@ -1,18 +1,18 @@
-<h1>Администрирование событий</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃРѕР±С‹С‚РёР№</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">Возврат в главное меню администрирования</a><br>
+<a href="/index.php?module=base&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <p>
-<a href="/index.php?module=events&action=import_xml">Импортировать события из XML</a>
+<a href="/index.php?module=events&action=import_xml">РРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ СЃРѕР±С‹С‚РёСЏ РёР· XML</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных событий</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃРѕР±С‹С‚РёР№</h2>
 
-<a href="/index.php?module=events&action=install_tables">Создать базу данных событий</a><br>
-<a href="/index.php?module=events&action=update_tables">Обновить базу данных событий</a><br>
-<a href="/index.php?module=events&action=drop_tables">Уничтожить базу данных событий</a><br>
+<a href="/index.php?module=events&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃРѕР±С‹С‚РёР№</a><br>
+<a href="/index.php?module=events&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃРѕР±С‹С‚РёР№</a><br>
+<a href="/index.php?module=events&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃРѕР±С‹С‚РёР№</a><br>
 </p>

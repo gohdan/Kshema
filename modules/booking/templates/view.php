@@ -1,33 +1,33 @@
-{{if:show_edit_link:<p><a href="/booking/edit/#id#/">Редактировать</a></p>}}
+{{if:show_edit_link:<p><a href="/booking/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></p>}}
 
 #content#
 
 <table summary="Booking edit table" class="booking_edit_table">
-<tr><td>Номер заказа</td><td>#id#</td></tr>
-<tr><td>Дата заказа</td><td>#date#</td></tr>
-<tr><td>Комната</td><td>#room#</td></tr>
-<tr><td>Заселение</td><td>#date_from# #time_from#</td></tr>
-<tr><td>Выселение</td><td>#date_to# #time_to#</td></tr>
-<tr><td>Итого дней</td><td>#days#</td></tr>
-<tr><td>Имя</td><td>#name#</td></tr>
-<tr><td>Фамилия</td><td>#surname#</td></tr>
-<tr><td>Телефон</td><td>#phone#</td></tr>
+<tr><td>РќРѕРјРµСЂ Р·Р°РєР°Р·Р°</td><td>#id#</td></tr>
+<tr><td>Р”Р°С‚Р° Р·Р°РєР°Р·Р°</td><td>#date#</td></tr>
+<tr><td>РљРѕРјРЅР°С‚Р°</td><td>#room#</td></tr>
+<tr><td>Р—Р°СЃРµР»РµРЅРёРµ</td><td>#date_from# #time_from#</td></tr>
+<tr><td>Р’С‹СЃРµР»РµРЅРёРµ</td><td>#date_to# #time_to#</td></tr>
+<tr><td>РС‚РѕРіРѕ РґРЅРµР№</td><td>#days#</td></tr>
+<tr><td>РРјСЏ</td><td>#name#</td></tr>
+<tr><td>Р¤Р°РјРёР»РёСЏ</td><td>#surname#</td></tr>
+<tr><td>РўРµР»РµС„РѕРЅ</td><td>#phone#</td></tr>
 <tr><td>E-mail</td><td>#email#</td></tr>
-<tr><td>Страна</td><td>#country#</td></tr>
-<tr><td>Вариант</td><td>#variant_type#</td></tr>
-<tr><td>Количество номеров</td><td>#rooms_qty#</td></tr>
-<tr><td>Количество взрослых</td><td>#adults_qty#</td></tr>
-<tr><td>Комментарий</td><td>#comment#</td></tr>
-<tr><td>Дети до 12-ти лет</td><td>{{if:if_children:да}}</td></tr>
-<tr><td>Дополнительная кровать</td><td>{{if:if_extra_bed:да}}</td></tr>
-<tr><td>Трансфер из аэропорта</td><td>{{if:if_transfer:да}}</td></tr>
-<tr><td>Количество завтраков</td><td>#breakfast_qty#</td></tr>
-<tr><td>Паспортные данные</td><td>#passport#</td></tr>
-<tr><td>Вид оплаты</td><td>#payment_type#</td></tr>
-<tr><td>Предоплата</td><td>#prepayment#</td></tr>
-<tr><td>Остаток</td><td>#leftover#</td></tr>
-<tr><td>Статус оплаты</td><td>#payment_status#</td></tr>
-<tr><td>Менеджер</td><td>#manager#</td></tr>
-<tr><td>Посредник</td><td>#dealer#</td></tr>
+<tr><td>РЎС‚СЂР°РЅР°</td><td>#country#</td></tr>
+<tr><td>Р’Р°СЂРёР°РЅС‚</td><td>#variant_type#</td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ РЅРѕРјРµСЂРѕРІ</td><td>#rooms_qty#</td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ РІР·СЂРѕСЃР»С‹С…</td><td>#adults_qty#</td></tr>
+<tr><td>РљРѕРјРјРµРЅС‚Р°СЂРёР№</td><td>#comment#</td></tr>
+<tr><td>Р”РµС‚Рё РґРѕ 12-С‚Рё Р»РµС‚</td><td>{{if:if_children:РґР°}}</td></tr>
+<tr><td>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РєСЂРѕРІР°С‚СЊ</td><td>{{if:if_extra_bed:РґР°}}</td></tr>
+<tr><td>РўСЂР°РЅСЃС„РµСЂ РёР· Р°СЌСЂРѕРїРѕСЂС‚Р°</td><td>{{if:if_transfer:РґР°}}</td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РІС‚СЂР°РєРѕРІ</td><td>#breakfast_qty#</td></tr>
+<tr><td>РџР°СЃРїРѕСЂС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ</td><td>#passport#</td></tr>
+<tr><td>Р’РёРґ РѕРїР»Р°С‚С‹</td><td>#payment_type#</td></tr>
+<tr><td>РџСЂРµРґРѕРїР»Р°С‚Р°</td><td>#prepayment#</td></tr>
+<tr><td>РћСЃС‚Р°С‚РѕРє</td><td>#leftover#</td></tr>
+<tr><td>РЎС‚Р°С‚СѓСЃ РѕРїР»Р°С‚С‹</td><td>#payment_status#</td></tr>
+<tr><td>РњРµРЅРµРґР¶РµСЂ</td><td>#manager#</td></tr>
+<tr><td>РџРѕСЃСЂРµРґРЅРёРє</td><td>#dealer#</td></tr>
 
 </table>

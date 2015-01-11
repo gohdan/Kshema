@@ -32,7 +32,7 @@ function auto_models_videos_view()
 		{
 			$sql_query = "DELETE FROM ksh_auto_models_videos WHERE id='".mysql_real_escape_string($_POST['id'])."'";
 			exec_query($sql_query);
-			$content['result'] = "Ролик удален";
+			$content['result'] = "Р РѕР»РёРє СѓРґР°Р»РµРЅ";
 		}
 	}
 
@@ -103,13 +103,13 @@ function auto_models_videos_add()
 				'".mysql_real_escape_string($_POST['descr'])."'
 				)";
 			exec_query($sql_query);
-			$content['result'] = "Ролик добавлен";
+			$content['result'] = "Р РѕР»РёРє РґРѕР±Р°РІР»РµРЅ";
 
 		}
 	}
 	else
 	{
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -151,7 +151,7 @@ function auto_models_videos_edit()
 				descr = '".mysql_real_escape_string($_POST['descr'])."'
 				WHERE id='".mysql_real_escape_string($videos_id)."'";
 			exec_query($sql_query);
-			$content['result'] = "Изменения сохранены";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹";
 
 		}
 
@@ -171,7 +171,7 @@ function auto_models_videos_edit()
 	}
 	else
 	{
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -215,7 +215,7 @@ function auto_models_videos_del()
 	else
 	{
 		debug ("user doesn't have admin rights");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end: auto_models_videos_del ***");

@@ -15,7 +15,7 @@
 <td>#price_new#</td>
 <td>{{if:image:<img src="#image#">}}</td>
 {{if:show_admin_link:
-<td><a href="/auto_models/preowned_edit/#id#/">Редактировать</a>
-<a href="/auto_models/preowned_del/#id#/">Удалить</a></td>
+<td><a href="/auto_models/preowned_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>
+<a href="/auto_models/preowned_del/#id#/">РЈРґР°Р»РёС‚СЊ</a></td>
 }}
 </tr>

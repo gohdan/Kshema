@@ -1,16 +1,16 @@
-<h1>Редактирование файла</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»Р°</h1>
 
 {{if:category:
 <p>
-<a href="#inst_root#/files/view_by_category/#category_name#/">Обратно в категорию</a>
+<a href="#inst_root#/files/view_by_category/#category_name#/">РћР±СЂР°С‚РЅРѕ РІ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 }}
 
 {{if:show_admin_link:
 <p>
-<a href="#inst_root#/files/admin/">Меню администрирования файлов</a><br>
-<a href="#inst_root#/files/add/">Добавить файл</a><br>
-<a href="#inst_root#/files/help#edit">Справка</a>
+<a href="#inst_root#/files/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ С„Р°Р№Р»РѕРІ</a><br>
+<a href="#inst_root#/files/add/">Р”РѕР±Р°РІРёС‚СЊ С„Р°Р№Р»</a><br>
+<a href="#inst_root#/files/help#edit">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
@@ -26,21 +26,21 @@
     <input type="hidden" name="old_doc" value="#doc#">
 
     <img src="#image#"><br>
-    Новое изображение-описание: <input type="file" name="image">
+    РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image">
     <br>
-	Прикреплённый документ: #doc#<br>
-	Прикрепить другой документ: <input type="file" name="doc">
+	РџСЂРёРєСЂРµРїР»С‘РЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚: #doc#<br>
+	РџСЂРёРєСЂРµРїРёС‚СЊ РґСЂСѓРіРѕР№ РґРѕРєСѓРјРµРЅС‚: <input type="file" name="doc">
 -->
 
 
 
 <table summary="files edit table">
-<tr><td>Название:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Название для ЧПУ:</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
-<tr><td>Описание:</td><td><textarea cols="40" rows="20" name="descr">#descr#</textarea></td></tr>
-<tr><td>Путь:</td><td>#file#</td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Записать"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ Р§РџРЈ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ:</td><td><textarea cols="40" rows="20" name="descr">#descr#</textarea></td></tr>
+<tr><td>РџСѓС‚СЊ:</td><td>#file#</td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 	
 </form>

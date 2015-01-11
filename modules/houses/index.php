@@ -34,14 +34,14 @@ function houses_frontpage()
         {
             debug ("have houses to delete");
             exec_query("DELETE FROM ksh_houses WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Проект успешно удален";
+            $content['result'] .= "РџСЂРѕРµРєС‚ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ";
         }
         else
         {
             debug ("don't have houses to delete");
         }
 
-        $content['admin_link'] .= "<p><a href=\"/houses/admin/\">Администрировать проекты домов</a></p>";
+        $content['admin_link'] .= "<p><a href=\"/houses/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РїСЂРѕРµРєС‚С‹ РґРѕРјРѕРІ</a></p>";
     }
 
     $result = exec_query("SELECT * FROM ksh_houses ORDER BY id DESC LIMIT ".mysql_real_escape_string($config['houses']['last_houses_qty'])."");
@@ -56,7 +56,7 @@ function houses_frontpage()
 		$content['houses'][$i]['full_text'] = $row['full_text'];
 
         if (1 == $user['id'])
-            $content['houses'][$i]['edit_link'] = "<a href=\"/houses/edit/".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/houses/del/".$row['id']."\">Удалить</a>";
+            $content['houses'][$i]['edit_link'] = "<a href=\"/houses/edit/".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/houses/del/".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
         else $content['houses'][$i]['edit_link'] = "";
 		$i++;
     }

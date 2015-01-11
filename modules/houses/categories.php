@@ -23,7 +23,7 @@ function houses_categories_add()
             {
                 debug ("category name isn't empty");
                 exec_query("INSERT INTO ksh_houses_categories (name, title) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['title'])."')");
-                $content['result'] .= "Категория добавлена";
+                $content['result'] .= "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
                 
 				$category_dir = $config['base']['doc_root'].$config['base']['domain_dir']."/uploads/houses/".$_POST['name'];
 				debug ("category dir: ".$category_dir);
@@ -40,14 +40,14 @@ function houses_categories_add()
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте имя категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_categories_add ***");
@@ -74,7 +74,7 @@ function houses_categories_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_categories_del ***");
@@ -116,7 +116,7 @@ function houses_categories_view()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_categories_view ***");
@@ -152,12 +152,12 @@ function houses_categories_edit()
             {
                 debug ("category name isn't empty");
                 exec_query("UPDATE ksh_houses_categories set name='".mysql_real_escape_string($_POST['name'])."', title='".mysql_real_escape_string($_POST['title'])."' WHERE id='".mysql_real_escape_string($category_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте название категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
         else
@@ -175,7 +175,7 @@ function houses_categories_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_categories_edit ***");

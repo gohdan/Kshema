@@ -1,8 +1,8 @@
-<h1>Редактирование выпуска подкаста</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІС‹РїСѓСЃРєР° РїРѕРґРєР°СЃС‚Р°</h1>
 
 {{if:result:<p>#result#</p>}}
 
-<a href="/podcast/admin/">В меню администрирования</a>
+<a href="/podcast/admin/">Р’ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 
 
 <form action="#inst_root#/podcast/edit/#id#/" method="post" enctype="multipart/form-data">
@@ -17,17 +17,17 @@
 <input type="hidden" name="old_enclosure" value="#enclosure#">
 
 <table summary="podcast edit table">
-<tr><td>Автор:</td><td><input type="text" name="author" value="#author#" size="30"></td></tr>
-<tr><td>Название:</td><td><input type="text" name="title" value="#title#" size="30"></td></tr>
-<tr><td>Подзаголовок:</td><td><input type="text" name="subtitle" value="#subtitle#" size="30"></td></tr>
-<tr><td style="vertical-align: top">Описание:</td><td><textarea name="summary">#summary#</textarea></td></tr>
-<tr><td>Дата:</td><td><input type="text" name="date" value="#date#" size="10"></td></tr>
-<tr><td>Время:</td><td><input type="text" name="time" value="#time#" size="10"></td></tr>
-<tr><td>Изображение-описание:</td><td><img src="#image#"></td></tr>
-<tr><td>Новое изображение-описание:</td><td><input type="file" name="image"></td></tr>
-<tr><td>Файл:</td><td><a href="#site_url##enclosure#">#enclosure#</a></td></tr>
-<tr><td>Новый файл:</td><td><input type="file" name="enclosure"></td></tr>
-<tr><td>Длительность:</td><td><input type="text" name="min" value="#min#" size="3"> минут <input type="text" name="sec" value="#sec#" size="3"> секунд</td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Записать"></td></tr>
+<tr><td>РђРІС‚РѕСЂ:</td><td><input type="text" name="author" value="#author#" size="30"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="title" value="#title#" size="30"></td></tr>
+<tr><td>РџРѕРґР·Р°РіРѕР»РѕРІРѕРє:</td><td><input type="text" name="subtitle" value="#subtitle#" size="30"></td></tr>
+<tr><td style="vertical-align: top">РћРїРёСЃР°РЅРёРµ:</td><td><textarea name="summary">#summary#</textarea></td></tr>
+<tr><td>Р”Р°С‚Р°:</td><td><input type="text" name="date" value="#date#" size="10"></td></tr>
+<tr><td>Р’СЂРµРјСЏ:</td><td><input type="text" name="time" value="#time#" size="10"></td></tr>
+<tr><td>РР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ:</td><td><img src="#image#"></td></tr>
+<tr><td>РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ:</td><td><input type="file" name="image"></td></tr>
+<tr><td>Р¤Р°Р№Р»:</td><td><a href="#site_url##enclosure#">#enclosure#</a></td></tr>
+<tr><td>РќРѕРІС‹Р№ С„Р°Р№Р»:</td><td><input type="file" name="enclosure"></td></tr>
+<tr><td>Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ:</td><td><input type="text" name="min" value="#min#" size="3"> РјРёРЅСѓС‚ <input type="text" name="sec" value="#sec#" size="3"> СЃРµРєСѓРЅРґ</td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 </form>

@@ -30,7 +30,7 @@ function auto_models_frontpage()
     $models = auto_models_list();
 
 	if (0 == count($models))
-		$content['content'] .= "Моделей нет";
+		$content['content'] .= "РњРѕРґРµР»РµР№ РЅРµС‚";
 	else
 	{
        	foreach ($models as $k => $v)
@@ -76,10 +76,10 @@ function auto_models_default_action()
 
 		$module_data = array (
 			'module_name' => "auto_models",
-			'module_title' => "Страницы"
+			'module_title' => "РЎС‚СЂР°РЅРёС†С‹"
 		);
 		$config['pages']['page_title'] = $module_data['module_title'];
-		$config['themes']['page_title']['module'] = "Модели автомобилей";
+		$config['themes']['page_title']['module'] = "РњРѕРґРµР»Рё Р°РІС‚РѕРјРѕР±РёР»РµР№";
 
         debug("<br>=== mod: auto_models ===");
 		if (isset($_GET['element']))
@@ -89,7 +89,7 @@ function auto_models_default_action()
 		if (isset($_GET['model']))
 			$config['modules']['current_id'] = $_GET['model'];
 
-		$config['themes']['page_title']['module'] = "Автомобили";
+		$config['themes']['page_title']['module'] = "РђРІС‚РѕРјРѕР±РёР»Рё";
 
 		$descr_file_path = $config['modules']['location']."auto_models/description.ini";
 		debug ("descr_file_path: ".$descr_file_path);
@@ -104,198 +104,198 @@ function auto_models_default_action()
                 switch ($_GET['action'])
                 {
                         default:
-							$config['themes']['page_title']['action'] = "Автомобили";
+							$config['themes']['page_title']['action'] = "РђРІС‚РѕРјРѕР±РёР»Рё";
                             $content .= gen_content("auto_models", "frontpage", auto_models_frontpage());
                         break;
 
                         case "admin":
-							$config['themes']['page_title']['action'] = "Администрирование";
+							$config['themes']['page_title']['action'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ";
                             $content .= gen_content("auto_models", "admin", auto_models_admin());
                         break;
 
 						case "create_tables":
-							$config['themes']['page_title']['action'] = "Создание таблиц БД";
+							$config['themes']['page_title']['action'] = "РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("auto_models", "tables_create", auto_models_tables_create());
                         break;
 
                         case "drop_tables":
-							$config['themes']['page_title']['action'] = "Удаление таблиц БД";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("auto_models", "drop_tables", auto_models_tables_drop());
                         break;
 
                         case "update_tables":
-							$config['themes']['page_title']['action'] = "Обновление таблиц БД";
+							$config['themes']['page_title']['action'] = "РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("auto_models", "tables_update", auto_models_tables_update());
                         break;
 
 						case "privileges_edit":
-							$config['themes']['page_title']['action'] .= " - Назначение прав";
+							$config['themes']['page_title']['action'] .= " - РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";
 							$priv = new Privileges();
 							$cnt = $priv -> edit("auto_models");
 							$content .= gen_content("auto_models", "privileges_edit", array_merge($module_data, $cnt));
 						break;
 
 						case "categories_view":
-							$config['themes']['page_title']['action'] = "Категории";
-							$config['pages']['page_title'] .= " - Категории";
+							$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
+							$config['pages']['page_title'] .= " - РљР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_auto_models_categories");
 							$content .= gen_content("auto_models", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['themes']['page_title']['action'] = "Добавление категории";
-							$config['pages']['page_title'] .= " - Добавление категории";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+							$config['pages']['page_title'] .= " - Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_auto_models_categories");
                             $content .= gen_content("auto_models", "categories_add", array_merge($module_data, $cnt));
                         break;
 
                         case "categories_del":
-							$config['themes']['page_title']['action'] = "Удаление категории";
-							$config['pages']['page_title'] .= " - Удаление категории";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+							$config['pages']['page_title'] .= " - РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> del("ksh_auto_models_categories", "ksh_auto_models", $_GET['category']);
                             $content .= gen_content("auto_models", "categories_del", array_merge($module_data, $cnt));
                         break;
 
 						case "categories_edit":
-							$config['themes']['page_title']['action'] = "Редактирование категории";
-							$config['pages']['page_title'] .= " - Редактирование категории";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+							$config['pages']['page_title'] .= " - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_auto_models_categories", $_GET['category']);
 	                        $content .= gen_content("auto_models", "categories_edit", array_merge($module_data, $cnt));
                         break;
 
 						case "view_by_category":
-							$config['themes']['page_title']['action'] = "Просмотр моделей в категории";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РјРѕРґРµР»РµР№ РІ РєР°С‚РµРіРѕСЂРёРё";
 							$content_data = auto_models_view_by_category();
                             $content .= gen_content("auto_models", "view_by_category", $content_data);
                         break;
 
                         case "add":
-							$config['themes']['page_title']['action'] = "Добавление модели";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РјРѕРґРµР»Рё";
                             $content .= gen_content("auto_models", "add", auto_models_add());
                         break;
 
 						case "del":
-							$config['themes']['page_title']['action'] = "Удаление модели";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РјРѕРґРµР»Рё";
                             $content .= gen_content("auto_models", "del", auto_models_del());
                         break;
 
                         case "edit":
-							$config['themes']['page_title']['action'] = "Редактирование модели";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РјРѕРґРµР»Рё";
                             $content .= gen_content("auto_models", "edit", auto_models_edit());
                         break;
 
 
                         case "view":
-							$config['themes']['page_title']['action'] = "Просмотр модели";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РјРѕРґРµР»Рё";
 							$content .= gen_content("auto_models", "view", auto_models_view($_GET['model']));
                         break;
 
                         case "list_view":
-							$config['themes']['page_title']['action'] = "Список моделей";
+							$config['themes']['page_title']['action'] = "РЎРїРёСЃРѕРє РјРѕРґРµР»РµР№";
                             $content .= gen_content("auto_models", "list_view", auto_models_list_view());
                         break;
 
 						case "characteristics_view":
-							$config['themes']['page_title']['action'] = "Технические характеристики";
+							$config['themes']['page_title']['action'] = "РўРµС…РЅРёС‡РµСЃРєРёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё";
 							$content .= gen_content("auto_models", "characteristics_view", auto_models_characteristics_view());
 						break;
 
 						case "characteristics_edit":
-							$config['themes']['page_title']['action'] = "Редактирование технических характеристик";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµС…РЅРёС‡РµСЃРєРёС… С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє";
 							$content .= gen_content("auto_models", "characteristics_edit", auto_models_characteristics_edit());
 						break;
 
 						case "prices_view":
-							$config['themes']['page_title']['action'] = "Комплектация и цены";
+							$config['themes']['page_title']['action'] = "РљРѕРјРїР»РµРєС‚Р°С†РёСЏ Рё С†РµРЅС‹";
 							$content .= gen_content("auto_models", "prices_view", auto_models_prices_view());
 						break;
 
 						case "prices_edit":
-							$config['themes']['page_title']['action'] = "Редактирование комплектации и цен";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєРѕРјРїР»РµРєС‚Р°С†РёРё Рё С†РµРЅ";
 							$content .= gen_content("auto_models", "prices_edit", auto_models_prices_edit());
 						break;
 
 						case "equipment_view":
-							$config['themes']['page_title']['action'] = "Дополнительное оборудование";
+							$config['themes']['page_title']['action'] = "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ";
 							$content .= gen_content("auto_models", "equipment_view", auto_models_equipment_view());
 						break;
 
 						case "equipment_add":
-							$config['themes']['page_title']['action'] = "Добавление дополнительного оборудования";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ";
 							$content .= gen_content("auto_models", "equipment_add", auto_models_equipment_add());
 						break;
 
 						case "equipment_edit":
-							$config['themes']['page_title']['action'] = "Редактирование дополнительного оборудования";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ";
 							$content .= gen_content("auto_models", "equipment_edit", auto_models_equipment_edit());
 						break;
 
 						case "equipment_del":
-							$config['themes']['page_title']['action'] = "Удаление дополнительного оборудования";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ";
 							$content .= gen_content("auto_models", "equipment_del", auto_models_equipment_del());
 						break;
 						
 						case "images_view":
-							$config['themes']['page_title']['action'] = "Фотогалерея";
+							$config['themes']['page_title']['action'] = "Р¤РѕС‚РѕРіР°Р»РµСЂРµСЏ";
 							$content .= gen_content("auto_models", "images_view", auto_models_images_view());
 						break;
 
 						case "images_add":
-							$config['themes']['page_title']['action'] = "Добавление фотографий";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ С„РѕС‚РѕРіСЂР°С„РёР№";
 							$content .= gen_content("auto_models", "images_add", auto_models_images_add());
 						break;
 
 						case "images_edit":
-							$config['themes']['page_title']['action'] = "Редактирование фотографии";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё";
 							$content .= gen_content("auto_models", "images_edit", auto_models_images_edit());
 						break;
 
 						case "images_del":
-							$config['themes']['page_title']['action'] = "Удаление фотографии";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё";
 							$content .= gen_content("auto_models", "images_del", auto_models_images_del());
 						break;
 						
 						case "videos_view":
-							$config['themes']['page_title']['action'] = "Видеоролики";
+							$config['themes']['page_title']['action'] = "Р’РёРґРµРѕСЂРѕР»РёРєРё";
 							$content .= gen_content("auto_models", "videos_view", auto_models_videos_view());
 						break;
 
 						case "videos_add":
-							$config['themes']['page_title']['action'] = "Добавление видеороликов";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РІРёРґРµРѕСЂРѕР»РёРєРѕРІ";
 							$content .= gen_content("auto_models", "videos_add", auto_models_videos_add());
 						break;
 
 						case "videos_edit":
-							$config['themes']['page_title']['action'] = "Редактирование видеоролика";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРёРґРµРѕСЂРѕР»РёРєР°";
 							$content .= gen_content("auto_models", "videos_edit", auto_models_videos_edit());
 						break;
 
 						case "videos_del":
-							$config['themes']['page_title']['action'] = "Удаление видеоролика";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РІРёРґРµРѕСЂРѕР»РёРєР°";
 							$content .= gen_content("auto_models", "videos_del", auto_models_videos_del());
 						break;
 
 						case "colors_view":
-							$config['themes']['page_title']['action'] = "Цвета";
+							$config['themes']['page_title']['action'] = "Р¦РІРµС‚Р°";
 							$content .= gen_content("auto_models", "colors_view", auto_models_colors_view());
 						break;
 
 						case "colors_add":
-							$config['themes']['page_title']['action'] = "Добавление цветов";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ С†РІРµС‚РѕРІ";
 							$content .= gen_content("auto_models", "colors_add", auto_models_colors_add());
 						break;
 
 						case "colors_edit":
-							$config['themes']['page_title']['action'] = "Редактирование цвета";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С†РІРµС‚Р°";
 							$content .= gen_content("auto_models", "colors_edit", auto_models_colors_edit());
 						break;
 
 						case "colors_del":
-							$config['themes']['page_title']['action'] = "Удаление цвета";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С†РІРµС‚Р°";
 							$content .= gen_content("auto_models", "colors_del", auto_models_colors_del());
 						break;
 
@@ -330,7 +330,7 @@ function auto_models_default_action()
 				                    if (filesize($home.$file_path) > $max_file_size)
 				                    {
 				                        debug ("file size > max file size!");
-				                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+				                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
 				                        if (unlink ($home.$file_path)) debug ("file deleted");
 				                        else debug ("can't delete file!");
 				                        $file_path = "";
@@ -369,7 +369,7 @@ function auto_models_default_action()
 
 							}
 							else
-								$cnt['result'] = "Недостаточно прав";
+								$cnt['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 							$content .= gen_content("auto_models", "present_add", array_merge($module_data, $cnt));
 						break;
@@ -431,7 +431,7 @@ function auto_models_default_action()
 				                    if (filesize($home.$file_path) > $max_file_size)
 				                    {
 				                        debug ("file size > max file size!");
-				                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+				                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
 				                        if (unlink ($home.$file_path)) debug ("file deleted");
 				                        else debug ("can't delete file!");
 				                        $file_path = "";
@@ -479,7 +479,7 @@ function auto_models_default_action()
 
 							}
 							else
-								$cnt['result'] = "Недостаточно прав";
+								$cnt['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 		                    $content .= gen_content("auto_models", "present_edit", array_merge($module_data, $cnt));
 						break;
@@ -494,7 +494,7 @@ function auto_models_default_action()
 								$cnt = $dob -> del($_GET['element']);
 							}
 							else
-								$cnt['result'] = "Недостаточно прав";
+								$cnt['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 							$content .= gen_content("auto_models", "present_del", array_merge($module_data, $cnt));
 						break;
@@ -529,7 +529,7 @@ function auto_models_default_action()
 			                    if (filesize($home.$file_path) > $max_file_size)
 			                    {
 			                        debug ("file size > max file size!");
-			                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+			                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
 			                        if (unlink ($home.$file_path)) debug ("file deleted");
 			                        else debug ("can't delete file!");
 			                        $file_path = "";
@@ -599,7 +599,7 @@ function auto_models_default_action()
 			                    if (filesize($home.$file_path) > $max_file_size)
 			                    {
 			                        debug ("file size > max file size!");
-			                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+			                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
 			                        if (unlink ($home.$file_path)) debug ("file deleted");
 			                        else debug ("can't delete file!");
 			                        $file_path = "";
@@ -643,7 +643,7 @@ function auto_models_default_action()
         else
         {
                 debug ("*** action: default");
-				$config['themes']['page_title']['action'] = "Автомобили";
+				$config['themes']['page_title']['action'] = "РђРІС‚РѕРјРѕР±РёР»Рё";
                 $content = gen_content("auto_models", "frontpage", auto_models_frontpage());
         }
 

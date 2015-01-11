@@ -24,14 +24,14 @@ function links($category)
                     <a href=\"/index.php?module=links&action=view&links=".$row['id']."\">".$row['date']."</a><br>
                     <a href=\"/index.php?module=links&action=view&links=".$row['id']."\">".$row['name']."</a><br>
                     ".substr(stripslashes($row['descr']), 0, 100)."...<br>
-                    <span class=\"more\"><a href=\"/index.php?module=links&action=view&links=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=links&action=view&links=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=links&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=links&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: links ***");
@@ -55,13 +55,13 @@ function links_view_by_category()
         {
             debug ("have links to delete");
             exec_query("DELETE FROM ksh_links WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['content'] .= "<p>Новость успешно удалена</p>";
+            $content['content'] .= "<p>РќРѕРІРѕСЃС‚СЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°</p>";
         }
         else
         {
             debug ("don't have links to delete");
         }
-		$content['content'] .= "<p><a href=\"/index.php?module=links&action=add_links&category=".$category."\">Добавить ссылку</a></p>";
+		$content['content'] .= "<p><a href=\"/index.php?module=links&action=add_links&category=".$category."\">Р”РѕР±Р°РІРёС‚СЊ СЃСЃС‹Р»РєСѓ</a></p>";
     }
 
 
@@ -78,11 +78,11 @@ function links_view_by_category()
                     <a href=\"/index.php?module=links&action=view&links=".$row['id']."\">".$row['date']."</a><br>
                     <a href=\"/index.php?module=links&action=view&links=".$row['id']."\">".$row['name']."</a><br>
                     ".substr(stripslashes($row['descr']), 0, 100)."<br>
-                    <span class=\"more\"><a href=\"/index.php?module=links&action=view&links=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=links&action=view&links=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
         ";
         if (1 == $user['id'])
             $content['links'] .= "
-                    <br><span class=\"more\"><a href=\"/index.php?module=links&action=edit&links=".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/index.php?module=links&action=del&links=".$row['id']."\">Удалить</a></span>
+                    <br><span class=\"more\"><a href=\"/index.php?module=links&action=edit&links=".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/index.php?module=links&action=del&links=".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a></span>
             ";
         $content['links'] .= "
                 </td></tr>
@@ -92,12 +92,12 @@ function links_view_by_category()
         ";
         if (1 == $user['id'])
             $content['links'] .= "
-                    <br><span class=\"more\"><a href=\"/index.php?module=links&action=edit&links=".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/index.php?module=links&action=del&links=".$row['id']."\">Удалить</a></span><br>";
+                    <br><span class=\"more\"><a href=\"/index.php?module=links&action=edit&links=".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/index.php?module=links&action=del&links=".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a></span><br>";
     }
     mysql_free_result($result);
     // $content['links'] .= "</table>";
 
-    if (1 == $user['id']) $content['links'] .= "<p><a href=\"/index.php?module=links&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content['links'] .= "<p><a href=\"/index.php?module=links&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
 	$page_title .= " | ".$content['category'];
 
@@ -158,7 +158,7 @@ function links_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -191,12 +191,12 @@ function links_add()
 					CURDATE(),
 					'".mysql_real_escape_string($file_path)."'
 					)");
-                $content['content'] .= "<p>Ссылка добавлена</p>";
+                $content['content'] .= "<p>РЎСЃС‹Р»РєР° РґРѕР±Р°РІР»РµРЅР°</p>";
             }
             else
             {
                 debug ("links name is empty");
-                $content['content'] .= "<p>Пожалуйста, задайте название новости</p>";
+                $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РЅРѕРІРѕСЃС‚Рё</p>";
             }
         }
         else
@@ -207,7 +207,7 @@ function links_add()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        $content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
 
     debug ("*** end: fn: links_add ***");
@@ -264,7 +264,7 @@ function links_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -293,12 +293,12 @@ function links_edit()
 					`descr` = '".mysql_real_escape_string($_POST['descr'])."',
 					`image` = '".mysql_real_escape_string($file_path)."'
 					WHERE `id` = '".mysql_real_escape_string($links_id)."'");
-                $content['content'] .= "<p>Изменения записаны</p>";
+                $content['content'] .= "<p>РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹</p>";
             }
             else
             {
                 debug ("links name is empty");
-                $content['content'] .= "<p>Пожалуйста, задайте название ссылки</p>";
+                $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ СЃСЃС‹Р»РєРё</p>";
             }
         }
         else
@@ -333,7 +333,7 @@ function links_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        $content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
 
     debug ("*** end: fn: links_edit ***");
@@ -363,7 +363,7 @@ function links_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "<p>Пожалуйста, войдите в систему как администратор</p>";
+        $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
     }
 
     debug ("*** end: fn: links_del ***");
@@ -407,7 +407,7 @@ function links_archive()
     global $user;
 	global $page_title;
 
-	$page_title .= " | Архив ссылок";
+	$page_title .= " | РђСЂС…РёРІ СЃСЃС‹Р»РѕРє";
     $content['content'] = "";
 
     $result = exec_query("SELECT * FROM ksh_links ORDER BY id DESC");
@@ -420,14 +420,14 @@ function links_archive()
                     <a href=\"/index.php?module=links&action=view&links=".$row['id']."\">".$row['date']."</a><br>
                     <a href=\"/index.php?module=links&action=view&links=".$row['id']."\">".$row['name']."</a><br>
                     ".substr(stripslashes($row['descr']), 0, 100)."...<br>
-                    <span class=\"more\"><a href=\"/index.php?module=links&action=view&links=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=links&action=view&links=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content['content'] .= "</table>";
 
-    if (1 == $user['id']) $content['content'] .= "<p><a href=\"/index.php?module=links&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content['content'] .= "<p><a href=\"/index.php?module=links&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: links_archive ***");

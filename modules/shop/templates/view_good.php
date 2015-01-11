@@ -2,7 +2,7 @@
 	<tr>
 		<td class="tbl_item_td">
 			<p class="lst_itemtitle">
-				#name# {{if:show_admin_link:<a href="/index.php?module=shop&action=goods_edit&goods=#id#">Редактировать <a href="/index.php?module=shop&action=goods_del&goods=#id#">Удалить</a>}}<br>
+				#name# {{if:show_admin_link:<a href="/index.php?module=shop&action=goods_edit&goods=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ <a href="/index.php?module=shop&action=goods_del&goods=#id#">РЈРґР°Р»РёС‚СЊ</a>}}<br>
 				<a class="lst_author" href="/index.php?module=shop&action=view_by_authors&authors=#author#">#author_name#</a><br>
 				<a class="lst_author" href="/index.php?module=shop&action=view_by_categories&categories=#category#">#category_name#</a><br>
 			</p>
@@ -13,9 +13,9 @@
 					</td>
 					<td valign="top">
 
-{{if:show_query_form:<form action="/index.php?module=shop&action=requests_add" method="post">Сейчас товара в наличии нет.<br>Вы можете оставить заявку.<br><input type="hidden" name="good" value="#id#">Количество экземпляров: <input type="text" name="qty" size="3"><br><input type="submit" name="do_add" value="Оставить заявку"></form>}}
+{{if:show_query_form:<form action="/index.php?module=shop&action=requests_add" method="post">РЎРµР№С‡Р°СЃ С‚РѕРІР°СЂР° РІ РЅР°Р»РёС‡РёРё РЅРµС‚.<br>Р’С‹ РјРѕР¶РµС‚Рµ РѕСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ.<br><input type="hidden" name="good" value="#id#">РљРѕР»РёС‡РµСЃС‚РІРѕ СЌРєР·РµРјРїР»СЏСЂРѕРІ: <input type="text" name="qty" size="3"><br><input type="submit" name="do_add" value="РћСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ"></form>}}
 
-{{if:show_order_form:<form action="/index.php?module=shop&action=cart_add" method="post"><input type="hidden" name="id" value="#id#"><input type="hidden" name="new_qty" value="0"><table><tr><td class="lst_price"><select style="width:50" name="new_qty">#qty_select#</select>стоимость : #new_price# руб.</td></tr><tr><td><input type="submit" class="button" name="do_add" value="Положить в корзину"></td></tr></table></form>}}
+{{if:show_order_form:<form action="/index.php?module=shop&action=cart_add" method="post"><input type="hidden" name="id" value="#id#"><input type="hidden" name="new_qty" value="0"><table><tr><td class="lst_price"><select style="width:50" name="new_qty">#qty_select#</select>СЃС‚РѕРёРјРѕСЃС‚СЊ : #new_price# СЂСѓР±.</td></tr><tr><td><input type="submit" class="button" name="do_add" value="РџРѕР»РѕР¶РёС‚СЊ РІ РєРѕСЂР·РёРЅСѓ"></td></tr></table></form>}}
 
 
 					</td>
@@ -28,24 +28,24 @@
 			<table class="tab_descr" border="0">
 				<tr>
 					<th class="tab_descr_th">
-						Дополнительные сведения
+						Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЃРІРµРґРµРЅРёСЏ
 					</th>
 				</tr>
 				<tr>
 					<td>
 						<table class="props">
-							{{if:tags:<tr><th>Метки</th><td>#tags#</td></tr>}}
-							{{if:publisher:<tr><th>Издатель</th><td>#publisher#</td></tr>}}
-							{{if:year:<tr><th>Год издания</th><td>#year#</td></tr>}}
-							{{if:genre:<tr><th>Жанр</th><td>#genre#</td></tr>}}
-							{{if:original_name:<tr><th>Оригинальное название</th><td>#original_name#</td></tr>}}
-							{{if:format:<tr><th>Формат</th><td>#format#</td></tr>}}
-							{{if:language:<tr><th>Язык</th><td>#language#</td></tr>}}
-							{{if:pages_qty:<tr><th>Количество страниц</th><td>#pages_qty#</td></tr>}}
-							{{if:commentary:<tr><th>Комментарий</th><td>#commentary#</td></tr>}}
-							{{if:pdf:<tr><th>PDF</th><td>{{<a href="#pdf#">скачать (#pdf_size# #pdf_measure#)</a>}}</td></tr>}}
-							{{if:epub:<tr><th>epub</th><td>{{<a href="#epub#">скачать (#epub_size# #epub_measure#)</a>}}</td></tr>}}
-							{{if:mp3:<tr><th>mp3</th><td>{{<a href="#mp3#">скачать (#mp3_size# #mp3_measure#)</a>}}</td></tr>}}
+							{{if:tags:<tr><th>РњРµС‚РєРё</th><td>#tags#</td></tr>}}
+							{{if:publisher:<tr><th>РР·РґР°С‚РµР»СЊ</th><td>#publisher#</td></tr>}}
+							{{if:year:<tr><th>Р“РѕРґ РёР·РґР°РЅРёСЏ</th><td>#year#</td></tr>}}
+							{{if:genre:<tr><th>Р–Р°РЅСЂ</th><td>#genre#</td></tr>}}
+							{{if:original_name:<tr><th>РћСЂРёРіРёРЅР°Р»СЊРЅРѕРµ РЅР°Р·РІР°РЅРёРµ</th><td>#original_name#</td></tr>}}
+							{{if:format:<tr><th>Р¤РѕСЂРјР°С‚</th><td>#format#</td></tr>}}
+							{{if:language:<tr><th>РЇР·С‹Рє</th><td>#language#</td></tr>}}
+							{{if:pages_qty:<tr><th>РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†</th><td>#pages_qty#</td></tr>}}
+							{{if:commentary:<tr><th>РљРѕРјРјРµРЅС‚Р°СЂРёР№</th><td>#commentary#</td></tr>}}
+							{{if:pdf:<tr><th>PDF</th><td>{{<a href="#pdf#">СЃРєР°С‡Р°С‚СЊ (#pdf_size# #pdf_measure#)</a>}}</td></tr>}}
+							{{if:epub:<tr><th>epub</th><td>{{<a href="#epub#">СЃРєР°С‡Р°С‚СЊ (#epub_size# #epub_measure#)</a>}}</td></tr>}}
+							{{if:mp3:<tr><th>mp3</th><td>{{<a href="#mp3#">СЃРєР°С‡Р°С‚СЊ (#mp3_size# #mp3_measure#)</a>}}</td></tr>}}
 							{{if:images:<tr><td colspan="2"><img src="#images#" alt="#name#" title="#name#"></td></tr>}}
 							{{if:embed:<tr><td colspan="2">#embed#</td></tr>}}
 							{{if:links:<tr><td colspan="2">#links#</td></tr>}}

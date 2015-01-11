@@ -20,7 +20,7 @@ function projects_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
         $queries[] = "create table if not exists ksh_projects_categories (
@@ -62,10 +62,10 @@ function projects_install_tables()
                 name tinytext
         )".$charset;
 
-		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('Активные')";
-		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('Завершённые')";
-		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('Отдельные истории')";
-		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('Будущие')";
+		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('РђРєС‚РёРІРЅС‹Рµ')";
+		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('Р—Р°РІРµСЂС€С‘РЅРЅС‹Рµ')";
+		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('РћС‚РґРµР»СЊРЅС‹Рµ РёСЃС‚РѕСЂРёРё')";
+		$queries[] = "INSERT INTO ksh_projects_statuses (name) values ('Р‘СѓРґСѓС‰РёРµ')";
 
         $queries_qty = count($queries);
         $content['queries_qty'] = $queries_qty;
@@ -73,10 +73,10 @@ function projects_install_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] .= "Запросы выполнены";
+                $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
         else
-        	$content['result'] .= "Нечего выполнять";
+        	$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 	debug ("*** end: projects_install_tables ***");
     return $content;
 }
@@ -95,7 +95,7 @@ function projects_drop_tables()
                 debug ("*** drop_db");
                 unset ($_POST['do_drop']);
                 foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-                $content['result'] .= "Таблицы БД успешно удалены";
+                $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
                 debug ("*** end: drop_db");
         }
 	debug ("*** end: projects_drop_tables ***");
@@ -134,10 +134,10 @@ function projects_update_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] .= "Запросы выполнены";
+                $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
         else
-        	$content['result'] .= "Нечего выполнять";
+        	$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 	debug("*** end: projects_update_tables ***");
     return $content;
 }

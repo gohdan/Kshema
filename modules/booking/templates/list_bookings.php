@@ -17,6 +17,6 @@
 <td style="padding: 0px 3px 0px 3px">
 #rooms_qty# #room_type#
 </td>
-<td><a href="/booking/view/#id#/">Посмотреть</a> <a href="/booking/edit/#id#/">Редактировать</a> <a href="/booking/del/#id#/">Удалить</a></td>
+<td><a href="/booking/view/#id#/">РџРѕСЃРјРѕС‚СЂРµС‚СЊ</a> <a href="/booking/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> <a href="/booking/del/#id#/">РЈРґР°Р»РёС‚СЊ</a></td>
 
 </tr>

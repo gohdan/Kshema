@@ -1,22 +1,22 @@
 <h1>#heading#</h1>
 
 <p>
-<a href="/index.php?module=modules&amp;action=admin">Вернуться в главное меню администрирования</a><br>
-<a href="/index.php?module=menu&amp;action=help">Справка</a>
+<a href="/index.php?module=modules&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=menu&amp;action=help">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/index.php?module=menu&amp;action=categories_view">Перечисление списков меню</a><br>
+<a href="/index.php?module=menu&amp;action=categories_view">РџРµСЂРµС‡РёСЃР»РµРЅРёРµ СЃРїРёСЃРєРѕРІ РјРµРЅСЋ</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных меню</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РјРµРЅСЋ</h2>
 
 <p>
-<a href="/index.php?module=menu&amp;action=create_tables">Создать таблицы базы данных</a><br>
-<a href="/index.php?module=menu&amp;action=drop_tables">Уничтожить таблицы базы данных</a><br>
-<a href="/index.php?module=menu&amp;action=update_tables">Обновить таблицы базы данных</a>
+<a href="/index.php?module=menu&amp;action=create_tables">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/index.php?module=menu&amp;action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/index.php?module=menu&amp;action=update_tables">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a>
 </p>

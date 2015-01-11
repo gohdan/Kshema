@@ -31,14 +31,14 @@ function projects($category)
         if ("" != $row['descr']) $content .= $row['descr'];
         else $content .= substr(stripslashes($row['full_text']), 0, 100)."...";
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/index.php?module=projects&action=view&projects=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=projects&action=view&projects=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=projects&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=projects&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: projects ***");
@@ -72,13 +72,13 @@ function projects_view_by_category()
         {
             debug ("have projects to delete");
             exec_query("DELETE FROM ksh_projects WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Проект успешно удалён";
+            $content['result'] .= "РџСЂРѕРµРєС‚ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»С‘РЅ";
         }
         else
         {
             debug ("don't have projects to delete");
         }
-        $content['add_project_link'] .= "<a href=\"/index.php?module=projects&action=add_projects&category=".$category."\">Добавить проект</a>";
+        $content['add_project_link'] .= "<a href=\"/index.php?module=projects&action=add_projects&category=".$category."\">Р”РѕР±Р°РІРёС‚СЊ РїСЂРѕРµРєС‚</a>";
     }
 
 
@@ -121,7 +121,7 @@ function projects_view_by_category()
 					{
 						$filesize = filesize($file_realpath);
 						debug ("file size: ".$filesize);
-						$content['projects'][$i]['files'] .= " (".round(($filesize/1024/1024), 2)." Мб)";
+						$content['projects'][$i]['files'] .= " (".round(($filesize/1024/1024), 2)." РњР±)";
 					}
 					else
 					{
@@ -134,7 +134,7 @@ function projects_view_by_category()
 						{
 							$filesize = filesize($file_realpath);
 							debug ("file size: ".$filesize."<br>");
-							$content['projects'][$i]['files'] .= " (".round(($filesize/1024/1024), 2)." Мб)";
+							$content['projects'][$i]['files'] .= " (".round(($filesize/1024/1024), 2)." РњР±)";
 						}
 						else
 							debug ("didn't work; can't determine file size!");
@@ -151,14 +151,14 @@ function projects_view_by_category()
 		$attached_categories = exec_query("SELECT * FROM ksh_projects_categories WHERE att_project='".mysql_real_escape_string($row['id'])."'");
 		while ($att_category = mysql_fetch_array($attached_categories))
 		{
-			$content['projects'][$i]['attached_categories'] .= "<a href=\"/index.php?module=projects&action=view_by_category&category=".stripslashes($att_category['id'])."\">".stripslashes($att_category['title'])."</a> - отдельная история<br>";
+			$content['projects'][$i]['attached_categories'] .= "<a href=\"/index.php?module=projects&action=view_by_category&category=".stripslashes($att_category['id'])."\">".stripslashes($att_category['title'])."</a> - РѕС‚РґРµР»СЊРЅР°СЏ РёСЃС‚РѕСЂРёСЏ<br>";
 		}
 		mysql_free_result($attached_categories);
 
         if (1 == $user['id'])
         {
-            $content['projects'][$i]['edit_link'] = "<a href=\"/index.php?module=projects&action=edit&projects=".$row['id']."\">Редактировать</a>";
-            $content['projects'][$i]['del_link'] = "<a href=\"/index.php?module=projects&action=files_view_by_project&project=".$row['id']."\">Файлы</a>&nbsp;<a href=\"/index.php?module=projects&action=del&projects=".$row['id']."\">Удалить</a>";
+            $content['projects'][$i]['edit_link'] = "<a href=\"/index.php?module=projects&action=edit&projects=".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+            $content['projects'][$i]['del_link'] = "<a href=\"/index.php?module=projects&action=files_view_by_project&project=".$row['id']."\">Р¤Р°Р№Р»С‹</a>&nbsp;<a href=\"/index.php?module=projects&action=del&projects=".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
         }
         $i++;
     }
@@ -166,7 +166,7 @@ function projects_view_by_category()
 
 
 
-    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=projects&action=admin\">Администрирование</a>";
+    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=projects&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a>";
 
 	$page_title .= " | ".$content['category'];
 
@@ -254,7 +254,7 @@ function projects_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -276,12 +276,12 @@ function projects_add()
                 debug ("projects name isn't empty");
                 exec_query("INSERT INTO ksh_projects (name, title, category, descr_image, descr, date) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['title'])."', '".mysql_real_escape_string($_POST['category'])."',
                 '".mysql_real_escape_string($file_path)."', '".mysql_real_escape_string($_POST['descr'])."', CURDATE())");
-                $content['result'] .= "Проект добавлен";
+                $content['result'] .= "РџСЂРѕРµРєС‚ РґРѕР±Р°РІР»РµРЅ";
             }
             else
             {
                 debug ("projects name is empty");
-                $content['result'] .= "Пожалуйста, задайте название проекта";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р°";
             }
         }
         else
@@ -292,7 +292,7 @@ function projects_add()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_add ***");
@@ -353,7 +353,7 @@ function projects_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -378,12 +378,12 @@ function projects_edit()
                 debug ("projects name isn't empty");
                 exec_query("UPDATE ksh_projects set name='".mysql_real_escape_string($_POST['name'])."',
 				title='".mysql_real_escape_string($_POST['title'])."', category='".mysql_real_escape_string($_POST['category'])."', descr_image='".mysql_real_escape_string($file_path)."',  descr='".mysql_real_escape_string($_POST['descr'])."' WHERE id='".mysql_real_escape_string($projects_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("projects name is empty");
-                $content['result'] .= "Пожалуйста, задайте название проекта";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р°";
             }
         }
         else
@@ -419,7 +419,7 @@ function projects_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_edit ***");
@@ -453,7 +453,7 @@ function projects_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['result'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_del ***");
@@ -500,7 +500,7 @@ function projects_archive()
     global $user;
 	global $page_title;
 
-	$page_title .= " | Архив проектов".
+	$page_title .= " | РђСЂС…РёРІ РїСЂРѕРµРєС‚РѕРІ".
 
     $content = array(
     	'content' => '',
@@ -526,7 +526,7 @@ function projects_archive()
     }
     mysql_free_result($result);
 
-    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=projects&action=admin\">Администрирование</a>";
+    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/index.php?module=projects&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a>";
 
     return $content;
     debug("*** end: projects_archive ***");

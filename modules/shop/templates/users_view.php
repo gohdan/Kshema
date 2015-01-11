@@ -1,6 +1,6 @@
-<h1>Зарегистрированные пользователи</h1>
+<h1>Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё</h1>
 
-{{if:show_admin_link:<p><a href="/index.php?module=users&action=admin">Управление пользователями</a><br><a href="/index.php?module=shop&action=admin">Возврат к администрированию магазина</a></p>}}
+{{if:show_admin_link:<p><a href="/index.php?module=users&action=admin">РЈРїСЂР°РІР»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё</a><br><a href="/index.php?module=shop&action=admin">Р’РѕР·РІСЂР°С‚ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РјР°РіР°Р·РёРЅР°</a></p>}}
 
 <hr>
 
@@ -12,10 +12,10 @@
 <tr>
 <th style="padding: 0px 5px 0px 5px; vertical-align: top">ID</th>
 <th style="padding: 0px 5px 0px 5px; vertical-align: top">login</th>
-<th style="padding: 0px 5px 0px 5px; vertical-align: top">Отображаемое имя</th>
-<th style="padding: 0px 5px 0px 5px; vertical-align: top">Заказы</th>
-<th style="padding: 0px 5px 0px 5px; vertical-align: top">Заявки</th>
-<th style="padding: 0px 5px 0px 5px; vertical-align: top">Корзина</th>
+<th style="padding: 0px 5px 0px 5px; vertical-align: top">РћС‚РѕР±СЂР°Р¶Р°РµРјРѕРµ РёРјСЏ</th>
+<th style="padding: 0px 5px 0px 5px; vertical-align: top">Р—Р°РєР°Р·С‹</th>
+<th style="padding: 0px 5px 0px 5px; vertical-align: top">Р—Р°СЏРІРєРё</th>
+<th style="padding: 0px 5px 0px 5px; vertical-align: top">РљРѕСЂР·РёРЅР°</th>
 <th></th>
 </tr>
 #users#

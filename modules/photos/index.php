@@ -36,7 +36,7 @@ function photos_frontpage()
 			$content['categories'][$i]['name'] = stripslashes($category['name']);
 			$content['categories'][$i]['title'] = stripslashes($category['title']);
 			if (1 == $user['id'])
-				$content['categories'][$i]['edit_link'] =  "<a href=\"/index.php?module=photos&action=category_edit&category=".$category['id']."\">Редактировать</a>";
+				$content['categories'][$i]['edit_link'] =  "<a href=\"/index.php?module=photos&action=category_edit&category=".$category['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
 			else
 				$content['categories'][$i]['edit_link'] = "";
         	

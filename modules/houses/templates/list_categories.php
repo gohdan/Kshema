@@ -3,7 +3,7 @@
 <td style="padding: 0px 3px 0px 3px">#id#</td>
 <td style="padding: 0px 3px 0px 3px">#name#</td>
 <td style="padding: 0px 3px 0px 3px">#title#</td>
-<td style="padding: 0px 3px 0px 3px"><a href="/houses/view_by_category/#id#/">Посмотреть</a></td>
-<td style="padding: 0px 3px 0px 3px"><a href="/houses/category_edit/#id#/">Редактировать</a></td>
-<td style="padding: 0px 3px 0px 3px"><a href="/houses/del_category/#id#/">Удалить</a></td>
+<td style="padding: 0px 3px 0px 3px"><a href="/houses/view_by_category/#id#/">РџРѕСЃРјРѕС‚СЂРµС‚СЊ</a></td>
+<td style="padding: 0px 3px 0px 3px"><a href="/houses/category_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></td>
+<td style="padding: 0px 3px 0px 3px"><a href="/houses/del_category/#id#/">РЈРґР°Р»РёС‚СЊ</a></td>
 </tr>

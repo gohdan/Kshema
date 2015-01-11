@@ -1,10 +1,10 @@
-<h1>Удаление фотографии</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё</h1>
 
 <p>
-<a href="/index.php?module=photos&action=view_gallery&gallery=#gallery#">Вернуться к просмотру галереи</a>
+<a href="/index.php?module=photos&action=view_gallery&gallery=#gallery#">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РіР°Р»РµСЂРµРё</a>
 </p>
 
-<p>Вы действительно хотите удалить фотографию <b>#name#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ С„РѕС‚РѕРіСЂР°С„РёСЋ <b>#name#</b>?</p>
 
 <p>#result#</p>
 
@@ -13,6 +13,6 @@
 <form action="/index.php?module=photos&action=view_gallery&gallery=#gallery#" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

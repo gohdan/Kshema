@@ -17,7 +17,7 @@ function pages_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Àäìèíèñòğèğîâàíèå ñòğàíèö ñàéòà";
+    $content['heading'] = "ĞĞ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ† ÑĞ°Ğ¹Ñ‚Ğ°";
 	debug ("*** end: pages_admin ***");
     return $content;
 }
@@ -90,10 +90,10 @@ function pages_default_action()
 
 		$module_data = array (
 			'module_name' => "pages",
-			'module_title' => "Ñòğàíèöû"
+			'module_title' => "Ğ¡Ñ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹"
 		);
 		$config['pages']['page_title'] = $module_data['module_title'];
-		$config['themes']['page_title']['module'] = "Ñòğàíèöû";
+		$config['themes']['page_title']['module'] = "Ğ¡Ñ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹";
 
 		$priv = new Privileges();
 
@@ -121,12 +121,12 @@ function pages_default_action()
                         break;
 
                         case "help":
-							$config['themes']['page_title']['action'] = "Ñïğàâêà";
+							$config['themes']['page_title']['action'] = "Ğ¡Ğ¿Ñ€Ğ°Ğ²ĞºĞ°";
                             $content .= gen_content("pages", "help", pages_help());
                         break;
 
                         case "create_tables":
-							$config['themes']['page_title']['action'] = "Ñîçäàíèå òàáëèö ÁÄ";
+							$config['themes']['page_title']['action'] = "Ğ¡Ğ¾Ğ·Ğ´Ğ°Ğ½Ğ¸Ğµ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† Ğ‘Ğ”";
 							if ($priv -> has("pages", "admin", "write"))
 	                            $content .= gen_content("pages", "tables_create", pages_tables_create());
 							else
@@ -134,7 +134,7 @@ function pages_default_action()
                         break;
 
                         case "drop_tables":
-							$config['themes']['page_title']['action'] = "Óäàëåíèå òàáëèö ÁÄ";
+							$config['themes']['page_title']['action'] = "Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† Ğ‘Ğ”";
 							if ($priv -> has("pages", "admin", "write"))
 	                            $content .= gen_content("pages", "drop_tables", pages_tables_drop());
 							else
@@ -142,7 +142,7 @@ function pages_default_action()
                         break;
 
                         case "update_tables":
-							$config['themes']['page_title']['action'] = "Îáíîâëåíèå òàáëèö ÁÄ";
+							$config['themes']['page_title']['action'] = "ĞĞ±Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† Ğ‘Ğ”";
 							if ($priv -> has("pages", "admin", "write"))
 						        $content .= gen_content("pages", "tables_update", pages_tables_update());
 							else
@@ -150,16 +150,16 @@ function pages_default_action()
                         break;
 
 						case "categories_view":
-							$config['themes']['page_title']['action'] = "Êàòåãîğèè";
-							$config['pages']['page_title'] .= " - Êàòåãîğèè";
+							$config['themes']['page_title']['action'] = "ĞšĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
+							$config['pages']['page_title'] .= " - ĞšĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_pages_categories");
 							$content .= gen_content("pages", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['themes']['page_title']['action'] = "Äîáàâëåíèå êàòåãîğèè";
-							$config['pages']['page_title'] .= " - Äîáàâëåíèå êàòåãîğèè";
+							$config['themes']['page_title']['action'] = "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
+							$config['pages']['page_title'] .= " - Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
 							if ($priv -> has("pages", "admin", "write"))
 							{
 								$cat = new Category();
@@ -171,8 +171,8 @@ function pages_default_action()
                         break;
 
                         case "categories_del":
-							$config['themes']['page_title']['action'] = "Óäàëåíèå êàòåãîğèè";
-							$config['pages']['page_title'] .= " - Óäàëåíèå êàòåãîğèè";
+							$config['themes']['page_title']['action'] = "Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
+							$config['pages']['page_title'] .= " - Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
 							if ($priv -> has("pages", "admin", "write"))
 							{
 								$cat = new Category();
@@ -184,8 +184,8 @@ function pages_default_action()
                         break;
 
 						case "categories_edit":
-							$config['themes']['page_title']['action'] = "Ğåäàêòèğîâàíèå êàòåãîğèè";
-							$config['pages']['page_title'] .= " - Ğåäàêòèğîâàíèå êàòåãîğèè";
+							$config['themes']['page_title']['action'] = "Ğ ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
+							$config['pages']['page_title'] .= " - Ğ ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
 							if ($priv -> has("pages", "admin", "write"))
 							{
 								$cat = new Category();
@@ -198,13 +198,13 @@ function pages_default_action()
 
 
 						case "view_by_category":
-							$config['themes']['page_title']['action'] = "Ïğîñìîòğ ñòğàíèö â êàòåãîğèè";
+							$config['themes']['page_title']['action'] = "ĞŸÑ€Ğ¾ÑĞ¼Ğ¾Ñ‚Ñ€ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ† Ğ² ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸";
 							$content_data = pages_view_by_category();
                             $content .= gen_content("pages", "view_by_category", $content_data);
                         break;
 
                         case "add":
-							$config['themes']['page_title']['action'] = "Äîáàâëåíèå ñòğàíèöû";
+							$config['themes']['page_title']['action'] = "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹";
 							$config['themes']['admin'] = "yes";
 							if ($priv -> has("pages", "admin", "write"))
                             	$content .= gen_content("pages", "add", pages_add());
@@ -213,7 +213,7 @@ function pages_default_action()
                         break;
 
 						case "del":
-							$config['themes']['page_title']['action'] = "Óäàëåíèå ñòğàíèöû";
+							$config['themes']['page_title']['action'] = "Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹";
 							$config['themes']['admin'] = "yes";
 							if ($priv -> has("pages", "admin", "write"))
                             	$content .= gen_content("pages", "del", pages_del());
@@ -222,7 +222,7 @@ function pages_default_action()
                         break;
 
                         case "edit":
-							$config['themes']['page_title']['action'] = "Ğåäàêòèğîâàíèå ñòğàíèöû";
+							$config['themes']['page_title']['action'] = "Ğ ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹";
 							$config['themes']['admin'] = "yes";
 							if ($priv -> has("pages", "admin", "write"))
 	                            $content .= gen_content("pages", "edit", pages_edit());
@@ -231,7 +231,7 @@ function pages_default_action()
                         break;
 
                         case "admin":
-							$config['themes']['page_title']['action'] = "Àäìèíèñòğèğîâàíèå";
+							$config['themes']['page_title']['action'] = "ĞĞ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ";
 							if ($priv -> has("pages", "admin", "write"))
                             	$content .= gen_content("pages", "admin", pages_admin());
 							else
@@ -239,7 +239,7 @@ function pages_default_action()
                         break;
 
                         case "view":
-							$config['themes']['page_title']['action'] = "Ïğîñìîòğ ñòğàíèöû";
+							$config['themes']['page_title']['action'] = "ĞŸÑ€Ğ¾ÑĞ¼Ğ¾Ñ‚Ñ€ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹";
 //                                $content .= gen_content("pages", "view_".$_GET['page'], pages_view($_GET['page']));
 							$_GET['module'] = "pages";
 							$_GET['action'] = "view";
@@ -248,12 +248,12 @@ function pages_default_action()
                         break;
 
                         case "list_view":
-							$config['themes']['page_title']['action'] = "Ñïèñîê ñòğàíèö";
+							$config['themes']['page_title']['action'] = "Ğ¡Ğ¿Ğ¸ÑĞ¾Ğº ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†";
                             $content .= gen_content("pages", "list_view", pages_list_view());
                         break;
 
                         case "transfer":
-							$config['themes']['page_title']['action'] = "Ïåğåíîñ ñòğàíèö";
+							$config['themes']['page_title']['action'] = "ĞŸĞµÑ€ĞµĞ½Ğ¾Ñ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ†";
 							if ($priv -> has("pages", "admin", "write"))
 	                            $content .= gen_content("pages", "transfer", pages_transfer());
 							else

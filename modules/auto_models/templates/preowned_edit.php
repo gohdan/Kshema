@@ -1,38 +1,38 @@
-<h1>Редактирование автомобиля с пробегом</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р°РІС‚РѕРјРѕР±РёР»СЏ СЃ РїСЂРѕР±РµРіРѕРј</h1>
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_admin_link:
-<p><a href="/auto_models/admin/">К администрированию моделей автомобилей</a></p>
+<p><a href="/auto_models/admin/">Рљ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РјРѕРґРµР»РµР№ Р°РІС‚РѕРјРѕР±РёР»РµР№</a></p>
 }}
 
-<p><a href="/auto_models/preowned_view/">К списку</a></p>
+<p><a href="/auto_models/preowned_view/">Рљ СЃРїРёСЃРєСѓ</a></p>
 
 <form action="#inst_root#/auto_models/preowned_edit/#id#/" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="#id#">
 <input type="hidden" name="category" value="1">
 
-<p>Изображения:</p>
+<p>РР·РѕР±СЂР°Р¶РµРЅРёСЏ:</p>
 #images_preowned#
 
 <table summary="preowned auto edit table">
-<tr><td>Новое изображение:</td><td><input type="file" name="image"></td></tr>
-<tr><td>Название:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Модель:</td><td><input type="text" name="model" value="#model#"></td></tr>
-<tr><td>Цвет автомобиля:</td><td><input type="text" name="color" value="#color#"></td></tr>
-<tr><td>Двигатель:</td><td><input type="text" name="engine" value="#engine#"></td></tr>
-<tr><td>КПП:</td><td><input type="text" name="transmission" value="#transmission#"></td></tr>
-<tr><td>Салон:</td><td><input type="text" name="chassis" value="#chassis#"></td></tr>
-<tr><td>Год выпуска:</td><td><input type="text" name="year" value="#year#" size="4"></td></tr>
-<tr><td>Производство:</td><td><input type="text" name="manufacturer" value="#manufacturer#"></td></tr>
-<tr><td>Пробег:</td><td><input type="text" name="runout" value="#runout#"></td></tr>
-<!--<tr><td>Тип привода:</td><td><input type="text" name="drive" value="#drive#"></td></tr>-->
-<tr><td>Цена:</td><td><input type="text" name="price" value="#price#" size="10"></td></tr>
-<tr><td>Цена нового авто:</td><td><input type="text" name="price_new" value="#price_new#"></td></tr>
-<!--<tr><td>Максимальная комплектация:</td><td><textarea name="complectation">#complectation#</textarea></td></tr>-->
-<tr><td>Дополнительная информация:</td><td><textarea name="info">#info#</textarea></td></tr>
+<tr><td>РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</td><td><input type="file" name="image"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РњРѕРґРµР»СЊ:</td><td><input type="text" name="model" value="#model#"></td></tr>
+<tr><td>Р¦РІРµС‚ Р°РІС‚РѕРјРѕР±РёР»СЏ:</td><td><input type="text" name="color" value="#color#"></td></tr>
+<tr><td>Р”РІРёРіР°С‚РµР»СЊ:</td><td><input type="text" name="engine" value="#engine#"></td></tr>
+<tr><td>РљРџРџ:</td><td><input type="text" name="transmission" value="#transmission#"></td></tr>
+<tr><td>РЎР°Р»РѕРЅ:</td><td><input type="text" name="chassis" value="#chassis#"></td></tr>
+<tr><td>Р“РѕРґ РІС‹РїСѓСЃРєР°:</td><td><input type="text" name="year" value="#year#" size="4"></td></tr>
+<tr><td>РџСЂРѕРёР·РІРѕРґСЃС‚РІРѕ:</td><td><input type="text" name="manufacturer" value="#manufacturer#"></td></tr>
+<tr><td>РџСЂРѕР±РµРі:</td><td><input type="text" name="runout" value="#runout#"></td></tr>
+<!--<tr><td>РўРёРї РїСЂРёРІРѕРґР°:</td><td><input type="text" name="drive" value="#drive#"></td></tr>-->
+<tr><td>Р¦РµРЅР°:</td><td><input type="text" name="price" value="#price#" size="10"></td></tr>
+<tr><td>Р¦РµРЅР° РЅРѕРІРѕРіРѕ Р°РІС‚Рѕ:</td><td><input type="text" name="price_new" value="#price_new#"></td></tr>
+<!--<tr><td>РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РєРѕРјРїР»РµРєС‚Р°С†РёСЏ:</td><td><textarea name="complectation">#complectation#</textarea></td></tr>-->
+<tr><td>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ:</td><td><textarea name="info">#info#</textarea></td></tr>
 
 
-<tr><td></td><td><input type="submit" name="do_update" value="Сохранить"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="РЎРѕС…СЂР°РЅРёС‚СЊ"></td></tr>
 </table>
 </form>

@@ -15,7 +15,7 @@ function guestbook_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Àäìèíèñòðèðîâàíèå ãîñòåâûõ êíèã";
+    $content['heading'] = "ÐÐ´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð³Ð¾ÑÑ‚ÐµÐ²Ñ‹Ñ… ÐºÐ½Ð¸Ð³";
 	debug ("*** end: guestbook_admin ***");
     return $content;
 }
@@ -94,7 +94,7 @@ function guestbook_default_action()
                 switch ($_GET['action'])
                 {
                         default:
-							$config['themes']['page_title'] .= " - Ïðîñìîòð ãîñòåâîé êíèãè";
+							$config['themes']['page_title'] .= " - ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð³Ð¾ÑÑ‚ÐµÐ²Ð¾Ð¹ ÐºÐ½Ð¸Ð³Ð¸";
 							$gb = new Guestbook();
 							$_GET['category'] = 1;
 							$cnt = $gb -> view_by_category();
@@ -106,7 +106,7 @@ function guestbook_default_action()
                         break;
 
                         case "help":
-							$config['themes']['page_title'] .= " - Ñïðàâêà";
+							$config['themes']['page_title'] .= " - Ð¡Ð¿Ñ€Ð°Ð²ÐºÐ°";
                             $content .= gen_content("guestbook", "help", guestbook_help());
                         break;
 
@@ -123,14 +123,14 @@ function guestbook_default_action()
                         break;
 
 						case "categories_view":
-							$config['themes']['page_title'] .= " - Ãîñòåâûå êíèãè";
+							$config['themes']['page_title'] .= " - Ð“Ð¾ÑÑ‚ÐµÐ²Ñ‹Ðµ ÐºÐ½Ð¸Ð³Ð¸";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_guestbook_categories");
 							$content .= gen_content("guestbook", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['themes']['page_title'] .= " - Äîáàâëåíèå ãîñòåâîé êíèãè";
+							$config['themes']['page_title'] .= " - Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð³Ð¾ÑÑ‚ÐµÐ²Ð¾Ð¹ ÐºÐ½Ð¸Ð³Ð¸";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_guestbook_categories");
                             $content .= gen_content("guestbook", "categories_add", array_merge($module_data, $cnt));
@@ -139,7 +139,7 @@ function guestbook_default_action()
                         case "categories_del":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title'] .= " - Óäàëåíèå ãîñòåâîé êíèãè";
+							$config['themes']['page_title'] .= " - Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð³Ð¾ÑÑ‚ÐµÐ²Ð¾Ð¹ ÐºÐ½Ð¸Ð³Ð¸";
 							$cat = new Category();
 							$cnt = $cat -> del("ksh_guestbook_categories", "ksh_guestbook", $_GET['category']);
 							$content .= gen_content("guestbook", "categories_del", array_merge($module_data, $cnt));
@@ -148,7 +148,7 @@ function guestbook_default_action()
 						case "categories_edit":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title'] .= " - Ðåäàêòèðîâàíèå îïèñàíèÿ ãîñòåâîé êíèãè";
+							$config['themes']['page_title'] .= " - Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ Ð³Ð¾ÑÑ‚ÐµÐ²Ð¾Ð¹ ÐºÐ½Ð¸Ð³Ð¸";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_guestbook_categories", $_GET['category']);
 	                        $content .= gen_content("guestbook", "categories_edit", array_merge($module_data, $cnt));
@@ -158,8 +158,8 @@ function guestbook_default_action()
 						case "view_by_category":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title'] .= " - Ïðîñìîòð ñîîáùåíèé";
-							$template['title'] .= " - Ïðîñìîòð ñîîáùåíèé";
+							$config['themes']['page_title'] .= " - ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹";
+							$template['title'] .= " - ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹";
 							$gb = new Guestbook();
 							$cnt = $gb -> view_by_category();
                             $content .= gen_content("guestbook", "view_by_category", array_merge($module_data, $cnt));
@@ -168,7 +168,7 @@ function guestbook_default_action()
                         case "add":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title'] .= " - Äîáàâëåíèå ñîîáùåíèÿ";
+							$config['themes']['page_title'] .= " - Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ";
 							$gb = new Guestbook();
 							$cnt = $gb -> add();
                             $content .= gen_content("guestbook", "add", array_merge($module_data, $cnt));
@@ -177,7 +177,7 @@ function guestbook_default_action()
                         case "del":
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
-							$config['themes']['page_title'] .= " - Óäàëåíèå ñîîáùåíèÿ";
+							$config['themes']['page_title'] .= " - Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ";
 							$gb = new Guestbook();
 							$cnt = $gb -> del();
                             $content .= gen_content("guestbook", "del", array_merge($module_data, $cnt));
@@ -187,7 +187,7 @@ function guestbook_default_action()
                         case "edit":
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
-							$config['themes']['page_title'] .= " - Ðåäàêòèðîâàíèå ñîîáùåíèÿ";
+							$config['themes']['page_title'] .= " - Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ";
 							$gb = new Guestbook();
 							$cnt = $gb -> edit();
                             $content .= gen_content("guestbook", "edit", array_merge($module_data, $cnt));
@@ -198,7 +198,7 @@ function guestbook_default_action()
         else
         {
                 debug ("*** action: default");
-				$config['themes']['page_title'] .= " - Ïðîñìîòð ãîñòåâîé êíèãè";
+				$config['themes']['page_title'] .= " - ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ð³Ð¾ÑÑ‚ÐµÐ²Ð¾Ð¹ ÐºÐ½Ð¸Ð³Ð¸";
 				$gb = new Guestbook();
 				$_GET['category'] = 1;
 				$cnt = $gb -> view_by_category(); 

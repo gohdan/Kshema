@@ -1,6 +1,6 @@
-<h1>Добавление проекта дома</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РїСЂРѕРµРєС‚Р° РґРѕРјР°</h1>
 
-<a href="/houses/admin/">К администрированию проектов домов</a>
+<a href="/houses/admin/">Рљ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РїСЂРѕРµРєС‚РѕРІ РґРѕРјРѕРІ</a>
 
 <p>#result#</p>
 
@@ -9,26 +9,26 @@
 
 <form action="/houses/add_houses/" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="if_show" value="">
-    Название: <input type="text" name="name"><br>
-    Категория:
+    РќР°Р·РІР°РЅРёРµ: <input type="text" name="name"><br>
+    РљР°С‚РµРіРѕСЂРёСЏ:
     <select name="category">
     #categories_select#
     </select><br>
-	Показывать пользователям: <input type="checkbox" name="if_show" value="yes" checked><br>
-    Цена: <input type="text" name="price" size="12"><br>
-    Общая площадь: <input type="text" name="sq_common" size="3"><br>
-    В том числе террасы и балконы: <input type="text" name="sq_balcones" size="3"><br>
-    Жилая площадь: <input type="text" name="sq_living" size="3"><br>
-	Состав:<br>
+	РџРѕРєР°Р·С‹РІР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј: <input type="checkbox" name="if_show" value="yes" checked><br>
+    Р¦РµРЅР°: <input type="text" name="price" size="12"><br>
+    РћР±С‰Р°СЏ РїР»РѕС‰Р°РґСЊ: <input type="text" name="sq_common" size="3"><br>
+    Р’ С‚РѕРј С‡РёСЃР»Рµ С‚РµСЂСЂР°СЃС‹ Рё Р±Р°Р»РєРѕРЅС‹: <input type="text" name="sq_balcones" size="3"><br>
+    Р–РёР»Р°СЏ РїР»РѕС‰Р°РґСЊ: <input type="text" name="sq_living" size="3"><br>
+	РЎРѕСЃС‚Р°РІ:<br>
 	<textarea name="composition"></textarea>
-    Изображение-описание: <input type="file" name="image"><br>
-    3D-изображение: <input type="file" name="3d"><br>
-    Изображение фасада: <input type="file" name="fasad"><br>
-    План 1 этажа (маленький): <input type="file" name="1floor_t"><br>
-    План 1 этажа (большой): <input type="file" name="1floor"><br>
-    План 2 этажа (маленький): <input type="file" name="2floor_t"><br>
-    План 2 этажа (большой): <input type="file" name="2floor"><br>
+    РР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image"><br>
+    3D-РёР·РѕР±СЂР°Р¶РµРЅРёРµ: <input type="file" name="3d"><br>
+    РР·РѕР±СЂР°Р¶РµРЅРёРµ С„Р°СЃР°РґР°: <input type="file" name="fasad"><br>
+    РџР»Р°РЅ 1 СЌС‚Р°Р¶Р° (РјР°Р»РµРЅСЊРєРёР№): <input type="file" name="1floor_t"><br>
+    РџР»Р°РЅ 1 СЌС‚Р°Р¶Р° (Р±РѕР»СЊС€РѕР№): <input type="file" name="1floor"><br>
+    РџР»Р°РЅ 2 СЌС‚Р°Р¶Р° (РјР°Р»РµРЅСЊРєРёР№): <input type="file" name="2floor_t"><br>
+    РџР»Р°РЅ 2 СЌС‚Р°Р¶Р° (Р±РѕР»СЊС€РѕР№): <input type="file" name="2floor"><br>
     PDF: <input type="file" name="pdf"><br>
     <br>
-    <input type="submit" name="do_add" value="Добавить">
+    <input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

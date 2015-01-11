@@ -3,7 +3,7 @@
 <td style="padding: 0px 3px 0px 3px">#id#</td>
 <td style="padding: 0px 3px 0px 3px">#name#</td>
 <td style="padding: 0px 3px 0px 3px">#title#</td>
-<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#id#">Посмотреть</a></td>
-<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=portfolio&amp;action=category_edit&amp;category=#id#">Редактировать</a></td>
-<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=portfolio&amp;action=del_category&amp;category=#id#">Удалить</a></td>
+<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#id#">РџРѕСЃРјРѕС‚СЂРµС‚СЊ</a></td>
+<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=portfolio&amp;action=category_edit&amp;category=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></td>
+<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=portfolio&amp;action=del_category&amp;category=#id#">РЈРґР°Р»РёС‚СЊ</a></td>
 </tr>

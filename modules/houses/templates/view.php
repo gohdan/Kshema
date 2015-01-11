@@ -67,7 +67,7 @@ function showimg()
         </table>
     </td>
     <td>
-    	Кликните, чтобы увеличить
+    	РљР»РёРєРЅРёС‚Рµ, С‡С‚РѕР±С‹ СѓРІРµР»РёС‡РёС‚СЊ
 	   	<table class="project_image">
         <tr>
         	<td class="project_corner_upleft"></td>
@@ -101,20 +101,20 @@ function showimg()
 	
 		<h1>#name#</h1>
 	    <div class="project_properties">
-        {{if:price:Стоимость комплекта: #price# руб.<br>}}
-		{{if:sq_common:Общая площадь: #sq_common# м2<br>}}
-		{{if:sq_balcones:В т. ч. террасы и балконы: #sq_balcones# м2<br>}}
-		{{if:sq_living:Жилая площадь: #sq_living# м2}}
+        {{if:price:РЎС‚РѕРёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚Р°: #price# СЂСѓР±.<br>}}
+		{{if:sq_common:РћР±С‰Р°СЏ РїР»РѕС‰Р°РґСЊ: #sq_common# Рј2<br>}}
+		{{if:sq_balcones:Р’ С‚. С‡. С‚РµСЂСЂР°СЃС‹ Рё Р±Р°Р»РєРѕРЅС‹: #sq_balcones# Рј2<br>}}
+		{{if:sq_living:Р–РёР»Р°СЏ РїР»РѕС‰Р°РґСЊ: #sq_living# Рј2}}
         </div>
-		{{if:composition:<div class="project_composition"><b>Состав базового комплекта:</b><br> #composition#</div>}}
+		{{if:composition:<div class="project_composition"><b>РЎРѕСЃС‚Р°РІ Р±Р°Р·РѕРІРѕРіРѕ РєРѕРјРїР»РµРєС‚Р°:</b><br> #composition#</div>}}
     </td>
     <td class="project_links">
     	<p>
-        <img src="/themes/tamak/images/project_open_1st.gif" alt="Открыть план 1 этажа" width="159" height="31" class="button" onclick="javascript: show_1()">
-        {{if:2floor:<img src="/themes/tamak/images/project_open_2nd.gif" alt="Открыть план 2 этажа" width="160" height="31" class="button" onclick="javascript: show_2()">}}
-		{{if:pdf:<a href="#pdf#"><img src="/themes/tamak/images/project_open_pdf.gif" alt="Открыть проект в PDF" width="160" height="31"></a>}}
+        <img src="/themes/tamak/images/project_open_1st.gif" alt="РћС‚РєСЂС‹С‚СЊ РїР»Р°РЅ 1 СЌС‚Р°Р¶Р°" width="159" height="31" class="button" onclick="javascript: show_1()">
+        {{if:2floor:<img src="/themes/tamak/images/project_open_2nd.gif" alt="РћС‚РєСЂС‹С‚СЊ РїР»Р°РЅ 2 СЌС‚Р°Р¶Р°" width="160" height="31" class="button" onclick="javascript: show_2()">}}
+		{{if:pdf:<a href="#pdf#"><img src="/themes/tamak/images/project_open_pdf.gif" alt="РћС‚РєСЂС‹С‚СЊ РїСЂРѕРµРєС‚ РІ PDF" width="160" height="31"></a>}}
         </p>
-<!--        <p><a href="/houses/view_by_category/#category_id#/">Все проекты из категории <br>"#category#"</a></p> -->
+<!--        <p><a href="/houses/view_by_category/#category_id#/">Р’СЃРµ РїСЂРѕРµРєС‚С‹ РёР· РєР°С‚РµРіРѕСЂРёРё <br>"#category#"</a></p> -->
 		
 
 		<p>#edit_link#</p>
@@ -125,7 +125,7 @@ function showimg()
         </div>
         
         <div class="warning">
-        Для просмотра планов JavaScript должен быть включен
+        Р”Р»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РїР»Р°РЅРѕРІ JavaScript РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІРєР»СЋС‡РµРЅ
         </div>
 
     </td>

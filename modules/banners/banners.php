@@ -147,7 +147,7 @@ function banners_view_by_category()
         {
             debug ("have banners to delete");
             exec_query("DELETE FROM ksh_banners WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Баннер успешно удалён";
+            $content['result'] .= "Р‘Р°РЅРЅРµСЂ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»С‘РЅ";
         }
         else
         {
@@ -178,7 +178,7 @@ function banners_view_by_category()
 
         if (1 == $user['id'])
         {
-            $content['banners'][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/index.php?module=banners&amp;action=edit&amp;banners=".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/index.php?module=banners&amp;action=del&amp;banners=".$row['id']."\">Удалить</a>";
+            $content['banners'][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/index.php?module=banners&amp;action=edit&amp;banners=".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/index.php?module=banners&amp;action=del&amp;banners=".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
         }
         else
         {
@@ -260,7 +260,7 @@ function banners_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -312,12 +312,12 @@ function banners_add()
 					'".mysql_real_escape_string($_POST['class'])."',
 					'".mysql_real_escape_string($_POST['link'])."'
 				)");
-                $content['result'] .= "Баннер добавлен";
+                $content['result'] .= "Р‘Р°РЅРЅРµСЂ РґРѕР±Р°РІР»РµРЅ";
             }
             else
             {
                 debug ("banners name is empty");
-                $content['result'] .= "Пожалуйста, задайте название баннера";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ Р±Р°РЅРЅРµСЂР°";
             }
         }
         else
@@ -328,7 +328,7 @@ function banners_add()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: banners_add ***");
@@ -401,7 +401,7 @@ function banners_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -437,12 +437,12 @@ function banners_edit()
 					`class`='".mysql_real_escape_string($_POST['class'])."',
 					`link`='".mysql_real_escape_string($_POST['link'])."'
 					WHERE id='".mysql_real_escape_string($banners_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("banners name is empty");
-                $content['result'] .= "Пожалуйста, задайте название баннера";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ Р±Р°РЅРЅРµСЂР°";
             }
         }
         else
@@ -488,7 +488,7 @@ function banners_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: banners_edit ***");
@@ -522,7 +522,7 @@ function banners_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: banners_del ***");

@@ -30,13 +30,13 @@ function shop_goods_view_all()
 		{
 			debug ("user is admin, deleting from DB");
 			exec_query ("delete from ksh_shop_goods where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Товар удалён";
+			$content['result'] = "РўРѕРІР°СЂ СѓРґР°Р»С‘РЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не удалён";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ СѓРґР°Р»С‘РЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -93,7 +93,7 @@ function shop_goods_add()
 		if (filesize($home.$file_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$file_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$file_path = "";
@@ -119,7 +119,7 @@ function shop_goods_add()
 		if (filesize($home.$images_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$images_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$images_path = "";
@@ -145,7 +145,7 @@ function shop_goods_add()
 		if (filesize($home.$pdf_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$pdf_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$pdf_path = "";
@@ -172,7 +172,7 @@ function shop_goods_add()
 		if (filesize($home.$epub_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$epub_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$epub_path = "";
@@ -199,7 +199,7 @@ function shop_goods_add()
 		if (filesize($home.$mp3_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$mp3_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$mp3_path = "";
@@ -249,7 +249,7 @@ function shop_goods_add()
 
         	exec_query ($sql_query);
 
-			$content['result'] = "Товар добавлен";
+			$content['result'] = "РўРѕРІР°СЂ РґРѕР±Р°РІР»РµРЅ";
 
 			if (in_array("rss", $config['modules']['installed']) && "yes" == $config['rss']['use'])
 			{
@@ -260,8 +260,8 @@ function shop_goods_add()
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не добавлен";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ РґРѕР±Р°РІР»РµРЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -374,7 +374,7 @@ function shop_goods_edit()
 		if (filesize($home.$file_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$file_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$file_path = "";
@@ -400,7 +400,7 @@ function shop_goods_edit()
 		if (filesize($home.$images_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$images_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$images_path = "";
@@ -426,7 +426,7 @@ function shop_goods_edit()
 		if (filesize($home.$pdf_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$pdf_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$pdf_path = "";
@@ -452,7 +452,7 @@ function shop_goods_edit()
 		if (filesize($home.$pdf_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$epub_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$pdf_path = "";
@@ -478,7 +478,7 @@ function shop_goods_edit()
 		if (filesize($home.$mp3_path) > $max_file_size)
 		{
 			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+			$content['content'] .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 			if (unlink ($home.$mp3_path)) debug ("file deleted");
 			else debug ("can't delete file!");
 			$mp3_path = "";
@@ -539,13 +539,13 @@ function shop_goods_edit()
         	$sql_query = ereg_replace(", $","",$sql_query)." WHERE id='".$id."'";
 
         	exec_query ($sql_query);
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ РЅРµ Р·Р°РїРёСЃР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -776,7 +776,7 @@ function shop_view_by_categories()
 		}
 		else
 		{
-			$content['goods_by_category'][$i]['presence'] = "Нет в наличии";
+			$content['goods_by_category'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$content['goods_by_category'][$i]['show_request_link'] = "yes";
 		}
 
@@ -874,7 +874,7 @@ function shop_view_by_authors($id = 0)
 		else
 			$content['show_multiple_add_form'] = "";
     else
-		$content['content'] = "Извините, товаров этого автора пока нет, следите за обновлениями.";
+		$content['content'] = "РР·РІРёРЅРёС‚Рµ, С‚РѕРІР°СЂРѕРІ СЌС‚РѕРіРѕ Р°РІС‚РѕСЂР° РїРѕРєР° РЅРµС‚, СЃР»РµРґРёС‚Рµ Р·Р° РѕР±РЅРѕРІР»РµРЅРёСЏРјРё.";
 
 	$result = exec_query("SELECT * FROM ksh_shop_goods WHERE
 		author='".mysql_real_escape_string($id)."'
@@ -910,7 +910,7 @@ function shop_view_by_authors($id = 0)
 		}
 		else
 		{
-			$content['goods_by_author'][$i]['presence'] = "Нет в наличии";
+			$content['goods_by_author'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$content['goods_by_author'][$i]['show_request_link'] = "yes";
 		}
 		$i++;
@@ -991,7 +991,7 @@ function shop_view_by_tag()
 		else
 			$content['show_multiple_add_form'] = "";
     else
-		$content['content'] = "Извините, товаров по этой метке пока нет, следите за обновлениями.";
+		$content['content'] = "РР·РІРёРЅРёС‚Рµ, С‚РѕРІР°СЂРѕРІ РїРѕ СЌС‚РѕР№ РјРµС‚РєРµ РїРѕРєР° РЅРµС‚, СЃР»РµРґРёС‚Рµ Р·Р° РѕР±РЅРѕРІР»РµРЅРёСЏРјРё.";
 
 	$result = exec_query("SELECT * FROM `ksh_shop_goods` WHERE `tags` LIKE '%".mysql_real_escape_string($tag)."%'
 		ORDER BY ".mysql_real_escape_string($config['shop']['categories_goods_sort_by'])."
@@ -1027,7 +1027,7 @@ function shop_view_by_tag()
 		}
 		else
 		{
-			$content['goods_by_tag'][$i]['presence'] = "Нет в наличии";
+			$content['goods_by_tag'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$content['goods_by_tag'][$i]['show_request_link'] = "yes";
 		}
 		$i++;
@@ -1103,7 +1103,7 @@ function shop_view_popular()
 		else
 			$content['show_multiple_add_form'] = "";
     else
-		$content['content'] = "Извините, в этой категории товаров пока нет, следите за обновлениями.";
+		$content['content'] = "РР·РІРёРЅРёС‚Рµ, РІ СЌС‚РѕР№ РєР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ РїРѕРєР° РЅРµС‚, СЃР»РµРґРёС‚Рµ Р·Р° РѕР±РЅРѕРІР»РµРЅРёСЏРјРё.";
 
 	$result = exec_query("SELECT * FROM ksh_shop_goods WHERE if_popular='1' ORDER BY ".mysql_real_escape_string($config['shop']['popular_goods_sort_by'])." ".mysql_real_escape_string($config['shop']['popular_goods_sort_order'])." LIMIT ".mysql_real_escape_string(($start_page - 1) * $goods_on_page).",".$goods_on_page);
 
@@ -1137,7 +1137,7 @@ function shop_view_popular()
 		}
 		else
 		{
-			$content['goods_popular'][$i]['presence'] = "Нет в наличии";
+			$content['goods_popular'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$content['goods_popular'][$i]['show_request_link'] = "yes";
 		}
 		$i++;
@@ -1214,7 +1214,7 @@ function shop_view_new()
 		else
 			$content['show_multiple_add_form'] = "";
     else
-		$content['content'] = "Извините, в этой категории товаров пока нет, следите за обновлениями.";
+		$content['content'] = "РР·РІРёРЅРёС‚Рµ, РІ СЌС‚РѕР№ РєР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ РїРѕРєР° РЅРµС‚, СЃР»РµРґРёС‚Рµ Р·Р° РѕР±РЅРѕРІР»РµРЅРёСЏРјРё.";
 
 	$result = exec_query("SELECT * FROM ksh_shop_goods WHERE if_new='1' ORDER BY ".mysql_real_escape_string($config['shop']['new_goods_sort_by'])." ".mysql_real_escape_string($config['shop']['new_goods_sort_order'])." LIMIT ".mysql_real_escape_string(($start_page - 1) * $goods_on_page).",".$goods_on_page);
 
@@ -1248,7 +1248,7 @@ function shop_view_new()
 		}
 		else
 		{
-			$content['goods_new'][$i]['presence'] = "Нет в наличии";
+			$content['goods_new'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$content['goods_new'][$i]['show_request_link'] = "yes";
 		}
 		$i++;
@@ -1325,7 +1325,7 @@ function shop_view_recommended()
 		else
 			$content['show_multiple_add_form'] = "";
     else
-		$content['content'] = "Извините, в этой категории товаров пока нет, следите за обновлениями.";
+		$content['content'] = "РР·РІРёРЅРёС‚Рµ, РІ СЌС‚РѕР№ РєР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ РїРѕРєР° РЅРµС‚, СЃР»РµРґРёС‚Рµ Р·Р° РѕР±РЅРѕРІР»РµРЅРёСЏРјРё.";
 
 	$result = exec_query("SELECT * FROM ksh_shop_goods
 		WHERE `if_recommended` = '1'
@@ -1363,7 +1363,7 @@ function shop_view_recommended()
 		}
 		else
 		{
-			$content['goods_recommended'][$i]['presence'] = "Нет в наличии";
+			$content['goods_recommended'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$content['goods_recommended'][$i]['show_request_link'] = "yes";
 		}
 		$i++;
@@ -1608,7 +1608,7 @@ function shop_view_last($category = 0, $mode = "category")
 				$content['show_multiple_add_form'] = "";
 		}
 	    else
-			$content['content'] = "Извините, в этой категории товаров пока нет, следите за обновлениями.";
+			$content['content'] = "РР·РІРёРЅРёС‚Рµ, РІ СЌС‚РѕР№ РєР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ РїРѕРєР° РЅРµС‚, СЃР»РµРґРёС‚Рµ Р·Р° РѕР±РЅРѕРІР»РµРЅРёСЏРјРё.";
 
 		$result = exec_query("SELECT * FROM `ksh_shop_goods` WHERE `".mysql_real_escape_string($mode)."` = '".mysql_real_escape_string($id)."' ORDER BY `id` DESC LIMIT ".mysql_real_escape_string($last_goods_qty));
 
@@ -1626,7 +1626,7 @@ function shop_view_last($category = 0, $mode = "category")
         	if ("" != $good['new_qty'] && 0 != $good['new_qty'])
 				$content['goods_by_category'][$i]['presence'] = "";
 			else
-				$content['goods_by_category'][$i]['presence'] = "Нет в наличии";
+				$content['goods_by_category'][$i]['presence'] = "РќРµС‚ РІ РЅР°Р»РёС‡РёРё";
 			$i++;
     	}
 
@@ -1634,7 +1634,7 @@ function shop_view_last($category = 0, $mode = "category")
 	}
 	else
 	{
-		$content['content'] .= "Не указана категория";
+		$content['content'] .= "РќРµ СѓРєР°Р·Р°РЅР° РєР°С‚РµРіРѕСЂРёСЏ";
 	}
 
 
@@ -1664,7 +1664,7 @@ function shop_goods_view_hidden()
 		{
 			debug ("user is admin, deleting from DB");
 			exec_query ("delete from ksh_shop_goods where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Товар удалён";
+			$content['result'] = "РўРѕРІР°СЂ СѓРґР°Р»С‘РЅ";
 		}
 
 	    $sql_query =  "SELECT `id`,`name`,`author`,`category` FROM `ksh_shop_goods` WHERE `if_hide` = '1' ORDER BY `id`";

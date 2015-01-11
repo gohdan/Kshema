@@ -1,35 +1,35 @@
-<h1>Назначение прав</h1>
+<h1>РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ</h1>
 
-<p><a href="/#module#/admin/">Обратно в администрирование модуля</a></p>
+<p><a href="/#module#/admin/">РћР±СЂР°С‚РЅРѕ РІ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ</a></p>
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_form:
-<p>Сотрите название объекта, чтобы удалить запись</p>
+<p>РЎРѕС‚СЂРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РѕР±СЉРµРєС‚Р°, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ</p>
 
 <form action="/#module#/privileges_edit/" method="post">
 
 <table>
 <tr>
-<th>Объект</th>
-<th>Тип</th>
+<th>РћР±СЉРµРєС‚</th>
+<th>РўРёРї</th>
 <th>ID</th>
-<th>Чтение</th>
-<th>Запись</th>
+<th>Р§С‚РµРЅРёРµ</th>
+<th>Р—Р°РїРёСЃСЊ</th>
 </tr>
 
 #privileges#
 
 <tr>
-<td colspan="5">Новая запись:</td>
+<td colspan="5">РќРѕРІР°СЏ Р·Р°РїРёСЃСЊ:</td>
 </tr>
 <tr>
 <input type="hidden" name="read_new" value="0">
 <input type="hidden" name="write_new" value="0">
 <td><input type="text" name="action_new"></td>
 <td><select name="type_new">
-<option value="group">группа</option>
-<option value="user">пользователь</option>
+<option value="group">РіСЂСѓРїРїР°</option>
+<option value="user">РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ</option>
 </select></td>
 <td><input type="text" name="id_new" size="3"></td>
 <td><input type="checkbox" name="read_new" value="1"></td>
@@ -37,6 +37,6 @@
 </tr>
 
 </table>
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>
 }}

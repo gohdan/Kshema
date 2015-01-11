@@ -1,14 +1,14 @@
-<h1>Доски объявлений</h1>
+<h1>Р”РѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№</h1>
 
 #content#
 
-{{if:show_profile_link:<a href="/users/profile_view/">Ваш профиль</a><br>}}
+{{if:show_profile_link:<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a><br>}}
 
-{{if:show_admin_link:<a href="/bbcpanel/admin/">Администрировать</a><br>}}
+{{if:show_admin_link:<a href="/bbcpanel/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ</a><br>}}
 
-{{if:show_privileges_link:<a href="/bbcpanel/privileges_edit/">Управление правами</a><br>}}
+{{if:show_privileges_link:<a href="/bbcpanel/privileges_edit/">РЈРїСЂР°РІР»РµРЅРёРµ РїСЂР°РІР°РјРё</a><br>}}
 
-{{if:show_categories_view_link:<a href="/bbcpanel/categories_view/">Тематика досок</a><br>}}
+{{if:show_categories_view_link:<a href="/bbcpanel/categories_view/">РўРµРјР°С‚РёРєР° РґРѕСЃРѕРє</a><br>}}
 
-{{if:show_bbs_view_all_link:<a href="/bbcpanel/bbs_view_all/">Доски</a><br>}}
+{{if:show_bbs_view_all_link:<a href="/bbcpanel/bbs_view_all/">Р”РѕСЃРєРё</a><br>}}
 

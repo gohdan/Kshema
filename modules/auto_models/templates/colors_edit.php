@@ -1,7 +1,7 @@
-<h1>Редактирование цвета</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С†РІРµС‚Р°</h1>
 
 <p>
-<a href="/index.php?module=auto_models&action=colors_view&model=#model#">К просмотру цветов этой модели</a>
+<a href="/index.php?module=auto_models&action=colors_view&model=#model#">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ С†РІРµС‚РѕРІ СЌС‚РѕР№ РјРѕРґРµР»Рё</a>
 </p>
 
 <p>#result#</p>
@@ -12,10 +12,10 @@
 <form action="/index.php?module=auto_models&action=colors_edit&colors=#id#" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="#id#">
 <input type="hidden" name="old_image" value="#image#">
-Название: <input type="text" name="title" value="#title#"><br>
-Текущее изображение: {{if:image:<img src="#image#">}}<br>
-Новое изображение: <input type="file" name="image"><br>
-Код: <input type="text" name="code" value="#code#"><br>
-<input type="submit" name="do_save" value="Сохранить">
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="title" value="#title#"><br>
+РўРµРєСѓС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ: {{if:image:<img src="#image#">}}<br>
+РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ: <input type="file" name="image"><br>
+РљРѕРґ: <input type="text" name="code" value="#code#"><br>
+<input type="submit" name="do_save" value="РЎРѕС…СЂР°РЅРёС‚СЊ">
 </form>
 }}

@@ -26,7 +26,7 @@ function create_table($table_name)
 		else
 		{
 			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='cp1251'";
+			$charset = " charset='utf8'";
 		}
 
 		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
@@ -41,12 +41,12 @@ function create_table($table_name)
 		)".$charset;
 
 		exec_query($sql_query);
-		$content['result'] .= "<p>Таблица журнала успешно создана</p>";
+		$content['result'] .= "<p>РўР°Р±Р»РёС†Р° Р¶СѓСЂРЅР°Р»Р° СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°</p>";
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: Log: create_table ===");

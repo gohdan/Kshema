@@ -1,8 +1,8 @@
-<h1>Удаление таблиц базы данных портфолио</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕСЂС‚С„РѕР»РёРѕ</h1>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=admin">Вернуться в меню администрирования</a><br>
-<a href="/index.php?module=portfolio&amp;action=help#db_tables_drop">Справка</a>
+<a href="/index.php?module=portfolio&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=portfolio&amp;action=help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 #content#
@@ -10,10 +10,10 @@
 {{if:result:<p>#result#</p>}}
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=portfolio&amp;action=drop_tables" method="post">
-<input type="checkbox" name="drop_portfolio_categories_table" value="ksh_portfolio_categories">Категории портфолио<br>
-<input type="checkbox" name="drop_portfolio_table" value="ksh_portfolio">Портфолио<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_portfolio_categories_table" value="ksh_portfolio_categories">РљР°С‚РµРіРѕСЂРёРё РїРѕСЂС‚С„РѕР»РёРѕ<br>
+<input type="checkbox" name="drop_portfolio_table" value="ksh_portfolio">РџРѕСЂС‚С„РѕР»РёРѕ<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

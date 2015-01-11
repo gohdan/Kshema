@@ -95,12 +95,12 @@ function users_default_action()
 
         $content = "";
         $nav_string = "<p>
-                <a href=\"/index.php?module=users&action=view_users\">Список пользователей</a>
-                <a href=\"/index.php?module=users&action=add_user\">Добавить пользователя</a>
-                <a href=\"/index.php?module=users&action=create_users_table\">Создать таблицу пользователей</a>
-                <a href=\"/index.php?module=users&action=view_roles\">Список ролей</a>
-                <a href=\"/index.php?module=users&action=create_roles\">Создать роли</a>
-                <a href=\"/index.php?module=users&action=delete_roles\">Удалить все роли</a>
+                <a href=\"/index.php?module=users&action=view_users\">РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a>
+                <a href=\"/index.php?module=users&action=add_user\">Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</a>
+                <a href=\"/index.php?module=users&action=create_users_table\">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a>
+                <a href=\"/index.php?module=users&action=view_roles\">РЎРїРёСЃРѕРє СЂРѕР»РµР№</a>
+                <a href=\"/index.php?module=users&action=create_roles\">РЎРѕР·РґР°С‚СЊ СЂРѕР»Рё</a>
+                <a href=\"/index.php?module=users&action=delete_roles\">РЈРґР°Р»РёС‚СЊ РІСЃРµ СЂРѕР»Рё</a>
         </p>";
 
         //$content .= $nav_string;

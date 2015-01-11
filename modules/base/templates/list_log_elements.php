@@ -5,5 +5,5 @@
 <td>#module#</td>
 <td>#action#</td>
 <td>#message#</td>
-<td><a href="#" onClick="javascript: log_event_hide('#module#', '#id#')">скрыть</a></td>
+<td><a href="#" onClick="javascript: log_event_hide('#module#', '#id#')">СЃРєСЂС‹С‚СЊ</a></td>
 </tr>

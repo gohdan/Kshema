@@ -74,19 +74,19 @@ function base_get_month_name($month_number)
 {
 	switch ($month_number)
 	{
-		default: $month_name = "Íóëÿáðü"; break;
-		case "1": $month_name = "ßíâàðü"; break;
-		case "2": $month_name = "Ôåâðàëü"; break;
-		case "3": $month_name = "Ìàðò"; break;
-		case "4": $month_name = "Àïðåëü"; break;
-		case "5": $month_name = "Ìàé"; break;
-		case "6": $month_name = "Èþíü"; break;
-		case "7": $month_name = "Èþëü"; break;
-		case "8": $month_name = "Àâãóñò"; break;
-		case "9": $month_name = "Ñåíòÿáðü"; break;
-		case "10": $month_name = "Îêòÿáðü"; break;
-		case "11": $month_name = "Íîÿáðü"; break;
-		case "12": $month_name = "Äåêàáðü"; break;
+		default: $month_name = "ÐÑƒÐ»ÑÐ±Ñ€ÑŒ"; break;
+		case "1": $month_name = "Ð¯Ð½Ð²Ð°Ñ€ÑŒ"; break;
+		case "2": $month_name = "Ð¤ÐµÐ²Ñ€Ð°Ð»ÑŒ"; break;
+		case "3": $month_name = "ÐœÐ°Ñ€Ñ‚"; break;
+		case "4": $month_name = "ÐÐ¿Ñ€ÐµÐ»ÑŒ"; break;
+		case "5": $month_name = "ÐœÐ°Ð¹"; break;
+		case "6": $month_name = "Ð˜ÑŽÐ½ÑŒ"; break;
+		case "7": $month_name = "Ð˜ÑŽÐ»ÑŒ"; break;
+		case "8": $month_name = "ÐÐ²Ð³ÑƒÑÑ‚"; break;
+		case "9": $month_name = "Ð¡ÐµÐ½Ñ‚ÑÐ±Ñ€ÑŒ"; break;
+		case "10": $month_name = "ÐžÐºÑ‚ÑÐ±Ñ€ÑŒ"; break;
+		case "11": $month_name = "ÐÐ¾ÑÐ±Ñ€ÑŒ"; break;
+		case "12": $month_name = "Ð”ÐµÐºÐ°Ð±Ñ€ÑŒ"; break;
 	}
 	return $month_name;
 }
@@ -95,19 +95,19 @@ function base_get_month_name_genetive($month_number)
 {
 	switch ($month_number)
 	{
-		default: $month_name = "íóëÿáðÿ"; break;
-		case "1": $month_name = "ÿíâàðÿ"; break;
-		case "2": $month_name = "ôåâðàëÿ"; break;
-		case "3": $month_name = "ìàðòà"; break;
-		case "4": $month_name = "àïðåëÿ"; break;
-		case "5": $month_name = "ìàÿ"; break;
-		case "6": $month_name = "èþíÿ"; break;
-		case "7": $month_name = "èþëÿ"; break;
-		case "8": $month_name = "àâãóñòà"; break;
-		case "9": $month_name = "ñåíòÿáðÿ"; break;
-		case "10": $month_name = "îêòÿáðÿ"; break;
-		case "11": $month_name = "íîÿáðÿ"; break;
-		case "12": $month_name = "äåêàáðÿ"; break;
+		default: $month_name = "Ð½ÑƒÐ»ÑÐ±Ñ€Ñ"; break;
+		case "1": $month_name = "ÑÐ½Ð²Ð°Ñ€Ñ"; break;
+		case "2": $month_name = "Ñ„ÐµÐ²Ñ€Ð°Ð»Ñ"; break;
+		case "3": $month_name = "Ð¼Ð°Ñ€Ñ‚Ð°"; break;
+		case "4": $month_name = "Ð°Ð¿Ñ€ÐµÐ»Ñ"; break;
+		case "5": $month_name = "Ð¼Ð°Ñ"; break;
+		case "6": $month_name = "Ð¸ÑŽÐ½Ñ"; break;
+		case "7": $month_name = "Ð¸ÑŽÐ»Ñ"; break;
+		case "8": $month_name = "Ð°Ð²Ð³ÑƒÑÑ‚Ð°"; break;
+		case "9": $month_name = "ÑÐµÐ½Ñ‚ÑÐ±Ñ€Ñ"; break;
+		case "10": $month_name = "Ð¾ÐºÑ‚ÑÐ±Ñ€Ñ"; break;
+		case "11": $month_name = "Ð½Ð¾ÑÐ±Ñ€Ñ"; break;
+		case "12": $month_name = "Ð´ÐµÐºÐ°Ð±Ñ€Ñ"; break;
 	}
 	return $month_name;
 }
@@ -166,25 +166,25 @@ function base_get_weekday_name($number)
 	{
 		default: break;
 		case "1":
-			$name = "Ïîíåäåëüíèê";
+			$name = "ÐŸÐ¾Ð½ÐµÐ´ÐµÐ»ÑŒÐ½Ð¸Ðº";
 		break;
 		case "2":
-			$name = "Âòîðíèê";
+			$name = "Ð’Ñ‚Ð¾Ñ€Ð½Ð¸Ðº";
 		break;
 		case "3":
-			$name = "Ñðåäà";
+			$name = "Ð¡Ñ€ÐµÐ´Ð°";
 		break;
 		case "4":
-			$name = "×åòâåðã";
+			$name = "Ð§ÐµÑ‚Ð²ÐµÑ€Ð³";
 		break;
 		case "5":
-			$name = "Ïÿòíèöà";
+			$name = "ÐŸÑÑ‚Ð½Ð¸Ñ†Ð°";
 		break;
 		case "6":
-			$name = "Ñóááîòà";
+			$name = "Ð¡ÑƒÐ±Ð±Ð¾Ñ‚Ð°";
 		break;
 		case "7":
-			$name = "Âîñêðåñåíüå";
+			$name = "Ð’Ð¾ÑÐºÑ€ÐµÑÐµÐ½ÑŒÐµ";
 		break;
 	}
 	return $name;
@@ -202,20 +202,20 @@ function transliterate($string, $lang_from, $lang_to, $if_safe = 1)
 	if ("ru" == $lang_from && "en" == $lang_to)
 	{
 			$new_string = strtr($string, 
-				"àáâãäåæçèéêëìíîïðñòóôûýÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÛÝ",
+				"Ð°Ð±Ð²Ð³Ð´ÐµÐ¶Ð·Ð¸Ð¹ÐºÐ»Ð¼Ð½Ð¾Ð¿Ñ€ÑÑ‚ÑƒÑ„Ñ‹ÑÐÐ‘Ð’Ð“Ð”Ð•Ð–Ð—Ð˜Ð™ÐšÐ›ÐœÐÐžÐŸÐ Ð¡Ð¢Ð£Ð¤Ð«Ð­",
 			    "abvgdejziyklmnoprstufyeABVGDEJZIYKLMNOPRSTUFYE"
 			);
 			$new_string = strtr($new_string, array(
-			'¸'=>"yo",    'õ'=>"h",  'ö'=>"ts",  '÷'=>"ch", 'ø'=>"sh",  
-			'ù'=>"sch",   'ú'=>'',   'ü'=>'',    'þ'=>"yu", 'ÿ'=>"ya",
-			'¨'=>"Yo",    'Õ'=>"H",  'Ö'=>"Ts",  '×'=>"Ch", 'Ø'=>"Sh",
-			'Ù'=>"Sch",   'Ú'=>'',   'Ü'=>'',    'Þ'=>"Yu", 'ß'=>"Ya"
+			'Ñ‘'=>"yo",    'Ñ…'=>"h",  'Ñ†'=>"ts",  'Ñ‡'=>"ch", 'Ñˆ'=>"sh",  
+			'Ñ‰'=>"sch",   'ÑŠ'=>'',   'ÑŒ'=>'',    'ÑŽ'=>"yu", 'Ñ'=>"ya",
+			'Ð'=>"Yo",    'Ð¥'=>"H",  'Ð¦'=>"Ts",  'Ð§'=>"Ch", 'Ð¨'=>"Sh",
+			'Ð©'=>"Sch",   'Ðª'=>'',   'Ð¬'=>'',    'Ð®'=>"Yu", 'Ð¯'=>"Ya"
 			));
 	}
 
 	if ($if_safe)
 			$new_string = strtr($new_string, array(
-				' '=>'-', '?'=>'', ','=>'', '.'=>'', ':'=>'-', '«'=>'', '»'=>'', ';'=>'-', '!'=>'-', '&'=>'-'
+				' '=>'-', '?'=>'', ','=>'', '.'=>'', ':'=>'-', 'Â«'=>'', 'Â»'=>'', ';'=>'-', '!'=>'-', '&'=>'-'
 			));
 
 	return $new_string;
@@ -438,10 +438,10 @@ if(!function_exists('mime_content_type'))
 
 function format_bytes($bytes)
 {
-   if ($bytes < 1024) return $bytes.' á.';
-   elseif ($bytes < 1048576) return round($bytes / 1024, 0).' ÊÁ';
-   elseif ($bytes < 1073741824) return round($bytes / 1048576, 2).' ÌÁ';
-   elseif ($bytes < 1099511627776) return round($bytes / 1073741824, 2).' ÃÁ';
+   if ($bytes < 1024) return $bytes.' Ð±.';
+   elseif ($bytes < 1048576) return round($bytes / 1024, 0).' ÐšÐ‘';
+   elseif ($bytes < 1073741824) return round($bytes / 1048576, 2).' ÐœÐ‘';
+   elseif ($bytes < 1099511627776) return round($bytes / 1073741824, 2).' Ð“Ð‘';
    else return round($bytes / 1099511627776, 2).' TB';
 }
 

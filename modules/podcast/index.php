@@ -167,7 +167,7 @@ function podcast_default_action()
                 switch ($_GET['action'])
                 {
                         default:
-							$config['themes']['page_title']['action'] = "Просмотр выпусков подкаста";							
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РІС‹РїСѓСЃРєРѕРІ РїРѕРґРєР°СЃС‚Р°";							
 							$cnt = podcast_view_by_category();
 							$content .= gen_content("podcast", "view_by_category", array_merge($module_data, $cnt));
                         break;
@@ -207,7 +207,7 @@ function podcast_default_action()
 						case "add":
 							if ($priv -> has("podcast", "admin", "write"))
 							{
-								$config['themes']['page_title']['action'] = "Добавление выпуска подкаста";
+								$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РІС‹РїСѓСЃРєР° РїРѕРґРєР°СЃС‚Р°";
 
 								$fl = new File();
 								$_POST['image'] = $fl -> upload("image");
@@ -231,7 +231,7 @@ function podcast_default_action()
                         case "edit":
 							if ($priv -> has("podcast", "admin", "write"))
 							{
-								$config['themes']['page_title']['action'] = "Редактирование выпуска подкаста";
+								$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІС‹РїСѓСЃРєР° РїРѕРґРєР°СЃС‚Р°";
 
 								$fl = new File();
 								$_POST['image'] = $fl -> upload("image");
@@ -258,7 +258,7 @@ function podcast_default_action()
                         case "del":
 							if ($priv -> has("podcast", "admin", "write"))
 							{
-								$config['themes']['page_title']['action'] = "Удаление выпуска подкаста";
+								$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РІС‹РїСѓСЃРєР° РїРѕРґРєР°СЃС‚Р°";
 
 								$dob = new DataObject();
 								$dob -> table = "ksh_podcast";
@@ -270,13 +270,13 @@ function podcast_default_action()
                         break;
 
                         case "view_by_category":
-							$config['themes']['page_title']['action'] = "Просмотр выпусков подкаста";							
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РІС‹РїСѓСЃРєРѕРІ РїРѕРґРєР°СЃС‚Р°";							
 							$cnt = podcast_view_by_category();
 							$content .= gen_content("podcast", "view_by_category", array_merge($module_data, $cnt));
                         break;
 
 						case "privileges_edit":
-							$config['themes']['page_title']['action'] = "Назначение прав";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";
 							$priv = new Privileges();
 							$cnt = $priv -> edit("podcast");
 							$content .= gen_content("podcast", "privileges_edit", array_merge($module_data, $cnt));
@@ -297,7 +297,7 @@ function podcast_default_action()
         else
         {
                 debug ("*** action: default");
-				$config['themes']['page_title']['action'] = "Просмотр выпусков подкаста";							
+				$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РІС‹РїСѓСЃРєРѕРІ РїРѕРґРєР°СЃС‚Р°";							
 				$cnt = podcast_view_by_category();
 				$content .= gen_content("podcast", "view_by_category", array_merge($module_data, $cnt));
         }

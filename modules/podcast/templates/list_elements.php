@@ -6,6 +6,6 @@
 #date#. <a href="#site_url##enclosure#">#title#</a> (#min#:#sec#)</a><br>
 #subtitle#<br>
 #summary#<br>
-{{if:show_admin_link:<br><span class="more"><a href="/podcast/edit/#id#/">Редактировать</a>&nbsp;<a href="#inst_root#/podcast/del/#id#/">Удалить</a></span>}}
+{{if:show_admin_link:<br><span class="more"><a href="/podcast/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href="#inst_root#/podcast/del/#id#/">РЈРґР°Р»РёС‚СЊ</a></span>}}
 </td>
 </tr>

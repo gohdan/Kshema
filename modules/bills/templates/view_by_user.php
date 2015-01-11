@@ -1,12 +1,12 @@
 {{if:title:<h1>#title#</h1>}}
 
 <p>
-<a href="/users/profile_view/">Ваш профиль</a>
+<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a>
 </p>
 
-{{if:show_admin_link:<p><a href="/#module_name#/admin/">Меню администрирования</a></p>}}
+{{if:show_admin_link:<p><a href="/#module_name#/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a></p>}}
 
-{{if:show_add_link:<p><a href="/#module_name#/add/">Добавить объявление</a></p>}}
+{{if:show_add_link:<p><a href="/#module_name#/add/">Р”РѕР±Р°РІРёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ</a></p>}}
 
 
 
@@ -24,19 +24,19 @@
 {{if:pages:<p>#pages#</p>}}
 </td>
 <td class="elements_sending_bbs_selection">
-{{if:categories_select:Тематика:<br><select name="categories[]" multiple size="5"><option value="0"}}
+{{if:categories_select:РўРµРјР°С‚РёРєР°:<br><select name="categories[]" multiple size="5"><option value="0"}}
 {{if:all_categories_selected: selected}}
-{{if:categories_select:>Все</option>#categories_select#</select>}}
+{{if:categories_select:>Р’СЃРµ</option>#categories_select#</select>}}
 
 <br>
 
-{{if:sections_select:Разделы:<br><select name="sections[]" multiple size="5"><option value="0"}}
+{{if:sections_select:Р Р°Р·РґРµР»С‹:<br><select name="sections[]" multiple size="5"><option value="0"}}
 {{if:all_sections_selected: selected}}
-{{if:sections_select:>Все</option>#sections_select#</select>
+{{if:sections_select:>Р’СЃРµ</option>#sections_select#</select>
 
 <br>
 
-<input type="submit" name="do_search" value="Подобрать">
+<input type="submit" name="do_search" value="РџРѕРґРѕР±СЂР°С‚СЊ">
 }}
 <br>
 <br>
@@ -45,11 +45,11 @@
 
 <br> 
 {{if:show_send_form:
-<input type="radio" name="send_type" value="1" checked>Все объявления на всех досках<br>
-<input type="radio" name="send_type" value="2">Все объявления на всех разделах всех досок<br>
-<input type="radio" name="send_type" value="3">Ротация по разделам<br>
-<input type="radio" name="send_type" value="4">Ротация по доскам<br>
-<input type="submit" name="do_send" value="Разместить">
+<input type="radio" name="send_type" value="1" checked>Р’СЃРµ РѕР±СЉСЏРІР»РµРЅРёСЏ РЅР° РІСЃРµС… РґРѕСЃРєР°С…<br>
+<input type="radio" name="send_type" value="2">Р’СЃРµ РѕР±СЉСЏРІР»РµРЅРёСЏ РЅР° РІСЃРµС… СЂР°Р·РґРµР»Р°С… РІСЃРµС… РґРѕСЃРѕРє<br>
+<input type="radio" name="send_type" value="3">Р РѕС‚Р°С†РёСЏ РїРѕ СЂР°Р·РґРµР»Р°Рј<br>
+<input type="radio" name="send_type" value="4">Р РѕС‚Р°С†РёСЏ РїРѕ РґРѕСЃРєР°Рј<br>
+<input type="submit" name="do_send" value="Р Р°Р·РјРµСЃС‚РёС‚СЊ">
 }}
 </form>
 

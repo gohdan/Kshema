@@ -1,16 +1,16 @@
-<h1>#module_title# - Категории</h1>
+<h1>#module_title# - РљР°С‚РµРіРѕСЂРёРё</h1>
 
 <p>
-<a href="/index.php?module=#module_name#&action=admin">Вернуться в основное меню администрирования</a>
+<a href="/index.php?module=#module_name#&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=#module_name#&action=categories_add">Добавить категорию</a>
+<a href="/index.php?module=#module_name#&action=categories_add">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 <p>#content#</p>
 
 <table class="categories_list">
-<tr><th>ID</th><th>Порядок</th><th>Системное название</th><th>Отображаемое название</th></tr>
+<tr><th>ID</th><th>РџРѕСЂСЏРґРѕРє</th><th>РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ</th><th>РћС‚РѕР±СЂР°Р¶Р°РµРјРѕРµ РЅР°Р·РІР°РЅРёРµ</th></tr>
 #categories#
 </table>

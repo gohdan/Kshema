@@ -1,1 +1,1 @@
-Системное название: <input type="text" name="#name#" value="#name#"> Расшифровка: <input type="text" name="#descr#" value="#descr#"><br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ: <input type="text" name="#name#" value="#name#"> Р Р°СЃС€РёС„СЂРѕРІРєР°: <input type="text" name="#descr#" value="#descr#"><br>

@@ -1,17 +1,17 @@
-<h1>Удаление страницы</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ СЃС‚СЂР°РЅРёС†С‹</h1>
 
 <p>
-<a href="/pages/admin/">Вернуться в меню администрирования</a><br>
-<a href="/pages/help#pages_del">Справка</a>
+<a href="/pages/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/pages/help#pages_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
-<p>Вы действительно хотите удалить страницу <b>#title#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЃС‚СЂР°РЅРёС†Сѓ <b>#title#</b>?</p>
 
 #content#
 
 <form action="/pages/list_view/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

@@ -16,7 +16,7 @@ function weather_create_table_query()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	/* Creating weather table */
@@ -71,7 +71,7 @@ function weather_tables_create()
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 
 	debug ("*** end: weather_tables_create ***");        
@@ -111,7 +111,7 @@ function weather_tables_drop()
 			}
 
 			foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-           $content['result'] .= "Таблицы БД успешно удалены";
+           $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
     }
     debug ("*** end: drop_db");
 	debug ("*** end: weather_tables_drop ***");
@@ -139,7 +139,7 @@ function weather_tables_update()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 
@@ -204,7 +204,7 @@ function weather_tables_update()
     if ($queries_qty > 0)
     {
         foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-        $content['result'] .= "Запросы выполнены";
+        $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
 	debug ("*** weather_tables_update ***");        
     return $content;

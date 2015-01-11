@@ -22,7 +22,7 @@ function podcast_table_create($table)
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
     $queries[] = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table)."` (
@@ -45,10 +45,10 @@ function podcast_table_create($table)
     if ($queries_qty > 0)
     {
             foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-            $content['result'] .= "Запросы выполнены";
+            $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
     else
- 	 	$content['result'] .= "Нечего выполнять";
+ 	 	$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 
 	debug("*** end: podcast_table_create ***");
 	return $content;
@@ -73,7 +73,7 @@ function podcast_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$cat = new Category();
@@ -95,22 +95,22 @@ function podcast_install_tables()
 	$result = $cnf -> create_table();
 	$content['result'] .= " ".$result['result'];
 	$queries[] = "ALTER TABLE `ksh_podcast_config` CHANGE `value` `value` mediumtext";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('default_action', 'frontpage', 'Действие по умолчанию')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('title', '', 'Название подкаста')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('link', '', 'Ссылка на сайт')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('rss_link', '', 'Ссылка на RSS')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('language', '', 'Язык')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('copyright', '', 'Копирайт')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subtitle', '', 'Подзаголовок подкаста')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('author', '', 'Автор')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('summary', '', 'Краткое описание')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('description', '', 'Подробное описание')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_name', '', 'Имя владельца')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_email', '', 'E-mail владельца')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('image', '', 'URL изображения-описания')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('category', '', 'Категория в iTunes')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subcategory', '', 'Подкатегория в iTunes')";
-	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('explicit', 'Clean', 'Содержит ли контент для взрослых (если нет - Clean)')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('default_action', 'frontpage', 'Р”РµР№СЃС‚РІРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('title', '', 'РќР°Р·РІР°РЅРёРµ РїРѕРґРєР°СЃС‚Р°')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('link', '', 'РЎСЃС‹Р»РєР° РЅР° СЃР°Р№С‚')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('rss_link', '', 'РЎСЃС‹Р»РєР° РЅР° RSS')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('language', '', 'РЇР·С‹Рє')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('copyright', '', 'РљРѕРїРёСЂР°Р№С‚')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subtitle', '', 'РџРѕРґР·Р°РіРѕР»РѕРІРѕРє РїРѕРґРєР°СЃС‚Р°')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('author', '', 'РђРІС‚РѕСЂ')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('summary', '', 'РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('description', '', 'РџРѕРґСЂРѕР±РЅРѕРµ РѕРїРёСЃР°РЅРёРµ')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_name', '', 'РРјСЏ РІР»Р°РґРµР»СЊС†Р°')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_email', '', 'E-mail РІР»Р°РґРµР»СЊС†Р°')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('image', '', 'URL РёР·РѕР±СЂР°Р¶РµРЅРёСЏ-РѕРїРёСЃР°РЅРёСЏ')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('category', '', 'РљР°С‚РµРіРѕСЂРёСЏ РІ iTunes')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subcategory', '', 'РџРѕРґРєР°С‚РµРіРѕСЂРёСЏ РІ iTunes')";
+	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('explicit', 'Clean', 'РЎРѕРґРµСЂР¶РёС‚ Р»Рё РєРѕРЅС‚РµРЅС‚ РґР»СЏ РІР·СЂРѕСЃР»С‹С… (РµСЃР»Рё РЅРµС‚ - Clean)')";
 	$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('', '', '')";
 
 	$res = podcast_table_create("ksh_podcast");
@@ -122,10 +122,10 @@ function podcast_install_tables()
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 	else
-		$content['result'] .= "Нечего выполнять";
+		$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 
     debug ("*** end: podcast_install_tables ***");
     return $content;
@@ -155,7 +155,7 @@ function podcast_drop_tables()
 				}
 
                 foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-                $content['result'] .= "Таблицы БД успешно удалены";
+                $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
         }
 
 
@@ -189,7 +189,7 @@ function podcast_update_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 
@@ -231,22 +231,22 @@ function podcast_update_tables()
 		$cnf -> create_table();
 
 		$queries[] = "ALTER TABLE `ksh_podcast_config` CHANGE `value` `value` mediumtext";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('default_action', 'frontpage', 'Действие по умолчанию')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('title', '', 'Название подкаста')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('link', '', 'Ссылка на сайт')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('rss_link', '', 'Ссылка на RSS')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('language', '', 'Язык')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('copyright', '', 'Копирайт')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subtitle', '', 'Подзаголовок подкаста')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('author', '', 'Автор')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('summary', '', 'Краткое описание')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('description', '', 'Подробное описание')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_name', '', 'Имя владельца')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_email', '', 'E-mail владельца')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('image', '', 'URL изображения-описания')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('category', '', 'Категория в iTunes')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subcategory', '', 'Подкатегория в iTunes')";
-		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('explicit', 'Clean', 'Содержит ли контент для взрослых (если нет - Clean)')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('default_action', 'frontpage', 'Р”РµР№СЃС‚РІРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('title', '', 'РќР°Р·РІР°РЅРёРµ РїРѕРґРєР°СЃС‚Р°')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('link', '', 'РЎСЃС‹Р»РєР° РЅР° СЃР°Р№С‚')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('rss_link', '', 'РЎСЃС‹Р»РєР° РЅР° RSS')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('language', '', 'РЇР·С‹Рє')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('copyright', '', 'РљРѕРїРёСЂР°Р№С‚')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subtitle', '', 'РџРѕРґР·Р°РіРѕР»РѕРІРѕРє РїРѕРґРєР°СЃС‚Р°')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('author', '', 'РђРІС‚РѕСЂ')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('summary', '', 'РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('description', '', 'РџРѕРґСЂРѕР±РЅРѕРµ РѕРїРёСЃР°РЅРёРµ')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_name', '', 'РРјСЏ РІР»Р°РґРµР»СЊС†Р°')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('owner_email', '', 'E-mail РІР»Р°РґРµР»СЊС†Р°')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('image', '', 'URL РёР·РѕР±СЂР°Р¶РµРЅРёСЏ-РѕРїРёСЃР°РЅРёСЏ')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('category', '', 'РљР°С‚РµРіРѕСЂРёСЏ РІ iTunes')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('subcategory', '', 'РџРѕРґРєР°С‚РµРіРѕСЂРёСЏ РІ iTunes')";
+		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('explicit', 'Clean', 'РЎРѕРґРµСЂР¶РёС‚ Р»Рё РєРѕРЅС‚РµРЅС‚ РґР»СЏ РІР·СЂРѕСЃР»С‹С… (РµСЃР»Рё РЅРµС‚ - Clean)')";
 		$queries[] = "INSERT INTO `ksh_podcast_config` (`name`, `value`, `descr`) VALUES ('', '', '')";
 	}
 
@@ -286,10 +286,10 @@ function podcast_update_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] = "Запросы выполнены";
+                $content['result'] = "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
         else
-        	$content['result'] = "Нечего выполнять";
+        	$content['result'] = "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 	debug ("*** end: podcast_update_tables ***");
     return $content;
 }

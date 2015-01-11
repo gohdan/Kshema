@@ -470,8 +470,8 @@ function bills_get_cname($bb_id, $category_id)
 			if (count($addresses) > 0)
 			{
 				debug("inform_moderators: have addresses, sending mail");
-				$subj = "Новое объявление";
-				$headers = "Content-type: text/plain; charset=windows-1251 \r\n";
+				$subj = "РќРѕРІРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ";
+				$headers = "Content-type: text/plain; charset=utf-8 \r\n";
 	
 				$message = gen_content("bills", "email_moderators", $cnt);
 		

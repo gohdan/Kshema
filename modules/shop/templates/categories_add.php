@@ -1,6 +1,6 @@
-<h1>Добавление категорий</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
-<p><a href="/index.php?module=shop&action=categories_view">К просмотру категорий</a></p>
+<p><a href="/index.php?module=shop&action=categories_view">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a></p>
 
 <hr>
 
@@ -9,13 +9,13 @@
 <p>#content#</p>
 
 <form action="/index.php?module=shop&action=categories_add" method="post">
-Название: <input type="text" name="name"><br>
-Добавить как подкатегорию в:
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="name"><br>
+Р”РѕР±Р°РІРёС‚СЊ РєР°Рє РїРѕРґРєР°С‚РµРіРѕСЂРёСЋ РІ:
 <select name="parent">
 <option value="0"></option>
 #categories_select#
 </select><br>
-Шаблон страницы <i>(по умолчанию - default)</i>: <input type="text" name="template" value="default"><br>
-<input type="submit" name="do_add" value="Добавить">
+РЁР°Р±Р»РѕРЅ СЃС‚СЂР°РЅРёС†С‹ <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - default)</i>: <input type="text" name="template" value="default"><br>
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>
 

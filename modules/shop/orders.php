@@ -34,7 +34,7 @@ function shop_orders_create()
 	if ("" == $user_data['first_name'] || "" == $user_data['second_name'] || "" == $user_data['sur_name'] || "" == $user_data['country'] || "" == $user_data['post_code'] || "" == $user_data['area'] || "" == $user_data['city'] || "" == $user_data['address'])
     {
         debug ("address doesn't exist!");
-        $content['content'] .= "Прежде, чем оформлять заказ, пожалуйста, <a href=\"/index.php?module=users&action=profile_edit\">укажите данные для доставки</a>.";
+        $content['content'] .= "РџСЂРµР¶РґРµ, С‡РµРј РѕС„РѕСЂРјР»СЏС‚СЊ Р·Р°РєР°Р·, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, <a href=\"/index.php?module=users&action=profile_edit\">СѓРєР°Р¶РёС‚Рµ РґР°РЅРЅС‹Рµ РґР»СЏ РґРѕСЃС‚Р°РІРєРё</a>.";
     }
     else
     {
@@ -72,7 +72,7 @@ function shop_orders_send()
 
 	if (0 == $_SESSION['authed'])
 	{
-		$content['content'] .= "Пожалуйста, сначала войдите на сервер.";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРѕР№РґРёС‚Рµ РЅР° СЃРµСЂРІРµСЂ.";
 	}
 	else
 	{
@@ -83,7 +83,7 @@ function shop_orders_send()
 		if (0 == $items_qty)
 		{
 			debug ("no items in the cart");
-			$content['content'] .= "Ваша корзина пуста. Пожалуйста, прежде чем делать заказ, добавьте в неё товары.";
+			$content['content'] .= "Р’Р°С€Р° РєРѕСЂР·РёРЅР° РїСѓСЃС‚Р°. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРµР¶РґРµ С‡РµРј РґРµР»Р°С‚СЊ Р·Р°РєР°Р·, РґРѕР±Р°РІСЊС‚Рµ РІ РЅРµС‘ С‚РѕРІР°СЂС‹.";
 		}
 		else
 		{
@@ -100,23 +100,23 @@ function shop_orders_send()
 				exec_query("DELETE FROM ksh_shop_carts WHERE id='".mysql_real_escape_string($row['id'])."'");
 
 				$good_name = stripslashes(mysql_result(exec_query("SELECT name FROM ksh_shop_goods WHERE id='".$row['good']."'"), 0, 0));
-				$goods .= $good_name." - ".$row['new_qty']." экз.\r\n";
+				$goods .= $good_name." - ".$row['new_qty']." СЌРєР·.\r\n";
 
 
 			}
 			mysql_free_result($result);
-			$content['result'] .= "Ваш заказ отправлен на обработку.";
+			$content['result'] .= "Р’Р°С€ Р·Р°РєР°Р· РѕС‚РїСЂР°РІР»РµРЅ РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ.";
 
 			$result = exec_query("SELECT login, name FROM ksh_users WHERE id='".mysql_real_escape_string($user['id'])."'");
 			$usr = mysql_fetch_array($result);
 
-			$mail['subject'] = "Новый заказ в магазине ".$config['base']['site_name'];
-			$mail['headers'] = "Content-type: text/plain; charset=windows-1251 \r\n";
-			$mail['body'] = "В магазине ".$config['base']['site_name']." оформлен новый заказ.\r\n";
-			$mail['body'] .= "Номер заказа - ".$order_id."\r\n";
-			$mail['body'] .= "Пользователь - ".stripslashes($usr['name'])." (".stripslashes($usr['login']).")\r\n";
-			$mail['body'] .= "<a href=\"".$config['base']['site_url']."/index.php?module=shop&action=orders_view&order=".$order_id."\">Просмотреть заказ</a> (или воспользуйтесь ссылкой ".$config['base']['site_url']."/index.php?module=shop&action=orders_view&order=".$order_id.")\r\n";
-			$mail['body'] .= "Товары: \r\n".$goods;
+			$mail['subject'] = "РќРѕРІС‹Р№ Р·Р°РєР°Р· РІ РјР°РіР°Р·РёРЅРµ ".$config['base']['site_name'];
+			$mail['headers'] = "Content-type: text/plain; charset=utf-8 \r\n";
+			$mail['body'] = "Р’ РјР°РіР°Р·РёРЅРµ ".$config['base']['site_name']." РѕС„РѕСЂРјР»РµРЅ РЅРѕРІС‹Р№ Р·Р°РєР°Р·.\r\n";
+			$mail['body'] .= "РќРѕРјРµСЂ Р·Р°РєР°Р·Р° - ".$order_id."\r\n";
+			$mail['body'] .= "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ - ".stripslashes($usr['name'])." (".stripslashes($usr['login']).")\r\n";
+			$mail['body'] .= "<a href=\"".$config['base']['site_url']."/index.php?module=shop&action=orders_view&order=".$order_id."\">РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РєР°Р·</a> (РёР»Рё РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СЃСЃС‹Р»РєРѕР№ ".$config['base']['site_url']."/index.php?module=shop&action=orders_view&order=".$order_id.")\r\n";
+			$mail['body'] .= "РўРѕРІР°СЂС‹: \r\n".$goods;
 
 			debug ($mail['body']);
 
@@ -145,7 +145,7 @@ function shop_orders_view_all()
 	if (1 != $user['id'])
 	{
 		debug ("user isn't admin!");
-		$content['content'] .= "Пожалуйста, войдите в систему как администратор.";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.";
 	}
 	else
 	{
@@ -189,11 +189,11 @@ function shop_orders_view_all()
 			$content['orders'][$i]['status'] = stripslashes($row['status']);
 			$content['orders'][$i]['date'] = stripslashes($row['date']);
 
-			// Определяем статус заказа
+			// РћРїСЂРµРґРµР»СЏРµРј СЃС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°
 			if ("" != $row['status'])
 				$content['orders'][$i]['order_status'] = stripslashes(mysql_result(exec_query("SELECT status FROM ksh_shop_orders_statuses WHERE id='".mysql_real_escape_string($row['status'])."'"), 0, 0));
 			else
-				$content['orders'][$i]['order_status'] = "В обработке";
+				$content['orders'][$i]['order_status'] = "Р’ РѕР±СЂР°Р±РѕС‚РєРµ";
 
 			$content['orders'][$i]['user_email'] = stripslashes(mysql_result(mysql_query("SELECT login FROM ksh_users WHERE id='".mysql_real_escape_string($row['user'])."'"), 0, 0));
 			$content['orders'][$i]['user_name'] = stripslashes(mysql_result(mysql_query("SELECT name FROM ksh_users WHERE id='".mysql_real_escape_string($row['user'])."'"), 0, 0));
@@ -279,11 +279,11 @@ function shop_orders_view_by_user()
 			$content['orders_by_user'][$i]['status'] = stripslashes($row['status']);
 			$content['orders_by_user'][$i]['date'] = stripslashes($row['date']);
 
-			// Определяем статус заказа
+			// РћРїСЂРµРґРµР»СЏРµРј СЃС‚Р°С‚СѓСЃ Р·Р°РєР°Р·Р°
 			if ("" != $row['status'])
 				$content['orders_by_user'][$i]['order_status'] = stripslashes(mysql_result(exec_query("SELECT status FROM ksh_shop_orders_statuses WHERE id='".mysql_real_escape_string($row['status'])."'"), 0, 0));
 			else
-				$content['orders_by_user'][$i]['order_status'] = "В обработке";
+				$content['orders_by_user'][$i]['order_status'] = "Р’ РѕР±СЂР°Р±РѕС‚РєРµ";
 			$i++;
 
 		}
@@ -293,7 +293,7 @@ function shop_orders_view_by_user()
 	else
 	{
 		debug ("user doesn't have rights");
-		$content['content'] .= "Извините, Вы не можете смотреть заказы этого пользователя.";
+		$content['content'] .= "РР·РІРёРЅРёС‚Рµ, Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃРјРѕС‚СЂРµС‚СЊ Р·Р°РєР°Р·С‹ СЌС‚РѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.";
 	}
 
 	debug ("*** end:shop_orders_view_by_user ***");
@@ -327,7 +327,7 @@ function shop_orders_view()
 		$content['delete'] = "yes";
 		$content['admin_link'] = "yes";
 
-		// Если нужно сменить статус, изменяем
+		// Р•СЃР»Рё РЅСѓР¶РЅРѕ СЃРјРµРЅРёС‚СЊ СЃС‚Р°С‚СѓСЃ, РёР·РјРµРЅСЏРµРј
         if (isset($_POST['do_change_status']))
         {
                 debug ("changing status of an order");
@@ -349,29 +349,29 @@ function shop_orders_view()
 	if (($row['user'] != $user['id']) && (1 != $user['id']))
 	{
 		debug ("user doesn't have enough rights!");
-		$content['content'] .= "Пожалуйста, войдите в систему как соответствующий пользователь или администратор.";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РёР»Рё Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.";
 	}
 	else
 	{
 		debug ("user does have enough rights");
 
-		// Если нужно отменить заказ, отменяем
+		// Р•СЃР»Рё РЅСѓР¶РЅРѕ РѕС‚РјРµРЅРёС‚СЊ Р·Р°РєР°Р·, РѕС‚РјРµРЅСЏРµРј
         if (isset($_POST['do_cancel']))
         {
                 debug ("canceling an order");
                 exec_query("UPDATE ksh_shop_orders SET status='4', date=CURDATE() WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-                $content['result'] .= "Ваш заказ отменён. Через некоторое время администратор удалит его.";
+                $content['result'] .= "Р’Р°С€ Р·Р°РєР°Р· РѕС‚РјРµРЅС‘РЅ. Р§РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ СѓРґР°Р»РёС‚ РµРіРѕ.";
                 $_GET['order'] = $_POST['id'];
 				$row['status'] = 4;
 
 				$result = exec_query("SELECT login, name FROM ksh_users WHERE id='".mysql_real_escape_string($user['id'])."'");
 				$usr = mysql_fetch_array($result);
 
-				$mail['subject'] = "Отмена заказа в магазине ".$config['base']['site_name'];
+				$mail['subject'] = "РћС‚РјРµРЅР° Р·Р°РєР°Р·Р° РІ РјР°РіР°Р·РёРЅРµ ".$config['base']['site_name'];
 				$mail['headers'] = "Content-type: text/plain; charset=windows-1251 \r\n";
-				$mail['body'] = "В магазине ".$config['base']['site_name']." отменён заказ.\r\n";
-				$mail['body'] .= "Номер заказа - ".$_POST['id']."\r\n";
-				$mail['body'] .= "Пользователь - ".stripslashes($usr['name'])." (".stripslashes($usr['login']).")\r\n";
+				$mail['body'] = "Р’ РјР°РіР°Р·РёРЅРµ ".$config['base']['site_name']." РѕС‚РјРµРЅС‘РЅ Р·Р°РєР°Р·.\r\n";
+				$mail['body'] .= "РќРѕРјРµСЂ Р·Р°РєР°Р·Р° - ".$_POST['id']."\r\n";
+				$mail['body'] .= "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ - ".stripslashes($usr['name'])." (".stripslashes($usr['login']).")\r\n";
 				mail ($config['base']['admin_email'], $mail['subject'], $mail['body'], $mail['headers']);
 				mail ($config['base']['webmaster_email'], $mail['subject'], $mail['body'], $mail['headers']);
 
@@ -383,11 +383,11 @@ function shop_orders_view()
 		if ("" != $row['status'])
 			$order_status = stripslashes(mysql_result(exec_query("SELECT status FROM ksh_shop_orders_statuses WHERE id='".mysql_real_escape_string($row['status'])."'"), 0, 0));
 		else
-			$order_status = "В обработке";
+			$order_status = "Р’ РѕР±СЂР°Р±РѕС‚РєРµ";
 
 		debug ("showing order ".$order['id']);
 		if ("" == $row['date'])
-			$content['date'] = "нет даты";
+			$content['date'] = "РЅРµС‚ РґР°С‚С‹";
 		else
 			$content['date'] = stripslashes($row['date']);
 		$content['id'] = stripslashes($row['id']);
@@ -483,7 +483,7 @@ function shop_orders_view()
 		$content['city'] = stripslashes($user_data['city']);
 		$content['address'] = stripslashes($user_data['address']);
 
-		if ("Отмена" != $order_status) $content['cancel'] = "yes";
+		if ("РћС‚РјРµРЅР°" != $order_status) $content['cancel'] = "yes";
 
 	}
 

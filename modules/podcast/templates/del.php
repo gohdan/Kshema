@@ -1,20 +1,20 @@
-<h1>Удаление выпуска подкаста</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РІС‹РїСѓСЃРєР° РїРѕРґРєР°СЃС‚Р°</h1>
 
 <p>
-<a href="#inst_root#/podcast/admin/">Вернуться в меню администрирования</a><br>
-<a href="#inst_root#/podcast/view_by_category/1/">Список выпусков</a><br>
+<a href="#inst_root#/podcast/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="#inst_root#/podcast/view_by_category/1/">РЎРїРёСЃРѕРє РІС‹РїСѓСЃРєРѕРІ</a><br>
 </p>
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_del_form:
-<p>Вы действительно хотите удалить выпуск <b>"#title#"</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РІС‹РїСѓСЃРє <b>"#title#"</b>?</p>
 
 
 <form action="#inst_root#/podcast/del/#id#/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>
 }}

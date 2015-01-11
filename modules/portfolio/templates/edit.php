@@ -1,8 +1,8 @@
-<h1>Редактирование портфолио</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїРѕСЂС‚С„РѕР»РёРѕ</h1>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=view_categories">Категории портфолио</a><br>
-<a href="/index.php?module=portfolio&amp;action=help#portfolio_edit">Справка</a>
+<a href="/index.php?module=portfolio&amp;action=view_categories">РљР°С‚РµРіРѕСЂРёРё РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
+<a href="/index.php?module=portfolio&amp;action=help#portfolio_edit">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -14,17 +14,17 @@
 <input type="hidden" name="old_image" value="#image#">
 
 <table summary="portfolio edit table">
-<tr><td>Название:</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Дата <i>(Не меняйте формат!)</i>:</td><td><input type="text" name="date" size="10" align="right" value="#date#"></td></tr>
-<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>Р”Р°С‚Р° <i>(РќРµ РјРµРЅСЏР№С‚Рµ С„РѕСЂРјР°С‚!)</i>:</td><td><input type="text" name="date" size="10" align="right" value="#date#"></td></tr>
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>
 <tr><td colspan="2"><img src="#image#"></td></tr>
-<tr><td>Новое изображение-описание:</td><td><input type="file" name="image"></td></tr>
-<tr><td>Короткое описание:</td></tr>
+<tr><td>РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ:</td><td><input type="file" name="image"></td></tr>
+<tr><td>РљРѕСЂРѕС‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ:</td></tr>
 <tr><td colspan="2"><textarea style="width: 300px; height: 200px;" name="short_descr">#short_descr#</textarea></td></tr>
-<tr><td>Описание:</td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ:</td></tr>
 <tr><td colspan="2"><textarea cols="50" rows="20" name="descr">#descr#</textarea></td></tr>
-<tr><td>Текст:</td></tr>
+<tr><td>РўРµРєСЃС‚:</td></tr>
 <tr><td colspan="2"><textarea cols="50" rows="20" name="full_text">#full_text#</textarea></td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Записать"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 </form>

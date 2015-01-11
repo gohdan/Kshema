@@ -28,13 +28,13 @@ function shop_categories_view()
 		{
 			debug ("user is admin, deleting from DB");
 			exec_query ("delete from ksh_shop_categories where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Категория удалена";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ СѓРґР°Р»РµРЅР°";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Категория не удалена";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ РЅРµ СѓРґР°Р»РµРЅР°";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -49,7 +49,7 @@ function shop_categories_view()
 			$content['categories'][$k]['show_del_link'] = "yes";
 		}
 //		if ("0" != $v['parent']) $content['categories'] .= "<ul>";
-//		$content['categories'] .= "<li>".$v['name']." <a href=\"/index.php?module=shop&action=edit_categories&command=edit_category&id=".$v['id']."\">Редактировать</a> <a href=\"/index.php?module=shop&action=edit_categories&command=del_category&id=".$v['id']."\">Удалить</a></li>";
+//		$content['categories'] .= "<li>".$v['name']." <a href=\"/index.php?module=shop&action=edit_categories&command=edit_category&id=".$v['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> <a href=\"/index.php?module=shop&action=edit_categories&command=del_category&id=".$v['id']."\">РЈРґР°Р»РёС‚СЊ</a></li>";
 //		if ("0" != $v['parent']) $content['categories'] .= "</ul>";
 	}
 
@@ -83,13 +83,13 @@ function shop_categories_add()
 		{
 			debug ("user is admin, inserting into DB");
 			exec_query ("insert into ksh_shop_categories (name, parent, template) values ('".mysql_real_escape_string($_POST['name'])."','".mysql_real_escape_string($_POST['parent'])."', '".mysql_real_escape_string($_POST['template'])."')");
-			$content['result'] = "Категория добавлена";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Категория не добавлена";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ РЅРµ РґРѕР±Р°РІР»РµРЅР°";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -124,13 +124,13 @@ function shop_categories_edit()
 		if (1 == $user['id'])
 		{
 			exec_query ("update ksh_shop_categories set name='".mysql_real_escape_string($_POST['name'])."', parent='".mysql_real_escape_string($_POST['parent'])."', template='".mysql_real_escape_string($_POST['template'])."' where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ РЅРµ Р·Р°РїРёСЃР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -180,7 +180,7 @@ function shop_categories_del()
 
 	$result = exec_query("select count(*) from ksh_shop_categories where parent='".mysql_real_escape_string($_GET['categories'])."'");
 	if ("0" != mysql_result($result, 0, 0))
-		$content['content'] = "Внимание! Категория <b>".$content['name']."</b> содержит в себе подкатегории!";
+		$content['content'] = "Р’РЅРёРјР°РЅРёРµ! РљР°С‚РµРіРѕСЂРёСЏ <b>".$content['name']."</b> СЃРѕРґРµСЂР¶РёС‚ РІ СЃРµР±Рµ РїРѕРґРєР°С‚РµРіРѕСЂРёРё!";
 
 	debug ("*** end:shop_categories_del ***");
 	return $content;

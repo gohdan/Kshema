@@ -1,6 +1,6 @@
-<h1>Просмотр заполненной анкеты</h1>
+<h1>РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РїРѕР»РЅРµРЅРЅРѕР№ Р°РЅРєРµС‚С‹</h1>
 
-<p><a href="/index.php?module=forms&action=view_submitted_forms&type=#type#">К списку анкет</a></p>
+<p><a href="/index.php?module=forms&action=view_submitted_forms&type=#type#">Рљ СЃРїРёСЃРєСѓ Р°РЅРєРµС‚</a></p>
 
 <p>#result#</p>
 
@@ -8,10 +8,10 @@
 
 <p>ID: #id# [#type#]</p>
 
-<p>Заполнена: #date#, #time#</p>
+<p>Р—Р°РїРѕР»РЅРµРЅР°: #date#, #time#</p>
 
 <p>
 #form#
 </p>
 
-<p><a href="/index.php?module=forms&action=del_submitted&forms=#id#">Удалить анкету</a></p>
+<p><a href="/index.php?module=forms&action=del_submitted&forms=#id#">РЈРґР°Р»РёС‚СЊ Р°РЅРєРµС‚Сѓ</a></p>

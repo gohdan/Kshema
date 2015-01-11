@@ -1,6 +1,6 @@
-<h1>Сотрудники</h1>
+<h1>РЎРѕС‚СЂСѓРґРЅРёРєРё</h1>
 
-<p><a href="/index.php?module=store&action=admin">Возврат к администрированию</a></p>
+<p><a href="/index.php?module=store&action=admin">Р’РѕР·РІСЂР°С‚ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ</a></p>
 
 <hr>
 
@@ -8,7 +8,7 @@
 
 <p>#content#</p>
 
-<p><a href="/index.php?module=store&action=users_add">Добавить сотрудника</a></p>
+<p><a href="/index.php?module=store&action=users_add">Р”РѕР±Р°РІРёС‚СЊ СЃРѕС‚СЂСѓРґРЅРёРєР°</a></p>
 
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="tabl">
 #users#

@@ -1,17 +1,17 @@
-<h1>Назначение специфичных названий разделов</h1>
+<h1>РќР°Р·РЅР°С‡РµРЅРёРµ СЃРїРµС†РёС„РёС‡РЅС‹С… РЅР°Р·РІР°РЅРёР№ СЂР°Р·РґРµР»РѕРІ</h1>
 
-{{if:satellite_id:<a href="/bills/admin_satellite/#satellite_id#/">В меню администрирования сателлита</a><br>}}
+{{if:satellite_id:<a href="/bills/admin_satellite/#satellite_id#/">Р’ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃР°С‚РµР»Р»РёС‚Р°</a><br>}}
 
 <form action="/bills/titles_edit/satellite_#satellite_id#/" method="post">
 <input type="hidden" name="id" value="#satellite_id#">
-Сотрите название для вывода, чтобы удалить запись<br>
+РЎРѕС‚СЂРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР°, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ<br>
 #titles#
 <br>
-Добавить название:<br>
+Р”РѕР±Р°РІРёС‚СЊ РЅР°Р·РІР°РЅРёРµ:<br>
 <select name="new_category">#categories_select#</select><br>
-Системное название: <input type="text" size="30" name="new_name"><br>
-Название для вывода: <input type="text" size="30" name="new_title"><br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ: <input type="text" size="30" name="new_name"><br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР°: <input type="text" size="30" name="new_title"><br>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>
 

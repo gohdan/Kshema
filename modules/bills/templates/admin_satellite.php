@@ -1,17 +1,17 @@
-<h1>Управление объявлениями на сателлите</h1>
+<h1>РЈРїСЂР°РІР»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏРјРё РЅР° СЃР°С‚РµР»Р»РёС‚Рµ</h1>
 
 #content#
 
 <p>
-<a href="/users/profile_view/">Ваш профиль</a><br>
-<a href="/bbcpanel/bb_edit/#id#/">Обратно на сателлит</a>
+<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a><br>
+<a href="/bbcpanel/bb_edit/#id#/">РћР±СЂР°С‚РЅРѕ РЅР° СЃР°С‚РµР»Р»РёС‚</a>
 </p>
 
 <p>
-<a href="/bills/config_edit/satellite_#id#/">Настройки</a><br>
-<a href="/bills/sections_edit/satellite_#id#/">Разделы</a><br>
-<a href="/bills/titles_edit/satellite_#id#/">Специфичные названия разделов</a><br>
-<a href="/bills/synchronize/satellite_#id#/">Синхронизировать центральное хранилище объявлений с сателлитом</a><br>
+<a href="/bills/config_edit/satellite_#id#/">РќР°СЃС‚СЂРѕР№РєРё</a><br>
+<a href="/bills/sections_edit/satellite_#id#/">Р Р°Р·РґРµР»С‹</a><br>
+<a href="/bills/titles_edit/satellite_#id#/">РЎРїРµС†РёС„РёС‡РЅС‹Рµ РЅР°Р·РІР°РЅРёСЏ СЂР°Р·РґРµР»РѕРІ</a><br>
+<a href="/bills/synchronize/satellite_#id#/">РЎРёРЅС…СЂРѕРЅРёР·РёСЂРѕРІР°С‚СЊ С†РµРЅС‚СЂР°Р»СЊРЅРѕРµ С…СЂР°РЅРёР»РёС‰Рµ РѕР±СЉСЏРІР»РµРЅРёР№ СЃ СЃР°С‚РµР»Р»РёС‚РѕРј</a><br>
 </p>
 
 <hr>

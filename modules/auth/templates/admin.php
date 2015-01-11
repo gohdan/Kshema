@@ -1,12 +1,12 @@
-<h1>Аутентификация</h1>
+<h1>РђСѓС‚РµРЅС‚РёС„РёРєР°С†РёСЏ</h1>
 
 <p>
-<a href="/index.php?module=modules&action=admin">Возврат в меню администрирования</a>
+<a href="/index.php?module=modules&action=admin">Р’РѕР·РІСЂР°С‚ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=auth&action=change_password">Сменить пароль</a><br>
-<a href="/index.php?module=auth&action=logout">Выйти</a>
+<a href="/index.php?module=auth&action=change_password">РЎРјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ</a><br>
+<a href="/index.php?module=auth&action=logout">Р’С‹Р№С‚Рё</a>
 </p>
 
 

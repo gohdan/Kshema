@@ -1,17 +1,17 @@
-<h1>Удаление таблиц базы данных счётчика посещений</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</h1>
 
-<a href="/index.php?module=counter&action=admin">Вернуться в меню администрирования счётчика посещений</a>
+<a href="/index.php?module=counter&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</a>
 
 #content#
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=counter&action=drop_tables" method="post">
-<input type="checkbox" name="drop_counter_days_table" value="ksh_counter_days">Статистика по дням<br>
-<input type="checkbox" name="drop_counter_monthes_table" value="ksh_counter_monthes">Статистика по месяцам<br>
-<input type="checkbox" name="drop_counter_years_table" value="ksh_counter_years">Статистика по годам<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_counter_days_table" value="ksh_counter_days">РЎС‚Р°С‚РёСЃС‚РёРєР° РїРѕ РґРЅСЏРј<br>
+<input type="checkbox" name="drop_counter_monthes_table" value="ksh_counter_monthes">РЎС‚Р°С‚РёСЃС‚РёРєР° РїРѕ РјРµСЃСЏС†Р°Рј<br>
+<input type="checkbox" name="drop_counter_years_table" value="ksh_counter_years">РЎС‚Р°С‚РёСЃС‚РёРєР° РїРѕ РіРѕРґР°Рј<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

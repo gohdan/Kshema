@@ -1,5 +1,5 @@
 <?php
-/*  Изыдите, демоны тупости!  */
+/*  РР·С‹РґРёС‚Рµ, РґРµРјРѕРЅС‹ С‚СѓРїРѕСЃС‚Рё!  */
 
 session_start();
 
@@ -64,7 +64,7 @@ if ("yes" == $config['counter']['use'])
                 $content = $mod_action();
         	}
             else
-            	$content = "<p>Извините, такого модуля нет.</p>";
+            	$content = "<p>РР·РІРёРЅРёС‚Рµ, С‚Р°РєРѕРіРѕ РјРѕРґСѓР»СЏ РЅРµС‚.</p>";
         }
         else
         {
@@ -78,7 +78,7 @@ if ("yes" == $config['counter']['use'])
                 $content = $mod_action();
         	}
             else
-            	$content = "<p>Извините, назначенного по умолчанию модуля <b>".$config['modules']['default_module']."</b> не существует.</p>";
+            	$content = "<p>РР·РІРёРЅРёС‚Рµ, РЅР°Р·РЅР°С‡РµРЅРЅРѕРіРѕ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РјРѕРґСѓР»СЏ <b>".$config['modules']['default_module']."</b> РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.</p>";
         }
 
 output ($content);

@@ -1,5 +1,5 @@
-<h1>Файлы</h1>
+<h1>Р¤Р°Р№Р»С‹</h1>
 
-{{if:if_show_admin_link:<p><a href="/files/admin/">Администрировать файлы</a></p>}}
+{{if:if_show_admin_link:<p><a href="/files/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ С„Р°Р№Р»С‹</a></p>}}
 
 #content#

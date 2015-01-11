@@ -29,7 +29,7 @@ function events_frontpage()
 
     if (1 == $user['id'])
     {
-        $content['admin_link'] .= "<p><a href=\"/index.php?module=events&action=admin\">Администрировать события</a></p>";
+        $content['admin_link'] .= "<p><a href=\"/index.php?module=events&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЃРѕР±С‹С‚РёСЏ</a></p>";
     }
 
     $result = exec_query("SELECT * FROM ksh_events ORDER BY id ASC LIMIT 30");

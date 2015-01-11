@@ -18,7 +18,7 @@ function shop_demand_view()
 		if (isset($_POST['do_del']))
     	{
 	        exec_query ("delete from ksh_shop_demands where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] .= "Заявка удалена";
+			$content['result'] .= "Р—Р°СЏРІРєР° СѓРґР°Р»РµРЅР°";
 	    }
 
 		$content['demands'] = shop_demand_list();
@@ -27,7 +27,7 @@ function shop_demand_view()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] .= "Пожалуйста, войдите как администратор";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:shop_demand_view ***");
@@ -53,7 +53,7 @@ function shop_demand_add()
 	if (isset($_POST['do_add']))
     {
 		exec_query("INSERT INTO ksh_shop_demands (user, name, author, isbn, commentary) VALUES ('".mysql_real_escape_string($user['id'])."', '".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['author'])."', '".mysql_real_escape_string($_POST['isbn'])."', '".mysql_real_escape_string($_POST['commentary'])."')");
-		$content['result'] .= "Ваша заявка зарегистрирована";
+		$content['result'] .= "Р’Р°С€Р° Р·Р°СЏРІРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅР°";
     }
 	else
 	{

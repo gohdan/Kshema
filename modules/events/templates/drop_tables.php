@@ -1,15 +1,15 @@
-<h1>Удаление таблиц базы данных событий</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃРѕР±С‹С‚РёР№</h1>
 
-<a href="/index.php?module=events&action=admin">Вернуться в меню администрирования событий</a>
+<a href="/index.php?module=events&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃРѕР±С‹С‚РёР№</a>
 
 #content#
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=events&action=drop_tables" method="post">
-<input type="checkbox" name="drop_events_table" value="ksh_events">События<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_events_table" value="ksh_events">РЎРѕР±С‹С‚РёСЏ<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

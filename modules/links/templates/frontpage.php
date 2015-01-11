@@ -1,5 +1,5 @@
-<h1>Ссылки</h1>
+<h1>РЎСЃС‹Р»РєРё</h1>
 
-{{if:if_show_admin_link:<a href="/links/admin/">Администрировать ссылки</a>}}
+{{if:if_show_admin_link:<a href="/links/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЃСЃС‹Р»РєРё</a>}}
 
 #content#

@@ -1,8 +1,8 @@
-<h1>Удаление пользователя</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</h1>
 
 <p>
-<a href="/users/view_users/">К списку пользователей</a><br>
-<a href="/users/help#users_del">Справка</a>
+<a href="/users/view_users/">Рљ СЃРїРёСЃРєСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a><br>
+<a href="/users/help#users_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -11,7 +11,7 @@
 
 <form action="/users/view_users/" method="post">
 <input type="hidden" name="id" value="#id#">
-Вы действительно хотите удалить пользователя <b>#name# (#login#)</b>?<br>
-<input type="submit" name="do_not_del" value="Нет">
-<input type="submit" name="do_del" value="Да">
+Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ <b>#name# (#login#)</b>?<br>
+<input type="submit" name="do_not_del" value="РќРµС‚">
+<input type="submit" name="do_del" value="Р”Р°">
 </form>

@@ -1,7 +1,7 @@
-<h1>Добавление категорий проектов</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№ РїСЂРѕРµРєС‚РѕРІ</h1>
 
 <p>
-<a href="/index.php?module=projects&action=view_categories">Вернуться к просмотру категорий</a><br>
+<a href="/index.php?module=projects&action=view_categories">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
 </p>
 
 <p>#result#</p>
@@ -9,15 +9,15 @@
 <p>#content#</p>
 
 <form action="/index.php?module=projects&action=add_category" method="post" enctype="multipart/form-data">
-Системное название (латинские буквы и цифры): <input type="text" name="name"><br>
-Название для пользователей (любые символы): <input type="text" name="title"><br>
-Отдельная история в томе номер: <input type="text" name="att_project" size="2"><br>
-Автор: <input type="text" name="author"><br>
-Статус:  <select name="status">#statuses#</select><br>
-Изображение-описание: <input type="file" name="image"><br>
-Описание:<br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹): <input type="text" name="name"><br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹): <input type="text" name="title"><br>
+РћС‚РґРµР»СЊРЅР°СЏ РёСЃС‚РѕСЂРёСЏ РІ С‚РѕРјРµ РЅРѕРјРµСЂ: <input type="text" name="att_project" size="2"><br>
+РђРІС‚РѕСЂ: <input type="text" name="author"><br>
+РЎС‚Р°С‚СѓСЃ:  <select name="status">#statuses#</select><br>
+РР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image"><br>
+РћРїРёСЃР°РЅРёРµ:<br>
 <textarea name="descr" style="width: 600px; height: 300px"></textarea><br>
-<input type="submit" name="do_add" value="Добавить">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>
 
 <hr>

@@ -161,20 +161,20 @@ function booking_add()
 
 
 		$to = "order@lawatuna.com";
-		$subject = 	"Форма бронирования";
-		$headers  = "Content-type: text/plain; charset=windows-1251 \r\n";
+		$subject = 	"Р¤РѕСЂРјР° Р±СЂРѕРЅРёСЂРѕРІР°РЅРёСЏ";
+		$headers  = "Content-type: text/plain; charset=utf-8 \r\n";
 		$headers .= "From: Lawatuna <order@lawatuna.com>\r\n";
 		$headers .= "Bcc: gohdan@gohdan.ru\r\n"; 
 
-		$message = "Фамилия: ".$_POST['surname']."\r\n";
-		$message .= "Имя: ".$_POST['name']."\r\n";
-		$message .= "Страна: ".$_POST['country']."\r\n";
-		$message .= "Контактный телефон: ".$_POST['phone']."\r\n";
+		$message = "Р¤Р°РјРёР»РёСЏ: ".$_POST['surname']."\r\n";
+		$message .= "РРјСЏ: ".$_POST['name']."\r\n";
+		$message .= "РЎС‚СЂР°РЅР°: ".$_POST['country']."\r\n";
+		$message .= "РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ: ".$_POST['phone']."\r\n";
 		$message .= "E-mail: ".$_POST['email']."\r\n";
-		$message .= "Комментарий: ".$_POST['comment']."\r\n";
+		$message .= "РљРѕРјРјРµРЅС‚Р°СЂРёР№: ".$_POST['comment']."\r\n";
 
-		$message .= "От: ".$_POST['day1'].".".$_POST['month1'].".".$_POST['year1']."\r\n";
-		$message .= "До: ".$_POST['day2'].".".$_POST['month2'].".".$_POST['year2']."\r\n";
+		$message .= "РћС‚: ".$_POST['day1'].".".$_POST['month1'].".".$_POST['year1']."\r\n";
+		$message .= "Р”Рѕ: ".$_POST['day2'].".".$_POST['month2'].".".$_POST['year2']."\r\n";
 
 		switch($_POST['variant'])
 		{
@@ -184,30 +184,30 @@ function booking_add()
 			case "3": $variant = "Apartment"; break;
 		}
 
-		$message .= "Вариант: ".$variant."\r\n";
-		$message .= "Количество взрослых: ".$_POST['adults_qty']."\r\n";
+		$message .= "Р’Р°СЂРёР°РЅС‚: ".$variant."\r\n";
+		$message .= "РљРѕР»РёС‡РµСЃС‚РІРѕ РІР·СЂРѕСЃР»С‹С…: ".$_POST['adults_qty']."\r\n";
 
 		if ("1" == $_POST['if_children'])
-			$children = "да";
+			$children = "РґР°";
 		else
-			$children = "нет";
+			$children = "РЅРµС‚";
 
 		if ("1" == $_POST['if_extra_bed'])
-			$extra_bed = "да";
+			$extra_bed = "РґР°";
 		else
-			$extra_bed = "нет";
+			$extra_bed = "РЅРµС‚";
 
 		if ("1" == $_POST['if_transfer'])
-			$transfer = "да";
+			$transfer = "РґР°";
 		else
-			$transfer = "нет";
+			$transfer = "РЅРµС‚";
 
-		$message .= "Дети до 12-ти лет: ".$children."\r\n";
-		$message .= "Доп. кровать: ".$extra_bed."\r\n";
-		$message .= "Количество номеров: ".$_POST['rooms_qty']."\r\n";
-		$message .= "Трансфер: ".$transfer."\r\n";
-		$message .= "Завтрак: ".$_POST['breakfast_qty']."\r\n";
-		$message .= "Итоговая сумма: ".$_POST['cost']."$\r\n";
+		$message .= "Р”РµС‚Рё РґРѕ 12-С‚Рё Р»РµС‚: ".$children."\r\n";
+		$message .= "Р”РѕРї. РєСЂРѕРІР°С‚СЊ: ".$extra_bed."\r\n";
+		$message .= "РљРѕР»РёС‡РµСЃС‚РІРѕ РЅРѕРјРµСЂРѕРІ: ".$_POST['rooms_qty']."\r\n";
+		$message .= "РўСЂР°РЅСЃС„РµСЂ: ".$transfer."\r\n";
+		$message .= "Р—Р°РІС‚СЂР°Рє: ".$_POST['breakfast_qty']."\r\n";
+		$message .= "РС‚РѕРіРѕРІР°СЏ СЃСѓРјРјР°: ".$_POST['cost']."$\r\n";
 
 		mail($to, $subject, $message, $headers);
 
@@ -257,7 +257,7 @@ function booking_list_view()
 		{
 			$sql_query = "DELETE FROM `ksh_booking` WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
 			$result = exec_query($sql_query);
-			$content['result'] = "Бронь удалена";
+			$content['result'] = "Р‘СЂРѕРЅСЊ СѓРґР°Р»РµРЅР°";
 		}
 
 		$bookings = array();
@@ -294,7 +294,7 @@ function booking_list_view()
 		}
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 		
    debug ("*** end: booking_list_view");
 
@@ -347,7 +347,7 @@ function booking_edit()
 				`dealer` = '".mysql_real_escape_string($_POST['dealer'])."'
 				WHERE `id` = '".$_POST['id']."'";
 			$result = exec_query($sql_query);
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 
 
@@ -422,7 +422,7 @@ function booking_edit()
 
 	}
 	else
-		$content['content'] = "Недостаточно прав";
+		$content['content'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug("*** booking: edit ***");
 	return $content;
@@ -497,7 +497,7 @@ function booking_view()
 		$content['room'] = stripslashes($row['number']);
 	}
 	else
-		$content['content'] = "Недостаточно прав";
+		$content['content'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug("*** booking: view ***");
 	return $content;
@@ -530,7 +530,7 @@ function booking_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: booking_del ***");
@@ -558,7 +558,7 @@ function booking_orders_list()
 		{
 			$sql_query = "DELETE FROM `ksh_booking` WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
 			$result = exec_query($sql_query);
-			$content['result'] = "Бронь удалена";
+			$content['result'] = "Р‘СЂРѕРЅСЊ СѓРґР°Р»РµРЅР°";
 		}
 
 		$bookings = array();
@@ -608,9 +608,9 @@ function booking_orders_list()
 
 			$content['orders'][$i]['notes'] = "";
 			if ("1" == $content['orders'][$i]['if_children'])
-				$content['orders'][$i]['notes'] .= "Есть дети до 12 лет. ";
+				$content['orders'][$i]['notes'] .= "Р•СЃС‚СЊ РґРµС‚Рё РґРѕ 12 Р»РµС‚. ";
 			if ("1" == $content['orders'][$i]['if_extra_bed'])
-				$content['orders'][$i]['notes'] .= "Дополнительная кровать для взрослого.";
+				$content['orders'][$i]['notes'] .= "Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РєСЂРѕРІР°С‚СЊ РґР»СЏ РІР·СЂРѕСЃР»РѕРіРѕ.";
 
 			if ("0" == $content['orders'][$i]['breakfast_qty'])
 				$content['orders'][$i]['breakfast_qty'] = "";
@@ -629,7 +629,7 @@ function booking_orders_list()
 		}
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 		
    debug ("*** end: booking_orders_list");
 
@@ -861,16 +861,16 @@ function booking_orders_calendar()
 				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top\">";
 				$content['calendar_monthes'] .= "</tr>";
 				$content['calendar_monthes'] .= "<tr>";
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">номер</th>";
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">этаж</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">РЅРѕРјРµСЂ</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">СЌС‚Р°Р¶</th>";
 				for ($day = 1; $day <= $month['days']; $day++)
 					$content['calendar_monthes'] .= "<th class=\"booking_calendar_month_num_th\">".$day."</th>";;
 
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">завтрак</th>";
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">трансфер</th>";
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">итого</th>";
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">предоплата</th>";
-				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">остаток</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">Р·Р°РІС‚СЂР°Рє</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">С‚СЂР°РЅСЃС„РµСЂ</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">РёС‚РѕРіРѕ</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">РїСЂРµРґРѕРїР»Р°С‚Р°</th>";
+				$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">РѕСЃС‚Р°С‚РѕРє</th>";
 				$content['calendar_monthes'] .= "</tr>";
 
 				foreach($orders as $room_id => $room)
@@ -916,16 +916,16 @@ function booking_orders_calendar()
 			$content['calendar_monthes'] .= "</tr>";
 
 			$content['calendar_monthes'] .= "<tr>";
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">номер</th>";
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">этаж</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">РЅРѕРјРµСЂ</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top2\">СЌС‚Р°Р¶</th>";
 			foreach($monthes as $month_id => $month)
 				for ($day = 1; $day <= $month['days']; $day++)
 					$content['calendar_monthes'] .= "<th class=\"booking_calendar_month_num_th\">".$day."</th>";;
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">завтрак</th>";
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">трансфер</th>";
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">итого</th>";
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">предоплата</th>";
-			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">остаток</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">Р·Р°РІС‚СЂР°Рє</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">С‚СЂР°РЅСЃС„РµСЂ</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">РёС‚РѕРіРѕ</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">РїСЂРµРґРѕРїР»Р°С‚Р°</th>";
+			$content['calendar_monthes'] .= "<th class=\"booking_calendar_top3\">РѕСЃС‚Р°С‚РѕРє</th>";
 			$content['calendar_monthes'] .= "</tr>";
 
 			foreach($orders as $room_id => $room)
@@ -982,7 +982,7 @@ function booking_orders_calendar()
 
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 		
    debug ("*** end: booking_orders_calendar");
 

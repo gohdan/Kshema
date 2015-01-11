@@ -1,22 +1,22 @@
-<h1>Уничтожение таблиц базы данных моделей автомобилей</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РјРѕРґРµР»РµР№ Р°РІС‚РѕРјРѕР±РёР»РµР№</h1>
 
 <p>#content#<p>
 
 <p>#result#</p>
 
-<a href="/index.php?module=auto_models&action=admin">Вернуться к меню администрирования</a>
+<a href="/index.php?module=auto_models&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=auto_models&action=drop_tables" method="post">
-<input type="checkbox" name="drop_auto_models_table" value="ksh_auto_models">Модели<br>
-<input type="checkbox" name="drop_auto_models_equipment_table" value="ksh_auto_models_equipment">Дополнительное оборудование<br>
-<input type="checkbox" name="drop_auto_models_characteristics_table" value="ksh_auto_models_characteristics">Технические характеристики<br>
-<input type="checkbox" name="drop_auto_models_prices_table" value="ksh_auto_models_prices">Комплектация и цены<br>
-<input type="checkbox" name="drop_auto_models_colors_table" value="ksh_auto_models_colors">Цвета кузова<br>
-<input type="checkbox" name="drop_auto_models_images_table" value="ksh_auto_models_images">Фотографии<br>
-<input type="checkbox" name="drop_auto_models_videos_table" value="ksh_auto_models_videos">Видеоролики<br>
-<input type="checkbox" name="drop_auto_models_present_table" value="ksh_auto_models_present">Автомобили в наличии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_auto_models_table" value="ksh_auto_models">РњРѕРґРµР»Рё<br>
+<input type="checkbox" name="drop_auto_models_equipment_table" value="ksh_auto_models_equipment">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ<br>
+<input type="checkbox" name="drop_auto_models_characteristics_table" value="ksh_auto_models_characteristics">РўРµС…РЅРёС‡РµСЃРєРёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё<br>
+<input type="checkbox" name="drop_auto_models_prices_table" value="ksh_auto_models_prices">РљРѕРјРїР»РµРєС‚Р°С†РёСЏ Рё С†РµРЅС‹<br>
+<input type="checkbox" name="drop_auto_models_colors_table" value="ksh_auto_models_colors">Р¦РІРµС‚Р° РєСѓР·РѕРІР°<br>
+<input type="checkbox" name="drop_auto_models_images_table" value="ksh_auto_models_images">Р¤РѕС‚РѕРіСЂР°С„РёРё<br>
+<input type="checkbox" name="drop_auto_models_videos_table" value="ksh_auto_models_videos">Р’РёРґРµРѕСЂРѕР»РёРєРё<br>
+<input type="checkbox" name="drop_auto_models_present_table" value="ksh_auto_models_present">РђРІС‚РѕРјРѕР±РёР»Рё РІ РЅР°Р»РёС‡РёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

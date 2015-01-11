@@ -1,41 +1,41 @@
-<h1>Администрирование моделей автомобилей</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјРѕРґРµР»РµР№ Р°РІС‚РѕРјРѕР±РёР»РµР№</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">Вернуться в главное меню администрирования</a>
+<a href="/index.php?module=base&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <hr>
 
-<h2>Модели</h2>
+<h2>РњРѕРґРµР»Рё</h2>
 
 <p>
-<a href="/index.php?module=auto_models&action=add">Добавить модель</a><br>
-<a href="/index.php?module=auto_models&amp;action=categories_view">Список категорий</a><br>
-<a href="/index.php?module=auto_models&action=list_view">Список моделей</a><br>
+<a href="/index.php?module=auto_models&action=add">Р”РѕР±Р°РІРёС‚СЊ РјРѕРґРµР»СЊ</a><br>
+<a href="/index.php?module=auto_models&amp;action=categories_view">РЎРїРёСЃРѕРє РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/index.php?module=auto_models&action=list_view">РЎРїРёСЃРѕРє РјРѕРґРµР»РµР№</a><br>
 
 <hr>
 
-<h2>Автомобили в наличии</h2>
+<h2>РђРІС‚РѕРјРѕР±РёР»Рё РІ РЅР°Р»РёС‡РёРё</h2>
 
 <p>
-<a href="/auto_models/present_add/">Добавить</a><br>
-<a href="/auto_models/present_view/">Список</a>
+<a href="/auto_models/present_add/">Р”РѕР±Р°РІРёС‚СЊ</a><br>
+<a href="/auto_models/present_view/">РЎРїРёСЃРѕРє</a>
 </p>
 
 <hr>
 
-<h2>Автомобили с пробегом</h2>
+<h2>РђРІС‚РѕРјРѕР±РёР»Рё СЃ РїСЂРѕР±РµРіРѕРј</h2>
 
 <p>
-<a href="/auto_models/preowned_add/">Добавить</a><br>
-<a href="/auto_models/preowned_view/">Список</a>
+<a href="/auto_models/preowned_add/">Р”РѕР±Р°РІРёС‚СЊ</a><br>
+<a href="/auto_models/preowned_view/">РЎРїРёСЃРѕРє</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных моделей автомобилей</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РјРѕРґРµР»РµР№ Р°РІС‚РѕРјРѕР±РёР»РµР№</h2>
 
-<a href="/index.php?module=auto_models&action=create_tables">Создать таблицы базы данных</a><br>
-<a href="/index.php?module=auto_models&action=drop_tables">Уничтожить таблицы базы данных</a><br>
-<a href="/index.php?module=auto_models&action=update_tables">Обновить таблицы базы данных</a><br>
+<a href="/index.php?module=auto_models&action=create_tables">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/index.php?module=auto_models&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/index.php?module=auto_models&action=update_tables">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
 </p>

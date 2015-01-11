@@ -1,6 +1,6 @@
-<h1>Редактирование анкеты</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р°РЅРєРµС‚С‹</h1>
 
-<p><a href="/index.php?module=forms&action=list">Вернуться к списку анкет</a></p>
+<p><a href="/index.php?module=forms&action=list">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ Р°РЅРєРµС‚</a></p>
 
 <hr>
 
@@ -10,21 +10,21 @@
 
 <form action="/index.php?module=forms&action=edit&forms=#id#" method="post">
 
-Название: <input type="text" name="title" value="#title#"><br>
-Системное название: <input type="text" name="name" value="#name#"><br>
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="title" value="#title#"><br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ: <input type="text" name="name" value="#name#"><br>
 
-<h2>Поля</h2>
+<h2>РџРѕР»СЏ</h2>
 #fields#
 
 <p>
-Добавить поле:<br>
-<span style="font-size: 8pt">Пожалуйста, не используйте символ "|"</span><br>
-Системное название: <input type="text" name="new_field_name"> Расшифровка: <input type="text" name="new_field_value">
+Р”РѕР±Р°РІРёС‚СЊ РїРѕР»Рµ:<br>
+<span style="font-size: 8pt">РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РЅРµ РёСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃРёРјРІРѕР» "|"</span><br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ: <input type="text" name="new_field_name"> Р Р°СЃС€РёС„СЂРѕРІРєР°: <input type="text" name="new_field_value">
 </p>
 
-<h2>Шаблон</h2>
+<h2>РЁР°Р±Р»РѕРЅ</h2>
 <textarea name="template" cols="80" rows="30">#template#</textarea><br>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 
 </form>

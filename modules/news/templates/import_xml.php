@@ -1,38 +1,38 @@
-<h1>Импорт новостей из XML</h1>
+<h1>РРјРїРѕСЂС‚ РЅРѕРІРѕСЃС‚РµР№ РёР· XML</h1>
 
 <p>
-<a href="/news/admin/">Возврат в меню администрирования новостей</a><br>
-<a href="/news/help#news_import">Справка</a>
+<a href="/news/admin/">Р’РѕР·РІСЂР°С‚ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РЅРѕРІРѕСЃС‚РµР№</a><br>
+<a href="/news/help#news_import">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <form action="/news/import_xml/" method="post">
-Вставьте XML-файл сюда:<br>
+Р’СЃС‚Р°РІСЊС‚Рµ XML-С„Р°Р№Р» СЃСЋРґР°:<br>
 <!-- <textarea name="xml" style="width: 800px; height: 600px"></textarea><br> -->
-<input type="submit" name="do_import" value="Импортировать">
+<input type="submit" name="do_import" value="РРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ">
 </form>
 
 <p>
-<b>Название категории:</b> #category_name#<br>
-<b>ID главной категории:</b> #main_category_id#<br>
-<b>Индекс:</b>#venue_zip#<br>
-<b>Начало продаж:</b> #date_sales_from#<br>
-<b>Описание:</b> #desc_local#<br>
+<b>РќР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё:</b> #category_name#<br>
+<b>ID РіР»Р°РІРЅРѕР№ РєР°С‚РµРіРѕСЂРёРё:</b> #main_category_id#<br>
+<b>РРЅРґРµРєСЃ:</b>#venue_zip#<br>
+<b>РќР°С‡Р°Р»Рѕ РїСЂРѕРґР°Р¶:</b> #date_sales_from#<br>
+<b>РћРїРёСЃР°РЅРёРµ:</b> #desc_local#<br>
 <b>Venue ID:</b> #venue_id#<br>
-<b>Окончание продаж:</b> #date_sales_to#<br>
-<b>Организатор:</b> #organiser_name#<br>
-<b>Название:</b> #venue_name#<br>
-<b>Описание на английском:</b> #desc_en#<br>
-<b>Страна:</b> #venue_iso2_country_code#<br>
+<b>РћРєРѕРЅС‡Р°РЅРёРµ РїСЂРѕРґР°Р¶:</b> #date_sales_to#<br>
+<b>РћСЂРіР°РЅРёР·Р°С‚РѕСЂ:</b> #organiser_name#<br>
+<b>РќР°Р·РІР°РЅРёРµ:</b> #venue_name#<br>
+<b>РћРїРёСЃР°РЅРёРµ РЅР° Р°РЅРіР»РёР№СЃРєРѕРј:</b> #desc_en#<br>
+<b>РЎС‚СЂР°РЅР°:</b> #venue_iso2_country_code#<br>
 <b>URL:</b> #url#<br>
-<b>Город:</b> #venue_town#<br>
-<b>Название события:</b> #event_name#<br>
-<b>Большое изображение:</b> <img src="#image_big#"><br>
-<b>Дата окончания:</b> #date_to#<br>
-<b>Дата начала:</b> #date_from#<br>
-<b>Маленькое изображение:</b> #image_small#
-<b>ID категории:</b> #category_id#<br>
-<b>Улица:</b> #venue_street#<br>
-<b>ID события:</b> #event_id#<br>
-<b>Название главной категории:</b> #main_category_name#<br>
-<b>Среднее изображение:</b> <img src="#image_med#">
+<b>Р“РѕСЂРѕРґ:</b> #venue_town#<br>
+<b>РќР°Р·РІР°РЅРёРµ СЃРѕР±С‹С‚РёСЏ:</b> #event_name#<br>
+<b>Р‘РѕР»СЊС€РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</b> <img src="#image_big#"><br>
+<b>Р”Р°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ:</b> #date_to#<br>
+<b>Р”Р°С‚Р° РЅР°С‡Р°Р»Р°:</b> #date_from#<br>
+<b>РњР°Р»РµРЅСЊРєРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</b> #image_small#
+<b>ID РєР°С‚РµРіРѕСЂРёРё:</b> #category_id#<br>
+<b>РЈР»РёС†Р°:</b> #venue_street#<br>
+<b>ID СЃРѕР±С‹С‚РёСЏ:</b> #event_id#<br>
+<b>РќР°Р·РІР°РЅРёРµ РіР»Р°РІРЅРѕР№ РєР°С‚РµРіРѕСЂРёРё:</b> #main_category_name#<br>
+<b>РЎСЂРµРґРЅРµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</b> <img src="#image_med#">
 </p>

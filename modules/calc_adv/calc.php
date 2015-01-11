@@ -32,21 +32,21 @@ function calc_adv_calc()
         debug ("user has admin rights");
     }
    
-	// Если нужно прибить какой-нибудь результат в БД   
+	// Р•СЃР»Рё РЅСѓР¶РЅРѕ РїСЂРёР±РёС‚СЊ РєР°РєРѕР№-РЅРёР±СѓРґСЊ СЂРµР·СѓР»СЊС‚Р°С‚ РІ Р‘Р”   
     if (isset($_POST['do_del_result']))
     {
     	$sql_query = "DELETE FROM ksh_calc_adv_calcs WHERE id='".mysql_real_escape_string($_POST['result_id'])."'";
     	exec_query($sql_query);
     }
 
-	// При заходе в калькулятор прибиваем все просчёты, сделанные до того
+	// РџСЂРё Р·Р°С…РѕРґРµ РІ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ РїСЂРёР±РёРІР°РµРј РІСЃРµ РїСЂРѕСЃС‡С‘С‚С‹, СЃРґРµР»Р°РЅРЅС‹Рµ РґРѕ С‚РѕРіРѕ
 	if (isset($_POST['do_go']))
 	{
 		$sql_query = "DELETE FROM ksh_calc_adv_calcs WHERE user='".mysql_real_escape_string($user['id'])."'";
 		exec_query ($sql_query);
 	}
 	
-	// По-любому нам нужен будет город
+	// РџРѕ-Р»СЋР±РѕРјСѓ РЅР°Рј РЅСѓР¶РµРЅ Р±СѓРґРµС‚ РіРѕСЂРѕРґ
     $sql_query = "SELECT * FROM ksh_calc_adv_cities";
 	$result = exec_query($sql_query);
 	while ($city = mysql_fetch_array($result))
@@ -56,7 +56,7 @@ function calc_adv_calc()
 	}
 	mysql_free_result($result);
 
-	/* Сделали расчёт, записали его в базу данных */
+	/* РЎРґРµР»Р°Р»Рё СЂР°СЃС‡С‘С‚, Р·Р°РїРёСЃР°Р»Рё РµРіРѕ РІ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… */
 
 	if (isset($_POST['do_calc']))
 	{
@@ -84,7 +84,7 @@ function calc_adv_calc()
 		debug ("calc_type: ".$city_current['calc_type']);
 		if ("0" == $city_current['calc_type'])
 		{
-			/* Считаем стоимость по прайму */
+			/* РЎС‡РёС‚Р°РµРј СЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕ РїСЂР°Р№РјСѓ */
 			debug ("calc_type == 0");
 			$content['if_show_result_prime'] = "yes";
 
@@ -117,7 +117,7 @@ function calc_adv_calc()
 		}
 
 		else
-		/* Считаем стоимость по часам */
+		/* РЎС‡РёС‚Р°РµРј СЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕ С‡Р°СЃР°Рј */
 		{
 			debug ("calc_type != 0");
 			$content['if_show_result_time'] = "yes";
@@ -204,7 +204,7 @@ function calc_adv_calc()
 		$discount = 0;
 		if ("0" == $city_current['discount_type'])
 		{
-			// Скидка с времени
+			// РЎРєРёРґРєР° СЃ РІСЂРµРјРµРЅРё
 
 			$discounts = explode ("|", $city_current['discount_from']);
 			$discount_prices = explode ("|", $city_current['discount']);
@@ -226,7 +226,7 @@ function calc_adv_calc()
 		}
 		else
 		{
-			// Скидка со стоимости 
+			// РЎРєРёРґРєР° СЃРѕ СЃС‚РѕРёРјРѕСЃС‚Рё 
 			$discounts = explode ("|", $city_current['discount_from']);
 			$discount_prices = explode ("|", $city_current['discount']);
 			$dsc = array();
@@ -311,7 +311,7 @@ function calc_adv_calc()
 
 	}
 	
-	/* Вытащили все расчёты из базы данных, показали */
+	/* Р’С‹С‚Р°С‰РёР»Рё РІСЃРµ СЂР°СЃС‡С‘С‚С‹ РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…, РїРѕРєР°Р·Р°Р»Рё */
 		
 	$sql_query = "SELECT * FROM ksh_calc_adv_calcs WHERE user='".$user['id']."' ORDER BY id DESC LIMIT 1";
 	$result = exec_query($sql_query);
@@ -324,14 +324,14 @@ function calc_adv_calc()
 	$content['result_hron'] = $row['hron'];
 	if ("0" == $row['calc_type'])
 	{
-		// Считали по прайму
+		// РЎС‡РёС‚Р°Р»Рё РїРѕ РїСЂР°Р№РјСѓ
 		$content['result_if_show_result_prime'] = "yes";
 		$content['result_prime'] = $row['prime_qty'];
 		$content['result_noprime'] = $row['noprime_qty'];
 	}
 	else
 	{
-		// Считали по времени
+		// РЎС‡РёС‚Р°Р»Рё РїРѕ РІСЂРµРјРµРЅРё
 		$content['result_if_show_result_time'] = "yes";
 		$times = explode("|", $row['times']);
 		$times_qty = explode("|", $row['times_qty']);
@@ -383,7 +383,7 @@ function calc_adv_calc()
 		$prev_result = mysql_fetch_array($result);
 		mysql_free_result($result);
 		stripslashes($prev_result);
-		$content['result'] =  $prev_result['city']." - стоимость размещения Вашего ролика составляет ".$prev_result['sum_final']." руб.";
+		$content['result'] =  $prev_result['city']." - СЃС‚РѕРёРјРѕСЃС‚СЊ СЂР°Р·РјРµС‰РµРЅРёСЏ Р’Р°С€РµРіРѕ СЂРѕР»РёРєР° СЃРѕСЃС‚Р°РІР»СЏРµС‚ ".$prev_result['sum_final']." СЂСѓР±.";
 
 		// Write result to HTML file
 		$filepath = $config['base']['doc_root']."temp/";
@@ -406,10 +406,10 @@ function calc_adv_calc()
 	
 	
 
-	/* Если город выбран, показали формочку для расчёта */
+	/* Р•СЃР»Рё РіРѕСЂРѕРґ РІС‹Р±СЂР°РЅ, РїРѕРєР°Р·Р°Р»Рё С„РѕСЂРјРѕС‡РєСѓ РґР»СЏ СЂР°СЃС‡С‘С‚Р° */
 	if (isset($_POST['do_select_city']) || isset($_POST['do_go']))
 	{
-		/* Показываем форму калькулятора */
+		/* РџРѕРєР°Р·С‹РІР°РµРј С„РѕСЂРјСѓ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° */
 		$content['if_show_calculator'] = "yes";
 
 
@@ -428,7 +428,7 @@ function calc_adv_calc()
 		
 
 
-		/* Выводим форму расчёта прайм / не прайм */
+		/* Р’С‹РІРѕРґРёРј С„РѕСЂРјСѓ СЂР°СЃС‡С‘С‚Р° РїСЂР°Р№Рј / РЅРµ РїСЂР°Р№Рј */
 		debug ("calc_type: ".$city_current['calc_type']);
 		if ("0" == $city_current['calc_type'])
 		{
@@ -436,10 +436,10 @@ function calc_adv_calc()
 			$content['if_show_prime'] = "yes";
 		}
 
-		/* Конец вывода формы расчёта прайм / не прайм */
+		/* РљРѕРЅРµС† РІС‹РІРѕРґР° С„РѕСЂРјС‹ СЂР°СЃС‡С‘С‚Р° РїСЂР°Р№Рј / РЅРµ РїСЂР°Р№Рј */
 
 		else
-		/* Выводим форму расчёта по часам */
+		/* Р’С‹РІРѕРґРёРј С„РѕСЂРјСѓ СЂР°СЃС‡С‘С‚Р° РїРѕ С‡Р°СЃР°Рј */
 		{
 			debug ("calc_type != 0");
 			$content['if_show_time'] = "yes";
@@ -453,14 +453,14 @@ function calc_adv_calc()
 			}
 
 		}
-		/* Конец вывода формы расчёта по часам */
+		/* РљРѕРЅРµС† РІС‹РІРѕРґР° С„РѕСЂРјС‹ СЂР°СЃС‡С‘С‚Р° РїРѕ С‡Р°СЃР°Рј */
 
 
 	}
-	/* Если город не выбран, показали формочку для выбора города */
+	/* Р•СЃР»Рё РіРѕСЂРѕРґ РЅРµ РІС‹Р±СЂР°РЅ, РїРѕРєР°Р·Р°Р»Рё С„РѕСЂРјРѕС‡РєСѓ РґР»СЏ РІС‹Р±РѕСЂР° РіРѕСЂРѕРґР° */
 	else 
 	{
-		/* Показываем форму выбора города */
+		/* РџРѕРєР°Р·С‹РІР°РµРј С„РѕСЂРјСѓ РІС‹Р±РѕСЂР° РіРѕСЂРѕРґР° */
 
 		$content['if_show_calculator'] = "";
 		$content['if_show_cities_select'] = "yes";

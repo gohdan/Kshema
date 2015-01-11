@@ -1,25 +1,25 @@
-<h1>Добавление объявления</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ</h1>
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_admin_link:
 <p>
-<a href="/bills/admin/">Меню администрирования объявлений</a><br>
-<a href="/bills/help#bb_add">Справка</a>
+<a href="/bills/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РѕР±СЉСЏРІР»РµРЅРёР№</a><br>
+<a href="/bills/help#bb_add">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
-{{if:show_user_bills_link:<a href="/bills/view_by_user/">Мои объявления</a>}}
+{{if:show_user_bills_link:<a href="/bills/view_by_user/">РњРѕРё РѕР±СЉСЏРІР»РµРЅРёСЏ</a>}}
 
-{{if:category:<p><a href="#module##action#/#category#/">В категорию</a></p>}}
+{{if:category:<p><a href="#module##action#/#category#/">Р’ РєР°С‚РµРіРѕСЂРёСЋ</a></p>}}
 
 <form action="/bills/add/" method="post">
 <table summary="bills add table">
-<tr><td>Название объявления:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Название для ЧПУ:</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
-<tr><td>Текст:</td><td><textarea name="full_text">#full_text#</textarea></td></tr>
-{{if:show_captcha:<tr><td><img src="/libs/kcaptcha/index.php?#session_name#=#session_id#"></td><td>Проверочный код слева:<br><input type="text" name="keystring"></td></tr>}}
-<tr><td></td><td><input type="submit" name="do_add" value="Добавить"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ Р§РџРЈ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РўРµРєСЃС‚:</td><td><textarea name="full_text">#full_text#</textarea></td></tr>
+{{if:show_captcha:<tr><td><img src="/libs/kcaptcha/index.php?#session_name#=#session_id#"></td><td>РџСЂРѕРІРµСЂРѕС‡РЅС‹Р№ РєРѕРґ СЃР»РµРІР°:<br><input type="text" name="keystring"></td></tr>}}
+<tr><td></td><td><input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ"></td></tr>
 </table>
 </form>

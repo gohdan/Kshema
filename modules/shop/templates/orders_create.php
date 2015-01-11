@@ -1,4 +1,4 @@
-<h1>Оформление заказа</h1>
+<h1>РћС„РѕСЂРјР»РµРЅРёРµ Р·Р°РєР°Р·Р°</h1>
 
 <p>#result#</p>
 
@@ -6,13 +6,13 @@
 
 <form action="/index.php?module=shop&action=order_send" method="post">
 <table class="tbl_cart">
-<tr><th>ФИО:</th><th colspan1="2"><b>#sur_name#&nbsp;#first_name#&nbsp;#second_name#</b></th></tr>
-<tr><th>Страна:</th><td>#country#</td></tr>
-<tr><th>Индекс:</th><td>#post_code#</td></tr>
-<tr><th>Область:</th><td>#area#</td></tr>
-<tr><th>Населённый пункт:</th><td>#city#</td></tr>
-<tr><th>Улица/дом/квартира:</th><td>#address#</td></tr>
-<tr><td><a href="/index.php?module=users&action=profile_edit">Редактировать данные</a></td></tr>
-{{if:show_form:<tr><td><input type="submit" class="button" value="Послать на этот адрес"></td></tr>}}
+<tr><th>Р¤РРћ:</th><th colspan1="2"><b>#sur_name#&nbsp;#first_name#&nbsp;#second_name#</b></th></tr>
+<tr><th>РЎС‚СЂР°РЅР°:</th><td>#country#</td></tr>
+<tr><th>РРЅРґРµРєСЃ:</th><td>#post_code#</td></tr>
+<tr><th>РћР±Р»Р°СЃС‚СЊ:</th><td>#area#</td></tr>
+<tr><th>РќР°СЃРµР»С‘РЅРЅС‹Р№ РїСѓРЅРєС‚:</th><td>#city#</td></tr>
+<tr><th>РЈР»РёС†Р°/РґРѕРј/РєРІР°СЂС‚РёСЂР°:</th><td>#address#</td></tr>
+<tr><td><a href="/index.php?module=users&action=profile_edit">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґР°РЅРЅС‹Рµ</a></td></tr>
+{{if:show_form:<tr><td><input type="submit" class="button" value="РџРѕСЃР»Р°С‚СЊ РЅР° СЌС‚РѕС‚ Р°РґСЂРµСЃ"></td></tr>}}
 </table>
 </form>

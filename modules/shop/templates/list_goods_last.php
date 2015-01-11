@@ -1,5 +1,5 @@
 {{if:begin_row:<tr>
-<td colspan="#lastitems_qty#" class="shop_last_goods_title">#category_title# - новые поступления</td>
+<td colspan="#lastitems_qty#" class="shop_last_goods_title">#category_title# - РЅРѕРІС‹Рµ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ</td>
 </tr>
 <tr>}}
 
@@ -13,4 +13,4 @@
 
 {{if:end_row:</tr>}}
 
-{{if:show_last_goods_link:<tr><td colspan="#lastitems_qty#"><a href="/index.php?module=shop&action=view_last&categories=#category_id#">Посмотреть #last_goods_qty# новых поступлений в разделе #category_title#</a></td></tr>}}
+{{if:show_last_goods_link:<tr><td colspan="#lastitems_qty#"><a href="/index.php?module=shop&action=view_last&categories=#category_id#">РџРѕСЃРјРѕС‚СЂРµС‚СЊ #last_goods_qty# РЅРѕРІС‹С… РїРѕСЃС‚СѓРїР»РµРЅРёР№ РІ СЂР°Р·РґРµР»Рµ #category_title#</a></td></tr>}}

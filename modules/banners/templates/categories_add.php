@@ -1,8 +1,8 @@
-<h1>Добавление категорий</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/banners/view_categories/">Вернуться к просмотру категорий</a><br>
-<a href="/banners/help#categories_add">Справка</a>
+<a href="/banners/view_categories/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/banners/help#categories_add">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -10,10 +10,10 @@
 {{if:content:<p>#content#</p>}}
 
 <form action="/banners/add_category/" method="post">
-Системное название (латинские буквы и цифры):<br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹):<br>
 <input type="text" name="name"><br>
-Название для вывода пользователю (любые символы):<br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹):<br>
 <input type="text" name="title" size="40"><br>
 
-<input type="submit" name="do_add" value="Добавить">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

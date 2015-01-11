@@ -1,22 +1,22 @@
-<h1>Удаление таблиц БД магазина</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р” РјР°РіР°Р·РёРЅР°</h1>
 
-<p><a href="/shop/admin/">В главное меню администрирования магазина</a></p>
+<p><a href="/shop/admin/">Р’ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РјР°РіР°Р·РёРЅР°</a></p>
 
 <p>#content#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/shop/drop_tables/" method="post">
-<input type="checkbox" name="drop_privileges_table" value="ksh_shop_privileges">Привилегии<br>
-<input type="checkbox" name="drop_authors_table" value="ksh_shop_authors">Авторы<br>
-<input type="checkbox" name="drop_categories_table" value="ksh_shop_categories">Категории товаров<br>
-<input type="checkbox" name="drop_goods_table" value="ksh_shop_goods">Товары<br>
-<input type="checkbox" name="drop_cart_table" value="ksh_shop_carts">Корзины<br>
-<input type="checkbox" name="drop_requests_table" value="ksh_shop_requests">Заявки на отсутствующие товары<br>
-<input type="checkbox" name="drop_orders_table" value="ksh_shop_orders">Заказы<br>
-<input type="checkbox" name="drop_orders_statuses_table" value="ksh_shop_orders_statuses">Статусы заказов<br>
-<input type="checkbox" name="drop_ordered_goods_table" value="ksh_shop_ordered_goods">Заказанные товары<br>
-<input type="checkbox" name="drop_demands_table" value="ksh_shop_demands">Заявки<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_privileges_table" value="ksh_shop_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="checkbox" name="drop_authors_table" value="ksh_shop_authors">РђРІС‚РѕСЂС‹<br>
+<input type="checkbox" name="drop_categories_table" value="ksh_shop_categories">РљР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ<br>
+<input type="checkbox" name="drop_goods_table" value="ksh_shop_goods">РўРѕРІР°СЂС‹<br>
+<input type="checkbox" name="drop_cart_table" value="ksh_shop_carts">РљРѕСЂР·РёРЅС‹<br>
+<input type="checkbox" name="drop_requests_table" value="ksh_shop_requests">Р—Р°СЏРІРєРё РЅР° РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‰РёРµ С‚РѕРІР°СЂС‹<br>
+<input type="checkbox" name="drop_orders_table" value="ksh_shop_orders">Р—Р°РєР°Р·С‹<br>
+<input type="checkbox" name="drop_orders_statuses_table" value="ksh_shop_orders_statuses">РЎС‚Р°С‚СѓСЃС‹ Р·Р°РєР°Р·РѕРІ<br>
+<input type="checkbox" name="drop_ordered_goods_table" value="ksh_shop_ordered_goods">Р—Р°РєР°Р·Р°РЅРЅС‹Рµ С‚РѕРІР°СЂС‹<br>
+<input type="checkbox" name="drop_demands_table" value="ksh_shop_demands">Р—Р°СЏРІРєРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

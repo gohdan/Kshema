@@ -61,12 +61,12 @@ function add()
 			exec_query($sql_query);
 			if (0 == mysql_errno())
 			{
-				$content['result'] = "Ñàòåëëèò óñïåøíî äîáàâëåí";
+				$content['result'] = "Ð¡Ð°Ñ‚ÐµÐ»Ð»Ð¸Ñ‚ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½";
 				$id = mysql_insert_id();
 				$this -> sections_update($id);
 			}
 			else
-				$content['result'] = "Íå óäàëîñü äîáàâèòü ñàòåëëèò, îøèáêà áàçû äàííûõ";
+				$content['result'] = "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ°Ñ‚ÐµÐ»Ð»Ð¸Ñ‚, Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…";
 		}
 	}
 
@@ -161,11 +161,11 @@ function edit()
 			exec_query($sql_query);
 			if (0 == mysql_errno())
 			{
-				$content['result'] = "Îáíîâëåíèå óñïåøíî çàïèñàíî";
+				$content['result'] = "ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð·Ð°Ð¿Ð¸ÑÐ°Ð½Ð¾";
 				$this -> sections_update($_POST['id']);
 			}
 			else
-				$content['result'] = "Íå óäàëîñü îáíîâèòü çàïèñü, îøèáêà áàçû äàííûõ";
+				$content['result'] = "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ð±Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð·Ð°Ð¿Ð¸ÑÑŒ, Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…";
 		}
 		else
 			debug ("user doesn't have admin rights");
@@ -303,10 +303,10 @@ function view()
 			$content['bill_view_mode'] = "";
 		break;
 		case "1":
-			$content['bill_view_mode'] = "Çàãîëîâîê ñ òåêñòîì";
+			$content['bill_view_mode'] = "Ð—Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ñ Ñ‚ÐµÐºÑÑ‚Ð¾Ð¼";
 		break;
 		case "2":
-			$content['bill_view_mode'] = "Òîëüêî çàãîëîâîê";
+			$content['bill_view_mode'] = "Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº";
 		break;
 	}
 
@@ -323,7 +323,7 @@ function view()
 		{
 			$parent = substr($v, 8);
 			debug ("parent: ".$parent);
-			$content['sections'][]['title'] = $cat -> get_title("ksh_bills_categories", $parent)." è âñå ïîäêàòåãîðèè";
+			$content['sections'][]['title'] = $cat -> get_title("ksh_bills_categories", $parent)." Ð¸ Ð²ÑÐµ Ð¿Ð¾Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸";
 		}
 		else
 			$content['sections'][]['title'] = $cat -> get_title("ksh_bills_categories", $v);
@@ -417,10 +417,10 @@ function view_by_category()
 				$content['bbs'][$i]['bill_view_mode'] = "";
 			break;
 			case "1":
-				$content['bbs'][$i]['bill_view_mode'] = "Çàãîëîâîê ñ òåêñòîì";
+				$content['bbs'][$i]['bill_view_mode'] = "Ð—Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ñ Ñ‚ÐµÐºÑÑ‚Ð¾Ð¼";
 			break;
 			case "2":
-				$content['bbs'][$i]['bill_view_mode'] = "Òîëüêî çàãîëîâîê";
+				$content['bbs'][$i]['bill_view_mode'] = "Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº";
 			break;
 		}
 */
@@ -692,9 +692,9 @@ function sections_update($bb_id)
 
 
 	if (!$response ->faultCode(  ))
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	debug ("*** end: BB: sections_update ***");
 	return $content;
@@ -718,9 +718,9 @@ function users_update($bb_id)
 
 
 	if (!$response ->faultCode(  ))
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	debug ("*** end: BB: users_update ***");
 	return $content;
@@ -790,7 +790,7 @@ function get_tparts($bb_id)
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 		$v=$response->value();
 		for($a=0; $a<$v->arraysize(  ); $a++)
 		{
@@ -807,7 +807,7 @@ function get_tparts($bb_id)
 
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	debug ("*** end: BB: get_tparts ***");
 	return $content;
@@ -844,9 +844,9 @@ function tpart_send($bb_id, $id, $title, $tpart)
 
 
 	if (!$response ->faultCode(  ))
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	debug ("*** end: BB: tpart_send ***");
 	return $content;
@@ -895,13 +895,13 @@ function update_all()
 
 			if (!$response ->faultCode(  ))
 			{
-				debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+				debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 				$content['result'] .= strip_tags($response->serialize());
 			}
 			else
 			{
-			    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
-				$content['result'] .= "Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'";
+			    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
+				$content['result'] .= "ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'";
 			}
 
 

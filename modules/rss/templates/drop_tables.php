@@ -1,20 +1,20 @@
-<h1>Уничтожение таблиц базы данных RSS</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… RSS</h1>
 
 {{if:content:<p>#content#<p>}}
 
 {{if:result:<p>#result#</p>}}
 
 <p>
-<a href="/rss/admin/">Вернуться к меню администрирования</a><br>
+<a href="/rss/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/rss/drop_tables/" method="post">
-<input type="checkbox" name="drop_rss_table" value="ksh_rss">Элементы RSS<br>
-<input type="checkbox" name="drop_privileges_table" value="ksh_rss_privileges">Привилегии<br>
-<input type="checkbox" name="drop_privileges_table" value="ksh_rss_access">Доступ<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_rss_table" value="ksh_rss">Р­Р»РµРјРµРЅС‚С‹ RSS<br>
+<input type="checkbox" name="drop_privileges_table" value="ksh_rss_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="checkbox" name="drop_privileges_table" value="ksh_rss_access">Р”РѕСЃС‚СѓРї<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

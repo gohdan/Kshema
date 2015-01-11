@@ -1,26 +1,26 @@
 <h1>#heading#</h1>
 
 <p>
-<a href="/modules/admin/">Вернуться в главное меню администрирования</a><br>
-<a href="//bills/help/">Справка</a>
+<a href="/modules/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="//bills/help/">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/bills/config_edit/">Настройки</a><br>
-<a href="/bills/categories_view/">Список категорий</a><br>
-<a href="/bills/privileges_edit/">Права пользователей</a><br>
-<a href="/bills/view_by_user/">Мои объявления</a><br>
-<a href="/bills/add/">Добавить объявление</a>
+<a href="/bills/config_edit/">РќР°СЃС‚СЂРѕР№РєРё</a><br>
+<a href="/bills/categories_view/">РЎРїРёСЃРѕРє РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/bills/privileges_edit/">РџСЂР°РІР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a><br>
+<a href="/bills/view_by_user/">РњРѕРё РѕР±СЉСЏРІР»РµРЅРёСЏ</a><br>
+<a href="/bills/add/">Р”РѕР±Р°РІРёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных объявлений</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕР±СЉСЏРІР»РµРЅРёР№</h2>
 
 <p>
-<a href="/bills/create_tables/">Создать таблицы базы данных</a><br>
-<a href="/bills/drop_tables/">Уничтожить таблицы базы данных</a><br>
-<a href="/bills/update_tables/">Обновить таблицы базы данных</a>
+<a href="/bills/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/bills/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/bills/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a>
 </p>

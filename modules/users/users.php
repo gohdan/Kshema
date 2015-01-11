@@ -69,11 +69,11 @@ function users_add()
 				'".mysql_real_escape_string(md5($_POST['login']."\n".$_POST['password']))."'
 			)";
 			exec_query($sql_query);
-			$content['result'] = "Пользователь добавлен";
+			$content['result'] = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РґРѕР±Р°РІР»РµРЅ";
 		}
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug("*** end: users_add ***");
 	return $content;
@@ -102,7 +102,7 @@ function users_view_users()
 		{
 			$sql_query = "DELETE FROM ksh_users WHERE id='".mysql_real_escape_string($_POST['id'])."'";
 			exec_query($sql_query);
-			$content['result'] .= "Пользователь удалён.";
+			$content['result'] .= "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»С‘РЅ.";
 		}
 
 		$content['users'] = users_users_list();
@@ -110,7 +110,7 @@ function users_view_users()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:users_view_users ***");
@@ -143,7 +143,7 @@ function users_profile_edit()
 	        $sql_query = ereg_replace(", $","",$sql_query)." WHERE id='".$user['id']."'";
 
 	        exec_query ($sql_query);
-	        $content['result'] .= "Ваши данные обновлены.";
+	        $content['result'] .= "Р’Р°С€Рё РґР°РЅРЅС‹Рµ РѕР±РЅРѕРІР»РµРЅС‹.";
 	    }
 
 		$result = exec_query("SELECT * FROM ksh_users WHERE id='".mysql_real_escape_string($user['id'])."'");
@@ -160,7 +160,7 @@ function users_profile_edit()
 		$content['address'] = stripslashes($user_data['address']);
 	}
 	else
-		$result = "Недостаточно прав";
+		$result = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug ("*** end:users_profile_edit ***");
 	return $content;
@@ -197,7 +197,7 @@ function users_user_del()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] .= "Пожалуйста, войдите как администратор.";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.";
 	}
 
 
@@ -294,7 +294,7 @@ function users_view_by_group()
         {
             debug ("have users to delete");
             exec_query("DELETE FROM ksh_users WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Пользователь успешно удален";
+            $content['result'] .= "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ";
         }
         else
         {
@@ -347,10 +347,10 @@ function users_view_by_group()
 				$content['users'][$i]['city'] = '';
 			break;
 			case "1":
-				$content['users'][$i]['city'] = 'Москва';
+				$content['users'][$i]['city'] = 'РњРѕСЃРєРІР°';
 			break;
 			case "2":
-				$content['users'][$i]['city'] = 'Санкт-Петербург';
+				$content['users'][$i]['city'] = 'РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРі';
 			break;
 		}
         $i++;
@@ -383,7 +383,7 @@ function users_change_group()
         {
             debug ("have users to change");
             exec_query("UPDATE `ksh_users` SET `group` = '".mysql_real_escape_string($_POST['group'])."' WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Группа изменена";
+            $content['result'] .= "Р“СЂСѓРїРїР° РёР·РјРµРЅРµРЅР°";
         }
         else
         {
@@ -415,7 +415,7 @@ function users_change_group()
 		mysql_free_result($result);
     }
 	else
-		$content['content'] .= "Пожалуйста, войдите как администратор";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 
     debug("*** end: users_change_group ***");
 	return $content;

@@ -1,36 +1,36 @@
-<h1>Администрирование магазина</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјР°РіР°Р·РёРЅР°</h1>
 
 <p>
-<a href="/base/admin/">Возврат в главное меню администрирования</a><br>
+<a href="/base/admin/">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <hr>
 
 <p>
-<a href="/shop/goods_add/">Добавить товар</a><br>
-<a href="/shop/authors_add/">Добавить автора</a><br>
-<a href="/shop/categories_add/">Добавить категорию
+<a href="/shop/goods_add/">Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂ</a><br>
+<a href="/shop/authors_add/">Р”РѕР±Р°РІРёС‚СЊ Р°РІС‚РѕСЂР°</a><br>
+<a href="/shop/categories_add/">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ
 </p>
 
 <hr>
 
 <p>
-<a href="/shop/categories_view/">Категории товаров</a><br>
-<a href="/shop/authors_view/">Авторы</a><br>
-<a href="/shop/collections_view/">Коллекции</a><br>
-<a href="/shop/goods_view_all/">Все товары</a><br>
-<a href="/shop/goods_view_hidden/">Скрытые товары</a><br>
-<a href="/shop/users_view/">Пользователи</a><br>
-<a href="/shop/orders_view_all/">Заказы</a><br>
-<a href="/shop/requests_view/">Заявки</a><br>
-<a href="/shop/demand_view/">Поиск на заказ</a><br>
+<a href="/shop/categories_view/">РљР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ</a><br>
+<a href="/shop/authors_view/">РђРІС‚РѕСЂС‹</a><br>
+<a href="/shop/collections_view/">РљРѕР»Р»РµРєС†РёРё</a><br>
+<a href="/shop/goods_view_all/">Р’СЃРµ С‚РѕРІР°СЂС‹</a><br>
+<a href="/shop/goods_view_hidden/">РЎРєСЂС‹С‚С‹Рµ С‚РѕРІР°СЂС‹</a><br>
+<a href="/shop/users_view/">РџРѕР»СЊР·РѕРІР°С‚РµР»Рё</a><br>
+<a href="/shop/orders_view_all/">Р—Р°РєР°Р·С‹</a><br>
+<a href="/shop/requests_view/">Р—Р°СЏРІРєРё</a><br>
+<a href="/shop/demand_view/">РџРѕРёСЃРє РЅР° Р·Р°РєР°Р·</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных магазина</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РјР°РіР°Р·РёРЅР°</h2>
 
-<a href="/shop/install_tables/">Создать базу данных магазина</a><br>
-<a href="/shop/update_tables/">Обновить базу данных магазина</a><br>
-<a href="/shop/drop_tables/">Уничтожить базу данных магазина</a><br>
+<a href="/shop/install_tables/">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РјР°РіР°Р·РёРЅР°</a><br>
+<a href="/shop/update_tables/">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РјР°РіР°Р·РёРЅР°</a><br>
+<a href="/shop/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РјР°РіР°Р·РёРЅР°</a><br>
 </p>

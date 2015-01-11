@@ -1,4 +1,4 @@
-<h1>Подтверждение анкеты</h1>
+<h1>РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ Р°РЅРєРµС‚С‹</h1>
 
 <p>#result#</p>
 
@@ -15,5 +15,5 @@
 <input type="hidden" name="email" value="#email#">
 <input type="hidden" name="fields" value="#fields#">
 <input type="hidden" name="values" value="#values#">
-<input type="submit" name="do_send" value="Отправить">
+<input type="submit" name="do_send" value="РћС‚РїСЂР°РІРёС‚СЊ">
 </form>

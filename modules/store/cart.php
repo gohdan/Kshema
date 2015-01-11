@@ -21,13 +21,13 @@ function store_cart_add()
 		if (isset($_POST['do_add']))
 		{
 			exec_query("INSERT INTO ksh_store_cart (good, qty) VALUES ('".mysql_real_escape_string($_POST['id'])."', '".mysql_real_escape_string($_POST['qty'])."')");
-			$content['result'] = "Товар добавлен в корзину";
+			$content['result'] = "РўРѕРІР°СЂ РґРѕР±Р°РІР»РµРЅ РІ РєРѕСЂР·РёРЅСѓ";
 		}
 	}
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	$content['id'] = $_GET['goods'];
@@ -54,7 +54,7 @@ function store_cart_out()
 		if (isset($_POST['do_del']))
 		{
 			exec_query("DELETE FROM ksh_store_cart WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Товар успешно удалён из корзины";
+			$content['result'] = "РўРѕРІР°СЂ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»С‘РЅ РёР· РєРѕСЂР·РёРЅС‹";
 		}
 
 		$result = exec_query("SELECT * FROM ksh_store_cart");
@@ -91,7 +91,7 @@ function store_cart_out()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_cart_out ***");
@@ -117,7 +117,7 @@ function store_cart_del()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_cart_del ***");

@@ -4,6 +4,6 @@
 
 ID: #id# [#type#]
 
-Заполнена: #date#, #time#
+Р—Р°РїРѕР»РЅРµРЅР°: #date#, #time#
 
 #form#

@@ -447,8 +447,8 @@ function articles_get_cname($bb_id, $category_id)
 			if (count($addresses) > 0)
 			{
 				debug("inform_moderators: have addresses, sending mail");
-				$subj = "Новая статья";
-				$headers = "Content-type: text/plain; charset=windows-1251 \r\n";
+				$subj = "РќРѕРІР°СЏ СЃС‚Р°С‚СЊСЏ";
+				$headers = "Content-type: text/plain; charset=utf-8 \r\n";
 	
 				$message = gen_content("articles", "email_moderators", $cnt);
 		

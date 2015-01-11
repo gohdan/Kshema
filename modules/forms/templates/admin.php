@@ -1,19 +1,19 @@
-<h1>Администрирование анкет</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р°РЅРєРµС‚</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">Возврат в главное меню администрирования</a><br>
+<a href="/index.php?module=base&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <p>
-<a href="/index.php?module=forms&action=add">Добавить анкету</a><br>
-<a href="/index.php?module=forms&action=list">Список анкет</a><br>
+<a href="/index.php?module=forms&action=add">Р”РѕР±Р°РІРёС‚СЊ Р°РЅРєРµС‚Сѓ</a><br>
+<a href="/index.php?module=forms&action=list">РЎРїРёСЃРѕРє Р°РЅРєРµС‚</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных анкет</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р°РЅРєРµС‚</h2>
 
-<a href="/index.php?module=forms&action=install_tables">Создать базу данных анкет</a><br>
-<a href="/index.php?module=forms&action=update_tables">Обновить базу данных анкет</a><br>
-<a href="/index.php?module=forms&action=drop_tables">Уничтожить базу данных анкет</a><br>
+<a href="/index.php?module=forms&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… Р°РЅРєРµС‚</a><br>
+<a href="/index.php?module=forms&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… Р°РЅРєРµС‚</a><br>
+<a href="/index.php?module=forms&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… Р°РЅРєРµС‚</a><br>
 </p>

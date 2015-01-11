@@ -2,15 +2,15 @@
 
 {{if:show_admin_link:
 <p>
-<a href="/guestbook/categories_view/">К списку категорий</a><br>
-<a href="/guestbook/help#view_by_category">Справка</a>
+<a href="/guestbook/categories_view/">Рљ СЃРїРёСЃРєСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/guestbook/help#view_by_category">РЎРїСЂР°РІРєР°</a>
 </p>}}
 
-<a href="/guestbook/add/#category_id#/">Добавить сообщение</a><br>
+<a href="/guestbook/add/#category_id#/">Р”РѕР±Р°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ</a><br>
 
-{{if:show_link_on_main:<p><a href="/guestbook/">В начало гостевой книги</a></p>}}
+{{if:show_link_on_main:<p><a href="/guestbook/">Р’ РЅР°С‡Р°Р»Рѕ РіРѕСЃС‚РµРІРѕР№ РєРЅРёРіРё</a></p>}}
 
-{{if:guestbook:<h2>Сообщения</h2>}}
+{{if:guestbook:<h2>РЎРѕРѕР±С‰РµРЅРёСЏ</h2>}}
 <table summary="guestbook">
 #messages#
 </table>

@@ -1,26 +1,26 @@
-<h1>Закачка файлов</h1>
+<h1>Р—Р°РєР°С‡РєР° С„Р°Р№Р»РѕРІ</h1>
 
 #content#
 
 <p>
-<a href="/modules/admin/">Возврат к списку модулей</a><br>
-<a href="/uploads/help/">Справка</a>
+<a href="/modules/admin/">Р’РѕР·РІСЂР°С‚ Рє СЃРїРёСЃРєСѓ РјРѕРґСѓР»РµР№</a><br>
+<a href="/uploads/help/">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <form action="/uploads/admin/" method="post" enctype="multipart/form-data">
-	Что закачиваем:<br>
-	<input type="radio" name="type" value="uploads"{{if:type_uploads: checked}}>Просто файл<br>
-	<input type="radio" name="type" value="news"{{if:type_news: checked}}>Изображение для использования в новостях<br>
-	<input type="radio" name="type" value="articles"{{if:type_articles: checked}}>Изображение для использования в статьях<br>
-	<input type="radio" name="type" value="banners"{{if:type_banners: checked}}>Баннер<br>
-    Файл: <input type="file" name="image">
-    <input type="submit" name="do_upload" value="Закачать">
+	Р§С‚Рѕ Р·Р°РєР°С‡РёРІР°РµРј:<br>
+	<input type="radio" name="type" value="uploads"{{if:type_uploads: checked}}>РџСЂРѕСЃС‚Рѕ С„Р°Р№Р»<br>
+	<input type="radio" name="type" value="news"{{if:type_news: checked}}>РР·РѕР±СЂР°Р¶РµРЅРёРµ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ РЅРѕРІРѕСЃС‚СЏС…<br>
+	<input type="radio" name="type" value="articles"{{if:type_articles: checked}}>РР·РѕР±СЂР°Р¶РµРЅРёРµ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ СЃС‚Р°С‚СЊСЏС…<br>
+	<input type="radio" name="type" value="banners"{{if:type_banners: checked}}>Р‘Р°РЅРЅРµСЂ<br>
+    Р¤Р°Р№Р»: <input type="file" name="image">
+    <input type="submit" name="do_upload" value="Р—Р°РєР°С‡Р°С‚СЊ">
 </form>
 
-<h2>Администрирование базы данных закачек</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р·Р°РєР°С‡РµРє</h2>
 
 <p>
-<a href="/uploads/create_tables/">Создать таблицы базы данных</a><br>
-<a href="/uploads/drop_tables/">Уничтожить таблицы базы данных</a><br>
-<a href="/uploads/update_tables/">Обновить таблицы базы данных</a>
+<a href="/uploads/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/uploads/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/uploads/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a>
 </p>

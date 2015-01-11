@@ -1,18 +1,18 @@
-<h1>Редактирование объявления</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ</h1>
 
 <p>
-<a href="/bills/view_by_category/#category#/">Обратно в категорию</a>
+<a href="/bills/view_by_category/#category#/">РћР±СЂР°С‚РЅРѕ РІ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 {{if:show_admin_link:
 <p>
-<a href="/bills/admin/">Меню администрирования объявлений</a><br>
-<a href="/bills/add/">Добавить объявление</a><br>
-<a href="/bills/help#edit">Справка</a>
+<a href="/bills/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РѕР±СЉСЏРІР»РµРЅРёР№</a><br>
+<a href="/bills/add/">Р”РѕР±Р°РІРёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ</a><br>
+<a href="/bills/help#edit">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
-{{if:show_user_bills_link:<a href="/bills/view_by_user/">Мои объявления</a>}}
+{{if:show_user_bills_link:<a href="/bills/view_by_user/">РњРѕРё РѕР±СЉСЏРІР»РµРЅРёСЏ</a>}}
 
 {{if:content:<p>#content#</p>}}
 {{if:result:<p>#result#</p>}}
@@ -21,10 +21,10 @@
 <input type="hidden" name="id" value="#id#">
 {{if:satellite:<input type="hidden" name="satellite" value="#satellite#">}}
 <table summary="bill edit table">
-<tr><td>Название объявления:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Название для ЧПУ:</td><td><input type="text" name="name" value="#name#"></td></tr>
-{{if:categories_select:<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>}}
-<tr><td>Текст:</td><td><textarea name="full_text">#full_text#</textarea></td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Сохранить"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ Р§РџРЈ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+{{if:categories_select:<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>}}
+<tr><td>РўРµРєСЃС‚:</td><td><textarea name="full_text">#full_text#</textarea></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="РЎРѕС…СЂР°РЅРёС‚СЊ"></td></tr>
 </table>
 </form>

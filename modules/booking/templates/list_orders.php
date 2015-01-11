@@ -20,6 +20,6 @@
 <td class="booking_#class#">#email#</td>
 <td class="booking_#class#">#dealer#</td>
 
-<td class="#class#"><a href="/booking/view/#id#/">Посмотреть</a> <a href="/booking/edit/#id#/">Редактировать</a> <a href="/booking/del/#id#/">Удалить</a></td>
+<td class="#class#"><a href="/booking/view/#id#/">РџРѕСЃРјРѕС‚СЂРµС‚СЊ</a> <a href="/booking/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> <a href="/booking/del/#id#/">РЈРґР°Р»РёС‚СЊ</a></td>
 
 </tr>

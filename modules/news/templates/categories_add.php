@@ -1,8 +1,8 @@
-<h1>Добавление категорий</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/news/view_categories/">Вернуться к просмотру категорий</a><br>
-<a href="/news/help#categories_add">Справка</a>
+<a href="/news/view_categories/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/news/help#categories_add">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -11,13 +11,13 @@
 
 <form action="/news/add_category/" method="post">
 <table summary="Category add table">
-<tr><td>Системное название (латинские буквы и цифры):</td><td><input type="text" name="name"></td></tr>
-<tr><td>Название для вывода пользователю (любые символы):</td><td><input type="text" name="title"></td></tr>
-<tr><td>Шаблон всей страницы <i>(по умолчанию - default)</i>:</td><td><input type="text" name="page_template" value="default"></td></tr>
-<tr><td>Шаблон просмотра категории <i>(по умолчанию - view_by_category)</i>:</td><td><input type="text" name="template" value="view_by_category"></td></tr>
-<tr><td>Шаблон списка новостей <i>(по умолчанию - news)</i>:</td><td><input type="text" name="list_template" value="news"></td></tr>
-<tr><td>Шаблон просмотра новости <i>(по умолчанию - view)</i>:</td><td><input type="text" name="news_template" value="view"></td></tr>
-<tr><td>Шаблон меню <i>(по умолчанию - пусто)</i>:</td><td><input type="text" name="menu_template" value=""></td></tr>
-<tr><td></td><td><input type="submit" name="do_add" value="Добавить"></td></tr>
+<tr><td>РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹):</td><td><input type="text" name="name"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹):</td><td><input type="text" name="title"></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ РІСЃРµР№ СЃС‚СЂР°РЅРёС†С‹ <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - default)</i>:</td><td><input type="text" name="page_template" value="default"></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ РїСЂРѕСЃРјРѕС‚СЂР° РєР°С‚РµРіРѕСЂРёРё <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - view_by_category)</i>:</td><td><input type="text" name="template" value="view_by_category"></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ СЃРїРёСЃРєР° РЅРѕРІРѕСЃС‚РµР№ <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - news)</i>:</td><td><input type="text" name="list_template" value="news"></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ РїСЂРѕСЃРјРѕС‚СЂР° РЅРѕРІРѕСЃС‚Рё <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - view)</i>:</td><td><input type="text" name="news_template" value="view"></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ РјРµРЅСЋ <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - РїСѓСЃС‚Рѕ)</i>:</td><td><input type="text" name="menu_template" value=""></td></tr>
+<tr><td></td><td><input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ"></td></tr>
 </table>
 </form>

@@ -19,7 +19,7 @@ function store_archive_create()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	$date = date("Y_m_d");
@@ -56,7 +56,7 @@ function store_archive_create()
 		else
 		{
 			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='cp1251'";
+			$charset = " charset='utf8'";
 		}
 		$sql_query = "create table if not exists ".$cur_table." (
                 id int auto_increment primary key,
@@ -106,7 +106,7 @@ function store_archive_create()
 		else
 		{
 			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='cp1251'";
+			$charset = " charset='utf8'";
 		}
 		$sql_query = "create table if not exists ".$cur_table." (
 			id int auto_increment primary key,
@@ -190,7 +190,7 @@ function store_archive_view_by_date()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	$content['date'] = $_GET['date'];

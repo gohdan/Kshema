@@ -4,9 +4,9 @@
 
 {{if:if_show_admin_link:
 <p>
-<a href="/users/admin/">Администрирование</a><br>
-<a href="/users/groups_view/">Список групп</a><br>
-<a href="/users/add/#group_id#/">Добавить пользователя</a>
+<a href="/users/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a><br>
+<a href="/users/groups_view/">РЎРїРёСЃРѕРє РіСЂСѓРїРї</a><br>
+<a href="/users/add/#group_id#/">Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</a>
 </p>
 }}
 
@@ -17,9 +17,9 @@
 <tr>
 <th>ID</th>
 <th>login</th>
-<th>Имя</th>
+<th>РРјСЏ</th>
 <th>email</th>
-<th>Группа</th>
+<th>Р“СЂСѓРїРїР°</th>
 </tr>
 #users#
 </table>

@@ -1,6 +1,6 @@
-<h1>Скрытые товары</h1>
+<h1>РЎРєСЂС‹С‚С‹Рµ С‚РѕРІР°СЂС‹</h1>
 
-{{if:show_admin_link:<p><a href="/index.php?module=shop&action=admin">Администрирование магазина</a></p>}}
+{{if:show_admin_link:<p><a href="/index.php?module=shop&action=admin">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјР°РіР°Р·РёРЅР°</a></p>}}
 
 <p>#result#</p>
 

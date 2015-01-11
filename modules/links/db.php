@@ -14,7 +14,7 @@ function links_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
         $queries[] = "create table if not exists ksh_links (
@@ -38,12 +38,12 @@ function links_install_tables()
 		$content['result'] .= $result['result'];
 
         $queries_qty = count($queries);
-        $content['content'] .= "<p>Количество запросов к БД: ".$queries_qty."</p>";
+        $content['content'] .= "<p>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїСЂРѕСЃРѕРІ Рє Р‘Р”: ".$queries_qty."</p>";
 
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['content'] .= "<p>Запросы выполнены</p>";
+                $content['content'] .= "<p>Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹</p>";
         }
         return $content;
 }
@@ -57,7 +57,7 @@ function links_drop_tables()
                 debug ("*** drop_db");
                 unset ($_POST['do_drop']);
                 foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-                $content['content'] .= "<p>Таблицы БД успешно удалены</p>";
+                $content['content'] .= "<p>РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹</p>";
         }
 
 
@@ -89,7 +89,7 @@ function links_update_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 
@@ -142,7 +142,7 @@ function links_update_tables()
     if ($queries_qty > 0)
     {
         foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-        $content['result'] .= "Запросы выполнены";
+        $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
 	debug ("*** pages_tables_update ***");        
     return $content;

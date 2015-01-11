@@ -398,14 +398,14 @@ function articles_default_action()
                         break;
 
 						case "categories_view":
-							$config['themes']['page_title']['action'] = "Категории";
+							$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_articles_categories");
 							$content .= gen_content("articles", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['themes']['page_title']['action'] = "Добавление категории";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_articles_categories");
                             $content .= gen_content("articles", "categories_add", array_merge($module_data, $cnt));
@@ -414,7 +414,7 @@ function articles_default_action()
                         case "categories_del":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Удаление категории";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> del("ksh_articles_categories", "ksh_articles", $_GET['category']);
 							$content .= gen_content("articles", "categories_del", array_merge($module_data, $cnt));
@@ -423,7 +423,7 @@ function articles_default_action()
 						case "categories_edit":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование категории";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_articles_categories", $_GET['category']);
 	                        $content .= gen_content("articles", "categories_edit", array_merge($module_data, $cnt));
@@ -454,7 +454,7 @@ function articles_default_action()
                         break;
 
 						case "add":
-							$config['themes']['page_title']['action'] = "Добавление статьи";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ СЃС‚Р°С‚СЊРё";
 							if ($user['id'])
 								$module_data['show_user_articles_link'] = "yes";
 							$dob = new DataObject();
@@ -465,7 +465,7 @@ function articles_default_action()
 						break;
 
                         case "edit":
-							$config['themes']['page_title']['action'] = "Редактирование статьи";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚Р°С‚СЊРё";
 							if (!$user['id'])
 								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 							else
@@ -487,7 +487,7 @@ function articles_default_action()
                         break;
 
                         case "del":
-							$config['themes']['page_title']['action'] = "Удаление статьи";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ СЃС‚Р°С‚СЊРё";
 							if ($user['id'])
 								$module_data['show_user_articles_link'] = "yes";
 							$dob = new DataObject();
@@ -497,7 +497,7 @@ function articles_default_action()
                         break;
 
                         case "view":
-							$config['themes']['page_title']['action'] = "Просмотр статьи";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ СЃС‚Р°С‚СЊРё";
 							if ($user['id'])
 								$module_data['show_user_articles_link'] = "yes";
 							if ("" == $module_data['module'] && "" == $module_data['action'])
@@ -521,7 +521,7 @@ function articles_default_action()
 								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 							else
 							{
-								$config['themes']['page_title']['action'] = "Просмотр статей пользователя";
+								$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ СЃС‚Р°С‚РµР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
 		
 								if (isset($_GET['user']))
 									$user_id = $_GET['user'];
@@ -538,14 +538,14 @@ function articles_default_action()
 						break;
 
 						case "privileges_edit":
-							$config['themes']['page_title']['action'] = "Назначение прав";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";
 							$priv = new Privileges();
 							$cnt = $priv -> edit("articles");
 							$content .= gen_content("articles", "privileges_edit", array_merge($module_data, $cnt));
 						break;
 
 						case "sections_edit":
-							$config['themes']['page_title']['action'] = "Назначение разделов";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ СЂР°Р·РґРµР»РѕРІ";
 							if ($priv -> has("articles", "sections_edit", "write"))
 								$content .= gen_content("articles", "sections_edit", array_merge($module_data, articles_sections_edit()));
 							else
@@ -553,7 +553,7 @@ function articles_default_action()
 						break;
 						
 						case "titles_edit":
-							$config['themes']['page_title']['action'] = "Назначение специфичных названий разделов";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ СЃРїРµС†РёС„РёС‡РЅС‹С… РЅР°Р·РІР°РЅРёР№ СЂР°Р·РґРµР»РѕРІ";
 							if ($priv -> has("articles", "titles_edit", "write"))
 								$content .= gen_content("articles", "titles_edit", array_merge($module_data, articles_titles_edit()));
 							else
@@ -563,7 +563,7 @@ function articles_default_action()
                         case "moderate_edit":
 							if (isset($_GET['element']))
 								$_GET['article'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование статьи";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚Р°С‚СЊРё";
 							$priv = new Privileges();
 							if ($priv -> has("articles", "moderate_edit", "write"))
 							{
@@ -586,7 +586,7 @@ function articles_default_action()
 						case "moderate_del":
 							if (isset($_GET['element']))
 								$_GET['article'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Удаление статьи";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ СЃС‚Р°С‚СЊРё";
 							$priv = new Privileges();
 							if ($priv -> has("articles", "moderate_del", "write"))
 							{
@@ -603,7 +603,7 @@ function articles_default_action()
 								if (isset($result_del) && $result_del)
 								{
 									$cnt['show_del_form'] = '';
-									$cnt['result'] = "Статья успешно удалена";
+									$cnt['result'] = "РЎС‚Р°С‚СЊСЏ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
 								}
 	                            $content .= gen_content("articles", "moderate_del", array_merge($module_data, $cnt));
 							}
@@ -624,14 +624,14 @@ function articles_default_action()
 								$table = $config['articles']['categories_table'];
 								$cat = new Category();
 								$cat -> create_table($table."_".$satellite);
-								$cnt = $sat -> synchronize($table, "Категории");
+								$cnt = $sat -> synchronize($table, "РљР°С‚РµРіРѕСЂРёРё");
 								$content .= gen_content("base", "satellite_synchronize", array_merge($cnt, $module_data));								
 
 								$module_data['show_heading'] = "";
 								$module_data['show_satellite_link'] = "";
 								$table = $config['articles']['table'];
 								articles_table_create($table."_".$satellite);
-								$cnt = $sat -> synchronize($table, "Статьи");
+								$cnt = $sat -> synchronize($table, "РЎС‚Р°С‚СЊРё");
 								$content .= gen_content("base", "satellite_synchronize", array_merge($cnt, $module_data));
 							}
 						break;
@@ -650,7 +650,7 @@ function articles_default_action()
 						$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 					else
 					{
-						$config['themes']['page_title']['action'] = "Просмотр статей пользователя";
+						$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ СЃС‚Р°С‚РµР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
 
 						if (isset($_GET['user']))
 							$user_id = $_GET['user'];

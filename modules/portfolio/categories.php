@@ -31,19 +31,19 @@ function portfolio_categories_add()
 					'".mysql_real_escape_string($_POST['portfolio_template'])."',
 					'".mysql_real_escape_string($_POST['menu_template'])."'
 					)");
-                $content['result'] .= "Категория добавлена";
+                $content['result'] .= "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте имя категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_categories_add ***");
@@ -70,7 +70,7 @@ function portfolio_categories_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_categories_del ***");
@@ -116,7 +116,7 @@ function portfolio_categories_view()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_categories_view ***");
@@ -160,12 +160,12 @@ function portfolio_categories_edit()
 					portfolio_template='".mysql_real_escape_string($_POST['portfolio_template'])."', 
 					menu_template='".mysql_real_escape_string($_POST['menu_template'])."' 
 					WHERE id='".mysql_real_escape_string($category_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте название категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
         else
@@ -188,7 +188,7 @@ function portfolio_categories_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_categories_edit ***");

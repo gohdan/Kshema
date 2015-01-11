@@ -1,17 +1,17 @@
-<h1>Удаление привязки</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РїСЂРёРІСЏР·РєРё</h1>
 
 <p>
-<a href="/index.php?module=hooks&amp;action=categories_view">Вернуться к списку категорий</a><br>
-<a href="/index.php?module=hooks&amp;action=help#hooks_del">Справка</a>
+<a href="/index.php?module=hooks&amp;action=categories_view">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/index.php?module=hooks&amp;action=help#hooks_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
-<p>Вы действительно хотите удалить привязку{{if:title:<b>#title#</b>}}?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РїСЂРёРІСЏР·РєСѓ{{if:title:<b>#title#</b>}}?</p>
 
 #content#
 
 <form action="/index.php?module=hooks&amp;action=categories_view" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

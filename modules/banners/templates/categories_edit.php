@@ -1,9 +1,9 @@
-<h1>Редактирование категории "#title#"</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё "#title#"</h1>
 
 <p>
-<a href="/banners/admin/">Вернуться к меню администрирования</a><br>
-<a href="/banners/view_categories/">Вернуться к просмотру категорий</a><br>
-<a href="/banners/help#categories_edit">Справка</a>
+<a href="/banners/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/banners/view_categories/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/banners/help#categories_edit">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
@@ -13,10 +13,10 @@
 
 <form action="/banners/category_edit/" method="post">
 <input type="hidden" name="id" value="#category_id#">
-Системное название (латинскими буквами; можно использовать цифры):<br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё; РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С†РёС„СЂС‹):<br>
 <input type="text" name="name" value="#name#"><br>
-Название для вывода пользователю (можно любой текст):<br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (РјРѕР¶РЅРѕ Р»СЋР±РѕР№ С‚РµРєСЃС‚):<br>
 <input type="text" name="title" value="#title#" size="40"><br>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

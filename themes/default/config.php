@@ -52,7 +52,7 @@ $config['base']['admin_email'] = "gohdan@gohdan.ru";
 $config['base']['inst_root'] = ""; // Put here a directory Kshema is installed in; no slash at the end!
 $config['base']['domain_dir'] = "";
 $config['base']['doc_root'] = $_SERVER['DOCUMENT_ROOT'].$config['base']['inst_root'] ;
-$config['base']['output_charset'] = "cp1251"; // cp1251 or utf8
+$config['base']['output_charset'] = "utf8"; // utf8 or utf8
 
 $config['base']['ftp_server'] = "kshema.handyhosting.ru";
 $config['base']['ftp_username'] = "kshema";

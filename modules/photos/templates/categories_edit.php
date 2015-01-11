@@ -1,11 +1,11 @@
-<h1>Редактирование категорий</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/index.php?module=photos&action=admin">Вернуться к администрированию изображений</a>
+<a href="/index.php?module=photos&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РёР·РѕР±СЂР°Р¶РµРЅРёР№</a>
 </p>
 
 <p>
-<a href="/index.php?module=photos&action=add_category">Добавить категорию</a>
+<a href="/index.php?module=photos&action=add_category">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 <p>#result#</p>
@@ -14,9 +14,9 @@
 
 <form action="/index.php?module=photos&action=category_edit" method="post">
 <input type="hidden" name="id" value="#category_id#">
-Системное название (латинскими буквами; можно использовать цифры):<br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё; РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С†РёС„СЂС‹):<br>
 <input type="text" name="name" value="#name#"><br>
-Название для вывода пользователю (можно любой текст):<br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (РјРѕР¶РЅРѕ Р»СЋР±РѕР№ С‚РµРєСЃС‚):<br>
 <input type="text" name="title" value="#title#"><br>
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

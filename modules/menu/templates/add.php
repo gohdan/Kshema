@@ -1,22 +1,22 @@
-<h1>Добавление элементов меню в список</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЋ РІ СЃРїРёСЃРѕРє</h1>
 
 #content#
 
 <p>
-<a href="/index.php?module=menu&amp;action=admin">Меню администрирования списков меню</a><br>
-<a href="/index.php?module=menu&amp;action=help#elements_add">Справка</a>
+<a href="/index.php?module=menu&amp;action=admin">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃРїРёСЃРєРѕРІ РјРµРЅСЋ</a><br>
+<a href="/index.php?module=menu&amp;action=help#elements_add">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
 <form action="/index.php?module=menu&amp;action=add&amp;category=#category_id#" method="post">
 <input type="hidden" name="if_new_window" value="">
 <table summary="menu add table">
-<tr><td>Меню:</td><td><select name="category">#categories_select#</select></td></tr>
-<tr><td>Активирует подменю:</td><td><select name="submenu">#subcategories_select#<option value="0" selected>Нет</option></select></td></tr>
-<tr><td>Открывать в новом окне:</td><td><input type="checkbox" name="if_new_window" value="yes"></td></tr>
-<tr><td>Позиция <i>(число; чем оно больше, тем элемент ниже в списке)</i>:</td><td><input type="text" name="position" size="2"></td></tr>
-<tr><td>Название для вывода пользователю:</td><td><input type="text" name="title" size="60"></td></tr>
-<tr><td>URL <i>(можно без названия сайта)</i>:</td><td><input type="text" name="url" size="60"></td></tr>
-<tr><td></td><td><input type="submit" name="do_add" value="Добавить"></td></tr>
+<tr><td>РњРµРЅСЋ:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РђРєС‚РёРІРёСЂСѓРµС‚ РїРѕРґРјРµРЅСЋ:</td><td><select name="submenu">#subcategories_select#<option value="0" selected>РќРµС‚</option></select></td></tr>
+<tr><td>РћС‚РєСЂС‹РІР°С‚СЊ РІ РЅРѕРІРѕРј РѕРєРЅРµ:</td><td><input type="checkbox" name="if_new_window" value="yes"></td></tr>
+<tr><td>РџРѕР·РёС†РёСЏ <i>(С‡РёСЃР»Рѕ; С‡РµРј РѕРЅРѕ Р±РѕР»СЊС€Рµ, С‚РµРј СЌР»РµРјРµРЅС‚ РЅРёР¶Рµ РІ СЃРїРёСЃРєРµ)</i>:</td><td><input type="text" name="position" size="2"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ:</td><td><input type="text" name="title" size="60"></td></tr>
+<tr><td>URL <i>(РјРѕР¶РЅРѕ Р±РµР· РЅР°Р·РІР°РЅРёСЏ СЃР°Р№С‚Р°)</i>:</td><td><input type="text" name="url" size="60"></td></tr>
+<tr><td></td><td><input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ"></td></tr>
 </table>
 </form>

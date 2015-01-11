@@ -22,13 +22,13 @@ function store_objects_view_all()
 			debug ("user is admin, deleting from DB");
 			//exec_query ("delete from ksh_store_objects where id='".mysql_real_escape_string($_POST['id'])."'");
 			exec_query ("update ksh_store_objects set status='1' where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Объект завершён";
+			$content['result'] = "РћР±СЉРµРєС‚ Р·Р°РІРµСЂС€С‘РЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Объект не завершён";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РћР±СЉРµРєС‚ РЅРµ Р·Р°РІРµСЂС€С‘РЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -40,9 +40,9 @@ function store_objects_view_all()
 		$content['objects'][$i]['position'] = stripslashes($object['position']);
 		$content['objects'][$i]['name'] = stripslashes($object['name']);
 		if ("0" == stripslashes($object['status']))
-			$content['objects'][$i]['status'] = "в работе";
+			$content['objects'][$i]['status'] = "РІ СЂР°Р±РѕС‚Рµ";
 		else
-			$content['objects'][$i]['status'] = "завершён";
+			$content['objects'][$i]['status'] = "Р·Р°РІРµСЂС€С‘РЅ";
 		$i++;
 	}
 	mysql_free_result($result);
@@ -72,13 +72,13 @@ function store_objects_add()
 
 			exec_query("INSERT INTO ksh_store_objects (name, position, status) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($position)."', '0')");
 
-			$content['result'] = "Объект добавлен";
+			$content['result'] = "РћР±СЉРµРєС‚ РґРѕР±Р°РІР»РµРЅ";
 		}
 	}
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -111,13 +111,13 @@ function store_objects_edit()
 		if (1 == $user['id'])
 		{
 			exec_query ("update ksh_store_objects set name='".mysql_real_escape_string($_POST['name'])."', status='".mysql_real_escape_string($_POST['status'])."' where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ РЅРµ Р·Р°РїРёСЃР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -234,7 +234,7 @@ function store_objects_sort()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_objects_sort ***");

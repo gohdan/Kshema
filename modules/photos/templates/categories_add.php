@@ -1,7 +1,7 @@
-<h1>Добавление категорий</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/index.php?module=photos&action=view_categories">Вернуться к просмотру категорий</a><br>
+<a href="/index.php?module=photos&action=view_categories">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
 </p>
 
 <p>#result#</p>
@@ -9,9 +9,9 @@
 <p>#content#</p>
 
 <form action="/index.php?module=photos&action=add_category" method="post">
-Системное название (латинскими буквами; можно использовать цифры):<br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё; РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С†РёС„СЂС‹):<br>
 <input type="text" name="name"><br>
-Название для вывода пользователю (можно любой текст):<br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (РјРѕР¶РЅРѕ Р»СЋР±РѕР№ С‚РµРєСЃС‚):<br>
 <input type="text" name="title"><br>
-<input type="submit" name="do_add" value="Добавить">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

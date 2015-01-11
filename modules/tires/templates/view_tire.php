@@ -1,33 +1,33 @@
 
 {{if:title:<h2>#brand# #model# #width#/#profile#/#radius# #speed_short#</h2>}}
 
-{{if:no_tire:<p>Нет такой модели</p>}}
+{{if:no_tire:<p>РќРµС‚ С‚Р°РєРѕР№ РјРѕРґРµР»Рё</p>}}
 
 <div class="row">
 
 <div class="span4 well">
 
-<h3>Карточка модели</h3>
+<h3>РљР°СЂС‚РѕС‡РєР° РјРѕРґРµР»Рё</h3>
 
-{{if:price:<p>Цена: <b>#price# руб.</b></p>}}
-{{if:brand:Бренд: <a href="/shiny/x/x/x/#brand_url#/x/x/x/x/">#brand#</a><br>}}
-{{if:source:происхождение: <a href="/shiny/#source_url#/x/x/x/x/x/x/x/">#source#</a><br>}}
-{{if:season:сезон: <a href="/shiny/x/#season_url#/x/x/x/x/x/x/">#season#</a><br>}}
-{{if:spikes:шипованная: <a href="/shiny/x/x/#spikes_url#/x/x/x/x/x/">#spikes#</a><br>}}
-{{if:speed:скорость: #speed#<br>}}
-{{if:profile:профиль: <a href="/shiny/x/x/x/x/x/#profile_url#/x/x/">#profile#</a><br>}}
-{{if:radius:диаметр (R): <a href="/shiny/x/x/x/x/x/x/#radius_url#/x/">#radius#</a><br>}}
-{{if:width:ширина: <a href="/shiny/x/x/x/x/x/x/x/#width_url#/">#width#</a><br>}}
+{{if:price:<p>Р¦РµРЅР°: <b>#price# СЂСѓР±.</b></p>}}
+{{if:brand:Р‘СЂРµРЅРґ: <a href="/shiny/x/x/x/#brand_url#/x/x/x/x/">#brand#</a><br>}}
+{{if:source:РїСЂРѕРёСЃС…РѕР¶РґРµРЅРёРµ: <a href="/shiny/#source_url#/x/x/x/x/x/x/x/">#source#</a><br>}}
+{{if:season:СЃРµР·РѕРЅ: <a href="/shiny/x/#season_url#/x/x/x/x/x/x/">#season#</a><br>}}
+{{if:spikes:С€РёРїРѕРІР°РЅРЅР°СЏ: <a href="/shiny/x/x/#spikes_url#/x/x/x/x/x/">#spikes#</a><br>}}
+{{if:speed:СЃРєРѕСЂРѕСЃС‚СЊ: #speed#<br>}}
+{{if:profile:РїСЂРѕС„РёР»СЊ: <a href="/shiny/x/x/x/x/x/#profile_url#/x/x/">#profile#</a><br>}}
+{{if:radius:РґРёР°РјРµС‚СЂ (R): <a href="/shiny/x/x/x/x/x/x/#radius_url#/x/">#radius#</a><br>}}
+{{if:width:С€РёСЂРёРЅР°: <a href="/shiny/x/x/x/x/x/x/x/#width_url#/">#width#</a><br>}}
 </div>
 
 {{if:has_analogs:
 <div class="span7 well">
-<h3>В этой же размерности можно купить:</h3>
+<h3>Р’ СЌС‚РѕР№ Р¶Рµ СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё РјРѕР¶РЅРѕ РєСѓРїРёС‚СЊ:</h3>
 #analogs#
 }}
 
 {{if:has_analogs_hidden:
-<span id="tires_show_analogs" class="btn-link tires_show_analogs" onClick="javascript:tires_analogs_show()">Показать ещё модели (всего #analogs_hidden_qty#)</span>
+<span id="tires_show_analogs" class="btn-link tires_show_analogs" onClick="javascript:tires_analogs_show()">РџРѕРєР°Р·Р°С‚СЊ РµС‰С‘ РјРѕРґРµР»Рё (РІСЃРµРіРѕ #analogs_hidden_qty#)</span>
 <div id="tires_analogs" class="tires_analogs">
 #analogs_hidden#
 </div>
@@ -40,14 +40,14 @@
 </div>
 
 {{if:has_tire:
-<h2>Магазины:</h2>
+<h2>РњР°РіР°Р·РёРЅС‹:</h2>
 
 <table class="table table-bordered table-striped table-hover">
 <tr>
-<th>Название</th><th>Телефон</th><th>Цена</th><th>Наличие</th><th></th>
+<th>РќР°Р·РІР°РЅРёРµ</th><th>РўРµР»РµС„РѕРЅ</th><th>Р¦РµРЅР°</th><th>РќР°Р»РёС‡РёРµ</th><th></th>
 </tr>
 <tr>
-<td>inozap.ru</td><td>8-800-333-82-33 добавочный 333</td><td>#price# руб. (скидка при обращении с tamboff.ru)</td><td>4 рабочих дня</td><td><!--noindex--><a href="http://inozap.axxi.ru/?rn=#rn#&k=tamboff" rel="nofollow">Заказать</a><!--/noindex--></td>
+<td>inozap.ru</td><td>8-800-333-82-33 РґРѕР±Р°РІРѕС‡РЅС‹Р№ 333</td><td>#price# СЂСѓР±. (СЃРєРёРґРєР° РїСЂРё РѕР±СЂР°С‰РµРЅРёРё СЃ tamboff.ru)</td><td>4 СЂР°Р±РѕС‡РёС… РґРЅСЏ</td><td><!--noindex--><a href="http://inozap.axxi.ru/?rn=#rn#&k=tamboff" rel="nofollow">Р—Р°РєР°Р·Р°С‚СЊ</a><!--/noindex--></td>
 </tr>
 </table>
 

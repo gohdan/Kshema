@@ -1,17 +1,17 @@
-<h1>Удаление таблиц базы данных статей</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃС‚Р°С‚РµР№</h1>
 
-<a href="#inst_root#/index.php?module=articles&action=admin">Вернуться к администрированию статей</a>
+<a href="#inst_root#/index.php?module=articles&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ СЃС‚Р°С‚РµР№</a>
 
 <p>#content#</p>
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="#inst_root#/index.php?module=articles&action=drop_tables" method="post">
-<input type="checkbox" name="drop_articles_categories_table" value="ksh_articles_categories">Категории статей<br>
-<input type="checkbox" name="drop_articles_table" value="ksh_articles">Статьи<br>
-<input type="checkbox" name="drop_articles_privileges_table" value="ksh_articles_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_articles_categories_table" value="ksh_articles_categories">РљР°С‚РµРіРѕСЂРёРё СЃС‚Р°С‚РµР№<br>
+<input type="checkbox" name="drop_articles_table" value="ksh_articles">РЎС‚Р°С‚СЊРё<br>
+<input type="checkbox" name="drop_articles_privileges_table" value="ksh_articles_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

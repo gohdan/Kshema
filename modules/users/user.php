@@ -86,11 +86,11 @@ function add()
 				'".mysql_real_escape_string($password)."'
 			)";
 			// exec_query($sql_query);
-			$content['result'] = "Пользователь добавлен";
+			$content['result'] = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РґРѕР±Р°РІР»РµРЅ";
 		}
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug("*** end: Users: add ***");
 	return $content;

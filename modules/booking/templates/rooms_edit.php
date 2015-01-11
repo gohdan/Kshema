@@ -1,19 +1,19 @@
-<h1>Редактирование номеров</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РЅРѕРјРµСЂРѕРІ</h1>
 
-<p><a href="/booking/admin/">В основное меню администрирования</a></p>
+<p><a href="/booking/admin/">Р’ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a></p>
 
 <form action="/booking/rooms_edit/" method="post">
-Сотрите номер комнаты, чтобы удалить запись<br><br>
+РЎРѕС‚СЂРёС‚Рµ РЅРѕРјРµСЂ РєРѕРјРЅР°С‚С‹, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ<br><br>
 
 <table class="rooms">
 <tr>
-<th>Этаж</th>
-<th>Номер</th>
-<th>Тип</th>
+<th>Р­С‚Р°Р¶</th>
+<th>РќРѕРјРµСЂ</th>
+<th>РўРёРї</th>
 #rooms#
 </table>
 <br>
-Добавить номер:<br>
+Р”РѕР±Р°РІРёС‚СЊ РЅРѕРјРµСЂ:<br>
 <select name="new_floor">
 <option value="1">1</option>
 <option value="2">2</option>
@@ -26,5 +26,5 @@
 <option value="3">Apartments</option>
 </select>
 <br><br>
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

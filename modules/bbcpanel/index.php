@@ -28,7 +28,7 @@ function bbcpanel_admin()
 		'show_view_by_user_link' => '',
 		'show_admin_link' => ''
     );
-    $content['heading'] = "Администрирование панели управления досками объявлений";
+    $content['heading'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РїР°РЅРµР»Рё СѓРїСЂР°РІР»РµРЅРёСЏ РґРѕСЃРєР°РјРё РѕР±СЉСЏРІР»РµРЅРёР№";
 
 	if ($user['id'])
 		$content['show_profile_link'] = "yes";
@@ -186,61 +186,61 @@ function bbcpanel_default_action()
                 switch ($_GET['action'])
                 {
                         default:
-							$config['themes']['page_title']['action'] = "Главная страница";
+							$config['themes']['page_title']['action'] = "Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°";
                             $content .= gen_content("bbcpanel", "frontpage", bbcpanel_frontpage());
                         break;
 
                         case "admin":
-							$config['themes']['page_title']['action'] = "Администрирование";
+							$config['themes']['page_title']['action'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ";
                             $content .= gen_content("bbcpanel", "admin", bbcpanel_admin());
                         break;
 
                         case "help":
-							$config['themes']['page_title']['action'] = "Справка";
+							$config['themes']['page_title']['action'] = "РЎРїСЂР°РІРєР°";
                             $content .= gen_content("bbcpanel", "help", bbcpanel_help());
                         break;
 
                         case "create_tables":
-							$config['themes']['page_title']['action'] = "Создание таблиц";
+							$config['themes']['page_title']['action'] = "РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†";
 							$content .= gen_content("bbcpanel", "tables_create", bbcpanel_tables_create());
                         break;
 
                         case "drop_tables":
-							$config['themes']['page_title']['action'] = "Удаление таблиц";						
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС†";						
                             $content .= gen_content("bbcpanel", "drop_tables", bbcpanel_tables_drop());
                         break;
 
                         case "update_tables":
-							$config['themes']['page_title']['action'] = "Обновление таблиц";						
+							$config['themes']['page_title']['action'] = "РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС†";						
                             $content .= gen_content("bbcpanel", "tables_update", bbcpanel_tables_update());
                         break;
 
 						case "privileges_edit":
-							$config['themes']['page_title']['action'] = "Назначение прав";						
-							$template['title'] .= " - Назначение прав";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";						
+							$template['title'] .= " - РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";
 							$priv = new Privileges();
 							$cnt = $priv -> edit("bbcpanel");
 							$content .= gen_content("bbcpanel", "privileges_edit", array_merge($module_data, $cnt));
 						break;
 
 						case "categories_view":
-							$config['themes']['page_title']['action'] = "Категории";
-							$config['themes']['page_title'] .= " - Категории";
+							$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
+							$config['themes']['page_title'] .= " - РљР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_bbcpanel_categories");
 							$content .= gen_content("bbcpanel", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['themes']['page_title']['action'] = "Добавление категории";
-							$config['themes']['page_title'] .= " - Добавление категории";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+							$config['themes']['page_title'] .= " - Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_bbcpanel_categories");
                             $content .= gen_content("bbcpanel", "categories_add", array_merge($module_data, $cnt));
                         break;
 
                         case "categories_del":
-							$config['themes']['page_title']['action'] = "Удаление категории";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
 							$cat = new Category();
@@ -251,7 +251,7 @@ function bbcpanel_default_action()
 						case "categories_edit":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование категории";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_bbcpanel_categories", $_GET['category']);
 	                        $content .= gen_content("bbcpanel", "categories_edit", array_merge($module_data, $cnt));
@@ -261,7 +261,7 @@ function bbcpanel_default_action()
 						case "view_by_category":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Просмотр досок объявлений в категории";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№ РІ РєР°С‚РµРіРѕСЂРёРё";
 
 							$bb = new BB();
 							$cnt = array('result' => '');
@@ -296,7 +296,7 @@ function bbcpanel_default_action()
                         break;
 
 						case "bbs_view_all":
-							$config['themes']['page_title']['action'] = "Просмотр досок объявлений";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№";
 							$bb = new BB();
 							$cnt = array('result' => '');
 
@@ -333,7 +333,7 @@ function bbcpanel_default_action()
                         case "bb_add":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Добавление доски объявлений";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РґРѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№";
 							$bb = new BB();
 							$cnt = $bb -> add();
                             $content .= gen_content("bbcpanel", "bb_add", array_merge($module_data, $cnt));
@@ -342,7 +342,7 @@ function bbcpanel_default_action()
                         case "bb_del":
 							if (isset($_GET['element']))
 								$_GET['bb'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Удаление доски объявлений";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РґРѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№";
 							$bb = new BB();
 							$cnt = $bb -> del();
                             $content .= gen_content("bbcpanel", "bb_del", array_merge($module_data, $cnt));
@@ -352,7 +352,7 @@ function bbcpanel_default_action()
                         case "bb_edit":
 							if (isset($_GET['element']))
 								$_GET['bb'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование доски объявлений";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№";
 							$bb = new BB();
 							$cnt = $bb -> edit();
                             $content .= gen_content("bbcpanel", "bb_edit", array_merge($module_data, $cnt));
@@ -361,7 +361,7 @@ function bbcpanel_default_action()
                         case "bb_view":
 							if (isset($_GET['element']))
 								$_GET['bb'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Просмотр доски объявлений";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РґРѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№";
 							$bb = new BB();
 							$cnt = $bb -> view();
                             $content .= gen_content("bbcpanel", "bb_view", array_merge($module_data, $cnt));
@@ -370,7 +370,7 @@ function bbcpanel_default_action()
 						case "titles_edit":
 							if (isset($_GET['element']))
 								$_GET['bb'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Назначение специфичных названий разделов";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ СЃРїРµС†РёС„РёС‡РЅС‹С… РЅР°Р·РІР°РЅРёР№ СЂР°Р·РґРµР»РѕРІ";
 							$bb = new BB();
 							$cnt = $bb -> titles_edit();
 							$content .= gen_content("bbcpanel", "titles_edit", array_merge($module_data, $cnt));
@@ -379,7 +379,7 @@ function bbcpanel_default_action()
 						case "tparts_edit":
 							if (isset($_GET['element']))
 								$_GET['bb'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование частей шаблонов";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‡Р°СЃС‚РµР№ С€Р°Р±Р»РѕРЅРѕРІ";
 							$bb = new BB();
 							$cnt = $bb -> tparts_edit();
 							$content .= gen_content("bbcpanel", "tparts_edit", array_merge($module_data, $cnt));
@@ -388,7 +388,7 @@ function bbcpanel_default_action()
 						case "update_all":
 							if (isset($_GET['element']))
 								$_GET['bb'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Обновление программного кода";
+							$config['themes']['page_title']['action'] = "РћР±РЅРѕРІР»РµРЅРёРµ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РєРѕРґР°";
 							$bb = new BB();
 							$cnt = $bb -> update_all();
 							$content .= gen_content("bbcpanel", "update_all", array_merge($module_data, $cnt));
@@ -399,7 +399,7 @@ function bbcpanel_default_action()
         else
         {
                 debug ("*** action: default");
-				$config['themes']['page_title']['action'] = "Главная страница";
+				$config['themes']['page_title']['action'] = "Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°";
                 $content .= gen_content("bbcpanel", "frontpage", bbcpanel_frontpage());
         }
 

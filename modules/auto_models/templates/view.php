@@ -2,18 +2,18 @@
 
 <p>
 {{if:id:
-<a href="/index.php?module=auto_models&action=characteristics_view&model=#id#">Технические характеристики</a><br>
-<a href="/index.php?module=auto_models&action=prices_view&model=#id#">Комплектация и цены</a><br>
-<a href="/index.php?module=auto_models&action=equipment_view&model=#id#">Дополнительное оборудование</a><br>
-<a href="/index.php?module=auto_models&action=images_view&model=#id#">Фотогалерея</a><br>
-<a href="/index.php?module=auto_models&action=videos_view&model=#id#">Видеоролики</a><br>
-<a href="/index.php?module=auto_models&action=colors_view&model=#id#">Цвета</a><br>
+<a href="/index.php?module=auto_models&action=characteristics_view&model=#id#">РўРµС…РЅРёС‡РµСЃРєРёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё</a><br>
+<a href="/index.php?module=auto_models&action=prices_view&model=#id#">РљРѕРјРїР»РµРєС‚Р°С†РёСЏ Рё С†РµРЅС‹</a><br>
+<a href="/index.php?module=auto_models&action=equipment_view&model=#id#">Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ</a><br>
+<a href="/index.php?module=auto_models&action=images_view&model=#id#">Р¤РѕС‚РѕРіР°Р»РµСЂРµСЏ</a><br>
+<a href="/index.php?module=auto_models&action=videos_view&model=#id#">Р’РёРґРµРѕСЂРѕР»РёРєРё</a><br>
+<a href="/index.php?module=auto_models&action=colors_view&model=#id#">Р¦РІРµС‚Р°</a><br>
 }}
-{{if:link:<a href="#link#">Ссылка</a><br>}}
+{{if:link:<a href="#link#">РЎСЃС‹Р»РєР°</a><br>}}
 </p>
 
 {{if:if_show_edit_link:
-<p><a href="/index.php?module=auto_models&action=edit&model=#id#">Редактировать</a></p>
+<p><a href="/index.php?module=auto_models&action=edit&model=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></p>
 }}
 
 <p>#content#</p>

@@ -1,24 +1,24 @@
-<h1>Администрирование файлов</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»РѕРІ</h1>
 
 <p>
-<a href="/index.php?module=modules&action=admin">Возврат в главное меню администрирования</a><br>
+<a href="/index.php?module=modules&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <p>
-<a href="/index.php?module=files&action=add_files">Добавить файлы</a><br>
-<a href="/index.php?module=files&action=categories_view">Категории файлов</a>
+<a href="/index.php?module=files&action=add_files">Р”РѕР±Р°РІРёС‚СЊ С„Р°Р№Р»С‹</a><br>
+<a href="/index.php?module=files&action=categories_view">РљР°С‚РµРіРѕСЂРёРё С„Р°Р№Р»РѕРІ</a>
 </p>
 
 <p>
-<a href="/files/access_edit/">Права доступа к категориям<br>
-<a href="/files/privileges_edit/">Привилегии</a>
+<a href="/files/access_edit/">РџСЂР°РІР° РґРѕСЃС‚СѓРїР° Рє РєР°С‚РµРіРѕСЂРёСЏРј<br>
+<a href="/files/privileges_edit/">РџСЂРёРІРёР»РµРіРёРё</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных файлов</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</h2>
 
-<a href="/index.php?module=files&action=install_tables">Создать базу данных файлов</a><br>
-<a href="/index.php?module=files&action=update_tables">Обновить базу данных файлов</a><br>
-<a href="/index.php?module=files&action=drop_tables">Уничтожить базу данных файлов</a><br>
+<a href="/index.php?module=files&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</a><br>
+<a href="/index.php?module=files&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</a><br>
+<a href="/index.php?module=files&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</a><br>
 </p>

@@ -1,16 +1,16 @@
-<h1>Удаление таблиц базы данных подкаста</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕРґРєР°СЃС‚Р°</h1>
 
-<a href="#inst_root#/podcast/admin/">Вернуться к администрированию подкаста</a>
+<a href="#inst_root#/podcast/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РїРѕРґРєР°СЃС‚Р°</a>
 
 <p>#content#</p>
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="#inst_root#/podcast/drop_tables/" method="post">
-<input type="checkbox" name="drop_podcast_table" value="ksh_video">Видео<br>
-<input type="checkbox" name="drop_podcast_privileges_table" value="ksh_video_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_podcast_table" value="ksh_video">Р’РёРґРµРѕ<br>
+<input type="checkbox" name="drop_podcast_privileges_table" value="ksh_video_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

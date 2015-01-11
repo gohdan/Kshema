@@ -1,14 +1,14 @@
-<h1>Создание таблиц базы данных портфолио</h1>
+<h1>РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕСЂС‚С„РѕР»РёРѕ</h1>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=admin">Вернуться к администрированию портфолио</a><br>
-<a href="/index.php?module=portfolio&amp;action=help#db_tables_create">Справка</a>
+<a href="/index.php?module=portfolio&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
+<a href="/index.php?module=portfolio&amp;action=help#db_tables_create">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
 
 #content#
 
-<p>Количество запросов к БД: #queries_qty#</p>
+<p>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїСЂРѕСЃРѕРІ Рє Р‘Р”: #queries_qty#</p>
 
 {{if:result:<p>#result#</p>}}

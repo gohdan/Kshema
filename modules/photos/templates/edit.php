@@ -1,6 +1,6 @@
-<h1>Редактирование фотографии</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё</h1>
 
-<a href="/index.php?module=photos&action=view_gallery&gallery=#gallery_id#">Вернуться к просмотру галереи</a>
+<a href="/index.php?module=photos&action=view_gallery&gallery=#gallery_id#">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РіР°Р»РµСЂРµРё</a>
 
 <p>#result#</p>
 
@@ -10,13 +10,13 @@
     <input type="hidden" name="id" value="#id#">
 	<input type="hidden" name="old_image" value="#image#">
     <input type="hidden" name="old_thumb" value="#thumb#">
-    Название <input type="text" name="name" value="#name#"><br>
-    Галерея: #gallery#<br>
-    Описание:<br>
+    РќР°Р·РІР°РЅРёРµ <input type="text" name="name" value="#name#"><br>
+    Р“Р°Р»РµСЂРµСЏ: #gallery#<br>
+    РћРїРёСЃР°РЅРёРµ:<br>
     <textarea cols="40" rows="10" name="descr">#descr#</textarea><br>
     <img src="#thumb#"><br>
-	Новое превью: <input type="file" name="thumb"><br>
+	РќРѕРІРѕРµ РїСЂРµРІСЊСЋ: <input type="file" name="thumb"><br>
 	<img src="#image#"><br>
-	Новое изображение: <input type="file" name="image"><br>
-    <input type="submit" name="do_update" value="Записать">
+	РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ: <input type="file" name="image"><br>
+    <input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

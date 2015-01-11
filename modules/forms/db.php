@@ -20,7 +20,7 @@ function forms_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
         $queries[] = "create table if not exists ksh_forms_categories (
@@ -59,10 +59,10 @@ function forms_install_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] .= "Запросы выполнены";
+                $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
         else
-        	$content['result'] .= "Запросов нет";
+        	$content['result'] .= "Р—Р°РїСЂРѕСЃРѕРІ РЅРµС‚";
 
 	debug ("*** end: forms_install_tables ***");
         return $content;
@@ -81,7 +81,7 @@ function forms_drop_tables()
     {
             unset ($_POST['do_drop']);
             foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-            $content['result'] .= "Таблицы БД успешно удалены";
+            $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
     }
     else
 	   	$content['result'] .= "";
@@ -125,7 +125,7 @@ function forms_update_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$tables = array();
@@ -182,10 +182,10 @@ function forms_update_tables()
     {
 	    foreach ($queries as $idx => $sql_query)
         	exec_query ($sql_query);
-        $content['result'] .= "Запросы выполнены";
+        $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
     else
-	  	$content['result'] .= "Нет запросов";
+	  	$content['result'] .= "РќРµС‚ Р·Р°РїСЂРѕСЃРѕРІ";
 
 	debug ("*** forms_update_tables ***");
     return $content;

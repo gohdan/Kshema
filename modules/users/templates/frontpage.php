@@ -1,9 +1,9 @@
-{{if:show_heading:<h1>Пользователи</h1>}}
+{{if:show_heading:<h1>РџРѕР»СЊР·РѕРІР°С‚РµР»Рё</h1>}}
 
 #content#
 
-{{if:show_admin_link:<a href="/users/admin/">Администрировать</a><br>}}
+{{if:show_admin_link:<a href="/users/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ</a><br>}}
 
-{{if:show_profile_link:<a href="/users/profile_view/">Ваш профиль</a><br>}}
+{{if:show_profile_link:<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a><br>}}
 
 {{if:login_form:#login_form#}}

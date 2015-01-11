@@ -12,5 +12,5 @@
 <td style="vertical-align: top">#descr#</td>
 </tr>
 <tr>
-{{if:if_show_admin_link:<td colspan="2"><a href="/index.php?module=auto_models&action=images_edit&images=#id#">Редактировать</a> <a href="/index.php?module=auto_models&action=images_del&images=#id#">Удалить</a></td>}}
+{{if:if_show_admin_link:<td colspan="2"><a href="/index.php?module=auto_models&action=images_edit&images=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> <a href="/index.php?module=auto_models&action=images_del&images=#id#">РЈРґР°Р»РёС‚СЊ</a></td>}}
 </tr>

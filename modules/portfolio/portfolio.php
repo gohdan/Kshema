@@ -34,14 +34,14 @@ function portfolio($category)
         else $content .= substr(stripslashes($row['full_text'], 0, 200))."...";
 
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/index.php?module=portfolio&action=view&portfolio=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=portfolio&action=view&portfolio=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=portfolio&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=portfolio&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: portfolio_portfolio ***");
@@ -75,14 +75,14 @@ function lastportfolio($category)
         else $content .= substr(stripslashes($row['full_text']), 0, 200)."...";
 
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/index.php?module=portfolio&action=view&portfolio=".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/index.php?module=portfolio&action=view&portfolio=".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=portfolio&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=portfolio&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: lastportfolio ***");
@@ -206,14 +206,14 @@ function portfolio_view_by_category()
         {
             debug ("have portfolio to delete");
             exec_query("DELETE FROM ksh_portfolio WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Успешно удалено";
+            $content['result'] .= "РЈСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅРѕ";
         }
         else
         {
             debug ("don't have portfolio to delete");
         }
 
-        $content['admin_link'] .= "<a href=\"/index.php?module=portfolio&amp;action=admin\">Администрирование</a><br><a href=\"/index.php?module=portfolio&amp;action=view_categories\">Просмотр всех категорий</a><br><a href=\"/index.php?module=portfolio&amp;action=add_portfolio&amp;category=".$category."\">Добавить портфолио</a>";
+        $content['admin_link'] .= "<a href=\"/index.php?module=portfolio&amp;action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a><br><a href=\"/index.php?module=portfolio&amp;action=view_categories\">РџСЂРѕСЃРјРѕС‚СЂ РІСЃРµС… РєР°С‚РµРіРѕСЂРёР№</a><br><a href=\"/index.php?module=portfolio&amp;action=add_portfolio&amp;category=".$category."\">Р”РѕР±Р°РІРёС‚СЊ РїРѕСЂС‚С„РѕР»РёРѕ</a>";
 		
     }
 
@@ -253,7 +253,7 @@ function portfolio_view_by_category()
 
         if (1 == $user['id'])
         {
-            $content[$config['portfolio']['portfoliolist_template']][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/index.php?module=portfolio&amp;action=edit&amp;portfolio=".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/index.php?module=portfolio&amp;action=del&amp;portfolio=".$row['id']."\">Удалить</a>";
+            $content[$config['portfolio']['portfoliolist_template']][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/index.php?module=portfolio&amp;action=edit&amp;portfolio=".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/index.php?module=portfolio&amp;action=del&amp;portfolio=".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
         }
         else
         {
@@ -298,12 +298,12 @@ function portfolio_view_all()
         {
             debug ("have portfolio to delete");
             exec_query("DELETE FROM ksh_portfolio WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Успешно удалено";
+            $content['result'] .= "РЈСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅРѕ";
         }
         else
             debug ("don't have portfolio to delete");
 
-        $content['admin_link'] .= "<a href=\"/index.php?module=portfolio&amp;action=admin\">Администрирование</a><br><a href=\"/index.php?module=portfolio&amp;action=view_categories\">Просмотр всех категорий</a><br><a href=\"/index.php?module=portfolio&amp;action=add_portfolio&amp;\">Добавить портфолио</a>";
+        $content['admin_link'] .= "<a href=\"/index.php?module=portfolio&amp;action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a><br><a href=\"/index.php?module=portfolio&amp;action=view_categories\">РџСЂРѕСЃРјРѕС‚СЂ РІСЃРµС… РєР°С‚РµРіРѕСЂРёР№</a><br><a href=\"/index.php?module=portfolio&amp;action=add_portfolio&amp;\">Р”РѕР±Р°РІРёС‚СЊ РїРѕСЂС‚С„РѕР»РёРѕ</a>";
 		
 	}
 
@@ -385,7 +385,7 @@ function portfolio_view_all()
 
 
 	        if (1 == $user['id'])
-	            $content['portfolio'][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/index.php?module=portfolio&amp;action=edit&amp;portfolio=".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/index.php?module=portfolio&amp;action=del&amp;portfolio=".$row['id']."\">Удалить</a>";
+	            $content['portfolio'][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/index.php?module=portfolio&amp;action=edit&amp;portfolio=".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/index.php?module=portfolio&amp;action=del&amp;portfolio=".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
 	        else
 	        	$content[$config['portfolio']['portfoliolist_template']][$i]['edit_link'] = "";
 	        $i++;
@@ -452,7 +452,7 @@ function portfolio_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -478,12 +478,12 @@ function portfolio_add()
             {
                 debug ("portfolio name isn't empty");
                 exec_query("INSERT INTO ksh_portfolio (name, category, short_descr, descr, descr_image, full_text, date) VALUES ('".mysql_real_escape_string($_POST['name'])."','".mysql_real_escape_string($_POST['category'])."','".mysql_real_escape_string($_POST['short_descr'])."','".mysql_real_escape_string($_POST['descr'])."','".mysql_real_escape_string($file_path)."','".mysql_real_escape_string($_POST['full_text'])."', '".mysql_real_escape_string($_POST['date'])."')");
-                $content['result'] .= "Добавлено";
+                $content['result'] .= "Р”РѕР±Р°РІР»РµРЅРѕ";
             }
             else
             {
                 debug ("portfolio name is empty");
-                $content['result'] .= "Пожалуйста, задайте название";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ";
             }
         }
         else
@@ -494,7 +494,7 @@ function portfolio_add()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_add ***");
@@ -556,7 +556,7 @@ function portfolio_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -580,12 +580,12 @@ function portfolio_edit()
                 debug ("portfolio name isn't empty");
                 exec_query("UPDATE ksh_portfolio set name='".mysql_real_escape_string($_POST['name'])."', date='".mysql_real_escape_string($_POST['date'])."', category='".mysql_real_escape_string($_POST['category'])."',
 				short_descr='".mysql_real_escape_string($_POST['short_descr'])."', descr='".mysql_real_escape_string($_POST['descr'])."', descr_image='".mysql_real_escape_string($file_path)."', full_text='".mysql_real_escape_string($_POST['full_text'])."' WHERE id='".mysql_real_escape_string($portfolio_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("portfolio name is empty");
-                $content['result'] .= "Пожалуйста, задайте название";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ";
             }
         }
         else
@@ -625,7 +625,7 @@ function portfolio_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_edit ***");
@@ -659,7 +659,7 @@ function portfolio_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: portfolio_del ***");

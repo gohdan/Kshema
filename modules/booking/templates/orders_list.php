@@ -1,7 +1,7 @@
-<h1>Список заказов</h1>
+<h1>РЎРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ</h1>
 
 <p>
-<a href="/booking/admin/">Вернуться к администрированию брони</a><br>
+<a href="/booking/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ Р±СЂРѕРЅРё</a><br>
 </p>
 
 <p>#result#</p>
@@ -10,26 +10,26 @@
 
 <table summary="Bookings list table" class="booking_orders_table">
 <tr>
-<th class="booking_orders_table_top">Номер заказа</th>
-<th class="booking_orders_table_top">ФИО заказчика</th>
-<th class="booking_orders_table_top">Заселение</th>
-<th class="booking_orders_table_top">Выселение</th>
-<th class="booking_orders_table_top">Паспортные данные</th>
-<th class="booking_orders_table_top">Выбранный вид оплаты</th>
-<th class="booking_orders_table_top">С завтраком или нет</th>
-<th class="booking_orders_table_top">Всего дней</th>
-<th class="booking_orders_table_top">Стоимость 1 дня</th>
-<th class="booking_orders_table_top">Трансфер</th>
-<th class="booking_orders_table_top">Итого стоимость заказа</th>
-<th class="booking_orders_table_top">Предоплата</th>
-<th class="booking_orders_table_top">Остаток</th>
-<th class="booking_orders_table_top">Статус оплаты заказа</th>
-<th class="booking_orders_table_top">Дата заказа</th>
-<th class="booking_orders_table_top">Имя менеджера, оформившего заказ</th>
-<th class="booking_orders_table_top">Примечания</th>
-<th class="booking_orders_table_top">Телефон</th>
-<th class="booking_orders_table_top">Почта</th>
-<th class="booking_orders_table_top">Посредник</th>
+<th class="booking_orders_table_top">РќРѕРјРµСЂ Р·Р°РєР°Р·Р°</th>
+<th class="booking_orders_table_top">Р¤РРћ Р·Р°РєР°Р·С‡РёРєР°</th>
+<th class="booking_orders_table_top">Р—Р°СЃРµР»РµРЅРёРµ</th>
+<th class="booking_orders_table_top">Р’С‹СЃРµР»РµРЅРёРµ</th>
+<th class="booking_orders_table_top">РџР°СЃРїРѕСЂС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ</th>
+<th class="booking_orders_table_top">Р’С‹Р±СЂР°РЅРЅС‹Р№ РІРёРґ РѕРїР»Р°С‚С‹</th>
+<th class="booking_orders_table_top">РЎ Р·Р°РІС‚СЂР°РєРѕРј РёР»Рё РЅРµС‚</th>
+<th class="booking_orders_table_top">Р’СЃРµРіРѕ РґРЅРµР№</th>
+<th class="booking_orders_table_top">РЎС‚РѕРёРјРѕСЃС‚СЊ 1 РґРЅСЏ</th>
+<th class="booking_orders_table_top">РўСЂР°РЅСЃС„РµСЂ</th>
+<th class="booking_orders_table_top">РС‚РѕРіРѕ СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р°РєР°Р·Р°</th>
+<th class="booking_orders_table_top">РџСЂРµРґРѕРїР»Р°С‚Р°</th>
+<th class="booking_orders_table_top">РћСЃС‚Р°С‚РѕРє</th>
+<th class="booking_orders_table_top">РЎС‚Р°С‚СѓСЃ РѕРїР»Р°С‚С‹ Р·Р°РєР°Р·Р°</th>
+<th class="booking_orders_table_top">Р”Р°С‚Р° Р·Р°РєР°Р·Р°</th>
+<th class="booking_orders_table_top">РРјСЏ РјРµРЅРµРґР¶РµСЂР°, РѕС„РѕСЂРјРёРІС€РµРіРѕ Р·Р°РєР°Р·</th>
+<th class="booking_orders_table_top">РџСЂРёРјРµС‡Р°РЅРёСЏ</th>
+<th class="booking_orders_table_top">РўРµР»РµС„РѕРЅ</th>
+<th class="booking_orders_table_top">РџРѕС‡С‚Р°</th>
+<th class="booking_orders_table_top">РџРѕСЃСЂРµРґРЅРёРє</th>
 </tr>
 
 <tr>

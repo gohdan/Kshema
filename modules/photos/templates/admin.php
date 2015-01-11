@@ -1,19 +1,19 @@
-<h1>Администрирование фотографий</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ С„РѕС‚РѕРіСЂР°С„РёР№</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">В главное меню администрирования</a>
+<a href="/index.php?module=base&action=admin">Р’ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=photos&action=add">Добавить фотографию</a><br>
-<a href="/index.php?module=photos&action=view_categories">Категории фотогалерей</a><br>
+<a href="/index.php?module=photos&action=add">Р”РѕР±Р°РІРёС‚СЊ С„РѕС‚РѕРіСЂР°С„РёСЋ</a><br>
+<a href="/index.php?module=photos&action=view_categories">РљР°С‚РµРіРѕСЂРёРё С„РѕС‚РѕРіР°Р»РµСЂРµР№</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных фотографий</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… С„РѕС‚РѕРіСЂР°С„РёР№</h2>
 
-<a href="/index.php?module=photos&action=install_tables">Создать базу данных фотографий</a><br>
-<a href="/index.php?module=photos&action=update_tables">Обновить базу данных фотографий</a><br>
-<a href="/index.php?module=photos&action=drop_tables">Уничтожить базу данных фотографий</a><br>
+<a href="/index.php?module=photos&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… С„РѕС‚РѕРіСЂР°С„РёР№</a><br>
+<a href="/index.php?module=photos&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… С„РѕС‚РѕРіСЂР°С„РёР№</a><br>
+<a href="/index.php?module=photos&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… С„РѕС‚РѕРіСЂР°С„РёР№</a><br>
 </p>

@@ -1,6 +1,6 @@
-<h1>Назначение разделов</h1>
+<h1>РќР°Р·РЅР°С‡РµРЅРёРµ СЂР°Р·РґРµР»РѕРІ</h1>
 
-{{if:satellite_id:<p><a href="#inst_root#/articles/admin_satellite/#satellite_id#/">Обратно в администрирование статей на сателлите</a></p>}}
+{{if:satellite_id:<p><a href="#inst_root#/articles/admin_satellite/#satellite_id#/">РћР±СЂР°С‚РЅРѕ РІ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃС‚Р°С‚РµР№ РЅР° СЃР°С‚РµР»Р»РёС‚Рµ</a></p>}}
 
 {{if:result:<p>#result#</p>}}
 
@@ -9,5 +9,5 @@
 <p>
 #categories_checkboxes#
 </p>
-<input type="submit" name="do_update" value="Сохранить">
+<input type="submit" name="do_update" value="РЎРѕС…СЂР°РЅРёС‚СЊ">
 </form>

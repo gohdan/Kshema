@@ -2,8 +2,8 @@
 <td style="padding: 10px 0px 0px 0px">
 <b>#title#</b><br>
 #datetime#<br>
-{{if:name:Имя: #name#<br>}}
-{{if:contact:Способ связи: #contact#<br>}}
+{{if:name:РРјСЏ: #name#<br>}}
+{{if:contact:РЎРїРѕСЃРѕР± СЃРІСЏР·Рё: #contact#<br>}}
 </td>
 </tr>
 <tr>
@@ -14,8 +14,8 @@
 {{if:show_admin_link:
 <tr>
 <td>
-<a href="/guestbook/edit/#id#/">Редактировать</a> 
-<a href="/guestbook/del/#id#/">Удалить</a> 
+<a href="/guestbook/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> 
+<a href="/guestbook/del/#id#/">РЈРґР°Р»РёС‚СЊ</a> 
 </td>
 </tr>
 }}

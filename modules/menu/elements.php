@@ -175,7 +175,7 @@ function menu_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: menu_del ***");
@@ -241,7 +241,7 @@ function menu_edit()
     }
     else
     {
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     return $content;
@@ -296,7 +296,7 @@ function menu_view_by_category()
         {
             debug ("have menu to delete");
             exec_query("DELETE FROM ksh_menu WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Страница успешно удалена";
+            $content['result'] .= "РЎС‚СЂР°РЅРёС†Р° СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
         }
         else
         {

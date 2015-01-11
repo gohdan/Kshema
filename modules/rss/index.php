@@ -16,7 +16,7 @@ function rss_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Администрирование RSS";
+    $content['heading'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ RSS";
 	debug ("*** end: rss_admin ***");
     return $content;
 }
@@ -36,7 +36,7 @@ function rss_default_action()
 			'module_title' => "RSS"
 		);
 		$config['rss']['page_title'] = $module_data['module_title'];
-		$config['themes']['page_title']['module'] = "Страницы";
+		$config['themes']['page_title']['module'] = "РЎС‚СЂР°РЅРёС†С‹";
 
 
         debug("<br>=== mod: rss ===");
@@ -55,27 +55,27 @@ function rss_default_action()
                         break;
 
                         case "create_tables":
-							$config['themes']['page_title']['action'] = "Создание таблиц БД";
+							$config['themes']['page_title']['action'] = "РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("rss", "tables_create", rss_tables_create());
                         break;
 
                         case "drop_tables":
-							$config['themes']['page_title']['action'] = "Удаление таблиц БД";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
                             $content .= gen_content("rss", "drop_tables", rss_tables_drop());
                         break;
 
                         case "update_tables":
-							$config['themes']['page_title']['action'] = "Обновление таблиц БД";
+							$config['themes']['page_title']['action'] = "РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р”";
 					        $content .= gen_content("rss", "tables_update", rss_tables_update());
                         break;
 
                         case "admin":
-							$config['themes']['page_title']['action'] = "Администрирование";
+							$config['themes']['page_title']['action'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ";
                             $content .= gen_content("rss", "admin", rss_admin());
                         break;
 
                         case "view":
-							$config['themes']['page_title']['action'] = "Просмотр ленты RSS";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ Р»РµРЅС‚С‹ RSS";
 							$config['themes']['page_tpl'] = "rss";
 							$content .= gen_content("rss", "view", rss_view($_GET['page']));
                         break;

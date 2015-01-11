@@ -1,6 +1,6 @@
-<h1>Добавление товара в корзину</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂР° РІ РєРѕСЂР·РёРЅСѓ</h1>
 <form action="/index.php?module=store&action=cart_add" method="post">
 <input type="hidden" name="id" value="#id#">
-Количество: <input type="text" name="qty">
-<input type="submit" name="do_add" value="Добавить">
+РљРѕР»РёС‡РµСЃС‚РІРѕ: <input type="text" name="qty">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

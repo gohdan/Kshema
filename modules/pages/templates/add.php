@@ -1,32 +1,32 @@
-<h1>Добавление страниц</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ СЃС‚СЂР°РЅРёС†</h1>
 
 #content#
 
 <p>
-<a href="/pages/admin/">Меню администрирования страниц</a><br>
-{{if:category:<a href="/pages/view_by_category/#category#/">В категорию</a><br>}}
-<a href="/pages/list_view/">Список всех страниц</a><br>
-<a href="/pages/help#pages_add">Справка</a>
+<a href="/pages/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃС‚СЂР°РЅРёС†</a><br>
+{{if:category:<a href="/pages/view_by_category/#category#/">Р’ РєР°С‚РµРіРѕСЂРёСЋ</a><br>}}
+<a href="/pages/list_view/">РЎРїРёСЃРѕРє РІСЃРµС… СЃС‚СЂР°РЅРёС†</a><br>
+<a href="/pages/help#pages_add">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <p>
-<a href="/uploads/admin/" target="uploads">Закачать файл</a>
+<a href="/uploads/admin/" target="uploads">Р—Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р»</a>
 </p>
 
 <form action="/pages/add/#category#" method="post" enctype="multipart/form-data">
 <table summary="Pages add table" class="pages_add_table">
-<tr><td>Системное название (английскими буквами, например - page):</td><td><input type="text" name="name"></td></tr>
-<tr><td>Название для вывода пользователю:</td><td><input type="text" name="title"></td></tr>
-<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
-<tr><td>Главная страница категории:</td><td><select name="subcategory"><option value="0">-</option>#subcategories_select#</select></td></tr>
-<tr><td>Порядок вывода:</td><td><input type="text" name="position" size="2"></td></tr>
-<tr><td>Изображение-описание:</td><td><input type="file" name="image"></td></tr>
-<tr><td>Ключевые слова:</td><td><input type="text" name="meta_keywords" value=""></td></tr>
-<tr><td>Описание:</td><td><input type="text" name="meta_description" value=""></td></tr>
-<tr><td>Общий шаблон:</td><td><input type="text" name="template" value="default"></td></tr>
-<tr><td>Шаблон меню:</td><td><input type="text" name="menu_template" value="default"></td></tr>
-<tr><td>Содержание:</td></tr>
+<tr><td>РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р°РЅРіР»РёР№СЃРєРёРјРё Р±СѓРєРІР°РјРё, РЅР°РїСЂРёРјРµСЂ - page):</td><td><input type="text" name="name"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ:</td><td><input type="text" name="title"></td></tr>
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р° РєР°С‚РµРіРѕСЂРёРё:</td><td><select name="subcategory"><option value="0">-</option>#subcategories_select#</select></td></tr>
+<tr><td>РџРѕСЂСЏРґРѕРє РІС‹РІРѕРґР°:</td><td><input type="text" name="position" size="2"></td></tr>
+<tr><td>РР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ:</td><td><input type="file" name="image"></td></tr>
+<tr><td>РљР»СЋС‡РµРІС‹Рµ СЃР»РѕРІР°:</td><td><input type="text" name="meta_keywords" value=""></td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ:</td><td><input type="text" name="meta_description" value=""></td></tr>
+<tr><td>РћР±С‰РёР№ С€Р°Р±Р»РѕРЅ:</td><td><input type="text" name="template" value="default"></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ РјРµРЅСЋ:</td><td><input type="text" name="menu_template" value="default"></td></tr>
+<tr><td>РЎРѕРґРµСЂР¶Р°РЅРёРµ:</td></tr>
 <tr><td colspan="2"><textarea style="width: 800px; height: 600px" name="full_text"></textarea></td></tr>
-<tr><td></td><td><input type="submit" name="do_add" value="Добавить"></td></tr>
+<tr><td></td><td><input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ"></td></tr>
 </table>
 </form>

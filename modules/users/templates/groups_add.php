@@ -1,8 +1,8 @@
-<h1>Добавление групп</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РіСЂСѓРїРї</h1>
 
 <p>
-<a href="/users/groups_view/">Вернуться к просмотру групп</a><br>
-<a href="/users/help#categories_add">Справка</a>
+<a href="/users/groups_view/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РіСЂСѓРїРї</a><br>
+<a href="/users/help#categories_add">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -10,8 +10,8 @@
 {{if:content:<p>#content#</p>}}
 
 <form action="/users/groups_add/" method="post">
-Название для вывода пользователю (любые символы):<br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹):<br>
 <input type="text" name="title"><br>
 
-<input type="submit" name="do_add" value="Добавить">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

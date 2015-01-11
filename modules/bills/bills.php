@@ -65,7 +65,7 @@ function add()
 				else
 				{
 					$result = 0;
-					$content['result'] .= "Неправильно введено проверочное слово.";
+					$content['result'] .= "РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅРѕ РїСЂРѕРІРµСЂРѕС‡РЅРѕРµ СЃР»РѕРІРѕ.";
 				}
 			}
 			else
@@ -74,7 +74,7 @@ function add()
 			if ("" == $_POST['title'] || "" == $_POST['full_text'])
 			{
 				$result = 0;
-				$content['result'] .= " Заполнены не все необходимые поля.";
+				$content['result'] .= " Р—Р°РїРѕР»РЅРµРЅС‹ РЅРµ РІСЃРµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ.";
 			}
 
 			if ($result)
@@ -107,7 +107,7 @@ function add()
 				exec_query($sql_query);
 				if (0 == mysql_errno())
 				{
-					$content['result'] = "Объявление успешно добавлено";
+					$content['result'] = "РћР±СЉСЏРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅРѕ";
 	
 					if (isset($config['bbcpanel']['bbcpanel_domain']) && "" != $config['bbcpanel']['bbcpanel_domain'])
 					{
@@ -137,7 +137,7 @@ function add()
 					}
 				}
 				else
-					$content['result'] = "Не удалось добавить объявление, ошибка базы данных";
+					$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ РґРѕР±Р°РІРёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 			}
 			else
 			{
@@ -149,7 +149,7 @@ function add()
 		}
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug ("*** end: Bill: add ***");
 	return $content;	
@@ -268,9 +268,9 @@ function edit()
 				WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
 			exec_query($sql_query);
 			if (0 == mysql_errno())
-				$content['result'] = "Обновление успешно записано";
+				$content['result'] = "РћР±РЅРѕРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅРѕ";
 			else
-				$content['result'] = "Не удалось обновить запись, ошибка базы данных";
+				$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ РѕР±РЅРѕРІРёС‚СЊ Р·Р°РїРёСЃСЊ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 
 		}
 		else
@@ -532,7 +532,7 @@ function view_by_category()
 	if (1 == $user['id'])
 		$content['show_admin_link'] = "yes";
 
-	$content['heading'] = "Просмотр объявлений в категории";
+	$content['heading'] = "РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉСЏРІР»РµРЅРёР№ РІ РєР°С‚РµРіРѕСЂРёРё";
 
 	if ("bills" != $config['modules']['default_module'])
 		$content['module_name'] = "/bills";
@@ -764,7 +764,7 @@ function view_by_user()
 	if ($priv -> has("bills", "add", "write"))
 		$content['show_add_link'] = "yes";
 
-	$content['heading'] = "Просмотр объявлений пользователя";
+	$content['heading'] = "РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉСЏРІР»РµРЅРёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
 
 	if(isset($_GET['user']))
 		$user_id = $_GET['user'];
@@ -989,7 +989,7 @@ function view_by_user()
 			default: break;
 
 			case "1":
-				// Все объявления на всех досках (1 объявление на доску в первый по списку раздел)
+				// Р’СЃРµ РѕР±СЉСЏРІР»РµРЅРёСЏ РЅР° РІСЃРµС… РґРѕСЃРєР°С… (1 РѕР±СЉСЏРІР»РµРЅРёРµ РЅР° РґРѕСЃРєСѓ РІ РїРµСЂРІС‹Р№ РїРѕ СЃРїРёСЃРєСѓ СЂР°Р·РґРµР»)
 				debug("sending by type 1");
 				foreach ($bbs as $bb => $sections)
 				{
@@ -1011,7 +1011,7 @@ function view_by_user()
 			break;
 
 			case "2":
-				// Все объявления на всех разделах всех досок
+				// Р’СЃРµ РѕР±СЉСЏРІР»РµРЅРёСЏ РЅР° РІСЃРµС… СЂР°Р·РґРµР»Р°С… РІСЃРµС… РґРѕСЃРѕРє
 				debug("sending by type 2");
 				foreach ($bbs as $bb => $sections)
 				{
@@ -1035,7 +1035,7 @@ function view_by_user()
 			break;
 
 			case "3":
-				// Ротация по разделам
+				// Р РѕС‚Р°С†РёСЏ РїРѕ СЂР°Р·РґРµР»Р°Рј
 				$i = 0;
 				foreach ($bbs as $bb => $sections)
 				{
@@ -1059,7 +1059,7 @@ function view_by_user()
 			break;
 
 			case "4":
-				// Ротация по доскам
+				// Р РѕС‚Р°С†РёСЏ РїРѕ РґРѕСЃРєР°Рј
 				$i = 0;
 				foreach ($bbs as $bb => $sections)
 				{
@@ -1147,8 +1147,8 @@ function inform_moderators($bill_id)
 	if (count($addresses) > 0)
 	{
 		debug("have addresses, sending mail");
-		$subj = "Новое объявление";
-		$headers = "Content-type: text/plain; charset=windows-1251 \r\n";
+		$subj = "РќРѕРІРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ";
+		$headers = "Content-type: text/plain; charset=utf-8 \r\n";
 	
 		$message = gen_content("bills", "email_moderators_add", $cnt);
 
@@ -1177,9 +1177,9 @@ function inform_moderators($bill_id)
 		$mail->Body = $message;
 
 		if($mail->Send())
-			debug("Ваш запрос отправлен");
+			debug("Р’Р°С€ Р·Р°РїСЂРѕСЃ РѕС‚РїСЂР°РІР»РµРЅ");
 		else
-			debug("Невозможно отправить запрос. </p><p>Ошибка почты: " . $mail->ErrorInfo);
+			debug("РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РїСЂР°РІРёС‚СЊ Р·Р°РїСЂРѕСЃ. </p><p>РћС€РёР±РєР° РїРѕС‡С‚С‹: " . $mail->ErrorInfo);
 
 	}
 

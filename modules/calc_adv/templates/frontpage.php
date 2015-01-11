@@ -5,5 +5,5 @@
 <select name="month">
 #month_select#
 </select>
-<input type="submit" class="button" name="do_go" value="Äàëåå">
+<input type="submit" class="button" name="do_go" value="Ð”Ð°Ð»ÐµÐµ">
 </form>

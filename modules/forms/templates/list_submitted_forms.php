@@ -1,1 +1,1 @@
-<p><a href="/index.php?module=forms&action=view_submitted&forms=#id#">#id#. #date#, #time#</a>&nbsp;<a href="/index.php?module=forms&action=del_submitted&forms=#id#">удалить</a></p>
+<p><a href="/index.php?module=forms&action=view_submitted&forms=#id#">#id#. #date#, #time#</a>&nbsp;<a href="/index.php?module=forms&action=del_submitted&forms=#id#">СѓРґР°Р»РёС‚СЊ</a></p>

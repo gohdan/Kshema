@@ -15,7 +15,7 @@ function menu_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Àäìèíèñòðèðîâàíèå ñïèñêîâ ìåíþ";
+    $content['heading'] = "ÐÐ´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ¾Ð² Ð¼ÐµÐ½ÑŽ";
 	debug ("*** end: menu_admin ***");
     return $content;
 }
@@ -82,7 +82,7 @@ function menu_default_action()
                         break;
 
                         case "help":
-							$config['menu']['page_title'] .= " - Ñïðàâêà";
+							$config['menu']['page_title'] .= " - Ð¡Ð¿Ñ€Ð°Ð²ÐºÐ°";
                             $content .= gen_content("menu", "help", menu_help());
                         break;
 
@@ -99,28 +99,28 @@ function menu_default_action()
                         break;
 
 						case "categories_view":
-							$config['menu']['page_title'] .= " - Ñïèñêè";
+							$config['menu']['page_title'] .= " - Ð¡Ð¿Ð¸ÑÐºÐ¸";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_menu_categories");
 							$content .= gen_content("menu", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['menu']['page_title'] .= " - Äîáàâëåíèå ñïèñêà";
+							$config['menu']['page_title'] .= " - Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ°";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_menu_categories");
                             $content .= gen_content("menu", "categories_add", array_merge($module_data, $cnt));
                         break;
 
                         case "categories_del":
-							$config['menu']['page_title'] .= " - Óäàëåíèå ñïèñêà";
+							$config['menu']['page_title'] .= " - Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ°";
 							$cat = new Category();
 							$cnt = $cat -> del("ksh_menu_categories", "ksh_menu", $_GET['category']);
                             $content .= gen_content("menu", "categories_del", array_merge($module_data, $cnt));
                         break;
 
 						case "categories_edit":
-							$config['menu']['page_title'] .= " - Ðåäàêòèðîâàíèå îïèñàíèÿ ñïèñêà";
+							$config['menu']['page_title'] .= " - Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ñ ÑÐ¿Ð¸ÑÐºÐ°";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_menu_categories", $_GET['category']);
 	                        $content .= gen_content("menu", "categories_edit", array_merge($module_data, $cnt));

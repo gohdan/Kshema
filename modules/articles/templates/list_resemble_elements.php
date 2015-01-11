@@ -7,8 +7,8 @@
 {{if:show_admin_link:
 <tr>
 <td colspan="2">
-<a href="#inst_root#/articles/edit/#id#/">Редактировать</a> 
-<a href="#inst_root#/articles/del/#id#/">Удалить</a> 
+<a href="#inst_root#/articles/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> 
+<a href="#inst_root#/articles/del/#id#/">РЈРґР°Р»РёС‚СЊ</a> 
 </td>
 </tr>
 }}

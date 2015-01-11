@@ -1,12 +1,12 @@
-<h1>Создание таблиц базы данных привязок динамического контента</h1>
+<h1>РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРёРІСЏР·РѕРє РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р°</h1>
 
 <p>
-<a href="/index.php?module=hooks&amp;action=admin">Вернуться к меню администрирования привязок</a><br>
-<a href="/index.php?module=hooks&amp;action=help#db_tables_create">Справка</a>
+<a href="/index.php?module=hooks&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РїСЂРёРІСЏР·РѕРє</a><br>
+<a href="/index.php?module=hooks&amp;action=help#db_tables_create">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:content:<p>#content#</p>}}
 
-<p>Количество запросов к БД: #queries_qty#</p>
+<p>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїСЂРѕСЃРѕРІ Рє Р‘Р”: #queries_qty#</p>
 
 {{if:result:#result#}}

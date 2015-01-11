@@ -20,7 +20,7 @@ function users_table_create($table)
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 	$queries = array();
 
@@ -62,7 +62,7 @@ function users_table_create($table)
 	for($i=0; $i < 8; $i++)
 		$psw.=chr(rand(48,57));
 	// echo $psw;
-	$content['result'] .= "Ваш пароль: ".$psw."<br>";
+	$content['result'] .= "Р’Р°С€ РїР°СЂРѕР»СЊ: ".$psw."<br>";
 
 	$queries[] = "insert into ksh_users 
 		(`id`, `login`, `password`, `group`, `name`) values (
@@ -80,7 +80,7 @@ function users_table_create($table)
 	{
 		foreach ($queries as $idx => $sql_query)
 			exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 	debug("content: ", 2);
 	dump($content);
@@ -107,7 +107,7 @@ function users_groups_table_create($table)
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 	$queries = array();
 
@@ -123,8 +123,8 @@ function users_groups_table_create($table)
 		`redirect` tinytext
 	)".$charset;
 
-	$queries[] = "INSERT INTO ksh_users_groups (`id`, `title`) values ('1', 'Администраторы')";
-	$queries[] = "INSERT INTO ksh_users_groups (`id`, `title`) values ('2', 'Пользователи')";
+	$queries[] = "INSERT INTO ksh_users_groups (`id`, `title`) values ('1', 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂС‹')";
+	$queries[] = "INSERT INTO ksh_users_groups (`id`, `title`) values ('2', 'РџРѕР»СЊР·РѕРІР°С‚РµР»Рё')";
 
 
 	$queries_qty = count($queries);
@@ -134,7 +134,7 @@ function users_groups_table_create($table)
 	{
 		foreach ($queries as $idx => $sql_query)
 			exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 
 	debug("*** end: users_groups_table_create ***");
@@ -160,7 +160,7 @@ function users_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$priv = new Privileges();
@@ -179,10 +179,10 @@ function users_install_tables()
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 	else
-		$content['result'] .= "Запросов нет";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃРѕРІ РЅРµС‚";
 
 	debug ("*** end: users_install_tables ***");
         return $content;
@@ -212,7 +212,7 @@ function users_drop_tables()
 			}
 
             foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-            $content['result'] .= "Таблицы БД успешно удалены";
+            $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
     }
     else
 	   	$content['result'] .= "";
@@ -247,7 +247,7 @@ function users_update_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	if (!in_array("ksh_users_groups", $tables))
@@ -337,10 +337,10 @@ function users_update_tables()
     {
 	    foreach ($queries as $idx => $sql_query)
         	exec_query ($sql_query);
-        $content['result'] .= "Запросы выполнены";
+        $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
     else
-	  	$content['result'] .= "Нет запросов";
+	  	$content['result'] .= "РќРµС‚ Р·Р°РїСЂРѕСЃРѕРІ";
 
 	debug ("*** users_update_tables ***");
     return $content;

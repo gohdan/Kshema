@@ -10,4 +10,4 @@
 
 #descr#
 
-<p><a href="/index.php?module=links&action=view_by_category&category=#category_id#">Все ссылки из категории "#category#"</a></p>
+<p><a href="/index.php?module=links&action=view_by_category&category=#category_id#">Р’СЃРµ СЃСЃС‹Р»РєРё РёР· РєР°С‚РµРіРѕСЂРёРё "#category#"</a></p>

@@ -1,28 +1,28 @@
-<h1>Редактирование частей шаблонов</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‡Р°СЃС‚РµР№ С€Р°Р±Р»РѕРЅРѕРІ</h1>
 
-{{if:id:<a href="/bbcpanel/bb_edit/#id#/">Редактировать доску</a><br>}}
+{{if:id:<a href="/bbcpanel/bb_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРѕСЃРєСѓ</a><br>}}
 
-<a href="/bbcpanel/bbs_view_all">Список досок</a><br>
+<a href="/bbcpanel/bbs_view_all">РЎРїРёСЃРѕРє РґРѕСЃРѕРє</a><br>
 
 {{if:show_bb_select_form:
 <form action="/bbcpanel/tparts_edit/" method="post">
 <select name="bb">#bbs_select#</select>
-<input type="submit" name="do_select_bb" value="Выбрать">
+<input type="submit" name="do_select_bb" value="Р’С‹Р±СЂР°С‚СЊ">
 </form>
 }}
 
 {{if:show_tparts_form:
 <form action="/bbcpanel/tparts_edit/#id#/" method="post">
 <input type="hidden" name="id" value="#id#">
-Сотрите название, чтобы удалить запись<br>
+РЎРѕС‚СЂРёС‚Рµ РЅР°Р·РІР°РЅРёРµ, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ<br>
 #tparts#
 <br>
-Добавить часть шаблона:<br>
-Название: <input name="new_title" size="30"><br>
-HTML-код:<br>
+Р”РѕР±Р°РІРёС‚СЊ С‡Р°СЃС‚СЊ С€Р°Р±Р»РѕРЅР°:<br>
+РќР°Р·РІР°РЅРёРµ: <input name="new_title" size="30"><br>
+HTML-РєРѕРґ:<br>
 <textarea name="new_tpart" rows="20" cols="40"></textarea><br>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>
 }}
 

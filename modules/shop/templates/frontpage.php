@@ -1,6 +1,6 @@
-<h1>Магазин</h1>
+<h1>РњР°РіР°Р·РёРЅ</h1>
 
-{{if:show_admin_link:<p><a href="/shop/admin/">Администрировать магазин</a></p>}}
+{{if:show_admin_link:<p><a href="/shop/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РјР°РіР°Р·РёРЅ</a></p>}}
 
 <table class="shop_last_goods_table">
 #goods_last#

@@ -34,14 +34,14 @@ function news($category)
         else $content .= substr(stripslashes($row['full_text'], 0, 200))."...";
 
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/news/view/".$row['id'].".html\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/news/view/".$row['id'].".html\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/news/admin/\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/news/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: news_news ***");
@@ -75,14 +75,14 @@ function lastnews($category)
         else $content .= substr(stripslashes($row['full_text']), 0, 200)."...";
 
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/news/view/".$row['id'].".html\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/news/view/".$row['id'].".html\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/news/admin/\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/news/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: lastnews ***");
@@ -208,14 +208,14 @@ function news_view_by_category()
         {
             debug ("have news to delete");
             exec_query("DELETE FROM ksh_news WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Новость успешно удалена";
+            $content['result'] .= "РќРѕРІРѕСЃС‚СЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
         }
         else
         {
             debug ("don't have news to delete");
         }
 
-        $content['admin_link'] .= "<a href=\"/news/admin/\">Администрирование</a><br><a href=\"/news/view_categories/\">Просмотр всех категорий</a><br><a href=\"/news/import_rss/".$category."\">Импортировать новости из RSS</a><br><a href=\"/news/add_news/".$category."\">Добавить новость</a>";
+        $content['admin_link'] .= "<a href=\"/news/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a><br><a href=\"/news/view_categories/\">РџСЂРѕСЃРјРѕС‚СЂ РІСЃРµС… РєР°С‚РµРіРѕСЂРёР№</a><br><a href=\"/news/import_rss/".$category."\">РРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ РЅРѕРІРѕСЃС‚Рё РёР· RSS</a><br><a href=\"/news/add_news/".$category."\">Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕСЃС‚СЊ</a>";
 		
     }
 
@@ -264,7 +264,7 @@ function news_view_by_category()
 
         if (1 == $user['id'])
         {
-            $content[$config['news']['newslist_template']][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/news/edit/".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/news/del/".$row['id']."\">Удалить</a>";
+            $content[$config['news']['newslist_template']][$i]['edit_link'] = "ID: ".$row['id'].". <a href=\"/news/edit/".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/news/del/".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
         }
         else
         {
@@ -336,7 +336,7 @@ function news_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -362,12 +362,12 @@ function news_add()
             {
                 debug ("news name isn't empty");
                 exec_query("INSERT INTO ksh_news (name, category, short_descr, descr, descr_image, full_text, date) VALUES ('".mysql_real_escape_string($_POST['name'])."','".mysql_real_escape_string($_POST['category'])."','".mysql_real_escape_string($_POST['short_descr'])."','".mysql_real_escape_string($_POST['descr'])."','".mysql_real_escape_string($file_path)."','".mysql_real_escape_string($_POST['full_text'])."', '".mysql_real_escape_string($_POST['date'])."')");
-                $content['result'] .= "Новость добавлена";
+                $content['result'] .= "РќРѕРІРѕСЃС‚СЊ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("news name is empty");
-                $content['result'] .= "Пожалуйста, задайте название новости";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РЅРѕРІРѕСЃС‚Рё";
             }
         }
         else
@@ -378,7 +378,7 @@ function news_add()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: news_add ***");
@@ -440,7 +440,7 @@ function news_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -464,12 +464,12 @@ function news_edit()
                 debug ("news name isn't empty");
                 exec_query("UPDATE ksh_news set name='".mysql_real_escape_string($_POST['name'])."', date='".mysql_real_escape_string($_POST['date'])."', category='".mysql_real_escape_string($_POST['category'])."',
 				short_descr='".mysql_real_escape_string($_POST['short_descr'])."', descr='".mysql_real_escape_string($_POST['descr'])."', descr_image='".mysql_real_escape_string($file_path)."', full_text='".mysql_real_escape_string($_POST['full_text'])."' WHERE id='".mysql_real_escape_string($news_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("news name is empty");
-                $content['result'] .= "Пожалуйста, задайте название новости";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РЅРѕРІРѕСЃС‚Рё";
             }
         }
         else
@@ -509,7 +509,7 @@ function news_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: news_edit ***");
@@ -543,7 +543,7 @@ function news_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: news_del ***");
@@ -639,7 +639,7 @@ function news_archive()
     global $user;
 	global $page_title;
 
-	$page_title .= " | Архив новостей";
+	$page_title .= " | РђСЂС…РёРІ РЅРѕРІРѕСЃС‚РµР№";
     $content = array(
     	'content' => '',
         'news' => '',
@@ -666,14 +666,14 @@ function news_archive()
 		else
 			$content['news'][$i]['url'] = stripslashes($row['url']);
 
-        $content['news'][$i]['more'] = "<span class=\"more\"><a href=\"".$content['news'][$i]['url']."\">Подробнее...</a></span>";
+        $content['news'][$i]['more'] = "<span class=\"more\"><a href=\"".$content['news'][$i]['url']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>";
         $content['news'][$i]['edit_link'] = "";
         $content['news'][$i]['descr_image'] = "";
         $i++;
     }
     mysql_free_result($result);
 
-    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/news/admin/\">Администрирование</a>";
+    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/news/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a>";
 
     return $content;
     debug("*** end: news_archive ***");

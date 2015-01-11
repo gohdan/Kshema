@@ -1,13 +1,13 @@
-<h1>Все товары</h1>
+<h1>Р’СЃРµ С‚РѕРІР°СЂС‹</h1>
 
-{{if:show_admin_link:<p><a href="/index.php?module=shop&action=admin">Администрирование магазина</a></p>}}
+{{if:show_admin_link:<p><a href="/index.php?module=shop&action=admin">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјР°РіР°Р·РёРЅР°</a></p>}}
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 
-{{if:show_add_link:<p><a href="/index.php?module=shop&action=goods_add">Добавить товар</a></p>}}
+{{if:show_add_link:<p><a href="/index.php?module=shop&action=goods_add">Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂ</a></p>}}
 
 <table>
 #all_goods#

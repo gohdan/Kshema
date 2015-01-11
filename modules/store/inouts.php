@@ -27,7 +27,7 @@ function store_inouts_view_all()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_inouts_view_all ***");
@@ -65,13 +65,13 @@ function store_inouts_view()
 			break;
 
 			case "object":
-				$content['string'] = " по объекту ".stripslashes(mysql_result(exec_query("SELECT name FROM ksh_store_objects WHERE id='".$_GET['object']."'"), 0, 0));
+				$content['string'] = " РїРѕ РѕР±СЉРµРєС‚Сѓ ".stripslashes(mysql_result(exec_query("SELECT name FROM ksh_store_objects WHERE id='".$_GET['object']."'"), 0, 0));
 				$type = "object";
 				$value = $_GET['object'];
 			break;
 
 			case "user":
-				$content['string'] = " по сотруднику ".stripslashes(mysql_result(exec_query("SELECT name FROM ksh_store_users WHERE id='".$_GET['user']."'"), 0, 0));
+				$content['string'] = " РїРѕ СЃРѕС‚СЂСѓРґРЅРёРєСѓ ".stripslashes(mysql_result(exec_query("SELECT name FROM ksh_store_users WHERE id='".$_GET['user']."'"), 0, 0));
 				$type = "user";
 				$value = $_GET['user'];
 			break;
@@ -86,7 +86,7 @@ function store_inouts_view()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_inouts_view ***");
@@ -107,7 +107,7 @@ function store_inouts_list($type, $value, $way)
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	switch ($type)
@@ -130,9 +130,9 @@ function store_inouts_list($type, $value, $way)
 
 		$way = stripslashes($inout['way']);
 		if ("in" == $way)
-			$content[$i]['way'] = "Получено";
+			$content[$i]['way'] = "РџРѕР»СѓС‡РµРЅРѕ";
 		else if ("out" == $way)
-			$content[$i]['way'] = "Выдано";
+			$content[$i]['way'] = "Р’С‹РґР°РЅРѕ";
 
 		$res = exec_query("SELECT name, measure FROM ksh_store_goods WHERE id='".$inout['good']."'");
 		$good = mysql_fetch_array($res);

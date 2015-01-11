@@ -1,18 +1,18 @@
-<h1>Удаление проекта дома</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РїСЂРѕРµРєС‚Р° РґРѕРјР°</h1>
 
 <p>
-<a href="/houses/view_by_category/#category_id#/">Вернуться к просмотру проектов в категории</a><br>
+<a href="/houses/view_by_category/#category_id#/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РїСЂРѕРµРєС‚РѕРІ РІ РєР°С‚РµРіРѕСЂРёРё</a><br>
 </p>
 
-<p>Вы действительно хотите удалить проект <b>#name#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РїСЂРѕРµРєС‚ <b>#name#</b>?</p>
 
 #content#
 
 <form action="/houses/view_by_category/#category_id#/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>
 
 <hr>

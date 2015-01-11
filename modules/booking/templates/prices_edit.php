@@ -1,20 +1,20 @@
-<h1>Редактирование цен</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С†РµРЅ</h1>
 
-<p><a href="/booking/admin/">В основное меню администрирования</a></p>
+<p><a href="/booking/admin/">Р’ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a></p>
 
 <form action="/booking/prices_edit/" method="post">
 
-<p>Если не указать дату начала и окончания, цена будет считаться стандартной</p>
+<p>Р•СЃР»Рё РЅРµ СѓРєР°Р·Р°С‚СЊ РґР°С‚Сѓ РЅР°С‡Р°Р»Р° Рё РѕРєРѕРЅС‡Р°РЅРёСЏ, С†РµРЅР° Р±СѓРґРµС‚ СЃС‡РёС‚Р°С‚СЊСЃСЏ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№</p>
 
 <table class="prices">
 <tr>
-<th>Начало<br>(гггг-мм-дд)</th>
-<th>Окончание<br>(гггг-мм-дд)</th>
-<th>Тип</th>
-<th>Цена</th>
+<th>РќР°С‡Р°Р»Рѕ<br>(РіРіРіРі-РјРј-РґРґ)</th>
+<th>РћРєРѕРЅС‡Р°РЅРёРµ<br>(РіРіРіРі-РјРј-РґРґ)</th>
+<th>РўРёРї</th>
+<th>Р¦РµРЅР°</th>
 </tr>
 #prices#
-<tr><td colspan="4">Добавить цену:</td></tr>
+<tr><td colspan="4">Р”РѕР±Р°РІРёС‚СЊ С†РµРЅСѓ:</td></tr>
 <tr>
 <td><input type="text" name="new_date_from" size="10"></td>
 <td><input type="text" name="new_date_to" size="10"></td>
@@ -26,5 +26,5 @@
 <td><input type="text" name="new_price" size="3"></td>
 </tr>
 </table>
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

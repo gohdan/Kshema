@@ -1,18 +1,18 @@
-<h1>Удаление из портфолио</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РёР· РїРѕСЂС‚С„РѕР»РёРѕ</h1>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#category_id#">Вернуться к просмотру новостей в категории</a><br>
-<a href="/index.php?module=portfolio&amp;action=help#portfolio_del">Справка</a>
+<a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#category_id#">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РЅРѕРІРѕСЃС‚РµР№ РІ РєР°С‚РµРіРѕСЂРёРё</a><br>
+<a href="/index.php?module=portfolio&amp;action=help#portfolio_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
-<p>Вы действительно хотите удалить из портфолио <b>#name#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РёР· РїРѕСЂС‚С„РѕР»РёРѕ <b>#name#</b>?</p>
 
 #content#
 
 <form action="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#category_id#" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>
 

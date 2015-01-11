@@ -1,11 +1,11 @@
-<h1>Редактирование категорий</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/index.php?module=links&action=admin">Вернуться к меню администрирования</a>
+<a href="/index.php?module=links&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=links&action=add_category">Добавить категорию</a>
+<a href="/index.php?module=links&action=add_category">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 #content#
@@ -13,5 +13,5 @@
 <form action="/index.php?module=links&action=category_edit" method="post">
 <input type="hidden" name="id" value="#category_id#">
 <input type="text" name="name" value="#name#">
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

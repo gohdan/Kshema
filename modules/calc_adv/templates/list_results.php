@@ -9,43 +9,43 @@
 			<th width="88%" height="114" scope="col">
 <table class="calculator_form">
 <tr>
-<th>Город</th>
+<th>Р“РѕСЂРѕРґ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Месяц</th>
+<th>РњРµСЃСЏС†</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Хронометраж</th>
+<th>РҐСЂРѕРЅРѕРјРµС‚СЂР°Р¶</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 {{if:if_show_result_prime:
 <th>
-Выходов<br>в прайм
+Р’С‹С…РѕРґРѕРІ<br>РІ РїСЂР°Р№Рј
 </th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 <th>
-Выходов<br>не в прайм
+Р’С‹С…РѕРґРѕРІ<br>РЅРµ РІ РїСЂР°Р№Рј
 </th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 }}
 
 {{if:if_show_result_time:#times#}}
 
-<th>Стоимость</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Сезонный<br>коэффициент</th>
+<th>РЎРµР·РѕРЅРЅС‹Р№<br>РєРѕСЌС„С„РёС†РёРµРЅС‚</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Стоимость<br>с коэфф-том</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ<br>СЃ РєРѕСЌС„С„-С‚РѕРј</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 {{if:if_noresident:
-<th>Коэфф-т<br>иногородности</th>
+<th>РљРѕСЌС„С„-С‚<br>РёРЅРѕРіРѕСЂРѕРґРЅРѕСЃС‚Рё</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Стоимость с поправкой<br>на иногородность</th>
-<th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-}}
-{{if:if_show_discount:<th>Скидка</th>
-<th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Итоговая сумма</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ СЃ РїРѕРїСЂР°РІРєРѕР№<br>РЅР° РёРЅРѕРіРѕСЂРѕРґРЅРѕСЃС‚СЊ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 }}
-<th>Удалить</th>
+{{if:if_show_discount:<th>РЎРєРёРґРєР°</th>
+<th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
+<th>РС‚РѕРіРѕРІР°СЏ СЃСѓРјРјР°</th>
+<th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
+}}
+<th>РЈРґР°Р»РёС‚СЊ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 </tr>
 <tr>

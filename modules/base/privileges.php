@@ -40,7 +40,7 @@ function create_table($table_name)
 		else
 		{
 			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='cp1251'";
+			$charset = " charset='utf8'";
 		}
 
 		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
@@ -53,7 +53,7 @@ function create_table($table_name)
 		)".$charset;
 
 		exec_query($sql_query);
-		$content['result'] .= "<p>Таблица привилегий успешно создана</p>";
+		$content['result'] .= "<p>РўР°Р±Р»РёС†Р° РїСЂРёРІРёР»РµРіРёР№ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°</p>";
 
 		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
 			`action`,
@@ -97,13 +97,13 @@ function create_table($table_name)
 			'0'
 			)";
 		exec_query($sql_query);
-		$content['result'] .= "<p>Основные привилегии успешно добавлены</p>";
+		$content['result'] .= "<p>РћСЃРЅРѕРІРЅС‹Рµ РїСЂРёРІРёР»РµРіРёРё СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅС‹</p>";
 
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: privileges: create_table ===");
@@ -132,7 +132,7 @@ function update_table($table_name)
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: privileges: update_table ===");
@@ -158,12 +158,12 @@ function drop_table($table_name)
 
 		$sql_query = "DROP TABLE IF EXISTS `".mysql_real_escape_string($table_name)."`";
 		exec_query($sql_query);
-		$content['result'] = "<p>Таблица привилегий успешно удалена</p>";
+		$content['result'] = "<p>РўР°Р±Р»РёС†Р° РїСЂРёРІРёР»РµРіРёР№ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°</p>";
 	}
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: privileges: drop_table ===");
@@ -386,7 +386,7 @@ function edit($module = "")
 			mysql_free_result($result);
 		}
 		else
-			$content['result'] = "Недостаточно прав";
+			$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 	}
 
 	debug("*** end: edit ***");

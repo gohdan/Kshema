@@ -9,17 +9,17 @@
 <b><a href="/shop/view_by_authors/authors:#author#">#author_name#</a></b><br>
 <b><a href="/shop/view_by_categories/categories:#category#">#category_name#</a></b><br>
 </div>
-{{if:show_request_link:<div style="display: inline">Сейчас товара в наличии нет.<br>Вы можете <a href="/shop/view_good/good:#id#">оставить заявку</a></div>}}
+{{if:show_request_link:<div style="display: inline">РЎРµР№С‡Р°СЃ С‚РѕРІР°СЂР° РІ РЅР°Р»РёС‡РёРё РЅРµС‚.<br>Р’С‹ РјРѕР¶РµС‚Рµ <a href="/shop/view_good/good:#id#">РѕСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ</a></div>}}
 </td>
 
-{{if:show_edit_link:<td style="padding: 0px 3px 0px 3px"><a href="/shop/goods_edit/#id#/">Редактировать</a></td>}}
-{{if:show_del_link:<td style="padding: 0px 3px 0px 3px"><a href="/shop/goods_del/#id#/">Удалить</a></td>}}
+{{if:show_edit_link:<td style="padding: 0px 3px 0px 3px"><a href="/shop/goods_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></td>}}
+{{if:show_del_link:<td style="padding: 0px 3px 0px 3px"><a href="/shop/goods_del/#id#/">РЈРґР°Р»РёС‚СЊ</a></td>}}
 
 </tr>
 
 <tr>
 <td colspan="4">
-{{if:new_qty:<p><input type="checkbox" name="good_#id#" value="#id#"><b>#new_price# руб.</b></p>}}
+{{if:new_qty:<p><input type="checkbox" name="good_#id#" value="#id#"><b>#new_price# СЂСѓР±.</b></p>}}
 <p>#presence#</p>
 </td>
 </tr>

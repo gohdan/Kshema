@@ -1,7 +1,7 @@
 {{if:if_show_admin_link:
 <p>
-<a href="/news/edit/#id#">Редактировать</a><br>
-<a href="/news/del/#id#">Удалить</a>
+<a href="/news/edit/#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a><br>
+<a href="/news/del/#id#">РЈРґР°Р»РёС‚СЊ</a>
 </p>
 }}
 
@@ -11,4 +11,4 @@
 
 #full_text#
 
-<p><a href="/news/view_by_category/#category_id#/">Все новости из категории "#category#"</a></p>
+<p><a href="/news/view_by_category/#category_id#/">Р’СЃРµ РЅРѕРІРѕСЃС‚Рё РёР· РєР°С‚РµРіРѕСЂРёРё "#category#"</a></p>

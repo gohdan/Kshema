@@ -1,18 +1,18 @@
-<h1>Уничтожение таблиц базы данных обновлений</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕР±РЅРѕРІР»РµРЅРёР№</h1>
 
 <p>
-<a href="/users/profile_view/">Ваш профиль</a>
-{{if:show_admin_link:<br><a href="/updater/admin/">Вернуться к меню администрирования</a>}}
+<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a>
+{{if:show_admin_link:<br><a href="/updater/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>}}
 </p>
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_drop_form:
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/updater/drop_tables/" method="post">
-<input type="checkbox" name="drop_privileges_table" value="ksh_updater_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_privileges_table" value="ksh_updater_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>
 }}

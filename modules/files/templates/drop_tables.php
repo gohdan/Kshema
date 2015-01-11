@@ -1,18 +1,18 @@
-<h1>Удаление таблиц базы данных файлов</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… С„Р°Р№Р»РѕРІ</h1>
 
-<a href="/files/admin/">Вернуться в меню администрирования файлов</a>
+<a href="/files/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ С„Р°Р№Р»РѕРІ</a>
 
 #content#
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/files/drop_tables/" method="post">
-<input type="checkbox" name="drop_files_categories_table" value="ksh_files_categories">Категории файлов<br>
-<input type="checkbox" name="drop_files_table" value="ksh_files">Файлы<br>
-<input type="checkbox" name="drop_files_config_table" value="ksh_files_config">Настройки<br>
-<input type="checkbox" name="drop_files_privileges_table" value="ksh_files_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_files_categories_table" value="ksh_files_categories">РљР°С‚РµРіРѕСЂРёРё С„Р°Р№Р»РѕРІ<br>
+<input type="checkbox" name="drop_files_table" value="ksh_files">Р¤Р°Р№Р»С‹<br>
+<input type="checkbox" name="drop_files_config_table" value="ksh_files_config">РќР°СЃС‚СЂРѕР№РєРё<br>
+<input type="checkbox" name="drop_files_privileges_table" value="ksh_files_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

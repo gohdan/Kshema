@@ -1,21 +1,21 @@
-<h1>Администрирование портфолио</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РїРѕСЂС‚С„РѕР»РёРѕ</h1>
 
 <p>
-<a href="/index.php?module=modules&amp;action=admin">Возврат в главное меню администрирования</a><br>
-<a href="/index.php?module=portfolio&amp;action=help">Справка</a><br>
+<a href="/index.php?module=modules&amp;action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=portfolio&amp;action=help">РЎРїСЂР°РІРєР°</a><br>
 </p>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=add_portfolio">Добавить в портфолио</a><br>
-<a href="/index.php?module=portfolio&amp;action=view_categories">Категории портфолио</a><br>
+<a href="/index.php?module=portfolio&amp;action=add_portfolio">Р”РѕР±Р°РІРёС‚СЊ РІ РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
+<a href="/index.php?module=portfolio&amp;action=view_categories">РљР°С‚РµРіРѕСЂРёРё РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных портфолио</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕСЂС‚С„РѕР»РёРѕ</h2>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=install_tables">Создать базу данных портфолио</a><br>
-<a href="/index.php?module=portfolio&amp;action=update_tables">Обновить базу данных портфолио</a><br>
-<a href="/index.php?module=portfolio&amp;action=drop_tables">Уничтожить базу данных портфолио</a><br>
+<a href="/index.php?module=portfolio&amp;action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
+<a href="/index.php?module=portfolio&amp;action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
+<a href="/index.php?module=portfolio&amp;action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
 </p>

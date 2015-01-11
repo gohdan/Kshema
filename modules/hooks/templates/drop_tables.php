@@ -1,20 +1,20 @@
-<h1>Уничтожение таблиц базы данных привязок</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРёРІСЏР·РѕРє</h1>
 
 {{if:content:<p>#content#<p>}}
 
 {{if:result:<p>#result#</p>}}
 
 <p>
-<a href="/index.php?module=hooks&amp;action=admin">Вернуться к меню администрирования</a><br>
-<a href="/index.php?module=hooks&amp;action=help#db_tables_drop">Справка</a>
+<a href="/index.php?module=hooks&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=hooks&amp;action=help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=hooks&amp;action=drop_tables" method="post">
-<input type="checkbox" name="drop_hooks_categories_table" value="ksh_hooks_categories">Категории привязок<br>
-<input type="checkbox" name="drop_hooks_table" value="ksh_hooks">Привязки<br>
-<input type="checkbox" name="drop_hooks_privileges_table" value="ksh_hooks_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_hooks_categories_table" value="ksh_hooks_categories">РљР°С‚РµРіРѕСЂРёРё РїСЂРёРІСЏР·РѕРє<br>
+<input type="checkbox" name="drop_hooks_table" value="ksh_hooks">РџСЂРёРІСЏР·РєРё<br>
+<input type="checkbox" name="drop_hooks_privileges_table" value="ksh_hooks_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

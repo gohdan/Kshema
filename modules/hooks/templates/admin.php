@@ -1,22 +1,22 @@
-<h1>Администрирование привязок динамического контента</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РїСЂРёРІСЏР·РѕРє РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р°</h1>
 
 <p>
-<a href="/index.php?module=base&amp;action=admin">Вернуться в главное меню администрирования</a><br>
-<a href="/index.php?module=hooks&amp;action=help">Справка
+<a href="/index.php?module=base&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=hooks&amp;action=help">РЎРїСЂР°РІРєР°
 </p>
 
 <hr>
 
 <p>
-<a href="/index.php?module=hooks&amp;action=add">Добавить привязку</a><br>
-<a href="/index.php?module=hooks&amp;action=categories_view">Категории</a><br>
-<a href="/index.php?module=hooks&amp;action=list_view">Список всех привязок</a><br>
+<a href="/index.php?module=hooks&amp;action=add">Р”РѕР±Р°РІРёС‚СЊ РїСЂРёРІСЏР·РєСѓ</a><br>
+<a href="/index.php?module=hooks&amp;action=categories_view">РљР°С‚РµРіРѕСЂРёРё</a><br>
+<a href="/index.php?module=hooks&amp;action=list_view">РЎРїРёСЃРѕРє РІСЃРµС… РїСЂРёРІСЏР·РѕРє</a><br>
 
 <hr>
 
-<h2>Администрирование базы данных привязок динамического контента</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРёРІСЏР·РѕРє РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р°</h2>
 
-<a href="/index.php?module=hooks&amp;action=create_tables">Создать таблицы базы данных</a><br>
-<a href="/index.php?module=hooks&amp;action=drop_tables">Уничтожить таблицы базы данных</a><br>
-<a href="/index.php?module=hooks&amp;action=update_tables">Обновить таблицы базы данных</a><br>
+<a href="/index.php?module=hooks&amp;action=create_tables">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/index.php?module=hooks&amp;action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/index.php?module=hooks&amp;action=update_tables">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
 </p>

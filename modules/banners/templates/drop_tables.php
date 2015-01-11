@@ -1,8 +1,8 @@
-<h1>Удаление таблиц базы данных баннеров</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р±Р°РЅРЅРµСЂРѕРІ</h1>
 
 <p>
-<a href="/banners/admin/">Вернуться в меню администрирования баннеров</a><br>
-<a href="/banners/help#db_tables_drop">Справка</a>
+<a href="/banners/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ Р±Р°РЅРЅРµСЂРѕРІ</a><br>
+<a href="/banners/help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 #content#
@@ -10,10 +10,10 @@
 {{if:result:<p>#result#</p>}}
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/banners/drop_tables/" method="post">
-<input type="checkbox" name="drop_banners_categories_table" value="ksh_banners_categories">Категории баннеров<br>
-<input type="checkbox" name="drop_banners_table" value="ksh_banners">Баннеры<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_banners_categories_table" value="ksh_banners_categories">РљР°С‚РµРіРѕСЂРёРё Р±Р°РЅРЅРµСЂРѕРІ<br>
+<input type="checkbox" name="drop_banners_table" value="ksh_banners">Р‘Р°РЅРЅРµСЂС‹<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

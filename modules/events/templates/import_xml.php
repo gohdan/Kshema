@@ -1,9 +1,9 @@
-<h1>Импорт событий из XML</h1>
+<h1>РРјРїРѕСЂС‚ СЃРѕР±С‹С‚РёР№ РёР· XML</h1>
 
 <form action="/index.php?module=events&action=import_xml" method="post">
-Вставьте XML-файл сюда:<br>
+Р’СЃС‚Р°РІСЊС‚Рµ XML-С„Р°Р№Р» СЃСЋРґР°:<br>
 <!-- <textarea name="xml" style="width: 800px; height: 600px"></textarea><br> -->
-<input type="submit" name="do_import" value="Импортировать">
+<input type="submit" name="do_import" value="РРјРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ">
 </form>
 
 #events#

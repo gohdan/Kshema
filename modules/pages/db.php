@@ -16,7 +16,7 @@ function pages_gen_create_table_query()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	/* Creating pages table */
@@ -85,7 +85,7 @@ function pages_tables_create()
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 
 	debug ("*** end: pages_tables_create ***");        
@@ -125,7 +125,7 @@ function pages_tables_drop()
 			}
 
 			foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-           $content['result'] .= "Таблицы БД успешно удалены";
+           $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
     }
     debug ("*** end: drop_db");
 	debug ("*** end: pages_tables_drop ***");
@@ -159,7 +159,7 @@ function pages_tables_update()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
     $queries = array();
@@ -259,7 +259,7 @@ function pages_tables_update()
     if ($queries_qty > 0)
     {
         foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-        $content['result'] .= "Запросы выполнены";
+        $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
 	debug ("*** pages_tables_update ***");        
     return $content;

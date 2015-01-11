@@ -1,10 +1,10 @@
-<h1>Удаление файла</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С„Р°Р№Р»Р°</h1>
 
 <p>
-<a href="/index.php?module=projects&action=files_view_by_project&project=#project#">Вернуться к просмотру файлов в проекте</a><br>
+<a href="/index.php?module=projects&action=files_view_by_project&project=#project#">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ С„Р°Р№Р»РѕРІ РІ РїСЂРѕРµРєС‚Рµ</a><br>
 </p>
 
-<p>Вы действительно хотите удалить файл <b>#name#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ С„Р°Р№Р» <b>#name#</b>?</p>
 
 <p>#result#</p>
 
@@ -13,6 +13,6 @@
 <form action="/index.php?module=projects&action=files_view_by_project&project=#project#" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

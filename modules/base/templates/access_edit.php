@@ -1,6 +1,6 @@
-<h1>Назначение прав доступа</h1>
+<h1>РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ РґРѕСЃС‚СѓРїР°</h1>
 
-<p><a href="/#module#/admin/">Обратно в администрирование модуля</a></p>
+<p><a href="/#module#/admin/">РћР±СЂР°С‚РЅРѕ РІ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ</a></p>
 
 {{if:result:<p>#result#</p>}}
 
@@ -12,6 +12,6 @@
 #access_categories#
 </table>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>
 }}

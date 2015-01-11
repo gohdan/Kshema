@@ -3,23 +3,23 @@
 
 {{if:show_admin_link:
 <p>
-<a href="#inst_root#/#module_name#/categories_view/">К списку категорий</a><br>
-<a href="#inst_root#/#module_name#/help#view_by_category">Справка</a>
+<a href="#inst_root#/#module_name#/categories_view/">Рљ СЃРїРёСЃРєСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="#inst_root#/#module_name#/help#view_by_category">РЎРїСЂР°РІРєР°</a>
 </p>}}
 
-{{if:show_link_on_main:<p><a href="#inst_root#/#module_name#/">На главную страницу</a></p>}}
+{{if:show_link_on_main:<p><a href="#inst_root#/#module_name#/">РќР° РіР»Р°РІРЅСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ</a></p>}}
 
-{{if:category_id:<p><a href="#inst_root#/#module_name#/add/#category_id#/">Добавить в категорию</a></p>}}
+{{if:category_id:<p><a href="#inst_root#/#module_name#/add/#category_id#/">Р”РѕР±Р°РІРёС‚СЊ РІ РєР°С‚РµРіРѕСЂРёСЋ</a></p>}}
 
-{{if:parent_link:<p><a href="#inst_root#/#module_name##action#/#parent_link#/">На уровень выше</a></p>}}
+{{if:parent_link:<p><a href="#inst_root#/#module_name##action#/#parent_link#/">РќР° СѓСЂРѕРІРµРЅСЊ РІС‹С€Рµ</a></p>}}
 
-{{if:parents:Последовательность категорий: #parents#}}
+{{if:parents:РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РєР°С‚РµРіРѕСЂРёР№: #parents#}}
 
-{{if:subcategories:<h2>Подкатегории</h2>}}
+{{if:subcategories:<h2>РџРѕРґРєР°С‚РµРіРѕСЂРёРё</h2>}}
 
 #subcategories#
 
-{{if:elements:<h2>Содержимое</h2>}}
+{{if:elements:<h2>РЎРѕРґРµСЂР¶РёРјРѕРµ</h2>}}
 <table summary="elements">
 #elements#
 </table>

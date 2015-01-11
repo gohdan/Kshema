@@ -1,8 +1,8 @@
-<h1>Перенос пользователя #name# в другую группу</h1>
+<h1>РџРµСЂРµРЅРѕСЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ #name# РІ РґСЂСѓРіСѓСЋ РіСЂСѓРїРїСѓ</h1>
 
 <p>
-<a href="/users/groups_view/">Список групп</a><br>
-<a href="/users/help#users_group_change">Справка</a>
+<a href="/users/groups_view/">РЎРїРёСЃРѕРє РіСЂСѓРїРї</a><br>
+<a href="/users/help#users_group_change">РЎРїСЂР°РІРєР°</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -11,8 +11,8 @@
 
 <form action="/index.php?module=users&amp;action=change_group&amp;user=#id#" method="post">
 <input type="hidden" name="id" value="#id#">
-Выберите группу: <select name="group">
+Р’С‹Р±РµСЂРёС‚Рµ РіСЂСѓРїРїСѓ: <select name="group">
 #groups_select#
 </select>
-<input type="submit" name="do_change" value="Перенести">
+<input type="submit" name="do_change" value="РџРµСЂРµРЅРµСЃС‚Рё">
 </form>

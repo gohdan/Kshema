@@ -1,13 +1,13 @@
-<h1>Категории товаров</h1>
+<h1>РљР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ</h1>
 
-{{if:show_admin_link:<p><a href="/index.php?module=shop&action=admin">Администрирование магазина</a></p>}}
+{{if:show_admin_link:<p><a href="/index.php?module=shop&action=admin">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјР°РіР°Р·РёРЅР°</a></p>}}
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 
-{{if:show_add_link:<p><a href="/index.php?module=shop&action=categories_add">Добавить категорию</a></p>}}
+{{if:show_add_link:<p><a href="/index.php?module=shop&action=categories_add">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a></p>}}
 
 <table>
 #categories#

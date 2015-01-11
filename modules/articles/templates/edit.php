@@ -1,26 +1,26 @@
-<h1>Редактирование статьи</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃС‚Р°С‚СЊРё</h1>
 
 {{if:category:
 <p>
-<a href="#inst_root#/articles/view_by_category/#category#/">Обратно в категорию</a>
+<a href="#inst_root#/articles/view_by_category/#category#/">РћР±СЂР°С‚РЅРѕ РІ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 }}
 
 {{if:show_admin_link:
 <p>
-<a href="#inst_root#/articles/admin/">Меню администрирования статей</a><br>
-<a href="#inst_root#/articles/add/">Добавить статью</a><br>
-<a href="#inst_root#/articles/help#edit">Справка</a>
+<a href="#inst_root#/articles/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃС‚Р°С‚РµР№</a><br>
+<a href="#inst_root#/articles/add/">Р”РѕР±Р°РІРёС‚СЊ СЃС‚Р°С‚СЊСЋ</a><br>
+<a href="#inst_root#/articles/help#edit">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
-{{if:show_user_articles_link:<a href="#inst_root#/articles/view_by_user/">Мои статьи</a>}}
+{{if:show_user_articles_link:<a href="#inst_root#/articles/view_by_user/">РњРѕРё СЃС‚Р°С‚СЊРё</a>}}
 
 {{if:content:<p>#content#</p>}}
 
 {{if:result:<p>#result#</p>}}
 
-<p><a href="/uploads/admin/" target="_upload">Загрузка изображений</a></p>
+<p><a href="/uploads/admin/" target="_upload">Р—Р°РіСЂСѓР·РєР° РёР·РѕР±СЂР°Р¶РµРЅРёР№</a></p>
 
 <form action="#inst_root#/articles/edit/#id#/{{if:satellite:satellite_#satellite#/}}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="#id#">
@@ -29,20 +29,20 @@
     <input type="hidden" name="old_doc" value="#doc#">
 
     <img src="#image#"><br>
-    Новое изображение-описание: <input type="file" name="image">
+    РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image">
     <br>
-	Прикреплённый документ: #doc#<br>
-	Прикрепить другой документ: <input type="file" name="doc">
+	РџСЂРёРєСЂРµРїР»С‘РЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚: #doc#<br>
+	РџСЂРёРєСЂРµРїРёС‚СЊ РґСЂСѓРіРѕР№ РґРѕРєСѓРјРµРЅС‚: <input type="file" name="doc">
 -->
 
 <table summary="articles edit table">
-<tr><td>Название:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Название для ЧПУ:</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
-<tr><td>Описание:</td><td><textarea cols="40" rows="20" name="descr">#descr#</textarea></td></tr>
-<tr><td>Текст:</td><td><textarea cols="40" rows="20" name="full_text">#full_text#</textarea></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ Р§РџРЈ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ:</td><td><textarea cols="40" rows="20" name="descr">#descr#</textarea></td></tr>
+<tr><td>РўРµРєСЃС‚:</td><td><textarea cols="40" rows="20" name="full_text">#full_text#</textarea></td></tr>
 
-<tr><td></td><td><input type="submit" name="do_update" value="Записать"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 	
 </form>

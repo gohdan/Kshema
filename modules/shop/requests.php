@@ -18,7 +18,7 @@ function shop_requests_view()
 		if (isset($_POST['do_del']))
     	{
 	        exec_query ("delete from ksh_shop_requests where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] .= "Заявка удалена";
+			$content['result'] .= "Р—Р°СЏРІРєР° СѓРґР°Р»РµРЅР°";
 	    }
 
 		$content['requests'] = shop_requests_list();
@@ -27,7 +27,7 @@ function shop_requests_view()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] .= "Пожалуйста, войдите как администратор";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:shop_requests_view ***");
@@ -56,15 +56,15 @@ function shop_requests_add()
 		if (isset($_POST['do_add']))
 	    {
 			exec_query("INSERT INTO ksh_shop_requests (user, good, qty) VALUES ('".mysql_real_escape_string($user['id'])."', '".mysql_real_escape_string($_POST['good'])."', '".mysql_real_escape_string($_POST['qty'])."')");
-			$content['result'] .= "Ваша заявка зарегистрирована";
+			$content['result'] .= "Р’Р°С€Р° Р·Р°СЏРІРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅР°";
 	    }
 		else
 		{
-			$content['result'] .= "Заявка не зарегистрирована: не выбран товар";
+			$content['result'] .= "Р—Р°СЏРІРєР° РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅР°: РЅРµ РІС‹Р±СЂР°РЅ С‚РѕРІР°СЂ";
 		}
 	}
 	else
-		$content['result'] .= "Чтобы оставить заявку, Вы должны <a href=\"/index.php?module=auth&action=show_login_form\">войти на сайт</a>.";
+		$content['result'] .= "Р§С‚РѕР±С‹ РѕСЃС‚Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ, Р’С‹ РґРѕР»Р¶РЅС‹ <a href=\"/index.php?module=auth&action=show_login_form\">РІРѕР№С‚Рё РЅР° СЃР°Р№С‚</a>.";
 
 	debug ("*** end:shop_requests_add ***");
 	return $content;
@@ -91,7 +91,7 @@ function shop_requests_list()
 		}
 		else
 		{
-			$requests[$i]['user'] = "Гость";
+			$requests[$i]['user'] = "Р“РѕСЃС‚СЊ";
 			$requests[$i]['email'] = "-";
 		}
 

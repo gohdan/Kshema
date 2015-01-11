@@ -1,8 +1,8 @@
-<h1>#module_title# - Редактирование категории "#title#"</h1>
+<h1>#module_title# - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё "#title#"</h1>
 
 <p>
-<a href="/index.php?module=#module_name#&action=admin">Вернуться в основное меню администрирования</a><br>
-<a href="/index.php?module=#module_name#&action=categories_view">Вернуться к просмотру категорий</a><br>
+<a href="/index.php?module=#module_name#&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=#module_name#&action=categories_view">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
 </p>
 
 
@@ -13,10 +13,10 @@
 <form action="/index.php?module=#module_name#&action=categories_edit&category=#id#" method="post">
 <input type="hidden" name="id" value="#id#">
 <table>
-<tr><td>Системное название (латинскими буквами; можно использовать цифры):</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Название для вывода пользователю (можно любой текст):</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Подкатегория в категории:</td><td><select name="parent"><option value="0">Нет</option>#categories_select#</select></td></tr>
-<tr><td>Шаблон списка элементов <i>(по умолчанию - elements)</i>:</td><td><input type="text" name="list_template" value="#list_template#"></td></tr>
-<tr><td></td><td><input type="submit" name="do_update_category" value="Записать"></td></tr>
+<tr><td>РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё; РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С†РёС„СЂС‹):</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ (РјРѕР¶РЅРѕ Р»СЋР±РѕР№ С‚РµРєСЃС‚):</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РџРѕРґРєР°С‚РµРіРѕСЂРёСЏ РІ РєР°С‚РµРіРѕСЂРёРё:</td><td><select name="parent"><option value="0">РќРµС‚</option>#categories_select#</select></td></tr>
+<tr><td>РЁР°Р±Р»РѕРЅ СЃРїРёСЃРєР° СЌР»РµРјРµРЅС‚РѕРІ <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - elements)</i>:</td><td><input type="text" name="list_template" value="#list_template#"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update_category" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 </form>

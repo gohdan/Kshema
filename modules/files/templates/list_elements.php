@@ -3,7 +3,7 @@
 <td style="vertical-align: top"><a href="#file#">#title# (#size#)</a><br>
 #descr#</td>
 {{if:show_admin_link:
-<td style="vertical-align: top"><a href="/files/edit/#id#">Редактировать</a></td>
-<td style="vertical-align: top"><a href="/files/del/#id#">Удалить</a></td>
+<td style="vertical-align: top"><a href="/files/edit/#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></td>
+<td style="vertical-align: top"><a href="/files/del/#id#">РЈРґР°Р»РёС‚СЊ</a></td>
 }}
 </tr>

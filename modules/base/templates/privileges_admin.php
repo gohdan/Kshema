@@ -1,14 +1,14 @@
-<h1>Назначение привилегий</h1>
+<h1>РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂРёРІРёР»РµРіРёР№</h1>
 
 <p>
-<a href="/index.php?module=modules&amp;action=admin">Вернуться в главное меню администрирования</a><br>
-<a href="/index.php?module=base&amp;action=help">Справка</a>
+<a href="/index.php?module=modules&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=base&amp;action=help">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/index.php?module=bills&amp;action=privileges_list">Список привилегий</a><br>
+<a href="/index.php?module=bills&amp;action=privileges_list">РЎРїРёСЃРѕРє РїСЂРёРІРёР»РµРіРёР№</a><br>
 </p>
 
 

@@ -1,5 +1,5 @@
 <div class="tight_container">
-<h1>:релизы:</h1>
+<h1>:СЂРµР»РёР·С‹:</h1>
 
 #content#
 

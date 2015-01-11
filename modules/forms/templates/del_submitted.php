@@ -1,18 +1,18 @@
-<h1>Удаление заполненной анкеты</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ Р·Р°РїРѕР»РЅРµРЅРЅРѕР№ Р°РЅРєРµС‚С‹</h1>
 
 <p>
-<a href="/index.php?module=forms&action=view_submitted_forms&type=#type#">Вернуться к просмотру анкет в категории</a><br>
+<a href="/index.php?module=forms&action=view_submitted_forms&type=#type#">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ Р°РЅРєРµС‚ РІ РєР°С‚РµРіРѕСЂРёРё</a><br>
 </p>
 
-<p>Вы действительно хотите удалить анкету?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ Р°РЅРєРµС‚Сѓ?</p>
 
 #content#
 
 <form action="/index.php?module=forms&action=view_submitted_forms&type=#type#" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Нет">
-<input type="submit" name="do_del" value="Да">
+<input type="submit" name="do_not_del" value="РќРµС‚">
+<input type="submit" name="do_del" value="Р”Р°">
 </form>
 
 <hr>

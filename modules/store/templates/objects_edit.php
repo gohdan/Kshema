@@ -1,6 +1,6 @@
-<h1>Редактирование объекта</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°</h1>
 
-<p><a href="/index.php?module=store&action=objects_view_all">К просмотру объектов</a></p>
+<p><a href="/index.php?module=store&action=objects_view_all">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РѕР±СЉРµРєС‚РѕРІ</a></p>
 
 <hr>
 
@@ -10,10 +10,10 @@
 
 <form action="/index.php?module=store&action=objects_edit&objects=#id#" method="post">
 <input type="hidden" name="id" value="#id#">
-Название: <input type="text" name="name" value="#name#"><br>
-Статус: <select name="status">
-<option value="0"{{if:option_0: selected}}>в работе</option>
-<option value="1"{{if:option_1: selected}}>завершён</option>
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="name" value="#name#"><br>
+РЎС‚Р°С‚СѓСЃ: <select name="status">
+<option value="0"{{if:option_0: selected}}>РІ СЂР°Р±РѕС‚Рµ</option>
+<option value="1"{{if:option_1: selected}}>Р·Р°РІРµСЂС€С‘РЅ</option>
 </select><br>
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

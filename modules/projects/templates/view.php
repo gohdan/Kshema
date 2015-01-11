@@ -6,4 +6,4 @@
 
 #descr#
 
-<p><a href="/index.php?module=projects&action=view_by_category&category=#category_id#">Все проекты из категории "#category#"</a></p>
+<p><a href="/index.php?module=projects&action=view_by_category&category=#category_id#">Р’СЃРµ РїСЂРѕРµРєС‚С‹ РёР· РєР°С‚РµРіРѕСЂРёРё "#category#"</a></p>

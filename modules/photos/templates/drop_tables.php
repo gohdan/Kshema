@@ -1,17 +1,17 @@
-<h1>Удаление таблиц БД фотографий</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р” С„РѕС‚РѕРіСЂР°С„РёР№</h1>
 
-<a href="/index.php?module=photos&action=admin">Вернуться к администрированию фотографий</a>
+<a href="/index.php?module=photos&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ С„РѕС‚РѕРіСЂР°С„РёР№</a>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=photos&action=drop_tables" method="post">
-<input type="checkbox" name="drop_photos_categories_table" value="ksh_photos_categories">Категории коллекций<br>
-<input type="checkbox" name="drop_photos_galleries_table" value="ksh_photos_galleries">Коллекции<br>
-<input type="checkbox" name="drop_photos_table" value="ksh_photos">Фотографии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_photos_categories_table" value="ksh_photos_categories">РљР°С‚РµРіРѕСЂРёРё РєРѕР»Р»РµРєС†РёР№<br>
+<input type="checkbox" name="drop_photos_galleries_table" value="ksh_photos_galleries">РљРѕР»Р»РµРєС†РёРё<br>
+<input type="checkbox" name="drop_photos_table" value="ksh_photos">Р¤РѕС‚РѕРіСЂР°С„РёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

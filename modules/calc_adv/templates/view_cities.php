@@ -1,7 +1,7 @@
-<h1>Управление городами</h1>
+<h1>РЈРїСЂР°РІР»РµРЅРёРµ РіРѕСЂРѕРґР°РјРё</h1>
 
 <p>
-<a href="/index.php?module=calc_adv&action=admin">Обратно в администрирование калькулятора</a>
+<a href="/index.php?module=calc_adv&action=admin">РћР±СЂР°С‚РЅРѕ РІ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</a>
 </p>
 
 <p>#content#</p>
@@ -9,7 +9,7 @@
 <p>#result#</p>
 
 <p>
-<a href="/index.php?module=calc_adv&action=city_add">Добавить город</a>
+<a href="/index.php?module=calc_adv&action=city_add">Р”РѕР±Р°РІРёС‚СЊ РіРѕСЂРѕРґ</a>
 </p>
 
 <table>

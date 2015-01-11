@@ -23,19 +23,19 @@ function photos_categories_add()
             {
                 debug ("category name isn't empty");
                 exec_query("INSERT INTO ksh_photos_categories (name, title) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['title'])."')");
-                $content['result'] .= "Категория добавлена";
+                $content['result'] .= "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте имя категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_categories_add ***");
@@ -67,7 +67,7 @@ function photos_categories_view()
 			$content['categories'][$i]['title'] = stripslashes($category['title']);
 			if (1 == $user['id'])
 			{
-				$content['categories'][$i]['edit_link'] =  "<a href=\"/index.php?module=photos&action=category_edit&category=".$category['id']."\">Редактировать</a>";
+				$content['categories'][$i]['edit_link'] =  "<a href=\"/index.php?module=photos&action=category_edit&category=".$category['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
 			}
 			else $content['categories'][$i]['edit_link'] = "";
 			$i++;
@@ -77,7 +77,7 @@ function photos_categories_view()
     else
     {
         debug ("user isn't admin");
-        $content['result'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_categories_view ***");
@@ -113,12 +113,12 @@ function photos_categories_edit()
             {
                 debug ("category name isn't empty");
                 exec_query("UPDATE ksh_photos_categories set name='".mysql_real_escape_string($_POST['name'])."', title='".mysql_real_escape_string($_POST['title'])."' WHERE id='".mysql_real_escape_string($category_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте название категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
         else
@@ -136,7 +136,7 @@ function photos_categories_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_categories_edit ***");

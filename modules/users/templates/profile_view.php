@@ -1,31 +1,31 @@
 {{if:name:<h1>#name#</h1>}}
 
-{{if:show_admin_link:<p><a href="#inst_root#/base/admin/">Администрировать сайт</a></p>}}
+{{if:show_admin_link:<p><a href="#inst_root#/base/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЃР°Р№С‚</a></p>}}
 
-{{if:show_logout_link:<p><a href="#inst_root#/auth/logout">Выйти из системы</a></p>}}
-{{if:show_change_password_link:<p><a href="#inst_root#/auth/change_password">Сменить пароль</a></p>}}
+{{if:show_logout_link:<p><a href="#inst_root#/auth/logout">Р’С‹Р№С‚Рё РёР· СЃРёСЃС‚РµРјС‹</a></p>}}
+{{if:show_change_password_link:<p><a href="#inst_root#/auth/change_password">РЎРјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ</a></p>}}
 
 
 
-<h2>Личные данные</h2>
+<h2>Р›РёС‡РЅС‹Рµ РґР°РЅРЅС‹Рµ</h2>
 
 {{if:id:ID: #id#<br>}}
-{{if:login:Логин: #login#<br>}}
-{{if:name:Имя: #name#<br>}}
-{{if:group: Группа: #group#<br>}}
-{{if:first_name: Имя: #first_name#<br>}}
-{{if:second_name: Отчество: #second_name#<br>}}
-{{if:sur_name: Фамилия: #sur_name#<br>}}
-{{if:country: Страна: #country#<br>}}
-{{if:post_code: Почтовый индекс: #post_code#<br>}}
-{{if:area: Область: #area#<br>}}
-{{if:city: Город: #city#<br>}}
-{{if:address: Адрес: #address#<br>}}
-{{if:last_login_date:Дата последнего входа: #last_login_date#<br>}}
-{{if:last_login_time:Время последнего входа: #last_login_time#<br>}}
-{{if:last_login_date_never:Дата последнего входа: никогда<br>}}
-{{if:show_profile_edit_link:<p><a href="#inst_root#/users/profile_edit/">Редактировать личные данные</a></p>}}
+{{if:login:Р›РѕРіРёРЅ: #login#<br>}}
+{{if:name:РРјСЏ: #name#<br>}}
+{{if:group: Р“СЂСѓРїРїР°: #group#<br>}}
+{{if:first_name: РРјСЏ: #first_name#<br>}}
+{{if:second_name: РћС‚С‡РµСЃС‚РІРѕ: #second_name#<br>}}
+{{if:sur_name: Р¤Р°РјРёР»РёСЏ: #sur_name#<br>}}
+{{if:country: РЎС‚СЂР°РЅР°: #country#<br>}}
+{{if:post_code: РџРѕС‡С‚РѕРІС‹Р№ РёРЅРґРµРєСЃ: #post_code#<br>}}
+{{if:area: РћР±Р»Р°СЃС‚СЊ: #area#<br>}}
+{{if:city: Р“РѕСЂРѕРґ: #city#<br>}}
+{{if:address: РђРґСЂРµСЃ: #address#<br>}}
+{{if:last_login_date:Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РІС…РѕРґР°: #last_login_date#<br>}}
+{{if:last_login_time:Р’СЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РІС…РѕРґР°: #last_login_time#<br>}}
+{{if:last_login_date_never:Р”Р°С‚Р° РїРѕСЃР»РµРґРЅРµРіРѕ РІС…РѕРґР°: РЅРёРєРѕРіРґР°<br>}}
+{{if:show_profile_edit_link:<p><a href="#inst_root#/users/profile_edit/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р»РёС‡РЅС‹Рµ РґР°РЅРЅС‹Рµ</a></p>}}
 
-{{if:modules:<h2>Модули</h2>
+{{if:modules:<h2>РњРѕРґСѓР»Рё</h2>
 #modules#}}
 

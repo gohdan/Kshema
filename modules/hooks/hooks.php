@@ -96,7 +96,7 @@ function hooks_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Ïîæàëóéñòà, âîéäèòå â ñèñòåìó êàê àäìèíèñòðàòîð";
+        $content['content'] .= "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ ÐºÐ°Ðº Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€";
     }
 
     debug ("*** end: hooks_del ***");
@@ -173,7 +173,7 @@ function hooks_edit()
     }
     else
     {
-        $content['content'] .= "Ïîæàëóéñòà, âîéäèòå â ñèñòåìó êàê àäìèíèñòðàòîð";
+        $content['content'] .= "ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð¾Ð¹Ð´Ð¸Ñ‚Ðµ Ð² ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ ÐºÐ°Ðº Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€";
     }
 
     return $content;
@@ -211,13 +211,13 @@ function hooks_list_view()
 			if (isset($_POST['do_del']))
 			{
 				exec_query("DELETE FROM ksh_hooks WHERE id='".stripslashes($_POST['id'])."'");
-				$content['content'] .= "Ïðèâÿçêà óñïåøíî óäàëåíà";
+				$content['content'] .= "ÐŸÑ€Ð¸Ð²ÑÐ·ÐºÐ° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½Ð°";
 			}
 		}
         $hooks = hooks_list();
 
 		if (0 == count($hooks))
-			$content['content'] .= "Ïðèâÿçîê íåò";
+			$content['content'] .= "ÐŸÑ€Ð¸Ð²ÑÐ·Ð¾Ðº Ð½ÐµÑ‚";
 		else
 		{
         	foreach ($hooks as $k => $v)

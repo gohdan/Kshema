@@ -1,26 +1,26 @@
-<h1>Администрирование склада</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃРєР»Р°РґР°</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">Возврат в главное меню администрирования</a><br>
+<a href="/index.php?module=base&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <hr>
 
-<p><a href="/index.php?module=store">Просмотр категорий</a></p>
+<p><a href="/index.php?module=store">РџСЂРѕСЃРјРѕС‚СЂ РєР°С‚РµРіРѕСЂРёР№</a></p>
 
-<p><a href="/index.php?module=store&action=objects_view_all">Просмотр объектов</a></p>
+<p><a href="/index.php?module=store&action=objects_view_all">РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉРµРєС‚РѕРІ</a></p>
 
-<p><a href="/index.php?module=store&action=users_view_all">Просмотр сотрудников</a></p>
+<p><a href="/index.php?module=store&action=users_view_all">РџСЂРѕСЃРјРѕС‚СЂ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ</a></p>
 
-<p><a href="/index.php?module=store&action=inouts_view_all">Просмотр движений товаров</a></p>
+<p><a href="/index.php?module=store&action=inouts_view_all">РџСЂРѕСЃРјРѕС‚СЂ РґРІРёР¶РµРЅРёР№ С‚РѕРІР°СЂРѕРІ</a></p>
 
-<p><a href="/index.php?module=store&action=archive_view">Архив</a></p>
+<p><a href="/index.php?module=store&action=archive_view">РђСЂС…РёРІ</a></p>
 
 <hr>
 
-<h2>Администрирование базы данных магазина</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РјР°РіР°Р·РёРЅР°</h2>
 
-<a href="/index.php?module=store&action=install_tables">Создать базу данных склада</a><br>
-<a href="/index.php?module=store&action=update_tables">Обновить базу данных склада</a><br>
-<a href="/index.php?module=store&action=drop_tables">Уничтожить базу данных склада</a><br>
+<a href="/index.php?module=store&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃРєР»Р°РґР°</a><br>
+<a href="/index.php?module=store&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃРєР»Р°РґР°</a><br>
+<a href="/index.php?module=store&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃРєР»Р°РґР°</a><br>
 </p>

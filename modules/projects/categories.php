@@ -70,7 +70,7 @@ function projects_categories_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -90,19 +90,19 @@ function projects_categories_add()
 				'".mysql_real_escape_string($_POST['author'])."',
 				'".mysql_real_escape_string($_POST['status'])."', '".mysql_real_escape_string($_POST['descr'])."', '".mysql_real_escape_string($file_path)."',
 				'".mysql_real_escape_string($_POST['att_project'])."')");
-                $content['result'] .= "Категория добавлена";
+                $content['result'] .= "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте имя категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_categories_add ***");
@@ -130,7 +130,7 @@ function projects_categories_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['result'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_categories_del ***");
@@ -168,8 +168,8 @@ function projects_categories_view()
             $content['categories'][$i]['name'] = stripslashes($category['name']);
 			if (1 == $user['id'])
             {
-            	$content['categories'][$i]['edit_link'] = "<a href=\"/index.php?module=projects&action=category_edit&category=".$category['id']."\">Редактировать</a>";
-                $content['categories'][$i]['del_link'] = "<a href=\"/index.php?module=projects&action=del_category&category=".$category['id']."\">Удалить</a>";
+            	$content['categories'][$i]['edit_link'] = "<a href=\"/index.php?module=projects&action=category_edit&category=".$category['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+                $content['categories'][$i]['del_link'] = "<a href=\"/index.php?module=projects&action=del_category&category=".$category['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
             }
             $i++;
         }
@@ -178,7 +178,7 @@ function projects_categories_view()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_categories_edit ***");
@@ -251,7 +251,7 @@ function projects_categories_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -276,12 +276,12 @@ function projects_categories_edit()
                 exec_query("UPDATE ksh_projects_categories set name='".mysql_real_escape_string($_POST['name'])."', title='".mysql_real_escape_string($_POST['title'])."',
 				author='".mysql_real_escape_string($_POST['author'])."',
 				status='".mysql_real_escape_string($_POST['status'])."', descr='".mysql_real_escape_string($_POST['descr'])."', descr_image='".mysql_real_escape_string($file_path)."', att_project='".mysql_real_escape_string($_POST['att_project'])."' WHERE id='".mysql_real_escape_string($category_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте название категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
         else
@@ -316,7 +316,7 @@ function projects_categories_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: projects_categories_edit ***");

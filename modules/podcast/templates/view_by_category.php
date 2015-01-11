@@ -1,7 +1,7 @@
-<h1>Подкаст</h1>
+<h1>РџРѕРґРєР°СЃС‚</h1>
 
-{{if:show_admin_link:<p><a href="#inst_root#/podcast/admin/">В меню администрирования</a><br>
-<a href="#inst_root#/podcast/add/">Добавить выпуск</a>
+{{if:show_admin_link:<p><a href="#inst_root#/podcast/admin/">Р’ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="#inst_root#/podcast/add/">Р”РѕР±Р°РІРёС‚СЊ РІС‹РїСѓСЃРє</a>
 </p>}}
 
 <p><a href="/podcast/rss/">RSS</a></p>

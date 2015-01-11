@@ -17,7 +17,7 @@ function updater_admin()
     	'heading' => '',
 		'show_admin_link' => ''
     );
-    $content['heading'] = "Обновление";
+    $content['heading'] = "РћР±РЅРѕРІР»РµРЅРёРµ";
 
 	$priv = new Privileges();
 	if ($priv -> has("updater", "admin", "write"))
@@ -154,10 +154,10 @@ function updater_theme($theme)
 			$content['show_update_form'] = "yes";
 	}
 	else
-		$content['result'] .= "Нет прав на обновление темы оформления";
+		$content['result'] .= "РќРµС‚ РїСЂР°РІ РЅР° РѕР±РЅРѕРІР»РµРЅРёРµ С‚РµРјС‹ РѕС„РѕСЂРјР»РµРЅРёСЏ";
 
 
-    $content['heading'] = "Обновление темы оформления";
+    $content['heading'] = "РћР±РЅРѕРІР»РµРЅРёРµ С‚РµРјС‹ РѕС„РѕСЂРјР»РµРЅРёСЏ";
 	debug ("*** end: updater_theme ***");
     return $content;
 }
@@ -202,10 +202,10 @@ function updater_all()
 			$content['show_update_form'] = "yes";
 	}
 	else
-		$content['result'] .= "Нет прав на обновление";
+		$content['result'] .= "РќРµС‚ РїСЂР°РІ РЅР° РѕР±РЅРѕРІР»РµРЅРёРµ";
 
 
-    $content['heading'] = "Обновление всего кода";
+    $content['heading'] = "РћР±РЅРѕРІР»РµРЅРёРµ РІСЃРµРіРѕ РєРѕРґР°";
 	debug ("*** end: updater_all ***");
     return $content;
 }

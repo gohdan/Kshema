@@ -93,7 +93,7 @@ function auto_models_prices_edit()
 			else
 				$sql_query = "INSERT INTO ksh_auto_models_prices (model, full_text) VALUES ('".mysql_real_escape_string($model_id)."', '".mysql_real_escape_string($_POST['full_text'])."')";
 			exec_query($sql_query);
-			$content['result'] = "Запись сохранена";
+			$content['result'] = "Р—Р°РїРёСЃСЊ СЃРѕС…СЂР°РЅРµРЅР°";
 		}
 
 		$sql_query = "SELECT full_text FROM ksh_auto_models_prices WHERE model='".mysql_real_escape_string($model_id)."'";
@@ -110,7 +110,7 @@ function auto_models_prices_edit()
 	else
 	{
 		debug ("user doesn't have admin rights");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end: auto_models_prices_edit ***");

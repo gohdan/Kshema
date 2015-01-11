@@ -4,8 +4,8 @@
 <a href="#inst_root#/index.php?module=articles&action=view&articles=#id#">#date#</a><br>
 <a href="#inst_root#/index.php?module=articles&action=view&articles=#id#">#name#</a><br>
 #descr#<br>
-{{if:doc:<a href="#doc#">Прикреплённый документ</a><br>}}
-<span class="more"><a href="#inst_root#/index.php?module=articles&action=view&articles=#id#">Подробнее...</a></span>
-{{if:show_admin_link:<br><span class="more"><a href="#inst_root#/index.php?module=articles&action=edit&articles=#id#"">Редактировать</a>&nbsp;<a href=\"#inst_root#/index.php?module=articles&action=del&articles=#id#">Удалить</a></span>}}
+{{if:doc:<a href="#doc#">РџСЂРёРєСЂРµРїР»С‘РЅРЅС‹Р№ РґРѕРєСѓРјРµРЅС‚</a><br>}}
+<span class="more"><a href="#inst_root#/index.php?module=articles&action=view&articles=#id#">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
+{{if:show_admin_link:<br><span class="more"><a href="#inst_root#/index.php?module=articles&action=edit&articles=#id#"">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"#inst_root#/index.php?module=articles&action=del&articles=#id#">РЈРґР°Р»РёС‚СЊ</a></span>}}
 </td>
 </tr>                    

@@ -1,11 +1,11 @@
-<h1>#module_title# - Тематика</h1>
+<h1>#module_title# - РўРµРјР°С‚РёРєР°</h1>
 
 <p>
-<a href="/#module_name#/admin/">Вернуться в основное меню администрирования</a>
+<a href="/#module_name#/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РѕСЃРЅРѕРІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/#module_name#/categories_add/">Добавить</a>
+<a href="/#module_name#/categories_add/">Р”РѕР±Р°РІРёС‚СЊ</a>
 </p>
 
 <p>#content#</p>

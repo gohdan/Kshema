@@ -23,13 +23,13 @@ function store_categories_view_all()
 		{
 			debug ("user is admin, deleting from DB");
 			exec_query ("delete from ksh_store_categories where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Категория удалена";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ СѓРґР°Р»РµРЅР°";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Категория не удалена";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ РЅРµ СѓРґР°Р»РµРЅР°";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -71,18 +71,18 @@ function store_categories_view_all()
 				debug ("next position: ".$next_position);
 				exec_query("UPDATE ksh_store_categories SET position='".mysql_real_escape_string($next_position)."' WHERE id='".mysql_real_escape_string($id)."'");
 				exec_query("UPDATE ksh_store_categories SET position='".mysql_real_escape_string($position)."' WHERE id='".mysql_real_escape_string($next_id)."'");
-				$content['result'] = "Категория подвинута";
+				$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ РїРѕРґРІРёРЅСѓС‚Р°";
 			}
 			else
-				$content['result'] = "Некуда двигать";
+				$content['result'] = "РќРµРєСѓРґР° РґРІРёРіР°С‚СЊ";
 
 
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Не могу подвинуть";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РќРµ РјРѕРіСѓ РїРѕРґРІРёРЅСѓС‚СЊ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -108,13 +108,13 @@ function store_categories_view_all()
 
 				exec_query ("DELETE FROM ksh_store_cart WHERE id='".$good['id']."'");
 			}
-			$content['result'] = "Товары выданы";
+			$content['result'] = "РўРѕРІР°СЂС‹ РІС‹РґР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товары не выданы";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂС‹ РЅРµ РІС‹РґР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -135,13 +135,13 @@ function store_categories_view_all()
 			$good_qty = stripslashes(mysql_result(exec_query("SELECT qty FROM ksh_store_goods WHERE id='".mysql_real_escape_string($_POST['good'])."'"), 0, 0));
 			exec_query ("UPDATE ksh_store_goods SET qty='".mysql_real_escape_string($good_qty - $_POST['qty'])."' WHERE id='".mysql_real_escape_string($_POST['good'])."'");
 
-			$content['result'] = "Товар выдан";
+			$content['result'] = "РўРѕРІР°СЂ РІС‹РґР°РЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не выдан";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ РІС‹РґР°РЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -161,13 +161,13 @@ function store_categories_view_all()
 			$good_qty = stripslashes(mysql_result(exec_query("SELECT qty FROM ksh_store_goods WHERE id='".mysql_real_escape_string($_POST['good'])."'"), 0, 0));
 			exec_query ("UPDATE ksh_store_goods SET qty='".mysql_real_escape_string($good_qty - $_POST['qty'])."' WHERE id='".mysql_real_escape_string($_POST['good'])."'");
 
-			$content['result'] = "Товар выдан";
+			$content['result'] = "РўРѕРІР°СЂ РІС‹РґР°РЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не выдан";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ РІС‹РґР°РЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -188,13 +188,13 @@ function store_categories_view_all()
 			$good_qty = stripslashes(mysql_result(exec_query("SELECT qty FROM ksh_store_goods WHERE id='".mysql_real_escape_string($_POST['good'])."'"), 0, 0));
 			exec_query ("UPDATE ksh_store_goods SET qty='".mysql_real_escape_string($good_qty + $_POST['qty'])."' WHERE id='".mysql_real_escape_string($_POST['good'])."'");
 
-			$content['result'] = "Товар получен";
+			$content['result'] = "РўРѕРІР°СЂ РїРѕР»СѓС‡РµРЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не получен";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ РїРѕР»СѓС‡РµРЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -255,13 +255,13 @@ function store_categories_add()
 
 			exec_query("INSERT INTO ksh_store_categories (name, position) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($position)."')");
 
-			$content['result'] = "Категория добавлена";
+			$content['result'] = "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
 		}
 	}
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -294,13 +294,13 @@ function store_categories_edit()
 		if (1 == $user['id'])
 		{
 			exec_query ("update ksh_store_categories set name='".mysql_real_escape_string($_POST['name'])."' where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ РЅРµ Р·Р°РїРёСЃР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -345,7 +345,7 @@ function store_categories_del()
 	debug ("goods qty: ".$goods_qty);
 	mysql_free_result($result);
 	if ("0" != $goods_qty)
-		$content['content'] = "Внимание! Категория <b>".$content['name']."</b> содержит в себе товары!";
+		$content['content'] = "Р’РЅРёРјР°РЅРёРµ! РљР°С‚РµРіРѕСЂРёСЏ <b>".$content['name']."</b> СЃРѕРґРµСЂР¶РёС‚ РІ СЃРµР±Рµ С‚РѕРІР°СЂС‹!";
 
 	debug ("*** end:store_categories_del ***");
 	return $content;
@@ -420,7 +420,7 @@ function store_categories_sort()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_categories_sort ***");

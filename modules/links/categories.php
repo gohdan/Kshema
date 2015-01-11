@@ -20,19 +20,19 @@ function links_categories_add()
             {
                 debug ("category name isn't empty");
                 exec_query("INSERT INTO ksh_links_categories (name) VALUES ('".mysql_real_escape_string($_POST['name'])."')");
-                $content['content'] .= "<p>Категория добавлена</p>";
+                $content['content'] .= "<p>РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°</p>";
             }
             else
             {
                 debug ("category name is empty");
-                $content['content'] .= "<p>Пожалуйста, задайте имя категории</p>";
+                $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РєР°С‚РµРіРѕСЂРёРё</p>";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        $content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
 
     debug ("*** end: fn: links_categories_add ***");
@@ -56,7 +56,7 @@ function links_categories_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "<p>Пожалуйста, войдите в систему как администратор</p>";
+        $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
     }
 
     debug ("*** end: fn: links_categories_del ***");
@@ -89,8 +89,8 @@ function links_categories_view()
         {
             $content['categories'] .= "<tr>";
             $content['categories'] .= "<td><a href=\"/index.php?module=links&action=view_by_category&category=".$category['id']."\">".$category['name']."</a></td>";
-            $content['categories'] .= "<td><a href=\"/index.php?module=links&action=category_edit&category=".$category['id']."\">Редактировать</a></td>";
-            $content['categories'] .= "<td><a href=\"/index.php?module=links&action=del_category&category=".$category['id']."\">Удалить</a></td>";
+            $content['categories'] .= "<td><a href=\"/index.php?module=links&action=category_edit&category=".$category['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></td>";
+            $content['categories'] .= "<td><a href=\"/index.php?module=links&action=del_category&category=".$category['id']."\">РЈРґР°Р»РёС‚СЊ</a></td>";
             $content['categories'] .= "</tr>";
         }
         mysql_free_result($result);
@@ -99,7 +99,7 @@ function links_categories_view()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        $content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
 
     debug ("*** end: fn: links_categories_edit ***");
@@ -131,12 +131,12 @@ function links_categories_edit()
             {
                 debug ("category name isn't empty");
                 exec_query("UPDATE ksh_links_categories set name='".mysql_real_escape_string($_POST['name'])."' WHERE id='".mysql_real_escape_string($category_id)."'");
-                $content['content'] .= "<p>Изменения записаны</p>";
+                $content['content'] .= "<p>РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹</p>";
             }
             else
             {
                 debug ("category name is empty");
-                $content['content'] .= "<p>Пожалуйста, задайте название категории</p>";
+                $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё</p>";
             }
         }
         else
@@ -155,7 +155,7 @@ function links_categories_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        $content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
 
     debug ("*** end: fn: links_categories_edit ***");

@@ -6,10 +6,10 @@ function gen_auth_form()
 {
     $form = "
         <form action=\"/index.php?module=auth\" method=\"post\">
-        <input type=\"radio\" name=\"id\" value=\"1\">Администратор<br>
-        <input type=\"radio\" name=\"id\" value=\"2\">Начальник<br>
-        <input type=\"radio\" name=\"id\" value=\"3\" checked>Работник<br>
-        <input type=\"submit\" name=\"do_login\" value=\"Войти\">
+        <input type=\"radio\" name=\"id\" value=\"1\">РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ<br>
+        <input type=\"radio\" name=\"id\" value=\"2\">РќР°С‡Р°Р»СЊРЅРёРє<br>
+        <input type=\"radio\" name=\"id\" value=\"3\" checked>Р Р°Р±РѕС‚РЅРёРє<br>
+        <input type=\"submit\" name=\"do_login\" value=\"Р’РѕР№С‚Рё\">
         </form>
     ";
     return $form;

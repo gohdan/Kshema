@@ -46,7 +46,7 @@ function auto_models_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -82,7 +82,7 @@ function auto_models_add()
 				'".mysql_real_escape_string($_POST['link'])."'
 			)";
 			exec_query ($sql_query);
-			$content['result'] = "Модель добавлена";
+			$content['result'] = "РњРѕРґРµР»СЊ РґРѕР±Р°РІР»РµРЅР°";
 	    }
 	    else
 	        debug ("don't have data to insert into DB");
@@ -94,7 +94,7 @@ function auto_models_add()
 	else
 	{
 		debug ("user doesn't have administrator rights");
-		$content['content'] = "Пожалуйста, войдите на сайт как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РЅР° СЃР°Р№С‚ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
     return $content;
@@ -127,7 +127,7 @@ function auto_models_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: auto_models_del ***");
@@ -188,7 +188,7 @@ function auto_models_edit()
                 if (filesize($home.$file_path) > $max_file_size)
                 {
                     debug ("file size > max file size!");
-                    $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                    $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                     if (unlink ($home.$file_path)) debug ("file deleted");
                     else debug ("can't delete file!");
                     $file_path = $_POST['old_image'];
@@ -240,7 +240,7 @@ function auto_models_edit()
 	}
     else
     {
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     return $content;
@@ -307,7 +307,7 @@ function auto_models_view($page)
 		}
 		else
 		{
-			$content['content'] = "Извините, такой модели у нас нет";
+			$content['content'] = "РР·РІРёРЅРёС‚Рµ, С‚Р°РєРѕР№ РјРѕРґРµР»Рё Сѓ РЅР°СЃ РЅРµС‚";
 		}
         debug ("*** end: auto_models_view ***");
 
@@ -331,14 +331,14 @@ function auto_models_list_view()
 			if (isset($_POST['do_del']))
             {
             	exec_query ("DELETE FROM ksh_auto_models WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-				$content['content'] .= "Модель успешно удалена";
+				$content['content'] .= "РњРѕРґРµР»СЊ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
             }
 		}
 
         $models = auto_models_list();
 
 		if (0 == count($models))
-			$content['content'] .= "Моделей нет";
+			$content['content'] .= "РњРѕРґРµР»РµР№ РЅРµС‚";
 		else
 		{
         	foreach ($models as $k => $v)

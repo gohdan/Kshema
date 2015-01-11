@@ -1,29 +1,29 @@
-<h1>Бронирование</h1>
+<h1>Р‘СЂРѕРЅРёСЂРѕРІР°РЅРёРµ</h1>
 
 <p>
-<a href="/modules/admin/">Вернуться в главное меню администрирования</a><br>
-<a href="/booking/help/">Справка</a>
+<a href="/modules/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/booking/help/">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <hr>
-<a href="/booking/orders_list/">Список заказов</a><br>
-<a href="/booking/orders_calendar/">Календарь заказов</a><br>
-<a href="/booking/privileges_edit/">Назначение прав</a><br>
+<a href="/booking/orders_list/">РЎРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ</a><br>
+<a href="/booking/orders_calendar/">РљР°Р»РµРЅРґР°СЂСЊ Р·Р°РєР°Р·РѕРІ</a><br>
+<a href="/booking/privileges_edit/">РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ</a><br>
 <hr>
 
 <p>
-<a href="/booking/prices_edit/">Цены</a><br>
-<a href="/booking/rooms_edit/">Номера</a><br>
-<a href="/booking/add/">Добавить бронь</a><br>
-<a href="/booking/list_view/">Простой список заказов</a>
+<a href="/booking/prices_edit/">Р¦РµРЅС‹</a><br>
+<a href="/booking/rooms_edit/">РќРѕРјРµСЂР°</a><br>
+<a href="/booking/add/">Р”РѕР±Р°РІРёС‚СЊ Р±СЂРѕРЅСЊ</a><br>
+<a href="/booking/list_view/">РџСЂРѕСЃС‚РѕР№ СЃРїРёСЃРѕРє Р·Р°РєР°Р·РѕРІ</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных бронирования</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… Р±СЂРѕРЅРёСЂРѕРІР°РЅРёСЏ</h2>
 
 <p>
-<a href="/booking/create_tables/">Создать таблицы базы данных</a><br>
-<a href="/booking/drop_tables/">Уничтожить таблицы базы данных</a><br>
-<a href="/booking/update_tables/">Обновить таблицы базы данных</a>
+<a href="/booking/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/booking/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/booking/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a>
 </p>

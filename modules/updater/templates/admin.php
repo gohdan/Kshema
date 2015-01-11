@@ -2,23 +2,23 @@
 
 
 <p>
-<a href="/users/profile_view/">Ваш профиль</a>
-{{if:show_admin_link:<br><a href="/index.php?module=modules&amp;action=admin">Вернуться в главное меню администрирования</a>}}
+<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a>
+{{if:show_admin_link:<br><a href="/index.php?module=modules&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>}}
 </p>
 
 <hr>
 
 <p>
-{{if:show_all_link:<a href="/updater/all/">Обновить всё</a><br>}}
-{{if:show_theme_link:<a href="/updater/theme/">Обновить тему оформления</a>}}
+{{if:show_all_link:<a href="/updater/all/">РћР±РЅРѕРІРёС‚СЊ РІСЃС‘</a><br>}}
+{{if:show_theme_link:<a href="/updater/theme/">РћР±РЅРѕРІРёС‚СЊ С‚РµРјСѓ РѕС„РѕСЂРјР»РµРЅРёСЏ</a>}}
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных обновлений</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РѕР±РЅРѕРІР»РµРЅРёР№</h2>
 
 <p>
-{{if:show_create_tables_link:<a href="/updater/create_tables/">Создать таблицы базы данных</a><br>}}
-{{if:show_drop_tables_link:<a href="/updater/drop_tables/">Уничтожить таблицы базы данных</a><br>}}
-{{if:show_update_tables_link:<a href="/updater/update_tables/">Обновить таблицы базы данных</a><br>}}
+{{if:show_create_tables_link:<a href="/updater/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>}}
+{{if:show_drop_tables_link:<a href="/updater/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>}}
+{{if:show_update_tables_link:<a href="/updater/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>}}
 </p>

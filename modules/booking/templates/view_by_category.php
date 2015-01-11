@@ -2,9 +2,9 @@
 
 {{if:show_admin_link:
 <p>
-<a href="/pages/categories_view/">К списку категорий</a><br>
-<a href="/pages/add/#category_id#/">Добавить в категорию</a><br>
-<a href="/pages/help#db_tables_update">Справка</a>
+<a href="/pages/categories_view/">Рљ СЃРїРёСЃРєСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/pages/add/#category_id#/">Р”РѕР±Р°РІРёС‚СЊ РІ РєР°С‚РµРіРѕСЂРёСЋ</a><br>
+<a href="/pages/help#db_tables_update">РЎРїСЂР°РІРєР°</a>
 </p>}}
 
 <p>#result#</p>

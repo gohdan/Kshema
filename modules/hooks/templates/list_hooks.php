@@ -30,6 +30,6 @@
 (#to_name#)
 </td>
 <td style="padding: 0px 3px 0px 3px">
-<a href="/index.php?module=hooks&amp;action=del&amp;hook=#id#">Удалить</a>
+<a href="/index.php?module=hooks&amp;action=del&amp;hook=#id#">РЈРґР°Р»РёС‚СЊ</a>
 </td>
 </tr>

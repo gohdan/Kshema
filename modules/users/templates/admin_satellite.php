@@ -1,19 +1,19 @@
-<h1>Управление пользователями на сателлите</h1>
+<h1>РЈРїСЂР°РІР»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё РЅР° СЃР°С‚РµР»Р»РёС‚Рµ</h1>
 
 #content#
 
 <p>
-<a href="/users/profile_view/">Ваш профиль</a><br>
-<a href="/bbcpanel/bb_edit/#id#/">Обратно на сателлит</a>
+<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a><br>
+<a href="/bbcpanel/bb_edit/#id#/">РћР±СЂР°С‚РЅРѕ РЅР° СЃР°С‚РµР»Р»РёС‚</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/users/add_satellite/satellite_#id#/">Добавить пользователя</a><br>
+<a href="/users/add_satellite/satellite_#id#/">Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</a><br>
 <!--
-<a href="/users/groups_view_satellite/">Просмотр групп пользователей</a><br>
-<a href="/users/view_users_satellite/">Просмотр всех зарегистрированных пользователей</a>
+<a href="/users/groups_view_satellite/">РџСЂРѕСЃРјРѕС‚СЂ РіСЂСѓРїРї РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a><br>
+<a href="/users/view_users_satellite/">РџСЂРѕСЃРјРѕС‚СЂ РІСЃРµС… Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a>
 -->
 </p>
 

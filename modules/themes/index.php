@@ -17,7 +17,7 @@ function themes_admin()
     	'heading' => '',
 		'show_admin_link' => ''
     );
-    $content['heading'] = "Òåìû îôîğìëåíèÿ";
+    $content['heading'] = "Ğ¢ĞµĞ¼Ñ‹ Ğ¾Ñ„Ğ¾Ñ€Ğ¼Ğ»ĞµĞ½Ğ¸Ñ";
 
 	$priv = new Privileges();
 	if ($priv -> has("themes", "admin", "write"))

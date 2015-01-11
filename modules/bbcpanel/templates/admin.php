@@ -1,34 +1,34 @@
 <h1>#heading#</h1>
 
-{{if:show_profile_link:<a href="/users/profile_view/">Ваш профиль</a><br>}}
+{{if:show_profile_link:<a href="/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a><br>}}
 
 {{if:show_categories_view_link:
 <p>
-<a href="/bbcpanel/categories_view/">Тематика досок</a>
+<a href="/bbcpanel/categories_view/">РўРµРјР°С‚РёРєР° РґРѕСЃРѕРє</a>
 </p>
 }}
 
 {{if:show_privileges_edit_link:
 <p>
-<a href="/bbcpanel/privileges_edit/">Назначение прав</a>
+<a href="/bbcpanel/privileges_edit/">РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ</a>
 </p>
 }}
 
 {{if:show_bbs_view_all_link:
 <p>
-<a href="/bbcpanel/bbs_view_all/">Доски</a>
+<a href="/bbcpanel/bbs_view_all/">Р”РѕСЃРєРё</a>
 </p>
 }}
 
 {{if:show_categories_view_link:
 <p>
-<a href="/bills/categories_view/">Разделы объявлений</a>
+<a href="/bills/categories_view/">Р Р°Р·РґРµР»С‹ РѕР±СЉСЏРІР»РµРЅРёР№</a>
 </p>
 }}
 
 {{if:show_view_by_user_link:
 <p>
-<a href="/bills/view_by_user/">Мои объявления</a>
+<a href="/bills/view_by_user/">РњРѕРё РѕР±СЉСЏРІР»РµРЅРёСЏ</a>
 </p>
 }}
 
@@ -36,11 +36,11 @@
 {{if:show_admin_link:
 <hr>
 
-<h2>Администрирование базы данных досок объявлений</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№</h2>
 
 <p>
-<a href="/bbcpanel/create_tables/">Создать таблицы базы данных</a><br>
-<a href="/bbcpanel/drop_tables/">Уничтожить таблицы базы данных</a><br>
-<a href="/bbcpanel/update_tables/">Обновить таблицы базы данных</a>
+<a href="/bbcpanel/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/bbcpanel/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/bbcpanel/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a>
 </p>
 }}

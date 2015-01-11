@@ -1,19 +1,19 @@
-<h1>Администрирование проектов</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РїСЂРѕРµРєС‚РѕРІ</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">В главное меню администрирования</a>
+<a href="/index.php?module=base&action=admin">Р’ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=projects&action=add_projects">Добавить проект</a><br>
-<a href="/index.php?module=projects&action=view_categories">Категории проектов</a><br>
+<a href="/index.php?module=projects&action=add_projects">Р”РѕР±Р°РІРёС‚СЊ РїСЂРѕРµРєС‚</a><br>
+<a href="/index.php?module=projects&action=view_categories">РљР°С‚РµРіРѕСЂРёРё РїСЂРѕРµРєС‚РѕРІ</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных проектов</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ</h2>
 
-<a href="/index.php?module=projects&action=install_tables">Создать базу данных проектов</a><br>
-<a href="/index.php?module=projects&action=update_tables">Обновить базу данных проектов</a><br>
-<a href="/index.php?module=projects&action=drop_tables">Уничтожить базу данных проектов</a><br>
+<a href="/index.php?module=projects&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ</a><br>
+<a href="/index.php?module=projects&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ</a><br>
+<a href="/index.php?module=projects&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ</a><br>
 </p>

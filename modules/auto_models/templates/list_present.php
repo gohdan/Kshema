@@ -5,10 +5,10 @@
 <td>#model#</td>
 <td>#price#</td>
 <td>#date#</td>
-<td>{{if:if_with_equip:да}}</td>
+<td>{{if:if_with_equip:РґР°}}</td>
 <td>{{if:image:<img src="#image#">}}</td>
 {{if:show_admin_link:
-<td><a href="/auto_models/present_edit/#id#/">Редактировать</a>
-<a href="/auto_models/present_del/#id#/">Удалить</a></td>
+<td><a href="/auto_models/present_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>
+<a href="/auto_models/present_del/#id#/">РЈРґР°Р»РёС‚СЊ</a></td>
 }}
 </tr>

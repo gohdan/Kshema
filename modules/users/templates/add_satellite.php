@@ -1,6 +1,6 @@
-<h1>Добавление пользователя на сателлит</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° СЃР°С‚РµР»Р»РёС‚</h1>
 
-{{if:satellite_id:<p><a href="/bbcpanel/bb_edit/#satellite_id#/">В редактирование сателлита</a></p>}}
+{{if:satellite_id:<p><a href="/bbcpanel/bb_edit/#satellite_id#/">Р’ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃР°С‚РµР»Р»РёС‚Р°</a></p>}}
 
 {{if:result:<p>#result#</p>}}
 
@@ -10,22 +10,22 @@
 <input type="hidden" name="satellite_id" value="#satellite_id#">
 <table>
 <tr>
-<td>Группа:</td><td><select name="group">#groups_select#</select></td>
+<td>Р“СЂСѓРїРїР°:</td><td><select name="group">#groups_select#</select></td>
 </tr>
 <tr>
-<td>Логин:</td><td><input type="text" name="login"></td>
+<td>Р›РѕРіРёРЅ:</td><td><input type="text" name="login"></td>
 </tr>
 <tr>
-<td>Имя:</td><td><input type="text" name="name"></td>
+<td>РРјСЏ:</td><td><input type="text" name="name"></td>
 </tr>
 <tr>
 <td>E-mail:</td><td><input type="text" name="email"></td>
 </tr>
 <tr>
-<td>Пароль:</td><td><input type="password" name="password"></td>
+<td>РџР°СЂРѕР»СЊ:</td><td><input type="password" name="password"></td>
 </tr>
 <tr>
-<td></td><td><input type="submit" name="do_add" value="Добавить"></td>
+<td></td><td><input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ"></td>
 </tr>
 </form>
 }}

@@ -24,12 +24,12 @@ function auth_install_tables()
         $queries[] = "insert into users (id, login, password, name) values ('1', 'admin', '', 'Admin')";
 
         $queries_qty = count($queries);
-        $content['content'] .= "<p>Количество запросов к БД: ".$queries_qty."</p>";
+        $content['content'] .= "<p>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїСЂРѕСЃРѕРІ Рє Р‘Р”: ".$queries_qty."</p>";
 
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['content'] .= "<p>Запросы выполнены</p>";
+                $content['content'] .= "<p>Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹</p>";
         }
         return $content;
 }

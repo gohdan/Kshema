@@ -28,12 +28,12 @@ function articles_categories_add()
 					'".mysql_real_escape_string($_POST['parent'])."',
 					'".mysql_real_escape_string($_POST['menu_template'])."'
 					)");
-				$content['result'] .= "Категория добавлена";
+				$content['result'] .= "РљР°С‚РµРіРѕСЂРёСЏ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте имя категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
 
@@ -70,7 +70,7 @@ function articles_categories_add()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_categories_add ***");
@@ -97,7 +97,7 @@ function articles_categories_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_categories_del ***");
@@ -133,8 +133,8 @@ function articles_categories_view()
         	$content['categories'][$i]['name'] = stripslashes($category['name']);
             if (1 == $user['id'])
             {
-				$content['categories'][$i]['edit_link'] = "<a href=\"/index.php?module=articles&action=category_edit&category=".stripslashes($category['id'])."\">Редактировать</a>";
-	            $content['categories'][$i]['del_link'] = "<a href=\"/index.php?module=articles&action=del_category&category=".stripslashes($category['id'])."\">Удалить</a>";
+				$content['categories'][$i]['edit_link'] = "<a href=\"/index.php?module=articles&action=category_edit&category=".stripslashes($category['id'])."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+	            $content['categories'][$i]['del_link'] = "<a href=\"/index.php?module=articles&action=del_category&category=".stripslashes($category['id'])."\">РЈРґР°Р»РёС‚СЊ</a>";
 			}
             $i++;
         }
@@ -143,7 +143,7 @@ function articles_categories_view()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_categories_edit ***");
@@ -183,12 +183,12 @@ function articles_categories_edit()
 					parent='".mysql_real_escape_string($_POST['parent'])."',
 					menu_template = '".mysql_real_escape_string($_POST['menu_template'])."'
 					WHERE id='".mysql_real_escape_string($category_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("category name is empty");
-                $content['result'] .= "Пожалуйста, задайте название категории";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
             }
         }
         else
@@ -241,7 +241,7 @@ function articles_categories_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: articles_categories_edit ***");

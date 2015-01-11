@@ -23,7 +23,7 @@ function view_users($user)
         $users_list = get_users_list();
 
         $content .= "<table style=\"width: 100%\">";
-        $content .= "<tr><td style=\"background-color: #eeeeee; text-align: center\">ID</td><td style=\"background-color: #eeeeee; text-align: center\">Имя</td><td style=\"background-color: #eeeeee; text-align: center\">Должность</td>";
+        $content .= "<tr><td style=\"background-color: #eeeeee; text-align: center\">ID</td><td style=\"background-color: #eeeeee; text-align: center\">РРјСЏ</td><td style=\"background-color: #eeeeee; text-align: center\">Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td>";
         foreach ($users_list as $k => $v)
         {
                 debug ($k.":".$v);
@@ -44,10 +44,10 @@ function view_roles($user)
 {
         debug ("*** view_roles");
         $content = "";
-        $content .= "<h1>Роли</h1>";
+        $content .= "<h1>Р РѕР»Рё</h1>";
 
         $content .= "<table>";
-        $content .= "<tr><td>ID</td><td>Название</td>";
+        $content .= "<tr><td>ID</td><td>РќР°Р·РІР°РЅРёРµ</td>";
         $result = exec_query ("SELECT * FROM roles");
         while ($row = mysql_fetch_array ($result))
         {
@@ -66,7 +66,7 @@ function create_roles($user)
 {
         debug ("*** create_roles");
         $content = "";
-        $content .= "<h1>Создание ролей</h1>";
+        $content .= "<h1>РЎРѕР·РґР°РЅРёРµ СЂРѕР»РµР№</h1>";
 
         $queries[] = "create table roles (
                 id int auto_increment primary key,
@@ -83,7 +83,7 @@ function create_roles($user)
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content .= "<p>Запросы выполнены</p>";
+                $content .= "<p>Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹</p>";
         }
 
         debug ("*** end: create_roles");
@@ -96,7 +96,7 @@ function delete_roles($user)
         debug ("*** delete_roles");
 
         exec_query ("DROP TABLE roles");
-        $content = "<p>Таблицы БД успешно удалены</p>";
+        $content = "<p>РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹</p>";
 
         debug ("*** end: delete_roles");
         return $content;
@@ -106,7 +106,7 @@ function create_users_table($user)
 {
         debug ("*** create_users_table");
         $content = "";
-        $content .= "<h1>Создание таблицы пользователей</h1>";
+        $content .= "<h1>РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</h1>";
 
         $queries[] = "create table ksh_users (
                 id int auto_increment primary key,
@@ -124,7 +124,7 @@ function create_users_table($user)
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content .= "<p>Запросы выполнены</p>";
+                $content .= "<p>Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹</p>";
         }
 
         debug ("*** end: create_roles");

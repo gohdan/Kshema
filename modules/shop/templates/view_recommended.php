@@ -1,12 +1,12 @@
-<h1>Рекомендованные товары</h1>
+<h1>Р РµРєРѕРјРµРЅРґРѕРІР°РЅРЅС‹Рµ С‚РѕРІР°СЂС‹</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
-{{if:show_admin_link:<p><a href="/shop/admin/">Администрировать магазин</a></p>}}
+{{if:show_admin_link:<p><a href="/shop/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РјР°РіР°Р·РёРЅ</a></p>}}
 
-<p>Страницы: #pages# |<p>
+<p>РЎС‚СЂР°РЅРёС†С‹: #pages# |<p>
 
 {{if:show_multiple_add_form:<form action="/shop/cart_add_multiple/" method="post">}}
 
@@ -15,6 +15,6 @@
 #goods_recommended#
 </table>
 
-{{if:show_multiple_add_form:<input type="submit" name="do_add" value="Положить в корзину"></form>}}
+{{if:show_multiple_add_form:<input type="submit" name="do_add" value="РџРѕР»РѕР¶РёС‚СЊ РІ РєРѕСЂР·РёРЅСѓ"></form>}}
 
-<p>Страницы: #pages# |<p>
+<p>РЎС‚СЂР°РЅРёС†С‹: #pages# |<p>

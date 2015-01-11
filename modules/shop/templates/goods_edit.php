@@ -1,8 +1,8 @@
-<h1>Редактирование товара</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РѕРІР°СЂР°</h1>
 
-<p><a href="/shop/goods_view_all/">К просмотру товаров</a></p>
+<p><a href="/shop/goods_view_all/">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ С‚РѕРІР°СЂРѕРІ</a></p>
 
-<p><a href="/shop/view_good/good:#id#" target="_view_#id#">Посмотреть этот товар</a></p>
+<p><a href="/shop/view_good/good:#id#" target="_view_#id#">РџРѕСЃРјРѕС‚СЂРµС‚СЊ СЌС‚РѕС‚ С‚РѕРІР°СЂ</a></p>
 
 <hr>
 
@@ -10,7 +10,7 @@
 
 <p>#content#</p>
 
-<p>Незаполненные пункты в информации о товаре не показываются.</p>
+<p>РќРµР·Р°РїРѕР»РЅРµРЅРЅС‹Рµ РїСѓРЅРєС‚С‹ РІ РёРЅС„РѕСЂРјР°С†РёРё Рѕ С‚РѕРІР°СЂРµ РЅРµ РїРѕРєР°Р·С‹РІР°СЋС‚СЃСЏ.</p>
 
 <form action="/shop/goods_edit/goods:#id#/" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="#id#">
@@ -22,66 +22,66 @@
 <input type="hidden" name="if_hide" value="0">
 
 <table>
-{{if:image:<tr><td>Изображение:</td><td><img src="#image#" align="top"></td></tr>}}
+{{if:image:<tr><td>РР·РѕР±СЂР°Р¶РµРЅРёРµ:</td><td><img src="#image#" align="top"></td></tr>}}
 
-<tr><td>Новое изображение:</td><td><input type="file" name="image"></td></tr>
+<tr><td>РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</td><td><input type="file" name="image"></td></tr>
 
-{{if:images:<tr><td>Дополнительное изображение:</td><td><img src="#images#" align="top"><br><input type="checkbox" name="images_del" value="1"> удалить</td></tr>}}
+{{if:images:<tr><td>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</td><td><img src="#images#" align="top"><br><input type="checkbox" name="images_del" value="1"> СѓРґР°Р»РёС‚СЊ</td></tr>}}
 
-<tr><td>Новое дополнительное изображение:</td><td><input type="file" name="images"></td></tr>
+<tr><td>РќРѕРІРѕРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ:</td><td><input type="file" name="images"></td></tr>
 
-<tr><td>Название товара:</td><td><input type="text" name="name" size="30" value="#name#"></td></tr>
-<tr><td>Автор:</td><td><select name="author">
+<tr><td>РќР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°:</td><td><input type="text" name="name" size="30" value="#name#"></td></tr>
+<tr><td>РђРІС‚РѕСЂ:</td><td><select name="author">
 #authors#
 </select></td></tr>
-<tr><td>Категория:</td><td><select name="category">
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">
 #categories#
 </select></td></tr>
-<tr><td>Метки (через запятую):</td><td><input type="text" name="tags" size="60" value="#tags#"></td></tr>
-{{if:pdf:<tr><td>PDF:</td><td><a href="#pdf#">скачать</a> <input type="checkbox" name="pdf_del" value="1"> удалить</td></tr>}}
-<tr><td>Закачать PDF:</td><td><input type="file" name="pdf"></td></tr>
-{{if:epub:<tr><td>epub:</td><td><a href="#epub#">скачать</a> <input type="checkbox" name="epub_del" value="1"> удалить</td></tr>}}
-<tr><td>Закачать epub:</td><td><input type="file" name="epub"></td></tr>
-{{if:mp3:<tr><td>MP3:</td><td><a href="#mp3#">скачать</a> <input type="checkbox" name="mp3_del" value="1"> удалить</td></tr>}}
-<tr><td>Закачать MP3:</td><td><input type="file" name="mp3"></td></tr>
-<tr><td>Жанр:</td><td><input type="text" name="genre" size="30" value="#genre#"></td></tr>
-<tr><td>Оригинальное название:</td><td><input type="text" name="original_name" size="30" value="#original_name#"></td></tr>
-<tr><td>Формат:</td><td><input type="text" name="format" value="#format#"></td></tr>
-<tr><td>Язык:</td><td><input type="text" name="language" value="#language#"></td></tr>
-<tr><td>Издательство:</td><td><input type="text" name="publisher" value="#publisher#"></td></tr>
+<tr><td>РњРµС‚РєРё (С‡РµСЂРµР· Р·Р°РїСЏС‚СѓСЋ):</td><td><input type="text" name="tags" size="60" value="#tags#"></td></tr>
+{{if:pdf:<tr><td>PDF:</td><td><a href="#pdf#">СЃРєР°С‡Р°С‚СЊ</a> <input type="checkbox" name="pdf_del" value="1"> СѓРґР°Р»РёС‚СЊ</td></tr>}}
+<tr><td>Р—Р°РєР°С‡Р°С‚СЊ PDF:</td><td><input type="file" name="pdf"></td></tr>
+{{if:epub:<tr><td>epub:</td><td><a href="#epub#">СЃРєР°С‡Р°С‚СЊ</a> <input type="checkbox" name="epub_del" value="1"> СѓРґР°Р»РёС‚СЊ</td></tr>}}
+<tr><td>Р—Р°РєР°С‡Р°С‚СЊ epub:</td><td><input type="file" name="epub"></td></tr>
+{{if:mp3:<tr><td>MP3:</td><td><a href="#mp3#">СЃРєР°С‡Р°С‚СЊ</a> <input type="checkbox" name="mp3_del" value="1"> СѓРґР°Р»РёС‚СЊ</td></tr>}}
+<tr><td>Р—Р°РєР°С‡Р°С‚СЊ MP3:</td><td><input type="file" name="mp3"></td></tr>
+<tr><td>Р–Р°РЅСЂ:</td><td><input type="text" name="genre" size="30" value="#genre#"></td></tr>
+<tr><td>РћСЂРёРіРёРЅР°Р»СЊРЅРѕРµ РЅР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="original_name" size="30" value="#original_name#"></td></tr>
+<tr><td>Р¤РѕСЂРјР°С‚:</td><td><input type="text" name="format" value="#format#"></td></tr>
+<tr><td>РЇР·С‹Рє:</td><td><input type="text" name="language" value="#language#"></td></tr>
+<tr><td>РР·РґР°С‚РµР»СЊСЃС‚РІРѕ:</td><td><input type="text" name="publisher" value="#publisher#"></td></tr>
 
-<tr><td>Год публикации:</td><td><input type="text" name="year" value="#year#"></td></tr>
-<tr><td>Количество страниц:</td><td><input type="text" name="pages_qty" value="#pages_qty#"></td></tr>
+<tr><td>Р“РѕРґ РїСѓР±Р»РёРєР°С†РёРё:</td><td><input type="text" name="year" value="#year#"></td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†:</td><td><input type="text" name="pages_qty" value="#pages_qty#"></td></tr>
 
-<tr><td>Вес (только цифры!):</td><td><input type="text" name="weight" value="#weight#"></td></tr>
-<tr><td>Количество (только цифры!):</td><td><input type="text" name="new_qty" value="#new_qty#"></td></tr>
-<tr><td>Цена (только цифры!):</td><td><input type="text" name="new_price" value="#new_price#"></td></tr>
+<tr><td>Р’РµСЃ (С‚РѕР»СЊРєРѕ С†РёС„СЂС‹!):</td><td><input type="text" name="weight" value="#weight#"></td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ (С‚РѕР»СЊРєРѕ С†РёС„СЂС‹!):</td><td><input type="text" name="new_qty" value="#new_qty#"></td></tr>
+<tr><td>Р¦РµРЅР° (С‚РѕР»СЊРєРѕ С†РёС„СЂС‹!):</td><td><input type="text" name="new_price" value="#new_price#"></td></tr>
 
-<tr><td>Новый</td><td><input type="checkbox" name="if_new" value="1"{{if:if_new: checked}}</td></tr>
-<tr><td>Популярный</td><td><input type="checkbox" name="if_popular" value="1"{{if:if_popular: checked}}></td></tr>
-<tr><td>Рекомендовать</td><td><input type="checkbox" name="if_recommended" value="1"{{if:if_recommended: checked}}></td></tr>
-<tr><td>Скрыть</td><td><input type="checkbox" name="if_hide" value="1"{{if:if_hide: checked}}></td></tr>
+<tr><td>РќРѕРІС‹Р№</td><td><input type="checkbox" name="if_new" value="1"{{if:if_new: checked}}</td></tr>
+<tr><td>РџРѕРїСѓР»СЏСЂРЅС‹Р№</td><td><input type="checkbox" name="if_popular" value="1"{{if:if_popular: checked}}></td></tr>
+<tr><td>Р РµРєРѕРјРµРЅРґРѕРІР°С‚СЊ</td><td><input type="checkbox" name="if_recommended" value="1"{{if:if_recommended: checked}}></td></tr>
+<tr><td>РЎРєСЂС‹С‚СЊ</td><td><input type="checkbox" name="if_hide" value="1"{{if:if_hide: checked}}></td></tr>
 
-<tr><td colspan="2">Ссылки:</td></tr>
+<tr><td colspan="2">РЎСЃС‹Р»РєРё:</td></tr>
 #links_edit#
-<tr><td>Добавить ссылку:</td>
-<td><input type="text" name="new_link_title" size="30"> текст<br>
-<input type="text" name="new_link_img" size="30"> изображение<br>
-<input type="text" name="new_link_url" size="30"> ссылка</td></tr>
+<tr><td>Р”РѕР±Р°РІРёС‚СЊ СЃСЃС‹Р»РєСѓ:</td>
+<td><input type="text" name="new_link_title" size="30"> С‚РµРєСЃС‚<br>
+<input type="text" name="new_link_img" size="30"> РёР·РѕР±СЂР°Р¶РµРЅРёРµ<br>
+<input type="text" name="new_link_url" size="30"> СЃСЃС‹Р»РєР°</td></tr>
 
 
 <!--
-Б/у экземпляры:<br>
-Количество: <input type="text" name="used_qty" value="#used_qty#"><br>
-Цена: <input type="text" name="used_price" value = "#used_price#"><br>
+Р‘/Сѓ СЌРєР·РµРјРїР»СЏСЂС‹:<br>
+РљРѕР»РёС‡РµСЃС‚РІРѕ: <input type="text" name="used_qty" value="#used_qty#"><br>
+Р¦РµРЅР°: <input type="text" name="used_price" value = "#used_price#"><br>
 <hr>
 -->
 
 <tr><td colspan="2">embed:<br>
 <textarea name="embed">#embed#</textarea></td></tr>
-<tr><td colspan="2">Комментарий:<br>
+<tr><td colspan="2">РљРѕРјРјРµРЅС‚Р°СЂРёР№:<br>
 <textarea name="commentary">#commentary#</textarea></td></tr>
 </table>
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>
 

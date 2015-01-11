@@ -1,30 +1,30 @@
-<h1>Редактирование товара</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РѕРІР°СЂР°</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
-<p>Незаполненные пункты в информации о товаре не показываются.</p>
+<p>РќРµР·Р°РїРѕР»РЅРµРЅРЅС‹Рµ РїСѓРЅРєС‚С‹ РІ РёРЅС„РѕСЂРјР°С†РёРё Рѕ С‚РѕРІР°СЂРµ РЅРµ РїРѕРєР°Р·С‹РІР°СЋС‚СЃСЏ.</p>
 
 <form action="/index.php?module=store&action=goods_edit&goods=#id#" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="#id#">
 
-Название товара: <input type="text" name="name" value="#name#"><br>
-Категория: <select name="category">
+РќР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°: <input type="text" name="name" value="#name#"><br>
+РљР°С‚РµРіРѕСЂРёСЏ: <select name="category">
 #categories#
 </select><br>
 
-Цена (только цифры!): <input type="text" name="price" value="#price#"><br>
-Единица измерения: <input type="text" name="measure" value="#measure#"><br>
-Статус: <select name="status">
-<option value="0"{{if:status_0: selected}}>в наличии</option>
-<option value="1"{{if:status_1: selected}}>удалён</option>
+Р¦РµРЅР° (С‚РѕР»СЊРєРѕ С†РёС„СЂС‹!): <input type="text" name="price" value="#price#"><br>
+Р•РґРёРЅРёС†Р° РёР·РјРµСЂРµРЅРёСЏ: <input type="text" name="measure" value="#measure#"><br>
+РЎС‚Р°С‚СѓСЃ: <select name="status">
+<option value="0"{{if:status_0: selected}}>РІ РЅР°Р»РёС‡РёРё</option>
+<option value="1"{{if:status_1: selected}}>СѓРґР°Р»С‘РЅ</option>
 </select>
 <hr>
 
-Комментарий:<br>
+РљРѕРјРјРµРЅС‚Р°СЂРёР№:<br>
 <textarea name="commentary">#commentary#</textarea><br>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>
 

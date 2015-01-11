@@ -1,21 +1,21 @@
-<h1>Редактирование сателлита</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃР°С‚РµР»Р»РёС‚Р°</h1>
 
 <p>
-<a href="/bbcpanel/bbs_view_all/">Список сателлитов</a>
+<a href="/bbcpanel/bbs_view_all/">РЎРїРёСЃРѕРє СЃР°С‚РµР»Р»РёС‚РѕРІ</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_admin_link:
 <p>
-<a href="/bbcpanel/admin/">Меню администрирования сателлитов</a><br>
-<a href="/bbcpanel/bb_add/">Добавить сателлит</a><br>
+<a href="/bbcpanel/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ СЃР°С‚РµР»Р»РёС‚РѕРІ</a><br>
+<a href="/bbcpanel/bb_add/">Р”РѕР±Р°РІРёС‚СЊ СЃР°С‚РµР»Р»РёС‚</a><br>
 </p>
 }}
 
 <p>
-<a href="/bbcpanel/tparts_edit/#id#/">Редактировать части шаблонов</a><br>
-<a href="/bbcpanel/update_all/#id#/">Обновить программный код</a>
+<a href="/bbcpanel/tparts_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С‡Р°СЃС‚Рё С€Р°Р±Р»РѕРЅРѕРІ</a><br>
+<a href="/bbcpanel/update_all/#id#/">РћР±РЅРѕРІРёС‚СЊ РїСЂРѕРіСЂР°РјРјРЅС‹Р№ РєРѕРґ</a>
 </p>
 
 <p>
@@ -29,10 +29,10 @@
 <input type="hidden" name="id" value="#id#">
 <input type="hidden" name="name" value="">
 <table summary="bb edit table">
-<tr><td>Название для пользователя:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Тематика:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РўРµРјР°С‚РёРєР°:</td><td><select name="category">#categories_select#</select></td></tr>
 <tr><td>URL:</td><td><input type="text" name="url" value="#url#"></td></tr>
-<tr><td>Каталог, в который установлен</td><td><input type="text" name="instroot" value="#instroot#"></td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Сохранить"></td></tr>
+<tr><td>РљР°С‚Р°Р»РѕРі, РІ РєРѕС‚РѕСЂС‹Р№ СѓСЃС‚Р°РЅРѕРІР»РµРЅ</td><td><input type="text" name="instroot" value="#instroot#"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="РЎРѕС…СЂР°РЅРёС‚СЊ"></td></tr>
 </table>
 </form>

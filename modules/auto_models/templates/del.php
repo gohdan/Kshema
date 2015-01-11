@@ -1,16 +1,16 @@
-<h1>Удаление модели</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РјРѕРґРµР»Рё</h1>
 
 <p>
-<a href="/index.php?module=auto_models&action=list_view">Вернуться к просмотру моделей</a><br>
+<a href="/index.php?module=auto_models&action=list_view">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РјРѕРґРµР»РµР№</a><br>
 </p>
 
-<p>Вы действительно хотите удалить модель <b>#title#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РјРѕРґРµР»СЊ <b>#title#</b>?</p>
 
 #content#
 
 <form action="/index.php?module=auto_models&action=list_view" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

@@ -1,4 +1,4 @@
-{{if:show_admin_link:<p><a href="/banners/admin/">Администрирование</a></p>}}
+{{if:show_admin_link:<p><a href="/banners/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>}}
 
 #hook#
 

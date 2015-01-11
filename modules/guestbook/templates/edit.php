@@ -1,14 +1,14 @@
-<h1>Редактирование сообщения</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃРѕРѕР±С‰РµРЅРёСЏ</h1>
 
 <p>
-<a href="/guestbook/view_by_category/#category_link#/">Обратно в категорию</a>
+<a href="/guestbook/view_by_category/#category_link#/">РћР±СЂР°С‚РЅРѕ РІ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 {{if:show_admin_link:
 <p>
-<a href="/guestbook/admin/">Меню администрирования гостевых книг</a><br>
-<a href="/guestbook/add/">Добавить сообщение</a><br>
-<a href="/guestbook/help#edit">Справка</a>
+<a href="/guestbook/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РіРѕСЃС‚РµРІС‹С… РєРЅРёРі</a><br>
+<a href="/guestbook/add/">Р”РѕР±Р°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ</a><br>
+<a href="/guestbook/help#edit">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
@@ -20,10 +20,10 @@
 <input type="hidden" name="category" value="#category#">
 
 <table summary="message edit table">
-<tr><td>Имя:</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Способ связи:</td><td><input type="text" name="contact" value="#contact#"></td></tr>
-<tr><td>Заголовок:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td>Текст:</td><td><textarea name="text" style="width: 400px; height: 300px">#text#</textarea></td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Сохранить"></td></tr>
+<tr><td>РРјСЏ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>РЎРїРѕСЃРѕР± СЃРІСЏР·Рё:</td><td><input type="text" name="contact" value="#contact#"></td></tr>
+<tr><td>Р—Р°РіРѕР»РѕРІРѕРє:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>РўРµРєСЃС‚:</td><td><textarea name="text" style="width: 400px; height: 300px">#text#</textarea></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="РЎРѕС…СЂР°РЅРёС‚СЊ"></td></tr>
 </table>
 </form>

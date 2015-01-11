@@ -4,29 +4,29 @@
 
 <p>#content#</p>
 
-<p><a href="/index.php?module=store&action=view_by_categories&categories=#category_id#">Обновить</a> (автообновление пока не работает)</a></p>
+<p><a href="/index.php?module=store&action=view_by_categories&categories=#category_id#">РћР±РЅРѕРІРёС‚СЊ</a> (Р°РІС‚РѕРѕР±РЅРѕРІР»РµРЅРёРµ РїРѕРєР° РЅРµ СЂР°Р±РѕС‚Р°РµС‚)</a></p>
 
-{{if:show_admin_link:<p><a href="/index.php?module=store">К просмотру категорий</a></p>}}
+{{if:show_admin_link:<p><a href="/index.php?module=store">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a></p>}}
 
-<p><a href="/index.php?module=store&action=goods_add&category=#category_id#">Добавить товар в категорию</a></p>
+<p><a href="/index.php?module=store&action=goods_add&category=#category_id#">Р”РѕР±Р°РІРёС‚СЊ С‚РѕРІР°СЂ РІ РєР°С‚РµРіРѕСЂРёСЋ</a></p>
 
 
 <table>
 <tr>
 
 <td style="vertical-align: top; padding: 20px">
-Наименование
+РќР°РёРјРµРЅРѕРІР°РЅРёРµ
 </td>
 
-<td style="vertical-align: top; padding: 20px">Количество</td>
+<td style="vertical-align: top; padding: 20px">РљРѕР»РёС‡РµСЃС‚РІРѕ</td>
 
-<td style="vertical-align: top; padding: 20px">Статус</td>
+<td style="vertical-align: top; padding: 20px">РЎС‚Р°С‚СѓСЃ</td>
 
-<td style="vertical-align: top; padding: 20px">Единица измерения</td>
+<td style="vertical-align: top; padding: 20px">Р•РґРёРЅРёС†Р° РёР·РјРµСЂРµРЅРёСЏ</td>
 
-<td style="vertical-align: top; padding: 20px">Цена</td>
+<td style="vertical-align: top; padding: 20px">Р¦РµРЅР°</td>
 
-<td style="vertical-align: top; padding: 20px">Комментарий</td>
+<td style="vertical-align: top; padding: 20px">РљРѕРјРјРµРЅС‚Р°СЂРёР№</td>
 
 </tr>
 

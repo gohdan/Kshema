@@ -1,7 +1,7 @@
-<h1>Редактирование видеоролика</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРёРґРµРѕСЂРѕР»РёРєР°</h1>
 
 <p>
-<a href="/index.php?module=auto_models&action=videos_view&model=#model#">К просмотру видеороликов этой модели</a>
+<a href="/index.php?module=auto_models&action=videos_view&model=#model#">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РІРёРґРµРѕСЂРѕР»РёРєРѕРІ СЌС‚РѕР№ РјРѕРґРµР»Рё</a>
 </p>
 
 <p>#result#</p>
@@ -11,11 +11,11 @@
 {{if:if_show_edit_form:
 <form action="/index.php?module=auto_models&action=videos_edit&videos=#id#" method="post">
 <input type="hidden" name="id" value="#id#">
-Название: <input type="text" name="title" value="#title#"><br>
-Код ролика:<br>
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="title" value="#title#"><br>
+РљРѕРґ СЂРѕР»РёРєР°:<br>
 <textarea name="video" style="width: 500px; height: 200px">#video#</textarea><br>
-Описание:<br>
+РћРїРёСЃР°РЅРёРµ:<br>
 <textarea name="descr" rows="30" cols="40">#descr#</textarea><br>
-<input type="submit" name="do_save" value="Сохранить">
+<input type="submit" name="do_save" value="РЎРѕС…СЂР°РЅРёС‚СЊ">
 </form>
 }}

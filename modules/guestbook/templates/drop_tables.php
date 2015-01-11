@@ -1,21 +1,21 @@
-<h1>Уничтожение таблиц базы данных гостевой книги</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РіРѕСЃС‚РµРІРѕР№ РєРЅРёРіРё</h1>
 
 {{if:content:<p>#content#<p>}}
 
 {{if:result:<p>#result#</p>}}
 
 <p>
-<a href="/guestbook/admin/">Вернуться к меню администрирования</a><br>
-<a href="/guestbook/help#db_tables_drop">Справка</a>
+<a href="/guestbook/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/guestbook/help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/guestbook/drop_tables/" method="post">
-<input type="checkbox" name="drop_categories_table" value="ksh_guestbook_categories">Гостевые книги<br>
-<input type="checkbox" name="drop_guestbook_table" value="ksh_guestbook">Сообщения<br>
-<input type="checkbox" name="drop_privileges_table" value="ksh_guestbook_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_categories_table" value="ksh_guestbook_categories">Р“РѕСЃС‚РµРІС‹Рµ РєРЅРёРіРё<br>
+<input type="checkbox" name="drop_guestbook_table" value="ksh_guestbook">РЎРѕРѕР±С‰РµРЅРёСЏ<br>
+<input type="checkbox" name="drop_privileges_table" value="ksh_guestbook_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

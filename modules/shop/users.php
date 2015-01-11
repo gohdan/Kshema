@@ -20,7 +20,7 @@ function shop_users_view()
 		{
 			$sql_query = "DELETE FROM ksh_users WHERE id='".mysql_real_escape_string($_POST['id'])."'";
 			exec_query($sql_query);
-			$content['result'] .= "Пользователь удалён.";
+			$content['result'] .= "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»С‘РЅ.";
 		}
 
 		$content['users'] = users_users_list();
@@ -37,7 +37,7 @@ function shop_users_view()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -74,7 +74,7 @@ function shop_user_del()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] .= "Пожалуйста, войдите как администратор.";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.";
 	}
 
 

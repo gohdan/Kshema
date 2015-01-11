@@ -1,6 +1,6 @@
-<h1>Редактирование проекта</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕРµРєС‚Р°</h1>
 
-<a href="/index.php?module=projects&action=view_categories">Категории проектов</a>
+<a href="/index.php?module=projects&action=view_categories">РљР°С‚РµРіРѕСЂРёРё РїСЂРѕРµРєС‚РѕРІ</a>
 
 <p>#result#</p>
 
@@ -9,16 +9,16 @@
 <form action="/index.php?module=projects&action=edit" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="#id#">
     <input type="hidden" name="old_image" value="#image#">
-    Системное название (латинские буквы и цифры): <input type="text" name="name" value="#name#"><br>
-	Название для пользователя (любые символы): <input type="text" name="title" value="#title#"><br>
-    Категория:
+    РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ (Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹): <input type="text" name="name" value="#name#"><br>
+	РќР°Р·РІР°РЅРёРµ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ (Р»СЋР±С‹Рµ СЃРёРјРІРѕР»С‹): <input type="text" name="title" value="#title#"><br>
+    РљР°С‚РµРіРѕСЂРёСЏ:
     <select name="category">
     #categories_select#
     </select><br>
     <img src="#image#"><br>
-    Новое изображение-описание: <input type="file" name="image">
+    РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image">
     <br>
-    Описание:<br>
+    РћРїРёСЃР°РЅРёРµ:<br>
     <textarea cols="40" rows="10" name="descr">#descr#</textarea><br>
-    <input type="submit" name="do_update" value="Записать">
+    <input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

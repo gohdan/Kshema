@@ -1,20 +1,20 @@
-<p><font color="#FFCC00"><strong> </strong><font color="#FF9900" size="+1">Категории
-              товаров</font></font></p>
+<p><font color="#FFCC00"><strong> </strong><font color="#FF9900" size="+1">РљР°С‚РµРіРѕСЂРёРё
+              С‚РѕРІР°СЂРѕРІ</font></font></p>
 			  <p>#result#</p>
 			  <p>#content#</p>
-			  <p><a href="javascript:win_open('categories_add', '400', '200')">Добавить категорию</a></p>
+			  <p><a href="javascript:win_open('categories_add', '400', '200')">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a></p>
 
 <font color="#FFCC00"><font color="#000000"><strong><font color="#FF0000"><br>
-                  Категория: #name# </font></strong></font></font> <br> <br>
+                  РљР°С‚РµРіРѕСЂРёСЏ: #name# </font></strong></font></font> <br> <br>
 
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="tabl" >
                     <tr bgcolor="#003366">
-                      <td> <div align="center"><font color="#CCCCCC"><strong>Наименование</strong></font></div></td>
-                      <td width="70"> <div align="center"><font color="#CCCCCC"><strong>Ед.изм.</strong></font></div></td>
-                      <td width="80"> <div align="center"><font color="#CCCCCC"><strong>Кол-во</strong></font></div></td>
-                      <td width="100"> <div align="center"><font color="#CCCCCC"><strong>Цена
-                          за ед.</strong></font></div></td>
-                      <td width="180"> <div align="center"><font color="#CCCCCC"><strong>Действия</strong></font></div></td>
+                      <td> <div align="center"><font color="#CCCCCC"><strong>РќР°РёРјРµРЅРѕРІР°РЅРёРµ</strong></font></div></td>
+                      <td width="70"> <div align="center"><font color="#CCCCCC"><strong>Р•Рґ.РёР·Рј.</strong></font></div></td>
+                      <td width="80"> <div align="center"><font color="#CCCCCC"><strong>РљРѕР»-РІРѕ</strong></font></div></td>
+                      <td width="100"> <div align="center"><font color="#CCCCCC"><strong>Р¦РµРЅР°
+                          Р·Р° РµРґ.</strong></font></div></td>
+                      <td width="180"> <div align="center"><font color="#CCCCCC"><strong>Р”РµР№СЃС‚РІРёСЏ</strong></font></div></td>
                     </tr>
 
 #goods#
@@ -22,7 +22,7 @@
 </table>
                   <font color="#FFCC00"><font color="#000000" size="+1"> </font><font color="#000000">
                   <strong><font color="#FF0000"><br>
-                  Категории товаров</font></strong></font></font><strong><font color="#FF0000">
+                  РљР°С‚РµРіРѕСЂРёРё С‚РѕРІР°СЂРѕРІ</font></strong></font></font><strong><font color="#FF0000">
                   </font></strong><font color="#000000"><strong></strong></font><font color="#000000"><strong><br>
                   <br>
                   </strong>

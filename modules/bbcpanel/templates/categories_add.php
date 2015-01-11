@@ -1,7 +1,7 @@
-<h1>#module_title# - Добавление темы</h1>
+<h1>#module_title# - Р”РѕР±Р°РІР»РµРЅРёРµ С‚РµРјС‹</h1>
 
 <p>
-<a href="/#module_name#/categories_view/">Вернуться к списку</a><br>
+<a href="/#module_name#/categories_view/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ</a><br>
 </p>
 
 <p>#result#</p>
@@ -10,7 +10,7 @@
 
 <form action="/#module_name#/categories_add/" method="post">
 <table>
-<tr><td>Название:</td><td><input type="text" name="title"></td></tr>
-<tr><td></td><td><input type="submit" name="do_add_category" value="Добавить"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="title"></td></tr>
+<tr><td></td><td><input type="submit" name="do_add_category" value="Р”РѕР±Р°РІРёС‚СЊ"></td></tr>
 </table>
 </form>

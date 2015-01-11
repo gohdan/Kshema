@@ -22,7 +22,7 @@ function create_table()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($this -> table)."` (
@@ -34,9 +34,9 @@ function create_table()
 
 	exec_query($sql_query);
 	if (0 == mysql_errno())
-		$content['result'] = "Таблица конфига создана успешно";
+		$content['result'] = "РўР°Р±Р»РёС†Р° РєРѕРЅС„РёРіР° СЃРѕР·РґР°РЅР° СѓСЃРїРµС€РЅРѕ";
 	else
-		$content['result'] = "Не удалось создать таблицу настроек, ошибка базы данных";
+		$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ РЅР°СЃС‚СЂРѕРµРє, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 
 	debug("*** end: Config: create_table ***");
 	return $content;

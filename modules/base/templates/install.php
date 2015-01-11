@@ -1,7 +1,7 @@
-<h1>Установка Kshema</h1>
+<h1>РЈСЃС‚Р°РЅРѕРІРєР° Kshema</h1>
 
 {{if:content:<p>#content#</p>}}
 
 {{if:result:<p>#result#</p>}}
 
-<a href="#inst_root#/auth/show_login_form/">Перейти к администрированию</a>
+<a href="#inst_root#/auth/show_login_form/">РџРµСЂРµР№С‚Рё Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ</a>

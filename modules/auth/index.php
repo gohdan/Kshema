@@ -56,7 +56,7 @@ function auth_show_register_form()
 		$content['session_id'] = session_id();
 	}
 	else
-		$content['content'] = "Извините, регистрация закрыта";
+		$content['content'] = "РР·РІРёРЅРёС‚Рµ, СЂРµРіРёСЃС‚СЂР°С†РёСЏ Р·Р°РєСЂС‹С‚Р°";
 
     return $content;
 }
@@ -98,7 +98,7 @@ function auth_default_action()
 			break;
 
             case("psw_change"):
-                $content = "<p>Пароль успешно изменён</p>";
+                $content = "<p>РџР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅС‘РЅ</p>";
             break;
 
             case("show_login_form"):
@@ -132,7 +132,7 @@ function auth_default_action()
         if (auth_enticate())
         {
             $content = gen_content("auth", "show_login_form", auth_show_login_form());
-            //"<p>Вход выполнен успешно</p>";
+            //"<p>Р’С…РѕРґ РІС‹РїРѕР»РЅРµРЅ СѓСЃРїРµС€РЅРѕ</p>";
         }
         else
 		{

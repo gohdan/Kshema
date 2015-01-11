@@ -1,6 +1,6 @@
 		<h1>#name#</h1>
-        {{if:price:Стоимость комплекта: #price# руб.<br>}}
-		{{if:sq_common:Общая площадь: #sq_common# м2<br>}}
-		{{if:sq_balcones:В т. ч. террасы и балконы: #sq_balcones# м2<br>}}
-		{{if:sq_living:Жилая площадь: #sq_living# м2<br>}}
-		{{if:composition:<br><b>Состав базового комплекта:</b><br> #composition#}}
+        {{if:price:РЎС‚РѕРёРјРѕСЃС‚СЊ РєРѕРјРїР»РµРєС‚Р°: #price# СЂСѓР±.<br>}}
+		{{if:sq_common:РћР±С‰Р°СЏ РїР»РѕС‰Р°РґСЊ: #sq_common# Рј2<br>}}
+		{{if:sq_balcones:Р’ С‚. С‡. С‚РµСЂСЂР°СЃС‹ Рё Р±Р°Р»РєРѕРЅС‹: #sq_balcones# Рј2<br>}}
+		{{if:sq_living:Р–РёР»Р°СЏ РїР»РѕС‰Р°РґСЊ: #sq_living# Рј2<br>}}
+		{{if:composition:<br><b>РЎРѕСЃС‚Р°РІ Р±Р°Р·РѕРІРѕРіРѕ РєРѕРјРїР»РµРєС‚Р°:</b><br> #composition#}}

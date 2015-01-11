@@ -19,7 +19,7 @@ function shop_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$priv = new Privileges();
@@ -113,10 +113,10 @@ function shop_install_tables()
                 date date
         )".$charset;
 
-		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('1', 'Бандероль отправлена')";
-		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('2', 'Деньги получены')";
-		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('3', 'Возврат')";
-		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('4', 'Отмена')";
+		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('1', 'Р‘Р°РЅРґРµСЂРѕР»СЊ РѕС‚РїСЂР°РІР»РµРЅР°')";
+		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('2', 'Р”РµРЅСЊРіРё РїРѕР»СѓС‡РµРЅС‹')";
+		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('3', 'Р’РѕР·РІСЂР°С‚')";
+		$queries[] = "INSERT INTO ksh_shop_orders_statuses (id, status) values ('4', 'РћС‚РјРµРЅР°')";
 
         $queries[] = "create table if not exists ksh_shop_ordered_goods (
                 id int auto_increment primary key,
@@ -144,10 +144,10 @@ function shop_install_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] .= "Запросы выполнены";
+                $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
 		else
-			$content['result'] .= "Нечего выполнять";
+			$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 	debug ("*** end: shop_install_tables ***");
         return $content;
 }
@@ -168,14 +168,14 @@ function shop_drop_tables()
                 debug ("*** drop_db");
                 unset ($_POST['do_drop']);
                 foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-                $content['content'] .= "Таблицы БД успешно удалены";
+                $content['content'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
 				debug ("*** end: drop_db");
         }
 	}
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] .= "Пожалуйста, <a href=\"/auth/show_login_form/\">войдите в систему как администратор</a>";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, <a href=\"/auth/show_login_form/\">РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</a>";
 	}
 	debug ("*** end: shop_drop_tables ***");
     return $content;
@@ -203,7 +203,7 @@ function shop_update_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	/* Checking tables */
@@ -299,10 +299,10 @@ function shop_update_tables()
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-			$content['content'] .= "Запросы выполнены";
+			$content['content'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 	else
-		$content['content'] .= "Нечего выполнять";
+		$content['content'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 
 	debug("*** end: shop_update_tables ***");
 	return $content;

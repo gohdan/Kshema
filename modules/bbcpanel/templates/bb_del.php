@@ -1,17 +1,17 @@
-<h1>Удаление доски объявлений</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РґРѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№</h1>
 
 <p>
-<a href="/bbcpanel/admin/">Вернуться в меню администрирования</a><br>
-<a href="/bbcpanel/bbs_view_all/">Список всех досок</a><br>
+<a href="/bbcpanel/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/bbcpanel/bbs_view_all/">РЎРїРёСЃРѕРє РІСЃРµС… РґРѕСЃРѕРє</a><br>
 </p>
 
-<p>Вы действительно хотите удалить доску <b>#title#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РґРѕСЃРєСѓ <b>#title#</b>?</p>
 
 #content#
 
 <form action="/bbcpanel/bbs_view_all/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_bb_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_bb_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

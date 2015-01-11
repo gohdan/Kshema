@@ -34,7 +34,7 @@ function auto_models_colors_view()
 		{
 			$sql_query = "DELETE FROM ksh_auto_models_colors WHERE id='".mysql_real_escape_string($_POST['id'])."'";
 			exec_query($sql_query);
-			$content['result'] = "Цвет удалён";
+			$content['result'] = "Р¦РІРµС‚ СѓРґР°Р»С‘РЅ";
 		}
 	}
 
@@ -110,7 +110,7 @@ function auto_models_colors_add()
 			if (filesize($home.$file_path) > $max_file_size)
 			{
 				debug ("file size > max file size!");
-				$content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+				$content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 				if (unlink ($home.$file_path)) debug ("file deleted");
 				else debug ("can't delete file!");
 				$file_path = "";
@@ -144,13 +144,13 @@ function auto_models_colors_add()
 				'".mysql_real_escape_string($_POST['code'])."'
 				)";
 			exec_query($sql_query);
-			$content['result'] = "Цвет добавлен";
+			$content['result'] = "Р¦РІРµС‚ РґРѕР±Р°РІР»РµРЅ";
 
 		}
 	}
 	else
 	{
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -208,7 +208,7 @@ function auto_models_colors_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -236,7 +236,7 @@ function auto_models_colors_edit()
 				code = '".mysql_real_escape_string($_POST['code'])."'
 				WHERE id='".mysql_real_escape_string($colors_id)."'";
 			exec_query($sql_query);
-			$content['result'] = "Изменения сохранены";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹";
 
 		}
 
@@ -256,7 +256,7 @@ function auto_models_colors_edit()
 	}
 	else
 	{
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 
@@ -300,7 +300,7 @@ function auto_models_colors_del()
 	else
 	{
 		debug ("user doesn't have admin rights");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end: auto_models_colors_del ***");

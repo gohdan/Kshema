@@ -1,21 +1,21 @@
-<h1>Уничтожение таблиц базы данных меню</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РјРµРЅСЋ</h1>
 
 {{if:content:<p>#content#<p>}}
 
 {{if:result:<p>#result#</p>}}
 
 <p>
-<a href="/index.php?module=menu&amp;action=admin">Вернуться к меню администрирования</a><br>
-<a href="/index.php?module=menu&amp;action=help#db_tables_drop">Справка</a>
+<a href="/index.php?module=menu&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/index.php?module=menu&amp;action=help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=menu&amp;action=drop_tables" method="post">
-<input type="checkbox" name="drop_categories_table" value="ksh_menu_categories">Списки меню<br>
-<input type="checkbox" name="drop_menu_table" value="ksh_menu">Элементы списков меню<br>
-<input type="checkbox" name="drop_privileges_table" value="ksh_menu_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_categories_table" value="ksh_menu_categories">РЎРїРёСЃРєРё РјРµРЅСЋ<br>
+<input type="checkbox" name="drop_menu_table" value="ksh_menu">Р­Р»РµРјРµРЅС‚С‹ СЃРїРёСЃРєРѕРІ РјРµРЅСЋ<br>
+<input type="checkbox" name="drop_privileges_table" value="ksh_menu_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

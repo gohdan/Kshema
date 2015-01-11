@@ -19,7 +19,7 @@
 #category_title#
 </td>
 <td style="padding: 0px 3px 0px 3px">
-{{if:show_edit_link:<a href="/bbcpanel/bb_edit/#id#/">Редактировать</a>}} 
-{{if:show_del_link:<a href="/bbcpanel/bb_del/#id#/">Удалить</a>}}
+{{if:show_edit_link:<a href="/bbcpanel/bb_edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>}} 
+{{if:show_del_link:<a href="/bbcpanel/bb_del/#id#/">РЈРґР°Р»РёС‚СЊ</a>}}
 </td>
 </tr>

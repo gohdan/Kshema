@@ -1,11 +1,11 @@
-<h1>Просмотр категорий</h1>
+<h1>РџСЂРѕСЃРјРѕС‚СЂ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=admin">Вернуться к меню администрирования</a>
+<a href="/index.php?module=portfolio&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=add_category">Добавить категорию</a>
+<a href="/index.php?module=portfolio&amp;action=add_category">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 {{if:content:<p>#content#</p>}}

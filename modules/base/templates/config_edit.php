@@ -1,22 +1,22 @@
-<h1>Редактирование настроек</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РЅР°СЃС‚СЂРѕРµРє</h1>
 
-<p><a href="/#module#/admin/">В меню администрирования</a></p>
+<p><a href="/#module#/admin/">Р’ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a></p>
 
-<p>Сотрите название, чтобы удалить запись</p>
+<p>РЎРѕС‚СЂРёС‚Рµ РЅР°Р·РІР°РЅРёРµ, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ</p>
 
-{{if:satellite_id:<p><a href="/#module#/admin_satellite/#satellite_id#/">Обратно в администрирование модуля на сателлите</a></p>}}
+{{if:satellite_id:<p><a href="/#module#/admin_satellite/#satellite_id#/">РћР±СЂР°С‚РЅРѕ РІ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РјРѕРґСѓР»СЏ РЅР° СЃР°С‚РµР»Р»РёС‚Рµ</a></p>}}
 
 <form action="/#module#/config_edit/{{if:satellite_id:satellite_#satellite_id#/}}" method="post">
 
 <table>
 <tr>
-<th>Описание</th>
-<th>Название</th>
-<th>Значение</th>
+<th>РћРїРёСЃР°РЅРёРµ</th>
+<th>РќР°Р·РІР°РЅРёРµ</th>
+<th>Р—РЅР°С‡РµРЅРёРµ</th>
 </tr>
 #config_elements#
 <tr>
-<td colspan="3">Новая запись:</td>
+<td colspan="3">РќРѕРІР°СЏ Р·Р°РїРёСЃСЊ:</td>
 </tr>
 <tr>
 <td><input type="text" name="new_descr" size="40"></td>
@@ -26,5 +26,5 @@
 
 </table>
 
-<input type="submit" name="do_update" value="Записать">
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

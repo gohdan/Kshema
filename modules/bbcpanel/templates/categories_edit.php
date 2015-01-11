@@ -1,7 +1,7 @@
-<h1>#module_title# - Редактирование темы "#title#"</h1>
+<h1>#module_title# - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РµРјС‹ "#title#"</h1>
 
 <p>
-<a href="/#module_name#/categories_view/">Вернуться к списку</a><br>
+<a href="/#module_name#/categories_view/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ</a><br>
 </p>
 
 
@@ -12,7 +12,7 @@
 <form action="/#module_name#/categories_edit/#id#/" method="post">
 <input type="hidden" name="id" value="#id#">
 <table>
-<tr><td>Название:</td><td><input type="text" name="title" value="#title#"></td></tr>
-<tr><td></td><td><input type="submit" name="do_update_category" value="Записать"></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update_category" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 </form>

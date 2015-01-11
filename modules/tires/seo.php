@@ -24,25 +24,25 @@ function tires_generate_seo_data($params)
 	$h1_parts = array(
 		'source' => '',
 		'season' => '',
-		'shiny' => 'Ìàãàçèíû øèí',
+		'shiny' => 'ÐœÐ°Ð³Ð°Ð·Ð¸Ð½Ñ‹ ÑˆÐ¸Ð½',
 		'brand' => '',
 		'radius' => '',
 		'width' => '',
-		'type' => ' äëÿ ëåãêîâûõ àâòîìîáèëåé', //"ëåãêîâàÿ" == $params['type']
+		'type' => ' Ð´Ð»Ñ Ð»ÐµÐ³ÐºÐ¾Ð²Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»ÐµÐ¹', //"Ð»ÐµÐ³ÐºÐ¾Ð²Ð°Ñ" == $params['type']
 		'model' => " ".$params['model']." ",
-		'tail' => ' â Òàìáîâå'
+		'tail' => ' Ð² Ð¢Ð°Ð¼Ð±Ð¾Ð²Ðµ'
 	);
 
 	$title_parts = array(
 		'source' => '',
 		'season' => '',
-		'shiny' => 'Øèíû',
+		'shiny' => 'Ð¨Ð¸Ð½Ñ‹',
 		'brand' => '',
 		'radius' => '',
 		'width' => '',
-		'type' => ' äëÿ ëåãêîâûõ àâòîìîáèëåé', //"ëåãêîâàÿ" == $params['type']
+		'type' => ' Ð´Ð»Ñ Ð»ÐµÐ³ÐºÐ¾Ð²Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»ÐµÐ¹', //"Ð»ÐµÐ³ÐºÐ¾Ð²Ð°Ñ" == $params['type']
 		'model' => " ".$params['model']." ",
-		'tail' => ', êóïèòü â Òàìáîâå — àäðåñà è òåëåôîíû ìàãàçèíîâ, öåíû'
+		'tail' => ', ÐºÑƒÐ¿Ð¸Ñ‚ÑŒ Ð² Ð¢Ð°Ð¼Ð±Ð¾Ð²Ðµ â€” Ð°Ð´Ñ€ÐµÑÐ° Ð¸ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñ‹ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½Ð¾Ð², Ñ†ÐµÐ½Ñ‹'
 	);
 
 
@@ -55,105 +55,105 @@ function tires_generate_seo_data($params)
 	if ($config['tires']['unk'] != $params['radius'])
 	{
 		$h1_parts['radius'] = " R".$params['radius'];
-		$title_parts['radius'] = " R".$params['radius']." (äèàìåòð)";
+		$title_parts['radius'] = " R".$params['radius']." (Ð´Ð¸Ð°Ð¼ÐµÑ‚Ñ€)";
 	}
 
 	if ($config['tires']['unk'] != $params['width'])
 	{
-		$h1_parts['width'] = " øèðèíîé ".$params['width'];
-		$title_parts['width'] = " øèðèíîé ".$params['width'];
+		$h1_parts['width'] = " ÑˆÐ¸Ñ€Ð¸Ð½Ð¾Ð¹ ".$params['width'];
+		$title_parts['width'] = " ÑˆÐ¸Ñ€Ð¸Ð½Ð¾Ð¹ ".$params['width'];
 	}
 
 	if ($config['tires']['unk'] != $params['source'])
 	{
-		$h1_parts['shiny'] = "øèíû";
-		$title_parts['shiny'] = "øèíû";
+		$h1_parts['shiny'] = "ÑˆÐ¸Ð½Ñ‹";
+		$title_parts['shiny'] = "ÑˆÐ¸Ð½Ñ‹";
 
-		if ("Èìïîðòíàÿ" == $params['source'])
+		if ("Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚Ð½Ð°Ñ" == $params['source'])
 		{
-			$h1_parts['source'] = "Èìïîðòíûå ";
-			$title_parts['source'] = "Èìïîðòíûå ";
+			$h1_parts['source'] = "Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚Ð½Ñ‹Ðµ ";
+			$title_parts['source'] = "Ð˜Ð¼Ð¿Ð¾Ñ€Ñ‚Ð½Ñ‹Ðµ ";
 		}
-		else if ("Îòå÷åñòâåííàÿ" == $params['source'])
+		else if ("ÐžÑ‚ÐµÑ‡ÐµÑÑ‚Ð²ÐµÐ½Ð½Ð°Ñ" == $params['source'])
 		{
-			$h1_parts['source'] = "Îòå÷åñòâåííûå ";
-			$title_parts['source'] = "Îòå÷åñòâåííûå ";
+			$h1_parts['source'] = "ÐžÑ‚ÐµÑ‡ÐµÑÑ‚Ð²ÐµÐ½Ð½Ñ‹Ðµ ";
+			$title_parts['source'] = "ÐžÑ‚ÐµÑ‡ÐµÑÑ‚Ð²ÐµÐ½Ð½Ñ‹Ðµ ";
 		}
 	}
 
 	if ($config['tires']['unk'] != $params['season'])
 	{
-		$h1_parts['shiny'] = "øèíû";
-		$title_parts['shiny'] = "øèíû (ðåçèíà)";
+		$h1_parts['shiny'] = "ÑˆÐ¸Ð½Ñ‹";
+		$title_parts['shiny'] = "ÑˆÐ¸Ð½Ñ‹ (Ñ€ÐµÐ·Ð¸Ð½Ð°)";
 
-		if ("Çèìíÿÿ" == $params['season'])
+		if ("Ð—Ð¸Ð¼Ð½ÑÑ" == $params['season'])
 		{	
 			if ($config['tires']['unk'] == $params['source'])
 			{
-				$h1_parts['season'] = "Çèìíèå ";
-				$title_parts['season'] = "Çèìíèå ";
+				$h1_parts['season'] = "Ð—Ð¸Ð¼Ð½Ð¸Ðµ ";
+				$title_parts['season'] = "Ð—Ð¸Ð¼Ð½Ð¸Ðµ ";
 			}
 			else
 			{
-				$h1_parts['season'] = "çèìíèå ";
-				$title_parts['season'] = "çèìíèå ";
+				$h1_parts['season'] = "Ð·Ð¸Ð¼Ð½Ð¸Ðµ ";
+				$title_parts['season'] = "Ð·Ð¸Ð¼Ð½Ð¸Ðµ ";
 			}
 		}
-		else if ("Ëåòíÿÿ" == $params['season'])
+		else if ("Ð›ÐµÑ‚Ð½ÑÑ" == $params['season'])
 		{
 			if ($config['tires']['unk'] == $params['source'])
 			{
-				$h1_parts['season'] = "Ëåòíèå ";
-				$title_parts['season'] = "Ëåòíèå ";
+				$h1_parts['season'] = "Ð›ÐµÑ‚Ð½Ð¸Ðµ ";
+				$title_parts['season'] = "Ð›ÐµÑ‚Ð½Ð¸Ðµ ";
 			}
 			else
 			{
-				$h1_parts['season'] = "ëåòíèå ";
-				$title_parts['season'] = "ëåòíèå ";
+				$h1_parts['season'] = "Ð»ÐµÑ‚Ð½Ð¸Ðµ ";
+				$title_parts['season'] = "Ð»ÐµÑ‚Ð½Ð¸Ðµ ";
 			}
 		}
-		else if ("Âñåñåçîííàÿ" == $params['season'])
+		else if ("Ð’ÑÐµÑÐµÐ·Ð¾Ð½Ð½Ð°Ñ" == $params['season'])
 		{
 			if ($config['tires']['unk'] == $params['source'])
 			{
-				$h1_parts['season'] = "Âñåñåçîííûå ";
-				$title_parts['season'] = "Âñåñåçîííûå ";
+				$h1_parts['season'] = "Ð’ÑÐµÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ðµ ";
+				$title_parts['season'] = "Ð’ÑÐµÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ðµ ";
 			}
 			else
 			{
-				$h1_parts['season'] = "âñåñåçîííûå ";
-				$title_parts['season'] = "âñåñåçîííûå ";
+				$h1_parts['season'] = "Ð²ÑÐµÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ðµ ";
+				$title_parts['season'] = "Ð²ÑÐµÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ðµ ";
 			}
 		}
 	}
 
 	if ($config['tires']['unk'] != $params['spikes'])
 	{
-		if ("øèïû" == $params['spikes'])
+		if ("ÑˆÐ¸Ð¿Ñ‹" == $params['spikes'])
 		{
 		
 			if ("" != $h1_parts['source'] || "" != $h1_parts['season'])
 			{
-				$h1_parts['source'] = str_replace("ûå", "àÿ", $h1_parts['source']);
-				$h1_parts['season'] = str_replace("èå", "ÿÿ", $h1_parts['season']);
-				$h1_parts['shiny'] = "øèïîâàííàÿ ðåçèíà ";
+				$h1_parts['source'] = str_replace("Ñ‹Ðµ", "Ð°Ñ", $h1_parts['source']);
+				$h1_parts['season'] = str_replace("Ð¸Ðµ", "ÑÑ", $h1_parts['season']);
+				$h1_parts['shiny'] = "ÑˆÐ¸Ð¿Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ñ€ÐµÐ·Ð¸Ð½Ð° ";
 			}
 			else
-				$h1_parts['shiny'] = "Øèïîâàííàÿ ðåçèíà ";
+				$h1_parts['shiny'] = "Ð¨Ð¸Ð¿Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ñ€ÐµÐ·Ð¸Ð½Ð° ";
 
 			if ("" != $title_parts['source'] || "" != $title_parts['season'])
 			{
-				$title_parts['source'] = str_replace("ûå", "àÿ", $title_parts['source']);
-				$title_parts['season'] = str_replace("èå", "ÿÿ", $title_parts['season']);
-				$title_parts['shiny'] = "øèïîâàííàÿ ðåçèíà ";
+				$title_parts['source'] = str_replace("Ñ‹Ðµ", "Ð°Ñ", $title_parts['source']);
+				$title_parts['season'] = str_replace("Ð¸Ðµ", "ÑÑ", $title_parts['season']);
+				$title_parts['shiny'] = "ÑˆÐ¸Ð¿Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ñ€ÐµÐ·Ð¸Ð½Ð° ";
 			}
 			else
-				$title_parts['shiny'] = "Øèïîâàííàÿ ðåçèíà ";
+				$title_parts['shiny'] = "Ð¨Ð¸Ð¿Ð¾Ð²Ð°Ð½Ð½Ð°Ñ Ñ€ÐµÐ·Ð¸Ð½Ð° ";
 		}
-		else if ("Çèìíÿÿ" == $params['season'])
+		else if ("Ð—Ð¸Ð¼Ð½ÑÑ" == $params['season'])
 		{
-			$h1_parts['shiny'] = "øèíû ëèïó÷êè ";
-			$title_parts['shiny'] = "øèíû ëèïó÷êè ";
+			$h1_parts['shiny'] = "ÑˆÐ¸Ð½Ñ‹ Ð»Ð¸Ð¿ÑƒÑ‡ÐºÐ¸ ";
+			$title_parts['shiny'] = "ÑˆÐ¸Ð½Ñ‹ Ð»Ð¸Ð¿ÑƒÑ‡ÐºÐ¸ ";
 		}
 
 	}
@@ -161,8 +161,8 @@ function tires_generate_seo_data($params)
 
 	if (tires_if_all_params_set($params)) // viewing tire
 	{
-		$h1_parts['shiny'] = 'Øèíû ';
-		$title_parts['shiny'] = 'Øèíû ';
+		$h1_parts['shiny'] = 'Ð¨Ð¸Ð½Ñ‹ ';
+		$title_parts['shiny'] = 'Ð¨Ð¸Ð½Ñ‹ ';
 
 		$seo_data = array(
 			'h1' => 

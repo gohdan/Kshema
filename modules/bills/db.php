@@ -20,7 +20,7 @@ function bills_table_create($table)
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 	
 	$queries[] = "create table if not exists `".mysql_real_escape_string($table)."` (
@@ -89,13 +89,13 @@ function bills_table_create($table)
 	$cnf -> table = "ksh_bills_config";
 	$cnf -> create_table();
 
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('bills_on_page', '5', 'Объявлений на странице')";
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('resemble_bills_qty', '5', 'Похожих объявлений')";
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('use_captcha', 'yes', 'Использовать ли CAPTCHA')";
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('table', 'ksh_bills', 'Название таблицы объявлений')";
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('categories_table', 'ksh_bills_categories', 'Название таблицы категорий')";
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_category', 'Действие по умолчанию')";
-	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('sections', '', 'Разделы')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('bills_on_page', '5', 'РћР±СЉСЏРІР»РµРЅРёР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('resemble_bills_qty', '5', 'РџРѕС…РѕР¶РёС… РѕР±СЉСЏРІР»РµРЅРёР№')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('use_captcha', 'yes', 'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р»Рё CAPTCHA')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('table', 'ksh_bills', 'РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РѕР±СЉСЏРІР»РµРЅРёР№')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('categories_table', 'ksh_bills_categories', 'РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РєР°С‚РµРіРѕСЂРёР№')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_category', 'Р”РµР№СЃС‚РІРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ')";
+	$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('sections', '', 'Р Р°Р·РґРµР»С‹')";
 
 
 	$queries[] = "CREATE TABLE IF NOT EXISTS `ksh_bills_categories_titles` (
@@ -114,7 +114,7 @@ function bills_table_create($table)
 	{
 		foreach ($queries as $idx => $sql_query)
 			exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
 	}
 
 	return $content;
@@ -178,7 +178,7 @@ function bills_tables_drop()
 			}
 
            foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-           $content['result'] .= "Таблицы БД успешно удалены";
+           $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
     }
     debug ("*** end: drop_db");
 	debug ("*** end: bills_tables_drop ***");
@@ -206,7 +206,7 @@ function bills_tables_update()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
     $queries = array();
@@ -314,13 +314,13 @@ function bills_tables_update()
 		$cnf -> table = "ksh_bills_config";
 		$cnf -> create_table();
 
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('bills_on_page', '5', 'Объявлений на странице')";
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('resemble_bills_qty', '5', 'Похожих объявлений')";
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('use_captcha', 'yes', 'Использовать ли CAPTCHA')";
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('table', 'ksh_bills', 'Название таблицы объявлений')";
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('categories_table', 'ksh_bills_categories', 'Название таблицы категорий')";
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_category', 'Действие по умолчанию')";
-		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('sections', '', 'Разделы')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('bills_on_page', '5', 'РћР±СЉСЏРІР»РµРЅРёР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('resemble_bills_qty', '5', 'РџРѕС…РѕР¶РёС… РѕР±СЉСЏРІР»РµРЅРёР№')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('use_captcha', 'yes', 'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р»Рё CAPTCHA')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('table', 'ksh_bills', 'РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РѕР±СЉСЏРІР»РµРЅРёР№')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('categories_table', 'ksh_bills_categories', 'РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РєР°С‚РµРіРѕСЂРёР№')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_category', 'Р”РµР№СЃС‚РІРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ')";
+		$queries[] = "INSERT INTO `ksh_bills_config` (`name`, `value`, `descr`) VALUES ('sections', '', 'Р Р°Р·РґРµР»С‹')";
 	}
 
 	if (!in_array("ksh_bills_categories_titles", $tables))
@@ -360,7 +360,7 @@ function bills_tables_update()
     if ($queries_qty > 0)
     {
         foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-        $content['result'] .= "Запросы выполнены";
+        $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
 	debug ("*** bills_tables_update ***");        
     return $content;

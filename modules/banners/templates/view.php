@@ -2,4 +2,4 @@
 
 {{if:image:<p><img src="#image#"></p>}}
 
-<p><a href="/banners/view_by_category/category:#category_id#">Все баннеры из категории "#category#"</a></p>
+<p><a href="/banners/view_by_category/category:#category_id#">Р’СЃРµ Р±Р°РЅРЅРµСЂС‹ РёР· РєР°С‚РµРіРѕСЂРёРё "#category#"</a></p>

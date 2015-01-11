@@ -1,19 +1,19 @@
-<h1>Администрирование ссылок</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃСЃС‹Р»РѕРє</h1>
 
 <p>
-<a href="/index.php?module=modules&action=admin">Возврат в главное меню администрирования</a>
+<a href="/index.php?module=modules&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/index.php?module=links&action=add_links">Добавить ссылку</a><br>
-<a href="/index.php?module=links&action=view_categories">Категории ссылок</a><br>
+<a href="/index.php?module=links&action=add_links">Р”РѕР±Р°РІРёС‚СЊ СЃСЃС‹Р»РєСѓ</a><br>
+<a href="/index.php?module=links&action=view_categories">РљР°С‚РµРіРѕСЂРёРё СЃСЃС‹Р»РѕРє</a><br>
 </p>
 
 <hr>
 
-<a href="/index.php?module=links&action=install_tables">Инициализировать базу данных ссылок</a><br>
-<a href="/index.php?module=links&action=update_tables">Обновить базу данных ссылок</a><br>
-<a href="/index.php?module=links&action=drop_tables">Уничтожить базу данных ссылок</a><br>
+<a href="/index.php?module=links&action=install_tables">РРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃСЃС‹Р»РѕРє</a><br>
+<a href="/index.php?module=links&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃСЃС‹Р»РѕРє</a><br>
+<a href="/index.php?module=links&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃСЃС‹Р»РѕРє</a><br>
 </p>

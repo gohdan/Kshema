@@ -8,14 +8,14 @@
 <b><a href="/index.php?module=shop&action=view_by_author&author=#author#">#author#</a></b><br>
 </td>
 
-{{if:show_edit_link:<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=shop&action=goods_edit&goods=#id#">Редактировать</a></td>}}
-{{if:show_del_link:<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=shop&action=goods_del&goods=#id#">Удалить</a></td>}}
+{{if:show_edit_link:<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=shop&action=goods_edit&goods=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></td>}}
+{{if:show_del_link:<td style="padding: 0px 3px 0px 3px"><a href="/index.php?module=shop&action=goods_del&goods=#id#">РЈРґР°Р»РёС‚СЊ</a></td>}}
 
 </tr>
 
 <tr>
 <td colspan="4">
-{{if:new_qty:<p><input type="checkbox" name="good_#id#" value="#id#"><b>#new_price# руб.</b></p>}}
+{{if:new_qty:<p><input type="checkbox" name="good_#id#" value="#id#"><b>#new_price# СЂСѓР±.</b></p>}}
 <p>#presence#</p>
 </td>
 </tr>

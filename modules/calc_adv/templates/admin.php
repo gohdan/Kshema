@@ -1,19 +1,19 @@
-<h1>Администрирование калькулятора</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">Возврат в главное меню администрирования</a><br>
+<a href="/index.php?module=base&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <p>
-<a href="/index.php?module=calc_adv&action=view_cities">Города</a><br>
+<a href="/index.php?module=calc_adv&action=view_cities">Р“РѕСЂРѕРґР°</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных калькулятора</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</h2>
 
-<a href="/index.php?module=calc_adv&action=install_tables">Создать базу данных калькулятора</a><br>
-<a href="/index.php?module=calc_adv&action=update_tables">Обновить базу данных калькулятора</a><br>
-<a href="/index.php?module=calc_adv&action=export_tables">Экспортировать базу данных калькулятора</a><br>
-<a href="/index.php?module=calc_adv&action=drop_tables">Уничтожить базу данных калькулятора</a><br>
+<a href="/index.php?module=calc_adv&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</a><br>
+<a href="/index.php?module=calc_adv&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</a><br>
+<a href="/index.php?module=calc_adv&action=export_tables">Р­РєСЃРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</a><br>
+<a href="/index.php?module=calc_adv&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</a><br>
 </p>

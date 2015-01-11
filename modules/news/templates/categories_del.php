@@ -1,16 +1,16 @@
-<h1>Удаление категории</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё</h1>
 
 <p>
-<a href="/news/view_categories/">Вернуться к просмотру категорий</a><br>
-<a href="/news/help#categories_del">Справка</a>
+<a href="/news/view_categories/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/news/help#categories_del">РЎРїСЂР°РІРєР°</a>
 </p>
 
-<p>Вы действительно хотите удалить категорию <b>#name#</b>? Все новости в этой категории также будут удалены!</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ <b>#name#</b>? Р’СЃРµ РЅРѕРІРѕСЃС‚Рё РІ СЌС‚РѕР№ РєР°С‚РµРіРѕСЂРёРё С‚Р°РєР¶Рµ Р±СѓРґСѓС‚ СѓРґР°Р»РµРЅС‹!</p>
 
 {{if:content:<p>#content#</p>}}
 
 <form action="/news/view_categories/" method="post">
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

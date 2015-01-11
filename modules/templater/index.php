@@ -247,7 +247,7 @@ function templater_logic($tpl, $content)
 	debug ("*** templater_logic ***");
 	global $config;
 
-    while (ereg("\{\{if:([a-z0-9\:_]+):([a-zA-Z‡-ˇ¿-ﬂ∏®0-9?&/ 	~_<>=#\n\r\::\"\'\.\,|;\%\!\$\+\*@[.[.] [.].]\\)\\(-]*)\}\}", $tpl, $branches))
+    while (ereg("\{\{if:([a-z0-9\:_]+):([a-zA-Z–∞-—è–ê-–Ø—ë–Å0-9?&/ 	~_<>=#\n\r\::\"\'\.\,|;\%\!\$\+\*@[.[.] [.].]\\)\\(-]*)\}\}", $tpl, $branches))
     {
     	debug ("there are logic!", 2);
         debug ("; branches:", 2);
@@ -260,14 +260,14 @@ function templater_logic($tpl, $content)
             debug ("string to replace: \{\{if:".$branches[1].":".$branches[2]."\}\}", 2);
 
             //$tpl = ereg_replace ("\{\{if:".$branches[1].":".$branches[2]."\}\}", $branches[2], $tpl);
-            //$tpl = ereg_replace ("\{\{if:([a-z0-9\:]+):([]a-zA-Z‡-ˇ¿-ﬂ0-9/ _<>=#\:\"\.\\)\\(]+)\}\}", $branches[2], $tpl);
+            //$tpl = ereg_replace ("\{\{if:([a-z0-9\:]+):([]a-zA-Z–∞-—è–ê-–Ø0-9/ _<>=#\:\"\.\\)\\(]+)\}\}", $branches[2], $tpl);
             $tpl = str_replace ("{{if:".$branches[1].":".$branches[2]."}}", $branches[2], $tpl);
         }
         else
         {
         	debug ("not outputting ".$branches[2], 2);
             //$tpl = ereg_replace ("\{\{if:".$branches[1].":".$branches[2]."\}\}", "", $tpl);
-            //$tpl = ereg_replace ("\{\{if:([a-z0-9\:]+):([]a-zA-Z‡-ˇ¿-ﬂ0-9/ _<>=#\:\"\.\\)\\(]+)\}\}", "", $tpl);
+            //$tpl = ereg_replace ("\{\{if:([a-z0-9\:]+):([]a-zA-Z–∞-—è–ê-–Ø0-9/ _<>=#\:\"\.\\)\\(]+)\}\}", "", $tpl);
             $tpl = str_replace ("{{if:".$branches[1].":".$branches[2]."}}", "", $tpl);
         }
     }

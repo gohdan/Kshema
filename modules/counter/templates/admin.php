@@ -1,19 +1,19 @@
-<h1>Администрирование счётчика посещений</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</h1>
 
 <p>
-<a href="/index.php?module=base&action=admin">Возврат в главное меню администрирования</a><br>
+<a href="/index.php?module=base&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
 <p>
-<a href="/index.php?module=counter&action=view_last">Смотреть последние посещения</a><br>
-<a href="/index.php?module=counter&action=view_month">Смотреть посещения за месяц</a><br>
+<a href="/index.php?module=counter&action=view_last">РЎРјРѕС‚СЂРµС‚СЊ РїРѕСЃР»РµРґРЅРёРµ РїРѕСЃРµС‰РµРЅРёСЏ</a><br>
+<a href="/index.php?module=counter&action=view_month">РЎРјРѕС‚СЂРµС‚СЊ РїРѕСЃРµС‰РµРЅРёСЏ Р·Р° РјРµСЃСЏС†</a><br>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных счётчика посещений</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</h2>
 
-<a href="/index.php?module=counter&action=install_tables">Создать базу данных счётчика посещений</a><br>
-<a href="/index.php?module=counter&action=update_tables">Обновить базу данных счётчика посещений</a><br>
-<a href="/index.php?module=counter&action=drop_tables">Уничтожить базу данных счётчика посещений</a><br>
+<a href="/index.php?module=counter&action=install_tables">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</a><br>
+<a href="/index.php?module=counter&action=update_tables">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</a><br>
+<a href="/index.php?module=counter&action=drop_tables">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃС‡С‘С‚С‡РёРєР° РїРѕСЃРµС‰РµРЅРёР№</a><br>
 </p>

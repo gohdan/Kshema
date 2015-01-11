@@ -22,7 +22,7 @@ function articles_table_create($table)
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
     $queries[] = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table)."` (
@@ -44,10 +44,10 @@ function articles_table_create($table)
     if ($queries_qty > 0)
     {
             foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-            $content['result'] .= "Запросы выполнены";
+            $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
     }
     else
- 	 	$content['result'] .= "Нечего выполнять";
+ 	 	$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 
 	debug("*** end: articles_table_create ***");
 	return $content;
@@ -72,7 +72,7 @@ function articles_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$priv = new Privileges();
@@ -87,9 +87,9 @@ function articles_install_tables()
 	$cnf -> table = "ksh_articles_config";
 	$result = $cnf -> create_table();
 	$content['result'] .= " ".$result['result'];
-	$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_user', 'Действие по умолчанию')";
-	$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('elements_on_page', '20', 'Количество статей на странице')";
-	$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('xmlrpc_use', '1', 'Использовать передачу данных через XMLRPC')";
+	$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_user', 'Р”РµР№СЃС‚РІРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ')";
+	$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('elements_on_page', '20', 'РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚Р°С‚РµР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ')";
+	$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('xmlrpc_use', '1', 'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРµСЂРµРґР°С‡Сѓ РґР°РЅРЅС‹С… С‡РµСЂРµР· XMLRPC')";
 
 	$res = articles_table_create($config['articles']['table']);
 	$content['result'] .= $res['result'];
@@ -120,10 +120,10 @@ function articles_install_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] .= "Запросы выполнены";
+                $content['result'] .= "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
         else
-        	$content['result'] .= "Нечего выполнять";
+        	$content['result'] .= "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
     debug ("*** end: articles_install_tables ***");
     return $content;
 }
@@ -152,7 +152,7 @@ function articles_drop_tables()
 				}
 
                 foreach ($_POST as $k => $v) exec_query ("DROP TABLE ".mysql_real_escape_string($v));
-                $content['result'] .= "Таблицы БД успешно удалены";
+                $content['result'] .= "РўР°Р±Р»РёС†С‹ Р‘Р” СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹";
         }
 
 
@@ -185,7 +185,7 @@ function articles_update_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='cp1251'";
+		$charset = " charset='utf8'";
 	}
 
 	$tables = db_tables_list();
@@ -217,12 +217,12 @@ function articles_update_tables()
 		$cnf -> table = "ksh_articles_config";
 		$cnf -> create_table();
 
-		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('elements_on_page', '20', 'Статей на странице')";
-		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_category', 'Действие по умолчанию')";
-		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('xmlrpc_use', '1', 'Использовать ли XMLRPC')";
-		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('resemble_elements_qty', '5', 'Количество похожих элементов')";
-		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('table', 'ksh_articles', 'Название таблицы статей')";
-		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('categories_table', 'ksh_articles_categories', 'Название таблицы категорий статей')";
+		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('elements_on_page', '20', 'РЎС‚Р°С‚РµР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ')";
+		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('default_action', 'view_by_category', 'Р”РµР№СЃС‚РІРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ')";
+		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('xmlrpc_use', '1', 'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р»Рё XMLRPC')";
+		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('resemble_elements_qty', '5', 'РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕС…РѕР¶РёС… СЌР»РµРјРµРЅС‚РѕРІ')";
+		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('table', 'ksh_articles', 'РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ СЃС‚Р°С‚РµР№')";
+		$queries[] = "INSERT INTO `ksh_articles_config` (`name`, `value`, `descr`) VALUES ('categories_table', 'ksh_articles_categories', 'РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РєР°С‚РµРіРѕСЂРёР№ СЃС‚Р°С‚РµР№')";
 	}
 
 	if (!in_array("ksh_articles_categories_titles", $tables))
@@ -242,10 +242,10 @@ function articles_update_tables()
         if ($queries_qty > 0)
         {
                 foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] = "Запросы выполнены";
+                $content['result'] = "Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹";
         }
         else
-        	$content['result'] = "Нечего выполнять";
+        	$content['result'] = "РќРµС‡РµРіРѕ РІС‹РїРѕР»РЅСЏС‚СЊ";
 	debug ("*** end: articles_update_tables ***");
     return $content;
 }

@@ -1,4 +1,4 @@
-<h1>Выдача группы товаров</h1>
+<h1>Р’С‹РґР°С‡Р° РіСЂСѓРїРїС‹ С‚РѕРІР°СЂРѕРІ</h1>
 
 <p>#result#</p>
 
@@ -9,9 +9,9 @@
 </table>
 
 <form action="/index.php?module=store&action=categories_view_all" method="post">
-На объект: <select name="object">#objects_select#</select><br>
-Сотруднику: <select name="user">#users_select#</select><br>
-Комментарий:
+РќР° РѕР±СЉРµРєС‚: <select name="object">#objects_select#</select><br>
+РЎРѕС‚СЂСѓРґРЅРёРєСѓ: <select name="user">#users_select#</select><br>
+РљРѕРјРјРµРЅС‚Р°СЂРёР№:
 <textarea name="commentary"></textarea><br>
-<input type="submit" name="do_cart_out" value="Выдать">
+<input type="submit" name="do_cart_out" value="Р’С‹РґР°С‚СЊ">
 </form>

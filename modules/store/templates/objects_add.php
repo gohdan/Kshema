@@ -1,13 +1,13 @@
-<h1>Добавление объекта</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р°</h1>
 
-<p><a href="/index.php?module=store&action=objects_view_all">К списку объектов</a></p>
+<p><a href="/index.php?module=store&action=objects_view_all">Рљ СЃРїРёСЃРєСѓ РѕР±СЉРµРєС‚РѕРІ</a></p>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 <form action="/index.php?module=store&action=objects_add" method="post">
-Название: <input type="text" name="name">
-<input type="submit" name = "do_add" value="Добавить">
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="name">
+<input type="submit" name = "do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>
 

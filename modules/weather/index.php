@@ -15,7 +15,7 @@ function weather_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Àäìèíèñòğèğîâàíèå ñòğàíèö ñàéòà";
+    $content['heading'] = "ĞĞ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ† ÑĞ°Ğ¹Ñ‚Ğ°";
 	debug ("*** end: weather_admin ***");
     return $content;
 }
@@ -81,10 +81,10 @@ function weather_default_action()
 
 		$module_data = array (
 			'module_name' => "weather",
-			'module_title' => "Ïîãîäíûé èíôîğìåğ"
+			'module_title' => "ĞŸĞ¾Ğ³Ğ¾Ğ´Ğ½Ñ‹Ğ¹ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼ĞµÑ€"
 		);
 		$config['weather']['page_title'] = $module_data['module_title'];
-		$config['themes']['page_title']['module'] = "Ïîãîäíûé èíôîğìåğ";
+		$config['themes']['page_title']['module'] = "ĞŸĞ¾Ğ³Ğ¾Ğ´Ğ½Ñ‹Ğ¹ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼ĞµÑ€";
 
 		$priv = new Privileges();
 
@@ -102,12 +102,12 @@ function weather_default_action()
                         break;
 
                         case "create_tables":
-							$config['themes']['page_title']['action'] = "Ñîçäàíèå òàáëèö ÁÄ";
+							$config['themes']['page_title']['action'] = "Ğ¡Ğ¾Ğ·Ğ´Ğ°Ğ½Ğ¸Ğµ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† Ğ‘Ğ”";
                             $content .= gen_content("weather", "tables_create", weather_tables_create());
                         break;
 
                         case "drop_tables":
-							$config['themes']['page_title']['action'] = "Óäàëåíèå òàáëèö ÁÄ";
+							$config['themes']['page_title']['action'] = "Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† Ğ‘Ğ”";
 							if ($priv -> has("weather", "admin", "write"))
 	                            $content .= gen_content("weather", "drop_tables", weather_tables_drop());
 							else
@@ -115,7 +115,7 @@ function weather_default_action()
                         break;
 
                         case "update_tables":
-							$config['themes']['page_title']['action'] = "Îáíîâëåíèå òàáëèö ÁÄ";
+							$config['themes']['page_title']['action'] = "ĞĞ±Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† Ğ‘Ğ”";
 							if ($priv -> has("weather", "admin", "write"))
 						        $content .= gen_content("weather", "tables_update", weather_tables_update());
 							else
@@ -123,7 +123,7 @@ function weather_default_action()
                         break;
 
                         case "admin":
-							$config['themes']['page_title']['action'] = "Àäìèíèñòğèğîâàíèå";
+							$config['themes']['page_title']['action'] = "ĞĞ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ";
 							if ($priv -> has("weather", "admin", "write"))
                             	$content .= gen_content("weather", "admin", weather_admin());
 							else
@@ -131,7 +131,7 @@ function weather_default_action()
                         break;
 
                         case "update":
-							$config['themes']['page_title']['action'] = "Îáíîâëåíèå èíôîğìåğà";
+							$config['themes']['page_title']['action'] = "ĞĞ±Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼ĞµÑ€Ğ°";
 							if ($priv -> has("weather", "admin", "write"))
                             	$content .= gen_content("weather", "update", weather_update());
 							else

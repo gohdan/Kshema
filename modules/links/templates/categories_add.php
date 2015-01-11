@@ -1,14 +1,14 @@
-<h1>Добавление категорий</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/index.php?module=links&action=view_categories">Вернуться к просмотру категорий</a><br>
+<a href="/index.php?module=links&action=view_categories">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
 </p>
 
 #content#
 
 <form action="/index.php?module=links&action=add_category" method="post">
 <input type="text" name="name">
-<input type="submit" name="do_add" value="Добавить">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>
 
 <hr>

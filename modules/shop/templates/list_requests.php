@@ -1,1 +1,1 @@
-<li>#user# (#email#): #good#, #qty# экз. <a href="/index.php?module=shop&action=requests_del&requests=#id#">Удалить</a></li>
+<li>#user# (#email#): #good#, #qty# СЌРєР·. <a href="/index.php?module=shop&action=requests_del&requests=#id#">РЈРґР°Р»РёС‚СЊ</a></li>

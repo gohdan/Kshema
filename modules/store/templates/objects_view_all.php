@@ -1,6 +1,6 @@
-<h1>Объекты</h1>
+<h1>РћР±СЉРµРєС‚С‹</h1>
 
-<p><a href="/index.php?module=store&action=admin">Возврат к администрированию</a></p>
+<p><a href="/index.php?module=store&action=admin">Р’РѕР·РІСЂР°С‚ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ</a></p>
 
 <hr>
 
@@ -8,7 +8,7 @@
 
 <p>#content#</p>
 
-<p><a href="/index.php?module=store&action=objects_add">Добавить объект</a></p>
+<p><a href="/index.php?module=store&action=objects_add">Р”РѕР±Р°РІРёС‚СЊ РѕР±СЉРµРєС‚</a></p>
 
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="tabl">
 #objects#

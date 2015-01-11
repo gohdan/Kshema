@@ -1,4 +1,4 @@
-<h1>Выдача товара</h1>
+<h1>Р’С‹РґР°С‡Р° С‚РѕРІР°СЂР°</h1>
 
 <p>#result#</p>
 
@@ -6,24 +6,24 @@
 
 <form action="/index.php?module=store" method="post">
 <input type="hidden" name="good" value="#id#">
-Название: <b>#name#</b><br>
-Цена: <b>#price#</b><br>
-Единица измерения: <b>#measure#</b><br>
-Количество: <b>#qty#</b><br>
-Комментарий:<br>
+РќР°Р·РІР°РЅРёРµ: <b>#name#</b><br>
+Р¦РµРЅР°: <b>#price#</b><br>
+Р•РґРёРЅРёС†Р° РёР·РјРµСЂРµРЅРёСЏ: <b>#measure#</b><br>
+РљРѕР»РёС‡РµСЃС‚РІРѕ: <b>#qty#</b><br>
+РљРѕРјРјРµРЅС‚Р°СЂРёР№:<br>
 #commentary#
 
 <hr>
 
-Выдать количество:<input type="text" name="qty"><br>
+Р’С‹РґР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ:<input type="text" name="qty"><br>
 
-На объект: <select name="object">#objects_select#</select><br>
+РќР° РѕР±СЉРµРєС‚: <select name="object">#objects_select#</select><br>
 
-Сотруднику: <select name="user">#users_select#</select><br>
+РЎРѕС‚СЂСѓРґРЅРёРєСѓ: <select name="user">#users_select#</select><br>
 
-Комментарий:
+РљРѕРјРјРµРЅС‚Р°СЂРёР№:
 <textarea name="commentary"></textarea><br>
 
-<input type="submit" name="do_out" value="Выдать">
+<input type="submit" name="do_out" value="Р’С‹РґР°С‚СЊ">
 
 </form>

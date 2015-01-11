@@ -67,7 +67,7 @@ function store_goods_add()
 
         	exec_query ($sql_query);
 
-			$content['result'] = "Товар добавлен";
+			$content['result'] = "РўРѕРІР°СЂ РґРѕР±Р°РІР»РµРЅ";
 
 			$date = date("Y-m-d");
     		debug ("date: ".$date);
@@ -81,8 +81,8 @@ function store_goods_add()
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не добавлен";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ РґРѕР±Р°РІР»РµРЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -108,7 +108,7 @@ function store_goods_add()
 	}
 	mysql_free_result($result);
 	$content['goods_select'][$i]['id'] = 0;
-	$content['goods_select'][$i]['name'] = "В самый конец";
+	$content['goods_select'][$i]['name'] = "Р’ СЃР°РјС‹Р№ РєРѕРЅРµС†";
 	$content['goods_select'][$i]['selected'] = "yes";
 	$i++;
 
@@ -169,13 +169,13 @@ function store_view_by_categories()
 			debug ("user is admin, deleting from DB");
 			//exec_query ("delete from ksh_store_goods where id='".mysql_real_escape_string($_POST['id'])."'");
 			exec_query ("update ksh_store_goods set status='1' where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Товар удалён";
+			$content['result'] = "РўРѕРІР°СЂ СѓРґР°Р»С‘РЅ";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не удалён";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РўРѕРІР°СЂ РЅРµ СѓРґР°Р»С‘РЅ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -222,18 +222,18 @@ function store_view_by_categories()
 				debug ("next position: ".$next_position);
 				exec_query("UPDATE ksh_store_goods SET position='".mysql_real_escape_string($next_position)."' WHERE id='".mysql_real_escape_string($id)."'");
 				exec_query("UPDATE ksh_store_goods SET position='".mysql_real_escape_string($position)."' WHERE id='".mysql_real_escape_string($next_id)."'");
-				$content['result'] = "Товар подвинут";
+				$content['result'] = "РўРѕРІР°СЂ РїРѕРґРІРёРЅСѓС‚";
 			}
 			else
-				$content['result'] = "Некуда двигать";
+				$content['result'] = "РќРµРєСѓРґР° РґРІРёРіР°С‚СЊ";
 
 
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Не могу подвинуть";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РќРµ РјРѕРіСѓ РїРѕРґРІРёРЅСѓС‚СЊ";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -261,9 +261,9 @@ function store_view_by_categories()
 		$content['goods_by_category'][$i]['measure'] = stripslashes($good['measure']);
 		$content['goods_by_category'][$i]['commentary'] = stripslashes($good['commentary']);
 		if ("0" == stripslashes($good['status']))
-			$content['goods_by_category'][$i]['status'] = "в наличии";
+			$content['goods_by_category'][$i]['status'] = "РІ РЅР°Р»РёС‡РёРё";
 		else
-			$content['goods_by_category'][$i]['status'] = "удалён";
+			$content['goods_by_category'][$i]['status'] = "СѓРґР°Р»С‘РЅ";
 		$content['goods_by_category'][$i]['show_edit_link'] = "yes";
 		$content['goods_by_category'][$i]['show_del_link'] = "yes";
 		$content['goods_by_category'][$i]['show_in_link'] = "yes";
@@ -358,13 +358,13 @@ function store_goods_edit()
         	$sql_query = ereg_replace(", $","",$sql_query)." WHERE id='".$id."'";
 
         	exec_query ($sql_query);
-			$content['result'] = "Изменения записаны";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
 		}
 		else
 		{
 			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			$content['result'] = "РР·РјРµРЅРµРЅРёСЏ РЅРµ Р·Р°РїРёСЃР°РЅС‹";
+			$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 		}
 	}
 
@@ -425,9 +425,9 @@ function store_goods_in()
 		$content['qty'] = stripslashes($good['qty']);
 
 		if ("0" == stripslashes($good['status']))
-			$content['status'] = "в наличии";
+			$content['status'] = "РІ РЅР°Р»РёС‡РёРё";
 		else
-			$content['status'] = "удалён";
+			$content['status'] = "СѓРґР°Р»С‘РЅ";
 
 		$result = exec_query("SELECT * FROM ksh_store_objects WHERE status='0'");
 		$i = 0;
@@ -452,7 +452,7 @@ function store_goods_in()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_goods_in ***");
@@ -495,9 +495,9 @@ function store_goods_out()
 		for ($i = 1; $i <= $qty; $i++)
 			$content['qtys'][$i]['qty'] = $i;
 		if ("0" == stripslashes($good['status']))
-			$content['status'] = "в наличии";
+			$content['status'] = "РІ РЅР°Р»РёС‡РёРё";
 		else
-			$content['status'] = "удалён";
+			$content['status'] = "СѓРґР°Р»С‘РЅ";
 
 		$result = exec_query("SELECT * FROM ksh_store_objects WHERE status='0'");
 		$i = 0;
@@ -525,7 +525,7 @@ function store_goods_out()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_goods_out ***");
@@ -585,7 +585,7 @@ function store_goods_out_from_category()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_goods_out ***");
@@ -642,7 +642,7 @@ function store_goods_sort()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	debug ("*** end:store_goods_sort ***");

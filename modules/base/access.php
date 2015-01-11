@@ -129,7 +129,7 @@ function edit($module = "")
 			debug("categories:", 2);
 			dump($categories);
 
-			$groups = array(0 => 'Гости');
+			$groups = array(0 => 'Р“РѕСЃС‚Рё');
 			$sql_query = "SELECT * FROM `ksh_users_groups` ORDER BY `id`";
 			$result = exec_query($sql_query);
 			while ($row = mysql_fetch_array($result))
@@ -171,7 +171,7 @@ function edit($module = "")
 
 		}
 		else
-			$content['result'] = "Недостаточно прав";
+			$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 	}
 
 	debug("*** end: Access: edit ***");
@@ -239,7 +239,7 @@ function create_table($table_name)
 		else
 		{
 			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='cp1251'";
+			$charset = " charset='utf8'";
 		}
 
 		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
@@ -251,7 +251,7 @@ function create_table($table_name)
 		)".$charset;
 
 		exec_query($sql_query);
-		$content['result'] .= "<p>Таблица доступа успешно создана</p>";
+		$content['result'] .= "<p>РўР°Р±Р»РёС†Р° РґРѕСЃС‚СѓРїР° СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°</p>";
 
 
 		$module = $config['modules']['current_module'];
@@ -273,7 +273,7 @@ function create_table($table_name)
 	else
 	{
 		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</p>";
 	}
 
 	debug ("=== end: Access: create_table ===");

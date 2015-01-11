@@ -2,9 +2,9 @@
 
 {{if:show_admin_link:
 <p>
-<a href="/index.php?module=menu&action=categories_view">К перечислению списков меню</a><br>
-<a href="/index.php?module=menu&action=add&category=#category_id#">Добавить в этот список</a><br>
-<a href="/index.php?module=menu&amp;action=help#db_tables_update">Справка</a>
+<a href="/index.php?module=menu&action=categories_view">Рљ РїРµСЂРµС‡РёСЃР»РµРЅРёСЋ СЃРїРёСЃРєРѕРІ РјРµРЅСЋ</a><br>
+<a href="/index.php?module=menu&action=add&category=#category_id#">Р”РѕР±Р°РІРёС‚СЊ РІ СЌС‚РѕС‚ СЃРїРёСЃРѕРє</a><br>
+<a href="/index.php?module=menu&amp;action=help#db_tables_update">РЎРїСЂР°РІРєР°</a>
 </p>}}
 
 <p>#result#</p>
@@ -17,7 +17,7 @@
 
 <table>
 <tr>
-<th>ID</th><th>Позиция</th><th>Название</th><th>Подменю</th>
+<th>ID</th><th>РџРѕР·РёС†РёСЏ</th><th>РќР°Р·РІР°РЅРёРµ</th><th>РџРѕРґРјРµРЅСЋ</th>
 </tr>
 #elements#
 </table>

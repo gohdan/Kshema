@@ -1,16 +1,16 @@
-<h1>Удаление брони</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ Р±СЂРѕРЅРё</h1>
 
 <p>
-<a href="/booking/admin/">Вернуться в меню администрирования</a><br>
+<a href="/booking/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
 </p>
 
-<p>Вы действительно хотите удалить бронь <b>#id#</b> от #date#?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ Р±СЂРѕРЅСЊ <b>#id#</b> РѕС‚ #date#?</p>
 
 #content#
 
 <form action="/booking/list_view/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>

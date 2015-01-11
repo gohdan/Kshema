@@ -13,8 +13,8 @@
 </td>
 {{if:show_admin_link:
 <td style="padding: 0px 3px 0px 3px">
-<a href="/index.php?module=menu&amp;action=edit&amp;page=#id#">Редактировать</a> 
-<a href="/index.php?module=menu&amp;action=del&amp;page=#id#">Удалить</a> 
+<a href="/index.php?module=menu&amp;action=edit&amp;page=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> 
+<a href="/index.php?module=menu&amp;action=del&amp;page=#id#">РЈРґР°Р»РёС‚СЊ</a> 
 </td>
 }}
 </tr>

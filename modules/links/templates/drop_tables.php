@@ -1,14 +1,14 @@
-<h1>Удаление таблиц БД ссылок</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р” СЃСЃС‹Р»РѕРє</h1>
 
-<a href="/index.php?module=links&action=admin">Вернуться к меню администрирования</a>
+<a href="/index.php?module=links&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 
 #content#
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=links&action=drop_tables" method="post">
-<input type="checkbox" name="drop_ksh_links_categories_table" value="ksh_links_categories">Категории ссылок<br>
-<input type="checkbox" name="drop_ksh_links_table" value="ksh_links">Ссылки<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_ksh_links_categories_table" value="ksh_links_categories">РљР°С‚РµРіРѕСЂРёРё СЃСЃС‹Р»РѕРє<br>
+<input type="checkbox" name="drop_ksh_links_table" value="ksh_links">РЎСЃС‹Р»РєРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

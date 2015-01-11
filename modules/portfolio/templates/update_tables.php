@@ -1,13 +1,13 @@
-<h1>Обновление таблиц БД портфолио</h1>
+<h1>РћР±РЅРѕРІР»РµРЅРёРµ С‚Р°Р±Р»РёС† Р‘Р” РїРѕСЂС‚С„РѕР»РёРѕ</h1>
 
 <p>
-<a href="/index.php?module=portfolio&amp;action=admin">Вернуться к меню администрирования портфолио</a><br>
-<a href="/index.php?module=portfolio&amp;action=help#db_tables_update">Справка</a>
+<a href="/index.php?module=portfolio&amp;action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РїРѕСЂС‚С„РѕР»РёРѕ</a><br>
+<a href="/index.php?module=portfolio&amp;action=help#db_tables_update">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
 #content#
 
-<p>Количество запросов к БД: #queries_qty#</p>
+<p>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїСЂРѕСЃРѕРІ Рє Р‘Р”: #queries_qty#</p>
 
 {{if:result:<p>#result#</p>}}

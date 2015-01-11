@@ -1,11 +1,11 @@
-<h1>Авторизация</h1>
+<h1>РђРІС‚РѕСЂРёР·Р°С†РёСЏ</h1>
 
 #content#
 
 <form class="auth_login" action="#inst_root#/auth/login/" method="post">
-Ваш e-mail: <input type="text" name="login"><br>
-Пароль: <input type="password" name="password"><br>
-<input type="submit" name="do_login" value="Войти">
+Р’Р°С€ e-mail: <input type="text" name="login"><br>
+РџР°СЂРѕР»СЊ: <input type="password" name="password"><br>
+<input type="submit" name="do_login" value="Р’РѕР№С‚Рё">
 </form>
 
-{{if:if_show_register_link:<p>Ещё не регистрировались? <a href="/auth/show_register_form/">Зарегистрируйтесь!</a></p>}}
+{{if:if_show_register_link:<p>Р•С‰С‘ РЅРµ СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РёСЃСЊ? <a href="/auth/show_register_form/">Р—Р°СЂРµРіРёСЃС‚СЂРёСЂСѓР№С‚РµСЃСЊ!</a></p>}}

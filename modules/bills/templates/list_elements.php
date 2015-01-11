@@ -12,8 +12,8 @@
 {{if:show_admin_link:
 <tr>
 <td colspan="2">
-<a href="/bills/edit/#id#/">Редактировать</a> 
-<a href="/bills/del/#id#/">Удалить</a> 
+<a href="/bills/edit/#id#/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> 
+<a href="/bills/del/#id#/">РЈРґР°Р»РёС‚СЊ</a> 
 </td>
 </tr>
 }}

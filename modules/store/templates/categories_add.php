@@ -1,4 +1,4 @@
-<h1>Добавление категории</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё</h1>
 
 <p>#result#</p>
 
@@ -6,6 +6,6 @@
 
 <form action="/index.php?module=store&action=categories_add" method="post">
 <input type="text" name="name">
-<input type="submit" name = "do_add" value="Добавить">
+<input type="submit" name = "do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>
 

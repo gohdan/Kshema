@@ -10,5 +10,5 @@
 <td style="vertical-align: top">#code#</td>
 </tr>
 <tr>
-{{if:if_show_admin_link:<td colspan="2"><a href="/index.php?module=auto_models&action=colors_edit&colors=#id#">Редактировать</a> <a href="/index.php?module=auto_models&action=colors_del&colors=#id#">Удалить</a></td>}}
+{{if:if_show_admin_link:<td colspan="2"><a href="/index.php?module=auto_models&action=colors_edit&colors=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a> <a href="/index.php?module=auto_models&action=colors_del&colors=#id#">РЈРґР°Р»РёС‚СЊ</a></td>}}
 </tr>

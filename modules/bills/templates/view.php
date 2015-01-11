@@ -6,22 +6,22 @@
 
 {{if:full_text:#full_text#}}
 
-{{if:bbs:<p>Размещено на площадках: #bbs#}}
+{{if:bbs:<p>Р Р°Р·РјРµС‰РµРЅРѕ РЅР° РїР»РѕС‰Р°РґРєР°С…: #bbs#}}
 
 
-{{if:category:<p><a href="#module##action#/#category#/">В категорию</a></p>}}
+{{if:category:<p><a href="#module##action#/#category#/">Р’ РєР°С‚РµРіРѕСЂРёСЋ</a></p>}}
 
-{{if:show_user_bills_link:<a href="/bills/view_by_user/">Мои объявления</a>}}
+{{if:show_user_bills_link:<a href="/bills/view_by_user/">РњРѕРё РѕР±СЉСЏРІР»РµРЅРёСЏ</a>}}
 
 {{if:show_admin_link:
 <p>
-<a href="/bills/admin/">Меню администрирования досок объявлений</a><br>
-<a href="/bills/help#view">Справка</a>
+<a href="/bills/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№</a><br>
+<a href="/bills/help#view">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
 {{if:resemble_elements:
-<h2>Похожие объявления</h2>
+<h2>РџРѕС…РѕР¶РёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ</h2>
 <table>
 #resemble_elements#
 </table>}}

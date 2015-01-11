@@ -1,9 +1,9 @@
-{{if:show_heading:<h1>Синхронизация с сателлитом</h1>}}
+{{if:show_heading:<h1>РЎРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ СЃ СЃР°С‚РµР»Р»РёС‚РѕРј</h1>}}
 
-{{if:show_satellite_link:<p><a href="/bbcpanel/bb_edit/#id#/">Вернуться на сателлит</a></p>}}
+{{if:show_satellite_link:<p><a href="/bbcpanel/bb_edit/#id#/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СЃР°С‚РµР»Р»РёС‚</a></p>}}
 
 {{if:type:<p>#type#:}}
 
-{{if:elements_qty:#elements_qty# элементов</p>}}
+{{if:elements_qty:#elements_qty# СЌР»РµРјРµРЅС‚РѕРІ</p>}}
 
 {{if:result:<p>#result#</p>}}

@@ -1,27 +1,27 @@
-<h1>Просмотр доски объявлений #title#</h1>
+<h1>РџСЂРѕСЃРјРѕС‚СЂ РґРѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№ #title#</h1>
 
 {{if:content:<p>#content#</p>}}
 
 <p>
-<a href="/bbcpanel/view_by_category/#category#/">Обратно в категорию</a>
+<a href="/bbcpanel/view_by_category/#category#/">РћР±СЂР°С‚РЅРѕ РІ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 {{if:show_admin_link:
 <p>
-<a href="/bbcpanel/admin/">Меню администрирования досок объявлений</a><br>
-<a href="/bbcpanel/help#bb_add">Справка</a>
+<a href="/bbcpanel/admin/">РњРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№</a><br>
+<a href="/bbcpanel/help#bb_add">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
 <p>
 ID: #id#<br>
-Системное название: #name#<br>
-Название для вывода пользователю: #title#<br>
-Тематика: #subjects#<br>
-Категория: #category_title#<br>
+РЎРёСЃС‚РµРјРЅРѕРµ РЅР°Р·РІР°РЅРёРµ: #name#<br>
+РќР°Р·РІР°РЅРёРµ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ: #title#<br>
+РўРµРјР°С‚РёРєР°: #subjects#<br>
+РљР°С‚РµРіРѕСЂРёСЏ: #category_title#<br>
 URL: {{if:url:<a href="#url#">#url#</a>}}<br>
-Разделы: <ul>#sections#</ul><br>
-Объявлений на странице: #bills_per_page#<br>
-Режим просмотра объявлений: #bill_view_mode#<br>
-Тема оформления: #theme#
+Р Р°Р·РґРµР»С‹: <ul>#sections#</ul><br>
+РћР±СЉСЏРІР»РµРЅРёР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ: #bills_per_page#<br>
+Р РµР¶РёРј РїСЂРѕСЃРјРѕС‚СЂР° РѕР±СЉСЏРІР»РµРЅРёР№: #bill_view_mode#<br>
+РўРµРјР° РѕС„РѕСЂРјР»РµРЅРёСЏ: #theme#
 </p>

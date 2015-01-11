@@ -1,4 +1,4 @@
-{{if:show_edit_link:<p><a href="/#lang#/pages/edit/page:#id#">Редактировать</a></p>}}
+{{if:show_edit_link:<p><a href="/#lang#/pages/edit/page:#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></p>}}
 
 #content#
 

@@ -1,16 +1,16 @@
-<h1>Удаление таблиц базы данных калькулятора</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</h1>
 
-<a href="/index.php?module=calc_adv&action=admin">Вернуться в меню администрирования калькулятора</a>
+<a href="/index.php?module=calc_adv&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР°</a>
 
 #content#
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/index.php?module=calc_adv&action=drop_tables" method="post">
-<input type="checkbox" name="drop_calc_adv_cities_table" value="ksh_calc_adv_cities">Города<br>
-<input type="checkbox" name="drop_calc_adv_calcs_table" value="ksh_calc_adv_calcs">Расчёты<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_calc_adv_cities_table" value="ksh_calc_adv_cities">Р“РѕСЂРѕРґР°<br>
+<input type="checkbox" name="drop_calc_adv_calcs_table" value="ksh_calc_adv_calcs">Р Р°СЃС‡С‘С‚С‹<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

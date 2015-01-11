@@ -76,8 +76,8 @@ function forms_submit()
 			$content['form'] .= $fld." : ".stripslashes($values[$k])."<br>";
 	}
 
-	$content['form'] = str_replace("yes", "да", $content['form']);
-	$content['form'] = str_replace("no", "нет", $content['form']);
+	$content['form'] = str_replace("yes", "РґР°", $content['form']);
+	$content['form'] = str_replace("no", "РЅРµС‚", $content['form']);
 
 
     debug ("*** end: forms_submit ***");
@@ -175,23 +175,23 @@ function forms_send()
 			$mail->WordWrap = 50;                                 // set word wrap to 50 characters
 			$mail->IsHTML(false);                                  // set email format to HTML
 
-			$mail->Subject = "ТАМАК - анкета (".$_POST['fio'].", ".$_POST['email'].")";
+			$mail->Subject = "РўРђРњРђРљ - Р°РЅРєРµС‚Р° (".$_POST['fio'].", ".$_POST['email'].")";
 
 			$_GET['forms'] = mysql_insert_id();
 			debug ("sending form ".$_GET['forms']);
 			$form_content = str_replace("<br>", "\n", gen_content("forms", "mail_submitted", forms_view_submitted()));
 			debug ("sending data: ".$form_content);
-			$mail->Body = "На сайте ТАМАК заполнена новая анкета\n".$form_content;
+			$mail->Body = "РќР° СЃР°Р№С‚Рµ РўРђРњРђРљ Р·Р°РїРѕР»РЅРµРЅР° РЅРѕРІР°СЏ Р°РЅРєРµС‚Р°\n".$form_content;
 
 
 			if($mail->Send())
 			{
-				$content['result'] = "Ваша анкета отправлена";
+				$content['result'] = "Р’Р°С€Р° Р°РЅРєРµС‚Р° РѕС‚РїСЂР°РІР»РµРЅР°";
 			}
 			else
 			{
-				$content['result'] .= "Невозможно отправить анкету. <p>";
-				$content['result'] .=  "Ошибка почты: " . $mail->ErrorInfo;
+				$content['result'] .= "РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РїСЂР°РІРёС‚СЊ Р°РЅРєРµС‚Сѓ. <p>";
+				$content['result'] .=  "РћС€РёР±РєР° РїРѕС‡С‚С‹: " . $mail->ErrorInfo;
 
 			}
 		}
@@ -201,9 +201,9 @@ function forms_send()
 			include_once ($config['base']['PEAR_root']."/Mail/Mail.php");
 			$mail_object = & Mail::factory ($config['base']['mail']['backend'], $config['base']['mail']);
 			$to = $config['base']['admin_email'];
-			$subject = "Заполненная форма с ".$config['base']['site_name'];
-			$body = "На сайте ".$config['base']['site_name']." заполнена новая анкета.";
-			//	$headers = "Content-type: text/plain; charset=windows-1251 \r\n";
+			$subject = "Р—Р°РїРѕР»РЅРµРЅРЅР°СЏ С„РѕСЂРјР° СЃ ".$config['base']['site_name'];
+			$body = "РќР° СЃР°Р№С‚Рµ ".$config['base']['site_name']." Р·Р°РїРѕР»РЅРµРЅР° РЅРѕРІР°СЏ Р°РЅРєРµС‚Р°.";
+			//	$headers = "Content-type: text/plain; charset=utf-8 \r\n";
 
 			$headers['From']    = 'inquiry@tamak.ru';
 			$headers['To']      = 'gohdan@mail.ru';
@@ -211,16 +211,16 @@ function forms_send()
 			// $sending_result = $mail_object->send($to, $headers, $body);
 
 			/*	if (mail ($to, $subject, $body, $headers))
-				$content['result'] = "Ваша анкета отправлена";
+				$content['result'] = "Р’Р°С€Р° Р°РЅРєРµС‚Р° РѕС‚РїСЂР°РІР»РµРЅР°";
 			else
-				$content['result'] = "При отправлении анкеты произошла ошибка, напишите об этом по адресу ".$config['base']['admin_email'];
+				$content['result'] = "РџСЂРё РѕС‚РїСЂР°РІР»РµРЅРёРё Р°РЅРєРµС‚С‹ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РЅР°РїРёС€РёС‚Рµ РѕР± СЌС‚РѕРј РїРѕ Р°РґСЂРµСЃСѓ ".$config['base']['admin_email'];
 			*/
 			debug ("sending result: ".$sending_result);
 			if ("TRUE" == $sending_result)
-				$content['result'] = "Ваша анкета отправлена";
+				$content['result'] = "Р’Р°С€Р° Р°РЅРєРµС‚Р° РѕС‚РїСЂР°РІР»РµРЅР°";
 			else
 			{
-				$content['result'] = "При отправлении анкеты произошла ошибка, напишите об этом по адресу ".$config['base']['admin_email'];
+				$content['result'] = "РџСЂРё РѕС‚РїСЂР°РІР»РµРЅРёРё Р°РЅРєРµС‚С‹ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РЅР°РїРёС€РёС‚Рµ РѕР± СЌС‚РѕРј РїРѕ Р°РґСЂРµСЃСѓ ".$config['base']['admin_email'];
 				print_r(get_object_vars($sending_result));
 			}
 		}
@@ -253,12 +253,12 @@ function forms_view_submitted_forms()
 			if (1 == $user['id'])
 			{
 				exec_query("DELETE FROM ksh_forms_submitted WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-				$content['result'] = "Анкета удалена";
+				$content['result'] = "РђРЅРєРµС‚Р° СѓРґР°Р»РµРЅР°";
 			}
 			else
 			{
-				$content['result'] = "Анкета не удалена";
-				$content['content'] = "Пожалуйста, войдите как администратор";
+				$content['result'] = "РђРЅРєРµС‚Р° РЅРµ СѓРґР°Р»РµРЅР°";
+				$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 			}
 		}
 
@@ -277,7 +277,7 @@ function forms_view_submitted_forms()
         else
         {
         	debug ("user isn't admin");
-            $content['content'] = "Пожалуйста, войдите в систему как администратор";
+            $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 
         }
 
@@ -311,12 +311,12 @@ function forms_add()
             {
                 debug ("forms name isn't empty");
                 exec_query("INSERT INTO ksh_forms (name, template) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['template'])."')");
-                $content['result'] .= "Анкета добавлена";
+                $content['result'] .= "РђРЅРєРµС‚Р° РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("forms name is empty");
-                $content['result'] .= "Пожалуйста, задайте название формы";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ С„РѕСЂРјС‹";
             }
         }
         else
@@ -327,7 +327,7 @@ function forms_add()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: forms_add ***");
@@ -407,12 +407,12 @@ function forms_edit()
 
 
                 exec_query("UPDATE ksh_forms set name='".$name."', title='".$title."', template='".$template."', flds_names='".$flds_names."', flds_descrs='".$flds_descrs."' WHERE id='".mysql_real_escape_string($forms_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("forms name is empty");
-                $content['result'] .= "Пожалуйста, задайте название анкеты";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ Р°РЅРєРµС‚С‹";
             }
         }
         else
@@ -442,7 +442,7 @@ function forms_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: forms_edit ***");
@@ -479,7 +479,7 @@ function forms_list()
     else
     {
     	debug ("user isn't admin");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: forms_list ***");
@@ -514,7 +514,7 @@ function forms_hook()
 	}
     mysql_free_result($result);
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=forms&action=admin\">Администрирование анкет</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=forms&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р°РЅРєРµС‚</a></p>";
 
     debug("*** end: forms_hook ***");
     return $content;
@@ -587,8 +587,8 @@ function forms_view_submitted()
 				$content['form'] .= $fld." : ".stripslashes($values[$k])."<br>";
 		}
 
-		$content['form'] = str_replace("yes", "да", $content['form']);
-		$content['form'] = str_replace("no", "нет", $content['form']);
+		$content['form'] = str_replace("yes", "РґР°", $content['form']);
+		$content['form'] = str_replace("no", "РЅРµС‚", $content['form']);
 
 
 	debug ("*** end:forms_view_submitted ***");
@@ -613,7 +613,7 @@ function forms_del_submitted()
 	else
 	{
 		debug ("user isn't admin");
-		$content['content'] = "Пожалуйста, войдите как администратор";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
 
 	$result = exec_query("SELECT id, type FROM ksh_forms_submitted WHERE id='".mysql_real_escape_string($_GET['forms'])."'");

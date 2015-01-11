@@ -15,7 +15,7 @@
 <a href="/auto_models/#name#.html">#title#</a>
 </td>
 }}
-<td>{{if:if_show_edit_link:<a href="/index.php?module=auto_models&action=edit&model=#id#">Редактировать</a>}}</td>
-<td style="padding: 0px 3px 0px 3px">{{if:if_show_del_link:<a href="/index.php?module=auto_models&action=del&model=#id#">Удалить</a>}}</td>
+<td>{{if:if_show_edit_link:<a href="/index.php?module=auto_models&action=edit&model=#id#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>}}</td>
+<td style="padding: 0px 3px 0px 3px">{{if:if_show_del_link:<a href="/index.php?module=auto_models&action=del&model=#id#">РЈРґР°Р»РёС‚СЊ</a>}}</td>
 </tr>
 

@@ -653,7 +653,7 @@ function view_by_user($view_user = 0)
 			default: break;
 
 			case "1":
-				// Все объявления на всех досках (1 объявление на доску в первый по списку раздел)
+				// Р’СЃРµ РѕР±СЉСЏРІР»РµРЅРёСЏ РЅР° РІСЃРµС… РґРѕСЃРєР°С… (1 РѕР±СЉСЏРІР»РµРЅРёРµ РЅР° РґРѕСЃРєСѓ РІ РїРµСЂРІС‹Р№ РїРѕ СЃРїРёСЃРєСѓ СЂР°Р·РґРµР»)
 				debug("sending by type 1");
 				foreach ($bbs as $bb => $sections)
 				{
@@ -689,7 +689,7 @@ function view_by_user($view_user = 0)
 			break;
 
 			case "2":
-				// Все объявления на всех разделах всех досок
+				// Р’СЃРµ РѕР±СЉСЏРІР»РµРЅРёСЏ РЅР° РІСЃРµС… СЂР°Р·РґРµР»Р°С… РІСЃРµС… РґРѕСЃРѕРє
 				debug("sending by type 2");
 				foreach ($bbs as $bb => $sections)
 				{
@@ -729,7 +729,7 @@ function view_by_user($view_user = 0)
 			break;
 
 			case "3":
-				// Ротация по разделам
+				// Р РѕС‚Р°С†РёСЏ РїРѕ СЂР°Р·РґРµР»Р°Рј
 				$i = 0;
 				foreach ($bbs as $bb => $sections)
 				{
@@ -770,7 +770,7 @@ function view_by_user($view_user = 0)
 			break;
 
 			case "4":
-				// Ротация по доскам
+				// Р РѕС‚Р°С†РёСЏ РїРѕ РґРѕСЃРєР°Рј
 				$i = 0;
 				foreach ($bbs as $bb => $sections)
 				{
@@ -886,7 +886,7 @@ function add()
 				else
 				{
 					$result = 0;
-					$content['result'] .= "Неправильно введено проверочное слово.";
+					$content['result'] .= "РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅРѕ РїСЂРѕРІРµСЂРѕС‡РЅРѕРµ СЃР»РѕРІРѕ.";
 				}
 			}
 			else
@@ -897,7 +897,7 @@ function add()
 					if ("" == $_POST[$v])
 					{
 						$result = 0;
-						$content['result'] .= " Заполнены не все необходимые поля.";
+						$content['result'] .= " Р—Р°РїРѕР»РЅРµРЅС‹ РЅРµ РІСЃРµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ.";
 					}
 
 			if ($result)
@@ -966,7 +966,7 @@ function add()
 				exec_query($sql_query);
 				if (0 == mysql_errno())
 				{
-					$content['result'] = "Добавление прошло успешно";
+					$content['result'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ";
 
 					if (isset($config['bbcpanel']['bbcpanel_domain']) && "" != $config['bbcpanel']['bbcpanel_domain'])
 					{
@@ -997,7 +997,7 @@ function add()
 					}
 				}
 				else
-					$content['result'] = "Не удалось добавить, ошибка базы данных";
+					$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ РґРѕР±Р°РІРёС‚СЊ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 			}
 			else
 			{
@@ -1008,7 +1008,7 @@ function add()
 		}
 	}
 	else
-		$content['result'] = "Недостаточно прав";
+		$content['result'] = "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РїСЂР°РІ";
 
 	debug ("*** end: DataObject: add ***");
 	return $content;	
@@ -1083,10 +1083,10 @@ function edit($element = 0)
 
 			exec_query($sql_query);
 			if (0 != mysql_errno())
-				$content['result'] = "Не удалось обновить запись, ошибка базы данных";
+				$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ РѕР±РЅРѕРІРёС‚СЊ Р·Р°РїРёСЃСЊ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 			else
 			{
-				$content['result'] = "Обновление успешно записано";
+				$content['result'] = "РћР±РЅРѕРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅРѕ";
 
 				if($satellite || (isset($config['bbcpanel']['bbcpanel_domain']) && "" != $config['bbcpanel']['bbcpanel_domain']))
 				{
@@ -1122,7 +1122,7 @@ function edit($element = 0)
 			}
 		}
 		else
-			debug ("Нет прав на запись");
+			debug ("РќРµС‚ РїСЂР°РІ РЅР° Р·Р°РїРёСЃСЊ");
 	}
 
 	if($satellite)
@@ -1392,9 +1392,9 @@ function del($element)
 			$sql_query = "DELETE FROM `".mysql_real_escape_string($this -> table)."` WHERE `id` = '".mysql_real_escape_string($element)."'";
 			exec_query($sql_query);
 			if (0 == mysql_errno())
-				$content['result'] = "Удаление прошло успешно";
+				$content['result'] = "РЈРґР°Р»РµРЅРёРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ";
 			else
-				$content['result'] = "Не удалось удалить, ошибка базы данных";
+				$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ СѓРґР°Р»РёС‚СЊ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 		}
 		else
 			debug ("user doesn't have delete rights");

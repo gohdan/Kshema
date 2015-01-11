@@ -50,7 +50,7 @@ function uploads_admin()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -58,7 +58,7 @@ function uploads_admin()
 
                     $_POST['image'] = $file_path;
 
-					$content['content'] .= "<p>Путь к файлу: <b>".$file_path."</b></p>";
+					$content['content'] .= "<p>РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ: <b>".$file_path."</b></p>";
 
                 }
                 else
@@ -72,7 +72,7 @@ function uploads_admin()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        $content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
 
 	debug ("*** end: fn: uploads_admin ***");

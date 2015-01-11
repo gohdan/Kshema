@@ -1,4 +1,4 @@
-<h1>Удаление пользователя</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</h1>
 
 <p>#result#</p>
 
@@ -6,7 +6,7 @@
 
 <form action="/index.php?module=shop&action=users_view" method="post">
 <input type="hidden" name="id" value="#id#">
-Вы действительно хотите удалить пользователя <b>#name# (#login#)</b>?<br>
-<input type="submit" name="do_not_del" value="Нет">
-<input type="submit" name="do_del" value="Да">
+Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ <b>#name# (#login#)</b>?<br>
+<input type="submit" name="do_not_del" value="РќРµС‚">
+<input type="submit" name="do_del" value="Р”Р°">
 </form>

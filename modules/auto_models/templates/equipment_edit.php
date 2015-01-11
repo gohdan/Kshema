@@ -1,7 +1,7 @@
-<h1>Редактирование дополнительного оборудования</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ</h1>
 
 <p>
-<a href="/index.php?module=auto_models&action=equipment_view&model=#model#">К просмотру дополнительного оборудования для этой модели</a>
+<a href="/index.php?module=auto_models&action=equipment_view&model=#model#">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРіРѕ РѕР±РѕСЂСѓРґРѕРІР°РЅРёСЏ РґР»СЏ СЌС‚РѕР№ РјРѕРґРµР»Рё</a>
 </p>
 
 <p>#result#</p>
@@ -12,10 +12,10 @@
 <form action="/index.php?module=auto_models&action=equipment_edit&equipment=#id#" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="#id#">
 <input type="hidden" name="old_image" value="#image#">
-Название: <input type="text" name="title" value="#title#"><br>
-Текущее изображение-описание: {{if:image:<img src="#image#">}}<br>
-Новое изображение-описание: <input type="file" name="image"><br>
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="title" value="#title#"><br>
+РўРµРєСѓС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: {{if:image:<img src="#image#">}}<br>
+РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image"><br>
 <textarea name="full_text" rows="30" cols="40">#full_text#</textarea><br>
-<input type="submit" name="do_save" value="Сохранить">
+<input type="submit" name="do_save" value="РЎРѕС…СЂР°РЅРёС‚СЊ">
 </form>
 }}

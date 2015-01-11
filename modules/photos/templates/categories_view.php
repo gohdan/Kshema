@@ -1,11 +1,11 @@
-<h1>Редактирование категорий</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёР№</h1>
 
 <p>
-<a href="/index.php?module=photos&action=admin">Вернуться к администрированию фотографий</a>
+<a href="/index.php?module=photos&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ С„РѕС‚РѕРіСЂР°С„РёР№</a>
 </p>
 
 <p>
-<a href="/index.php?module=photos&action=add_category">Добавить категорию</a>
+<a href="/index.php?module=photos&action=add_category">Р”РѕР±Р°РІРёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ</a>
 </p>
 
 <p>#result#</p>

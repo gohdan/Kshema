@@ -1,12 +1,12 @@
-<h1>Редактирование новости</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РЅРѕРІРѕСЃС‚Рё</h1>
 
 <p>
-<a href="/news/view_categories/">Категории новостей</a><br>
-<a href="/news/help#news_edit">Справка</a>
+<a href="/news/view_categories/">РљР°С‚РµРіРѕСЂРёРё РЅРѕРІРѕСЃС‚РµР№</a><br>
+<a href="/news/help#news_edit">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <p>
-<a href="/uploads/admin/" target="uploads">Закачать файл</a>
+<a href="/uploads/admin/" target="uploads">Р—Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р»</a>
 </p>
 
 {{if:result:<p>#result#</p>}}
@@ -18,17 +18,17 @@
 <input type="hidden" name="old_image" value="#image#">
 
 <table summary="News edit table">
-<tr><td>Название:</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Дата <i>(Не меняйте формат!)</i>:</td><td><input type="text" name="date" size="10" align="right" value="#date#"></td></tr>
-<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>РќР°Р·РІР°РЅРёРµ:</td><td><input type="text" name="name" value="#name#"></td></tr>
+<tr><td>Р”Р°С‚Р° <i>(РќРµ РјРµРЅСЏР№С‚Рµ С„РѕСЂРјР°С‚!)</i>:</td><td><input type="text" name="date" size="10" align="right" value="#date#"></td></tr>
+<tr><td>РљР°С‚РµРіРѕСЂРёСЏ:</td><td><select name="category">#categories_select#</select></td></tr>
 <tr><td colspan="2"><img src="#image#"></td></tr>
-<tr><td>Новое изображение-описание:</td><td><input type="file" name="image"></td></tr>
-<tr><td>Короткое описание:<br><i>(Одно-два предложения для кратких списков новостей)</i></td></tr>
+<tr><td>РќРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ:</td><td><input type="file" name="image"></td></tr>
+<tr><td>РљРѕСЂРѕС‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ:<br><i>(РћРґРЅРѕ-РґРІР° РїСЂРµРґР»РѕР¶РµРЅРёСЏ РґР»СЏ РєСЂР°С‚РєРёС… СЃРїРёСЃРєРѕРІ РЅРѕРІРѕСЃС‚РµР№)</i></td></tr>
 <tr><td colspan="2"><textarea style="width: 300px; height: 200px;" name="short_descr">#short_descr#</textarea></td></tr>
-<tr><td>Описание:<br><i>(Более полное описание для подробных списков новостей)</i></td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ:<br><i>(Р‘РѕР»РµРµ РїРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ РґР»СЏ РїРѕРґСЂРѕР±РЅС‹С… СЃРїРёСЃРєРѕРІ РЅРѕРІРѕСЃС‚РµР№)</i></td></tr>
 <tr><td colspan="2"><textarea cols="50" rows="20" name="descr">#descr#</textarea></td></tr>
-<tr><td>Полный текст новости:<br><i>(Показывается при просмотре новости)</i></td></tr>
+<tr><td>РџРѕР»РЅС‹Р№ С‚РµРєСЃС‚ РЅРѕРІРѕСЃС‚Рё:<br><i>(РџРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РїСЂРѕСЃРјРѕС‚СЂРµ РЅРѕРІРѕСЃС‚Рё)</i></td></tr>
 <tr><td colspan="2"><textarea cols="50" rows="20" name="full_text">#full_text#</textarea></td></tr>
-<tr><td></td><td><input type="submit" name="do_update" value="Записать"></td></tr>
+<tr><td></td><td><input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ"></td></tr>
 </table>
 </form>

@@ -31,7 +31,7 @@ function photos($category)
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=photos&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=photos&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
     return $content;
     debug("*** end: photos ***");
 }
@@ -61,7 +61,7 @@ function lastphotos($category)
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=photos&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=photos&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
     return $content;
     debug("*** end: lastphotos ***");
 }
@@ -87,14 +87,14 @@ function photos_last($category)
                     <a href=\"\">".$row['date']."</a><br>
                     <a href=\"\">".$row['name']."</a><br>
                     ".stripslashes($row['descr'])."<br>
-                    <span class=\"more\"><a href=\"\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=photos&action=admin\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/index.php?module=photos&action=admin\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
     return $content;
     debug("*** end: photos_last ***");
 }
@@ -143,7 +143,7 @@ function photos_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -168,7 +168,7 @@ function photos_add()
                     if (filesize($home.$thumb_path) > $max_file_size)
                     {
                         debug ("thumb size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$thumb_path)) debug ("thumb deleted");
                         else debug ("can't delete thumb!");
                         $thumb_path = "";
@@ -189,12 +189,12 @@ function photos_add()
             {
                 debug ("photos name isn't empty");
                 exec_query("INSERT INTO ksh_photos (image, thumb, name, gallery, descr, date) VALUES ('".mysql_real_escape_string($file_path)."', '".mysql_real_escape_string($thumb_path)."', '".mysql_real_escape_string($_POST['name'])."','".mysql_real_escape_string($_POST['gallery'])."','".mysql_real_escape_string($_POST['descr'])."', CURDATE())");
-                $content['result'] .= "Фотография добавлена";
+                $content['result'] .= "Р¤РѕС‚РѕРіСЂР°С„РёСЏ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("photos name is empty");
-                $content['result'] .= "Пожалуйста, задайте название фотографии";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё";
             }
         }
         else
@@ -205,7 +205,7 @@ function photos_add()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_add ***");
@@ -239,7 +239,7 @@ function photos_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['result'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_del ***");
@@ -309,7 +309,7 @@ function photos_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -336,7 +336,7 @@ function photos_edit()
                     if (filesize($home.$thumb_path) > $max_file_size)
                     {
                         debug ("thumb size > max file size!");
-                        $content['result'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['result'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$thumb_path)) debug ("thumb deleted");
                         else debug ("can't delete thumb!");
                         $thumb_path = $_POST['old_thumb'];
@@ -358,12 +358,12 @@ function photos_edit()
             {
                 debug ("photo name isn't empty");
                 exec_query("UPDATE ksh_photos set name='".mysql_real_escape_string($_POST['name'])."',  descr='".mysql_real_escape_string($_POST['descr'])."', image='".mysql_real_escape_string($file_path)."', thumb='".mysql_real_escape_string($thumb_path)."' WHERE id='".mysql_real_escape_string($photo_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("photo name is empty");
-                $content['result'] .= "Пожалуйста, задайте название фотографии";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ С„РѕС‚РѕРіСЂР°С„РёРё";
             }
         }
         else
@@ -388,7 +388,7 @@ function photos_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_edit ***");

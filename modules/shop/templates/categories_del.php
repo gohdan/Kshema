@@ -1,6 +1,6 @@
-<h1>Удаление категории</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё</h1>
 
-<p><a href="/index.php?module=shop&action=categories_view">К просмотру категорий</a></p>
+<p><a href="/index.php?module=shop&action=categories_view">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a></p>
 
 <hr>
 
@@ -8,10 +8,10 @@
 
 <p>#content#</p>
 
-<p>Вы действительно хотите удалить категорию <b>#name#</b>?</b>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ <b>#name#</b>?</b>
 
 <form action="/index.php?module=shop&action=categories_view" method="post">
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Нет">
-<input type="submit" name="do_del" value="Да">
+<input type="submit" name="do_not_del" value="РќРµС‚">
+<input type="submit" name="do_del" value="Р”Р°">
 </form>

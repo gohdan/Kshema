@@ -1,6 +1,6 @@
-<h1>Редактирование категории</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё</h1>
 
-<p><a href="/index.php?module=shop&action=categories_view">К просмотру категорий</a></p>
+<p><a href="/index.php?module=shop&action=categories_view">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a></p>
 
 <hr>
 
@@ -10,12 +10,12 @@
 
 <form action="/index.php?module=shop&action=categories_edit&categories=#id#" method="post">
 <input type="hidden" name="id" value="#id#">
-Название: <input type="text" name="name" value="#name#"><br>
-Подкатегория в категории:
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="name" value="#name#"><br>
+РџРѕРґРєР°С‚РµРіРѕСЂРёСЏ РІ РєР°С‚РµРіРѕСЂРёРё:
 <select name="parent">
 <option value="0"></option>
 #categories_select#
 </select><br>
-Шаблон страницы <i>(по умолчанию - default)</i>: <input type="text" name="template" value="#template#"><br>
-<input type="submit" name="do_update" value="Записать">
+РЁР°Р±Р»РѕРЅ СЃС‚СЂР°РЅРёС†С‹ <i>(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ - default)</i>: <input type="text" name="template" value="#template#"><br>
+<input type="submit" name="do_update" value="Р—Р°РїРёСЃР°С‚СЊ">
 </form>

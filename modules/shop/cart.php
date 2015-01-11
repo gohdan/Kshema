@@ -20,7 +20,7 @@ function shop_cart_add()
 
 	if (0 == $_SESSION['authed'])
     {
-    	$content['content'] .= "Пожалуйста, сначала войдите на сервер.";
+    	$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРѕР№РґРёС‚Рµ РЅР° СЃРµСЂРІРµСЂ.";
     }
 	else
     {
@@ -37,14 +37,14 @@ function shop_cart_add()
 				mysql_free_result($result);
 				//exec_query("UPDATE carts SET new_qty='".($qty['new_qty'] + $_POST['new_qty'])."', used_qty='".($qty['used_qty'] + $_POST['used_qty'])."' WHERE user='".$user['id']."' AND good='".mysql_real_escape_string($_POST['id'])."'");
 				exec_query("UPDATE ksh_shop_carts SET new_qty='".($qty['new_qty'] + $_POST['new_qty'])."' WHERE user='".$user['id']."' AND good='".mysql_real_escape_string($_POST['id'])."'");
-				$content['result'] = "Товар добавлен в Вашу <a href=\"/index.php?module=shop&action=cart_view\">корзину</a>.";
+				$content['result'] = "РўРѕРІР°СЂ РґРѕР±Р°РІР»РµРЅ РІ Р’Р°С€Сѓ <a href=\"/index.php?module=shop&action=cart_view\">РєРѕСЂР·РёРЅСѓ</a>.";
 			}
 			else
 			{
 				debug ("no such good is in the cart");
 				//exec_query("INSERT INTO carts (user, good, new_qty, used_qty) VALUES ('".mysql_real_escape_string($user['id'])."', '".mysql_real_escape_string($_POST['id'])."', '".mysql_real_escape_string($_POST['new_qty'])."', '".mysql_real_escape_string($_POST['used_qty'])."')");
 				exec_query("INSERT INTO ksh_shop_carts (user, good, new_qty) VALUES ('".mysql_real_escape_string($user['id'])."', '".mysql_real_escape_string($_POST['id'])."', '".mysql_real_escape_string($_POST['new_qty'])."')");
-				$content['result'] = "Товар добавлен в Вашу <a href=\"/index.php?module=shop&action=cart_view\">корзину</a>.";
+				$content['result'] = "РўРѕРІР°СЂ РґРѕР±Р°РІР»РµРЅ РІ Р’Р°С€Сѓ <a href=\"/index.php?module=shop&action=cart_view\">РєРѕСЂР·РёРЅСѓ</a>.";
 			}
 
 		}
@@ -88,7 +88,7 @@ function shop_cart_view()
 
 	if (0 == $_SESSION['authed'])
 	{
-		$content['content'] = "Пожалуйста, сначала войдите на сервер.";
+		$content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРѕР№РґРёС‚Рµ РЅР° СЃРµСЂРІРµСЂ.";
 	}
 	else
 	{
@@ -96,7 +96,7 @@ function shop_cart_view()
 		{
 			debug ("deleting item from cart");
 			exec_query ("DELETE FROM ksh_shop_carts WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] .= "Товар удалён из корзины";
+			$content['result'] .= "РўРѕРІР°СЂ СѓРґР°Р»С‘РЅ РёР· РєРѕСЂР·РёРЅС‹";
 		}
 
 		debug ("checking items in the cart");
@@ -122,7 +122,7 @@ function shop_cart_view()
 			{
 				$sql_query = "DELETE FROM `ksh_shop_carts` WHERE `id` = '".$row['id']."'";
 				exec_query($sql_query);
-				$content['result'] = "<p>Некоторые товары были удалены из Вашей корзины, так как их нет в наличии или нет в базе данных</p>";
+				$content['result'] = "<p>РќРµРєРѕС‚РѕСЂС‹Рµ С‚РѕРІР°СЂС‹ Р±С‹Р»Рё СѓРґР°Р»РµРЅС‹ РёР· Р’Р°С€РµР№ РєРѕСЂР·РёРЅС‹, С‚Р°Рє РєР°Рє РёС… РЅРµС‚ РІ РЅР°Р»РёС‡РёРё РёР»Рё РЅРµС‚ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…</p>";
 			}
 		}
 		mysql_free_result($result);
@@ -137,7 +137,7 @@ function shop_cart_view()
 		if (0 == $items_qty)
 		{
 			debug ("no items in the cart");
-			$content['content'] .= "Корзина пуста.";
+			$content['content'] .= "РљРѕСЂР·РёРЅР° РїСѓСЃС‚Р°.";
 		}
 		else
 		{
@@ -231,7 +231,7 @@ function shop_cart_del()
 	if (0 == $_SESSION['authed'])
 	{
 		debug ("not authed!");
-		$content['content'] .= "Пожалуйста, сначала войдите на сервер.";
+		$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРѕР№РґРёС‚Рµ РЅР° СЃРµСЂРІРµСЂ.";
 	}
 	else
 	{
@@ -264,8 +264,8 @@ function shop_cart_add_multiple()
         if (0 == $_SESSION['authed'])
         {
             debug ("not authed!");
-			$content['result'] .= "Товары не добавлены";
-			$content['content'] .= "Пожалуйста, сначала войдите на сайт";
+			$content['result'] .= "РўРѕРІР°СЂС‹ РЅРµ РґРѕР±Р°РІР»РµРЅС‹";
+			$content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРѕР№РґРёС‚Рµ РЅР° СЃР°Р№С‚";
         }
         else
         {
@@ -300,7 +300,7 @@ function shop_cart_add_multiple()
         	else debug ("there are no goods to add");
         }
 
-        if (1 == $res) $content['content'] .= "Товары добавлены в Вашу <a href=\"/index.php?module=shop&action=cart_view\">корзину</a>.";
+        if (1 == $res) $content['content'] .= "РўРѕРІР°СЂС‹ РґРѕР±Р°РІР»РµРЅС‹ РІ Р’Р°С€Сѓ <a href=\"/index.php?module=shop&action=cart_view\">РєРѕСЂР·РёРЅСѓ</a>.";
 
         debug ("*** end: module: shop; function: shop_cart_add_multiple");
         return $content;
@@ -319,7 +319,7 @@ function shop_cart_view_short()
 
         if (0 == $_SESSION['authed'])
         {
-                $content['content'] .= "<p>Пожалуйста, сначала войдите на сервер.</p>";
+                $content['content'] .= "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЃРЅР°С‡Р°Р»Р° РІРѕР№РґРёС‚Рµ РЅР° СЃРµСЂРІРµСЂ.</p>";
         }
         else
         {
@@ -330,7 +330,7 @@ function shop_cart_view_short()
                 if (0 == $items_qty)
                 {
                         debug ("no items in the cart");
-                        $content['content'] .= "<p align=\"center\">Корзина пуста</p>";
+                        $content['content'] .= "<p align=\"center\">РљРѕСЂР·РёРЅР° РїСѓСЃС‚Р°</p>";
                 }
                 else
                 {
@@ -348,8 +348,8 @@ function shop_cart_view_short()
 
                         if (("" != $row['new_qty']) && ("0" != $row['new_qty']))
                         {
-                                //$content['content'] .= "новый: ".$good['new_price']." руб.";
-                                $content['content'] .= "стоимость: ".$good['new_price']." руб.";
+                                //$content['content'] .= "РЅРѕРІС‹Р№: ".$good['new_price']." СЂСѓР±.";
+                                $content['content'] .= "СЃС‚РѕРёРјРѕСЃС‚СЊ: ".$good['new_price']." СЂСѓР±.";
                                 if ("1" != $row['new_qty']) $content['content'] .= " (x".$row['new_qty'].")";
                                 $content['content'] .= "<br>";
                                 $sum_price = $sum_price + $good['new_price'] * $row['new_qty'];
@@ -357,7 +357,7 @@ function shop_cart_view_short()
                         /*
                         if (("" != $row['used_qty']) && ("0" != $row['used_qty']))
                         {
-                                $content['content'] .= "б/у: ".$good['used_price']." руб.";
+                                $content['content'] .= "Р±/Сѓ: ".$good['used_price']." СЂСѓР±.";
                                 if ("1" != $row['used_qty']) $content['content'] .= " (x".$row['used_qty'].")";
                                 $content['content'] .= "<br>";
                                 $sum_price = $sum_price + $good['used_price'] * $row['used_qty'];
@@ -365,7 +365,7 @@ function shop_cart_view_short()
                         */
                 }
                 mysql_free_result($result);
-                $content['content'] .= "<hr><b>Итого: ".$sum_price." руб.</b><br><a href=\"/index.php?module=shop&action=cart_view\">Оформить</a></p>";
+                $content['content'] .= "<hr><b>РС‚РѕРіРѕ: ".$sum_price." СЂСѓР±.</b><br><a href=\"/index.php?module=shop&action=cart_view\">РћС„РѕСЂРјРёС‚СЊ</a></p>";
                 }
         }
 

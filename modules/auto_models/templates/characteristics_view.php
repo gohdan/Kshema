@@ -1,7 +1,7 @@
-<h1>Технические характеристики #model_title#</h1>
+<h1>РўРµС…РЅРёС‡РµСЃРєРёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё #model_title#</h1>
 
 <p>#content#</p>
 
-{{if:if_show_admin_link:<p><a href="/index.php?module=auto_models&action=characteristics_edit&model=#model#">Редактировать</a></p>}}
+{{if:if_show_admin_link:<p><a href="/index.php?module=auto_models&action=characteristics_edit&model=#model#">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a></p>}}
 
 #full_text#

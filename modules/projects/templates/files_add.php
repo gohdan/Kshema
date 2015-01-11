@@ -1,6 +1,6 @@
-<h1>Добавление файла в проект "#project_title#"</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ С„Р°Р№Р»Р° РІ РїСЂРѕРµРєС‚ "#project_title#"</h1>
 
-<a href="/index.php?module=projects&action=admin">Вернуться к администрированию проектов</a>
+<a href="/index.php?module=projects&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ РїСЂРѕРµРєС‚РѕРІ</a>
 
 <p>#result#</p>
 
@@ -8,11 +8,11 @@
 
 <form action="/index.php?module=projects&action=files_add" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="project" value="#project#">
-	Название файла, показываемое пользователю: <input type="text" name="name"><br>
-	Номер файла: <input type="text" name="number"><br>
-	Часть файла: <input type="text" name="part"><br>
-	Выберите файл для закачки: <input type="file" name="image"><br>
-    Или введите его расположение, если он уже закачан (пример: <b>/uploads/file.zip</b>): <input type="text" name="file_path"><br>
-    Описание:<br><textarea cols="40" rows="20" name="descr"></textarea><br>
-    <input type="submit" name="do_add" value="Добавить">
+	РќР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°, РїРѕРєР°Р·С‹РІР°РµРјРѕРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ: <input type="text" name="name"><br>
+	РќРѕРјРµСЂ С„Р°Р№Р»Р°: <input type="text" name="number"><br>
+	Р§Р°СЃС‚СЊ С„Р°Р№Р»Р°: <input type="text" name="part"><br>
+	Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р» РґР»СЏ Р·Р°РєР°С‡РєРё: <input type="file" name="image"><br>
+    РР»Рё РІРІРµРґРёС‚Рµ РµРіРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёРµ, РµСЃР»Рё РѕРЅ СѓР¶Рµ Р·Р°РєР°С‡Р°РЅ (РїСЂРёРјРµСЂ: <b>/uploads/file.zip</b>): <input type="text" name="file_path"><br>
+    РћРїРёСЃР°РЅРёРµ:<br><textarea cols="40" rows="20" name="descr"></textarea><br>
+    <input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

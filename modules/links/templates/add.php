@@ -1,22 +1,22 @@
-<h1>Добавление ссылки</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ СЃСЃС‹Р»РєРё</h1>
 
 <p>
-<a href="/index.php?module=links&action=admin">К администрированию ссылок</a>
+<a href="/index.php?module=links&action=admin">Рљ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЋ СЃСЃС‹Р»РѕРє</a>
 </p>
 
 #content#
 
 <form action="/index.php?module=links&action=add_links" method="post" enctype="multipart/form-data">
-    Название <input type="text" name="name"><br>
-    Категория:
+    РќР°Р·РІР°РЅРёРµ <input type="text" name="name"><br>
+    РљР°С‚РµРіРѕСЂРёСЏ:
     <select name="category">
     #categories#
     </select>
     <br>
-	Изображение-описание: <input type="file" name="image">
+	РР·РѕР±СЂР°Р¶РµРЅРёРµ-РѕРїРёСЃР°РЅРёРµ: <input type="file" name="image">
     <br>
 	URL: <input type="text" name="url"><br>
-    Описание:<br>
+    РћРїРёСЃР°РЅРёРµ:<br>
     <textarea cols="40" rows="10" name="descr"></textarea><br>
-    <input type="submit" name="do_add" value="Добавить">
+    <input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

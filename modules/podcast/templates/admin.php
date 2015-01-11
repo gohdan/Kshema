@@ -1,24 +1,24 @@
-<h1>Администрирование подкаста</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РїРѕРґРєР°СЃС‚Р°</h1>
 
-<p><a href="#inst_root#/base/admin/">Возврат в главное меню администрирования</a>
+<p><a href="#inst_root#/base/admin/">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 
 <p>
-<a href="#inst_root#/podcast/add/">Добавить выпуск</a><br>
-<a href="#inst_root#/podcast/view_by_category/1/">Список выпусков</a>
+<a href="#inst_root#/podcast/add/">Р”РѕР±Р°РІРёС‚СЊ РІС‹РїСѓСЃРє</a><br>
+<a href="#inst_root#/podcast/view_by_category/1/">РЎРїРёСЃРѕРє РІС‹РїСѓСЃРєРѕРІ</a>
 </p>
 
 <hr>
 
 <p>
-<a href="#inst_root#/podcast/config_edit/">Редактировать настройки</a><br>
-<a href="#inst_root#/podcast/privileges_edit/">Назначение прав</a>
+<a href="#inst_root#/podcast/config_edit/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РЅР°СЃС‚СЂРѕР№РєРё</a><br>
+<a href="#inst_root#/podcast/privileges_edit/">РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных подкаста</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕРґРєР°СЃС‚Р°</h2>
 
-<a href="#inst_root#/podcast/install_tables/">Создать базу данных подкаста</a><br>
-<a href="#inst_root#/podcast/update_tables/">Обновить базу данных подкаста</a><br>
-<a href="#inst_root#/podcast/drop_tables/">Уничтожить базу данных подкаста</a><br>
+<a href="#inst_root#/podcast/install_tables/">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїРѕРґРєР°СЃС‚Р°</a><br>
+<a href="#inst_root#/podcast/update_tables/">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїРѕРґРєР°СЃС‚Р°</a><br>
+<a href="#inst_root#/podcast/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РїРѕРґРєР°СЃС‚Р°</a><br>
 </p>

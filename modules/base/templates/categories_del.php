@@ -1,16 +1,16 @@
-<h1>#module_title# - Удаление категории</h1>
+<h1>#module_title# - РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё</h1>
 
 <p>
-<a href="/index.php?module=#module_name#&action=categories_view">Вернуться к просмотру категорий</a><br>
+<a href="/index.php?module=#module_name#&action=categories_view">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
 </p>
 
-<p>Вы действительно хотите удалить категорию <b>"#title#"</b>? Все элементы в этой категории также будут удалены!</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РєР°С‚РµРіРѕСЂРёСЋ <b>"#title#"</b>? Р’СЃРµ СЌР»РµРјРµРЅС‚С‹ РІ СЌС‚РѕР№ РєР°С‚РµРіРѕСЂРёРё С‚Р°РєР¶Рµ Р±СѓРґСѓС‚ СѓРґР°Р»РµРЅС‹!</p>
 
 <p>#content#</p>
 
 <form action="/index.php?module=#module_name#&action=categories_view" method="post">
 
 <input type="hidden" name="category" value="#id#">
-<input type="submit" name="do_not_del_category" value="Не удалять">
-<input type="submit" name="do_del_category" value="Удалить">
+<input type="submit" name="do_not_del_category" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del_category" value="РЈРґР°Р»РёС‚СЊ">
 </form>

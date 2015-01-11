@@ -1,4 +1,4 @@
-<h1>Корзина</h1>
+<h1>РљРѕСЂР·РёРЅР°</h1>
 
 <p>#result#</p>
 
@@ -6,32 +6,32 @@
 
 {{if:show_cart:
 <table class="tbl_cart">
-<tr><th></th><th>Название</th><th>Цена</th><th>Количество</th><th>Удалить</th></tr>
+<tr><th></th><th>РќР°Р·РІР°РЅРёРµ</th><th>Р¦РµРЅР°</th><th>РљРѕР»РёС‡РµСЃС‚РІРѕ</th><th>РЈРґР°Р»РёС‚СЊ</th></tr>
 #cart_goods#
 </table>
 
 <table class="props">
 <tr>
-<th>Количество товаров:</th>
+<th>РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂРѕРІ:</th>
 <td align="right">#sum_qty#</td>
 </tr>
 <tr>
-<th>Вес</th>
+<th>Р’РµСЃ</th>
 <td align="right">#sum_weight#</td>
 </tr>
 <tr>
-<th>Стоимость товаров:</th>
-<td align="right">#sum_price# руб.</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ С‚РѕРІР°СЂРѕРІ:</th>
+<td align="right">#sum_price# СЂСѓР±.</th>
 </tr>
 <tr>
-<th>Стоимость доставки:</th>
-<td align="right">#sum_delivery# руб.</td>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ РґРѕСЃС‚Р°РІРєРё:</th>
+<td align="right">#sum_delivery# СЂСѓР±.</td>
 </tr>
 <tr>
-<th><b>Стоимость с доставкой:</b></th>
-<td align="right"><b>#sum_cost# руб.</b></td>
+<th><b>РЎС‚РѕРёРјРѕСЃС‚СЊ СЃ РґРѕСЃС‚Р°РІРєРѕР№:</b></th>
+<td align="right"><b>#sum_cost# СЂСѓР±.</b></td>
 </tr>
 </table>
 
-<form action="/index.php?module=shop&action=order_create" method="post" style="display:inline"><input type="submit" class="button" value="Оформить заказ"></form>
+<form action="/index.php?module=shop&action=order_create" method="post" style="display:inline"><input type="submit" class="button" value="РћС„РѕСЂРјРёС‚СЊ Р·Р°РєР°Р·"></form>
 }}

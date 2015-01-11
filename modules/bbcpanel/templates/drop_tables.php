@@ -1,21 +1,21 @@
-<h1>Уничтожение таблиц базы данных досок объявлений</h1>
+<h1>РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№</h1>
 
 {{if:content:<p>#content#<p>}}
 
 {{if:result:<p>#result#</p>}}
 
 <p>
-<a href="/bbcpanel/admin/">Вернуться к меню администрирования</a><br>
-<a href="/bbcpanel/help#db_tables_drop">Справка</a>
+<a href="/bbcpanel/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/bbcpanel/help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/bbcpanel/drop_tables/" method="post">
-<input type="checkbox" name="drop_bbcpanel_categories_table" value="ksh_bbcpanel_categories">Категории досок объявлений<br>
-<input type="checkbox" name="drop_bbcpanel_bbs_table" value="ksh_bbcpanel_bbs">Доски объявлений<br>
-<input type="checkbox" name="drop_bbcpanel_privileges_table" value="ksh_bbcpanel_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_bbcpanel_categories_table" value="ksh_bbcpanel_categories">РљР°С‚РµРіРѕСЂРёРё РґРѕСЃРѕРє РѕР±СЉСЏРІР»РµРЅРёР№<br>
+<input type="checkbox" name="drop_bbcpanel_bbs_table" value="ksh_bbcpanel_bbs">Р”РѕСЃРєРё РѕР±СЉСЏРІР»РµРЅРёР№<br>
+<input type="checkbox" name="drop_bbcpanel_privileges_table" value="ksh_bbcpanel_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

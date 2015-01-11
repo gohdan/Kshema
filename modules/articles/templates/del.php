@@ -1,26 +1,26 @@
-<h1>Удаление статьи</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ СЃС‚Р°С‚СЊРё</h1>
 
 {{if:show_admin_link:
 <p>
-<a href="#inst_root#/articles/admin/">Вернуться в меню администрирования</a><br>
-<a href="#inst_root#/articles/help#bb_del">Справка</a>
+<a href="#inst_root#/articles/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="#inst_root#/articles/help#bb_del">РЎРїСЂР°РІРєР°</a>
 </p>
 }}
 
-{{if:show_user_articles_link:<p><a href="#inst_root#/articles/view_by_user/">Мои статьи</a></p>}}
+{{if:show_user_articles_link:<p><a href="#inst_root#/articles/view_by_user/">РњРѕРё СЃС‚Р°С‚СЊРё</a></p>}}
 
-{{if:category:<p><a href="#inst_root#/articles/view_by_category/#category#/">В категорию</a></p>}}
+{{if:category:<p><a href="#inst_root#/articles/view_by_category/#category#/">Р’ РєР°С‚РµРіРѕСЂРёСЋ</a></p>}}
 
 {{if:result:<p>#result#</p>}}
 
 {{if:show_del_form:
-<p>Вы действительно хотите удалить статью <b>#title#</b>?</p>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЃС‚Р°С‚СЊСЋ <b>#title#</b>?</p>
 
 
 <form action="#inst_root#/articles/del/#id#/" method="post">
 
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Не удалять">
-<input type="submit" name="do_del" value="Удалить">
+<input type="submit" name="do_not_del" value="РќРµ СѓРґР°Р»СЏС‚СЊ">
+<input type="submit" name="do_del" value="РЈРґР°Р»РёС‚СЊ">
 </form>
 }}

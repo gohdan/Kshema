@@ -1,9 +1,9 @@
-<h1>Дополнительное оборудование для #model_title#</h1>
+<h1>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ РґР»СЏ #model_title#</h1>
 
 <p>#result#</p>
 
 <p>
-{{if:if_show_add_link:<a href="/index.php?module=auto_models&action=equipment_add&model=#model_id#">Добавить</a><br>}}
+{{if:if_show_add_link:<a href="/index.php?module=auto_models&action=equipment_add&model=#model_id#">Р”РѕР±Р°РІРёС‚СЊ</a><br>}}
 </p>
 
 <table>

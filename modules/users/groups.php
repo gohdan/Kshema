@@ -27,19 +27,19 @@ function users_groups_add()
 					'".mysql_real_escape_string($_POST['redirect'])."'
 					)";
                 exec_query($sql_query);
-                $content['result'] .= "Группа добавлена";
+                $content['result'] .= "Р“СЂСѓРїРїР° РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("group title is empty");
-                $content['result'] .= "Пожалуйста, задайте название группы";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РіСЂСѓРїРїС‹";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: users_groups_add ***");
@@ -80,7 +80,7 @@ function users_group_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: users_group_del ***");
@@ -122,7 +122,7 @@ function users_groups_view()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: users_groups_view ***");
@@ -167,12 +167,12 @@ function users_group_edit()
 					`redirect` = '".mysql_real_escape_string($_POST['redirect'])."'
 					WHERE `id` = '".mysql_real_escape_string($group_id)."'";
                 exec_query($sql_query);
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("group title is empty");
-                $content['result'] .= "Пожалуйста, задайте название группы";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РіСЂСѓРїРїС‹";
             }
         }
         else
@@ -191,7 +191,7 @@ function users_group_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: users_group_edit ***");

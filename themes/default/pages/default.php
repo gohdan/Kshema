@@ -11,7 +11,7 @@ END;
 echo ($template['title']);
 echo <<<END
 </title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-cp1251" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel='stylesheet' href='/themes/default/css/main.css' type='text/css' />
 
 END;

@@ -1,7 +1,7 @@
-<h1>Добавление цветов #model_title#</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ С†РІРµС‚РѕРІ #model_title#</h1>
 
 <p>
-<a href="/index.php?module=auto_models&action=colors_view&model=#model#">К просмотру цветов этой модели</a>
+<a href="/index.php?module=auto_models&action=colors_view&model=#model#">Рљ РїСЂРѕСЃРјРѕС‚СЂСѓ С†РІРµС‚РѕРІ СЌС‚РѕР№ РјРѕРґРµР»Рё</a>
 </p>
 
 <p>#result#</p>
@@ -11,9 +11,9 @@
 {{if:if_show_add_form:
 <form action="/index.php?module=auto_models&action=colors_add&model=#model#" method="post" enctype="multipart/form-data">
 <input type="hidden" name="model" value="#model#">
-Название: <input type="text" name="title"><br>
-Изображение: <input type="file" name="image"><br>
-Код: <input type="text" name="code"><br>
-<input type="submit" name="do_add" value="Добавить">
+РќР°Р·РІР°РЅРёРµ: <input type="text" name="title"><br>
+РР·РѕР±СЂР°Р¶РµРЅРёРµ: <input type="file" name="image"><br>
+РљРѕРґ: <input type="text" name="code"><br>
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>
 }}

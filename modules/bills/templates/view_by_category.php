@@ -2,23 +2,23 @@
 
 {{if:show_admin_link:
 <p>
-<a href="/bills/categories_view/">К списку категорий</a><br>
-<a href="/bills/help#view_by_category">Справка</a>
+<a href="/bills/categories_view/">Рљ СЃРїРёСЃРєСѓ РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/bills/help#view_by_category">РЎРїСЂР°РІРєР°</a>
 </p>}}
 
-{{if:show_link_on_main:<p><a href="/#module_name#/">На главную страницу</a></p>}}
+{{if:show_link_on_main:<p><a href="/#module_name#/">РќР° РіР»Р°РІРЅСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ</a></p>}}
 
-{{if:category_id:<p><a href="/bills/add/#category_id#/">Добавить объявление</a></p>}}
+{{if:category_id:<p><a href="/bills/add/#category_id#/">Р”РѕР±Р°РІРёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ</a></p>}}
 
-{{if:parent_link:<p><a href="#module_name##action#/#parent_link#/">На уровень выше</a></p>}}
+{{if:parent_link:<p><a href="#module_name##action#/#parent_link#/">РќР° СѓСЂРѕРІРµРЅСЊ РІС‹С€Рµ</a></p>}}
 
-{{if:parents:Последовательность категорий: #parents#}}
+{{if:parents:РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РєР°С‚РµРіРѕСЂРёР№: #parents#}}
 
-{{if:subcategories:<h2>Категории</h2>}}
+{{if:subcategories:<h2>РљР°С‚РµРіРѕСЂРёРё</h2>}}
 
 #subcategories#
 
-{{if:bills:<h2>Объявления</h2>}}
+{{if:bills:<h2>РћР±СЉСЏРІР»РµРЅРёСЏ</h2>}}
 <table summary="bills">
 #elements#
 </table>

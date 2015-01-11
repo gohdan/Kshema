@@ -1,37 +1,37 @@
-<h1>Учёт товара#string#</h1>
+<h1>РЈС‡С‘С‚ С‚РѕРІР°СЂР°#string#</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
-<h2>Выдано</h2>
+<h2>Р’С‹РґР°РЅРѕ</h2>
 
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="tabl">
 <tr>
-<th style="padding: 10px">Дата</th>
-<th style="padding: 10px">Время</th>
-<th style="padding: 10px">Наименование</th>
-<th style="padding: 10px">ед. изм.</th>
-<th style="padding: 10px">кол-во</th>
-<th style="padding: 10px">ФИО</th>
-<th style="padding: 10px">Объект</th>
-<th style="padding: 10px">Комментарий</th>
+<th style="padding: 10px">Р”Р°С‚Р°</th>
+<th style="padding: 10px">Р’СЂРµРјСЏ</th>
+<th style="padding: 10px">РќР°РёРјРµРЅРѕРІР°РЅРёРµ</th>
+<th style="padding: 10px">РµРґ. РёР·Рј.</th>
+<th style="padding: 10px">РєРѕР»-РІРѕ</th>
+<th style="padding: 10px">Р¤РРћ</th>
+<th style="padding: 10px">РћР±СЉРµРєС‚</th>
+<th style="padding: 10px">РљРѕРјРјРµРЅС‚Р°СЂРёР№</th>
 </tr>
 #inouts_out#
 </table>
 
-<h2>Получено</h2>
+<h2>РџРѕР»СѓС‡РµРЅРѕ</h2>
 
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC" class="tabl">
 <tr>
-<th style="padding: 10px">Дата</th>
-<th style="padding: 10px">Время</th>
-<th style="padding: 10px">Наименование</th>
-<th style="padding: 10px">ед. изм.</th>
-<th style="padding: 10px">кол-во</th>
-<th style="padding: 10px">ФИО</th>
-<th style="padding: 10px">Объект</th>
-<th style="padding: 10px">Комментарий</th>
+<th style="padding: 10px">Р”Р°С‚Р°</th>
+<th style="padding: 10px">Р’СЂРµРјСЏ</th>
+<th style="padding: 10px">РќР°РёРјРµРЅРѕРІР°РЅРёРµ</th>
+<th style="padding: 10px">РµРґ. РёР·Рј.</th>
+<th style="padding: 10px">РєРѕР»-РІРѕ</th>
+<th style="padding: 10px">Р¤РРћ</th>
+<th style="padding: 10px">РћР±СЉРµРєС‚</th>
+<th style="padding: 10px">РљРѕРјРјРµРЅС‚Р°СЂРёР№</th>
 </tr>
 #inouts_in#
 </table>

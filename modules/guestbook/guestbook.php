@@ -45,13 +45,13 @@ function add()
 			else
 			{
 				$result = 0;
-				$content['result'] .= "Неправильно введено проверочное слово.";
+				$content['result'] .= "РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅРѕ РїСЂРѕРІРµСЂРѕС‡РЅРѕРµ СЃР»РѕРІРѕ.";
 			}
 
 			if ("" == $_POST['name'] || "" == $_POST['text'] || "" == $_POST['title'])
 			{
 				$result = 0;
-				$content['result'] .= "Заполнены не все поля, отмеченные звёздочкой.";
+				$content['result'] .= "Р—Р°РїРѕР»РЅРµРЅС‹ РЅРµ РІСЃРµ РїРѕР»СЏ, РѕС‚РјРµС‡РµРЅРЅС‹Рµ Р·РІС‘Р·РґРѕС‡РєРѕР№.";
 			}
 
 			if ($result)
@@ -75,9 +75,9 @@ function add()
 				)";
 				exec_query($sql_query);
 				if (0 == mysql_errno())
-					$content['result'] .= "Сообщение успешно добавлено";
+					$content['result'] .= "РЎРѕРѕР±С‰РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅРѕ";
 				else
-					$content['result'] .= "Не удалось добавить сообщение, ошибка базы данных";
+					$content['result'] .= "РќРµ СѓРґР°Р»РѕСЃСЊ РґРѕР±Р°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 			}
 			else
 			{
@@ -157,9 +157,9 @@ function edit()
 				WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
 			exec_query($sql_query);
 			if (0 == mysql_errno())
-				$content['result'] = "Изменение успешно записано";
+				$content['result'] = "РР·РјРµРЅРµРЅРёРµ СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅРѕ";
 			else
-				$content['result'] = "Не удалось обновить запись, ошибка базы данных";
+				$content['result'] = "РќРµ СѓРґР°Р»РѕСЃСЊ РѕР±РЅРѕРІРёС‚СЊ Р·Р°РїРёСЃСЊ, РѕС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…";
 		}
 		else
 			debug ("user doesn't have admin rights");
@@ -255,7 +255,7 @@ function view_by_category()
 	if ($priv -> has("guestbook", "admin", "write"))
 		$content['show_admin_link'] = "yes";
 
-	$content['heading'] = "Просмотр сообщений";
+	$content['heading'] = "РџСЂРѕСЃРјРѕС‚СЂ СЃРѕРѕР±С‰РµРЅРёР№";
 
 	if(isset($_GET['category']))
 	{

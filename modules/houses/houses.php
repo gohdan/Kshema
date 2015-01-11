@@ -34,14 +34,14 @@ function houses($category)
         else $content .= substr(stripslashes($row['full_text'], 0, 200))."...";
 
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/houses/view/".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/houses/view/".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/houses/admin/\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/houses/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: houses_houses ***");
@@ -75,14 +75,14 @@ function lasthouses($category)
         else $content .= substr(stripslashes($row['full_text']), 0, 200)."...";
 
         $content .= "<br>
-                    <span class=\"more\"><a href=\"/houses/view/".$row['id']."\">Подробнее...</a></span>
+                    <span class=\"more\"><a href=\"/houses/view/".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>
                 </td></tr>
         ";
     }
     mysql_free_result($result);
     $content .= "</table>";
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/houses/admin/\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/houses/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     return $content;
     debug("*** end: lasthouses ***");
@@ -137,7 +137,7 @@ function houses_hook()
 	}
     mysql_free_result($result);
 
-    if (1 == $user['id']) $content .= "<p><a href=\"/houses/admin/\">Администрирование</a></p>";
+    if (1 == $user['id']) $content .= "<p><a href=\"/houses/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a></p>";
 
     debug("*** end: houses_hook ***");
     return $content;
@@ -171,14 +171,14 @@ function houses_view_by_category()
         {
             debug ("have houses to delete");
             exec_query("DELETE FROM ksh_houses WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Проект успешно удален";
+            $content['result'] .= "РџСЂРѕРµРєС‚ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ";
         }
         else
         {
             debug ("don't have houses to delete");
         }
 
-        $content['admin_link'] .= "<a href=\"/houses/admin/\">Администрирование</a><br><a href=\"/houses/add_houses/".$category."\">Добавить проект дома</a>";
+        $content['admin_link'] .= "<a href=\"/houses/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a><br><a href=\"/houses/add_houses/".$category."\">Р”РѕР±Р°РІРёС‚СЊ РїСЂРѕРµРєС‚ РґРѕРјР°</a>";
 		$if_show_hidden = "yes";
     }
 
@@ -204,7 +204,7 @@ function houses_view_by_category()
 
         $content['houses'][$i]['id'] = stripslashes($row['id']);
         if (1 == $user['id'])
-            $content['houses'][$i]['edit_link'] = stripslashes($row['id']).". ".stripslashes($row['name'])."<br><a href=\"/houses/edit/".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/houses/del/".$row['id']."\">Удалить</a>";
+            $content['houses'][$i]['edit_link'] = stripslashes($row['id']).". ".stripslashes($row['name'])."<br><a href=\"/houses/edit/".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/houses/del/".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
 		$i++;
     }
     mysql_free_result($result);
@@ -308,12 +308,12 @@ function houses_add()
 					'".mysql_real_escape_string(files_upload ("pdf", $project_dir))."',
 					'".mysql_real_escape_string($_POST['if_show'])."'					
 					)");
-                $content['result'] .= "Проект добавлен";
+                $content['result'] .= "РџСЂРѕРµРєС‚ РґРѕР±Р°РІР»РµРЅ";
             }
             else
             {
                 debug ("houses name is empty");
-                $content['result'] .= "Пожалуйста, задайте название проекта дома";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р° РґРѕРјР°";
             }
         }
         else
@@ -324,7 +324,7 @@ function houses_add()
     else
     {
         debug ("user isn't admin");
-        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+        $content['content'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_add ***");
@@ -403,12 +403,12 @@ function houses_edit()
 					composition='".mysql_real_escape_string($_POST['composition'])."',
 					`if_show` = '".mysql_real_escape_string($_POST['if_show'])."'
 					WHERE id='".mysql_real_escape_string($houses_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("houses name is empty");
-                $content['result'] .= "Пожалуйста, задайте название проекта дома";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРµРєС‚Р° РґРѕРјР°";
             }
         }
         else
@@ -460,7 +460,7 @@ function houses_edit()
     else
     {
         debug ("user isn't admin");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_edit ***");
@@ -494,7 +494,7 @@ function houses_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: houses_del ***");
@@ -664,8 +664,8 @@ function houses_view()
 
 	if (1 == $user['id'])
 	{
-		$content['edit_link'] = "<a href=\"/houses/edit/".stripslashes($houses['id'])."\">Редактировать</a>";
-		$content['del_link'] = "<a href=\"/houses/del/".stripslashes($houses['id'])."\">Удалить</a>";
+		$content['edit_link'] = "<a href=\"/houses/edit/".stripslashes($houses['id'])."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+		$content['del_link'] = "<a href=\"/houses/del/".stripslashes($houses['id'])."\">РЈРґР°Р»РёС‚СЊ</a>";
 	}
 	else
 	{
@@ -718,7 +718,7 @@ function houses_archive()
     global $user;
 	global $page_title;
 
-	$page_title .= " | Архив проектов домов";
+	$page_title .= " | РђСЂС…РёРІ РїСЂРѕРµРєС‚РѕРІ РґРѕРјРѕРІ";
     $content = array(
     	'content' => '',
         'houses' => '',
@@ -740,14 +740,14 @@ function houses_archive()
 
         $content['houses'][$i]['full_text'] = stripslashes($row['full_text']);
 
-        $content['houses'][$i]['more'] = "<span class=\"more\"><a href=\"/houses/view/".$row['id']."\">Подробнее...</a></span>";
+        $content['houses'][$i]['more'] = "<span class=\"more\"><a href=\"/houses/view/".$row['id']."\">РџРѕРґСЂРѕР±РЅРµРµ...</a></span>";
         $content['houses'][$i]['edit_link'] = "";
         $content['houses'][$i]['descr_image'] = "";
         $i++;
     }
     mysql_free_result($result);
 
-    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/houses/admin/\">Администрирование</a>";
+    if (1 == $user['id']) $content['admin_link'] .= "<a href=\"/houses/admin/\">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a>";
 
     return $content;
     debug("*** end: houses_archive ***");
@@ -782,7 +782,7 @@ function houses_search()
 
 	if (isset($_GET['page_template'])) $content['page_template'] = $_GET['page_template'];
 
-	$config['pages']['page_title'] = "Поиск в каталоге";
+	$config['pages']['page_title'] = "РџРѕРёСЃРє РІ РєР°С‚Р°Р»РѕРіРµ";
 	$config['pages']['page_name'] = "search";
 
 
@@ -821,7 +821,7 @@ function houses_search()
             $content['houses'][$i]['sq_living'] = stripslashes($row['sq_living']);
 
 	        if (1 == $user['id'])
-	            $content['houses'][$i]['edit_link'] = "<a href=\"/houses/edit/".$row['id']."\">Редактировать</a>&nbsp;<a href=\"/houses/del/".$row['id']."\">Удалить</a>";
+	            $content['houses'][$i]['edit_link'] = "<a href=\"/houses/edit/".$row['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>&nbsp;<a href=\"/houses/del/".$row['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
 	        else
             	$content['houses'][$i]['edit_link'] = "";
 			$i++;

@@ -1,23 +1,23 @@
-<h1>Выдача товара</h1>
+<h1>Р’С‹РґР°С‡Р° С‚РѕРІР°СЂР°</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 <form action="/index.php?module=store" method="post">
-Товар: <select name="good">
+РўРѕРІР°СЂ: <select name="good">
 #goods_select#
 </select><br>
 
-Выдать количество:<input type="text" name="qty"><br>
+Р’С‹РґР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ:<input type="text" name="qty"><br>
 
-На объект: <select name="object">#objects_select#</select><br>
+РќР° РѕР±СЉРµРєС‚: <select name="object">#objects_select#</select><br>
 
-Сотруднику: <select name="user">#users_select#</select><br>
+РЎРѕС‚СЂСѓРґРЅРёРєСѓ: <select name="user">#users_select#</select><br>
 
-Комментарий:
+РљРѕРјРјРµРЅС‚Р°СЂРёР№:
 <textarea name="commentary"></textarea><br>
 
-<input type="submit" name="do_out_from_category" value="Выдать">
+<input type="submit" name="do_out_from_category" value="Р’С‹РґР°С‚СЊ">
 
 </form>

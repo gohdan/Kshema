@@ -22,7 +22,7 @@ function bills_admin()
     	'content' => '',
     	'heading' => ''
     );
-    $content['heading'] = "Администрирование объявлений";
+    $content['heading'] = "РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёР№";
 	debug ("*** end: bills_admin ***");
     return $content;
 }
@@ -409,7 +409,7 @@ function bills_default_action()
 								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 							else
 							{
-								$config['themes']['page_title']['action'] = "Просмотр объявлений";
+								$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉСЏРІР»РµРЅРёР№";
 								$bill = new Bill();
 								$cnt = $bill -> $config['bills']['default_action']();
 	            			    $content .= gen_content("bills", $config['bills']['default_action'], array_merge($module_data, $cnt));
@@ -441,7 +441,7 @@ function bills_default_action()
 						break;
 
                         case "help":
-							$config['themes']['page_title']['action'] = "Справка";
+							$config['themes']['page_title']['action'] = "РЎРїСЂР°РІРєР°";
                             $content .= gen_content("bills", "help", bills_help());
                         break;
 
@@ -458,21 +458,21 @@ function bills_default_action()
                         break;
 
 						case "privileges_edit":
-							$template['title'] .= " - Назначение прав";
+							$template['title'] .= " - РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ";
 							$priv = new Privileges();
 							$cnt = $priv -> edit("bills");
 							$content .= gen_content("bills", "privileges_edit", array_merge($module_data, $cnt));
 						break;
 
 						case "categories_view":
-							$config['themes']['page_title']['action'] = "Категории";
+							$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> view("ksh_bills_categories");
 							$content .= gen_content("bills", "categories_view", array_merge($module_data, $cnt));
 						break;
 
                         case "categories_add":
-							$config['themes']['page_title']['action'] = "Добавление категории";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> add("ksh_bills_categories");
                             $content .= gen_content("bills", "categories_add", array_merge($module_data, $cnt));
@@ -481,7 +481,7 @@ function bills_default_action()
                         case "categories_del":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Удаление категории";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> del("ksh_bills_categories", "ksh_bills", $_GET['category']);
 							$content .= gen_content("bills", "categories_del", array_merge($module_data, $cnt));
@@ -490,7 +490,7 @@ function bills_default_action()
 						case "categories_edit":
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование категории";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 							$cat = new Category();
 							$cnt = $cat -> edit("ksh_bills_categories", $_GET['category']);
 	                        $content .= gen_content("bills", "categories_edit", array_merge($module_data, $cnt));
@@ -524,7 +524,7 @@ function bills_default_action()
 								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 							else
 							{
-								$config['themes']['page_title']['action'] = "Просмотр объявлений пользователя";
+								$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉСЏРІР»РµРЅРёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
 								/*
 								$bill = new Bill();
 								$cnt = $bill -> view_by_user();
@@ -544,7 +544,7 @@ function bills_default_action()
                         break;
 
                         case "add":
-							$config['themes']['page_title']['action'] = "Добавление объявления";
+							$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							/*
 							if (isset($_GET['element']))
 								$_GET['category'] = $_GET['element'];
@@ -561,7 +561,7 @@ function bills_default_action()
                         break;
 
                         case "del":
-							$config['themes']['page_title']['action'] = "Удаление объявления";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							/*
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
@@ -578,7 +578,7 @@ function bills_default_action()
 
 
                         case "edit":
-							$config['themes']['page_title']['action'] = "Редактирование объявления";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							/*
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
@@ -612,7 +612,7 @@ function bills_default_action()
 							$bill = new Bill();
 							$cnt = $bill -> view();
 						*/
-							$config['themes']['page_title']['action'] = "Просмотр объявления";
+							$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							if ($user['id'])
 								$module_data['show_user_bills_link'] = "yes";
 							$dob = new DataObject();
@@ -627,7 +627,7 @@ function bills_default_action()
 						break;
 
 						case "sections_edit":
-							$config['themes']['page_title']['action'] = "Назначение разделов";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ СЂР°Р·РґРµР»РѕРІ";
 							if ($priv -> has("bills", "sections_edit", "write"))
 								$content .= gen_content("bills", "sections_edit", array_merge($module_data, bills_sections_edit()));
 							else
@@ -635,7 +635,7 @@ function bills_default_action()
 						break;
 						
 						case "titles_edit":
-							$config['themes']['page_title']['action'] = "Назначение специфичных названий разделов";
+							$config['themes']['page_title']['action'] = "РќР°Р·РЅР°С‡РµРЅРёРµ СЃРїРµС†РёС„РёС‡РЅС‹С… РЅР°Р·РІР°РЅРёР№ СЂР°Р·РґРµР»РѕРІ";
 							if ($priv -> has("bills", "titles_edit", "write"))
 								$content .= gen_content("bills", "titles_edit", array_merge($module_data, bills_titles_edit()));
 							else
@@ -647,7 +647,7 @@ function bills_default_action()
 						/*
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование объявления";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							$priv = new Privileges();
 							if ($priv -> has("bills", "moderate_edit", "write"))
 							{
@@ -660,7 +660,7 @@ function bills_default_action()
 						*/
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Редактирование объявления";
+							$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							$priv = new Privileges();
 							if ($priv -> has("bills", "moderate_edit", "write"))
 							{
@@ -684,7 +684,7 @@ function bills_default_action()
 						/*
 							if (isset($_GET['element']))
 								$_GET['bill'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Удаление объявления";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							$priv = new Privileges();
 							if ($priv -> has("bills", "moderate_del", "write"))
 							{
@@ -693,7 +693,7 @@ function bills_default_action()
 								if ($result_del)
 								{
 									$cnt['show_del_form'] = '';
-									$cnt['result'] = "Объявление успешно удалено";
+									$cnt['result'] = "РћР±СЉСЏРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅРѕ";
 								}
 	                            $content .= gen_content("bills", "del", array_merge($module_data, $cnt));
 							}
@@ -702,7 +702,7 @@ function bills_default_action()
 						*/
 							if (isset($_GET['element']))
 								$_GET['article'] = $_GET['element'];
-							$config['themes']['page_title']['action'] = "Удаление объявления";
+							$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РѕР±СЉСЏРІР»РµРЅРёСЏ";
 							$priv = new Privileges();
 							if ($priv -> has("bills", "moderate_del", "write"))
 							{
@@ -719,7 +719,7 @@ function bills_default_action()
 								if (isset($result_del) && $result_del)
 								{
 									$cnt['show_del_form'] = '';
-									$cnt['result'] = "Объявление успешно удалено";
+									$cnt['result'] = "РћР±СЉСЏРІР»РµРЅРёРµ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅРѕ";
 								}
 	                            $content .= gen_content("bills", "moderate_del", array_merge($module_data, $cnt));
 							}
@@ -741,14 +741,14 @@ function bills_default_action()
 								$table = $config['bills']['categories_table'];
 								$cat = new Category();
 								$cat -> create_table($table."_".$satellite);
-								$cnt = $sat -> synchronize($table, "Категории");
+								$cnt = $sat -> synchronize($table, "РљР°С‚РµРіРѕСЂРёРё");
 								$content .= gen_content("base", "satellite_synchronize", array_merge($cnt, $module_data));								
 
 								$module_data['show_heading'] = "";
 								$module_data['show_satellite_link'] = "";
 								$table = $config['bills']['table'];
 								bills_table_create($table."_".$satellite);
-								$cnt = $sat -> synchronize($table, "Объявления");
+								$cnt = $sat -> synchronize($table, "РћР±СЉСЏРІР»РµРЅРёСЏ");
 								$content .= gen_content("base", "satellite_synchronize", array_merge($cnt, $module_data));
 							}
 						break;
@@ -787,7 +787,7 @@ function bills_default_action()
 						$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 					else
 					{
-						$config['themes']['page_title']['action'] = "Просмотр объявлений пользователя";
+						$config['themes']['page_title']['action'] = "РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉСЏРІР»РµРЅРёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
 
 						if (isset($_GET['user']))
 							$user_id = $_GET['user'];

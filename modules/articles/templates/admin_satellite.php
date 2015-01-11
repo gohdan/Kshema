@@ -1,17 +1,17 @@
-<h1>Управление статьями на сателлите</h1>
+<h1>РЈРїСЂР°РІР»РµРЅРёРµ СЃС‚Р°С‚СЊСЏРјРё РЅР° СЃР°С‚РµР»Р»РёС‚Рµ</h1>
 
 #content#
 
 <p>
-<a href="#inst_root#/users/profile_view/">Ваш профиль</a><br>
-<a href="#inst_root#/bbcpanel/bb_edit/#id#/">Обратно на сателлит</a>
+<a href="#inst_root#/users/profile_view/">Р’Р°С€ РїСЂРѕС„РёР»СЊ</a><br>
+<a href="#inst_root#/bbcpanel/bb_edit/#id#/">РћР±СЂР°С‚РЅРѕ РЅР° СЃР°С‚РµР»Р»РёС‚</a>
 </p>
 
 <p>
-<a href="#inst_root#/articles/config_edit/satellite_#id#/">Настройки</a><br>
-<a href="#inst_root#/articles/sections_edit/satellite_#id#/">Разделы</a><br>
-<a href="#inst_root#/articles/titles_edit/satellite_#id#/">Специфичные названия разделов</a><br>
-<a href="#inst_root#/articles/synchronize/satellite_#id#/">Синхронизировать центральное хранилище статей с сателлитом</a><br>
+<a href="#inst_root#/articles/config_edit/satellite_#id#/">РќР°СЃС‚СЂРѕР№РєРё</a><br>
+<a href="#inst_root#/articles/sections_edit/satellite_#id#/">Р Р°Р·РґРµР»С‹</a><br>
+<a href="#inst_root#/articles/titles_edit/satellite_#id#/">РЎРїРµС†РёС„РёС‡РЅС‹Рµ РЅР°Р·РІР°РЅРёСЏ СЂР°Р·РґРµР»РѕРІ</a><br>
+<a href="#inst_root#/articles/synchronize/satellite_#id#/">РЎРёРЅС…СЂРѕРЅРёР·РёСЂРѕРІР°С‚СЊ С†РµРЅС‚СЂР°Р»СЊРЅРѕРµ С…СЂР°РЅРёР»РёС‰Рµ СЃС‚Р°С‚РµР№ СЃ СЃР°С‚РµР»Р»РёС‚РѕРј</a><br>
 </p>
 
 <hr>

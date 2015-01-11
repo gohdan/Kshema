@@ -7,11 +7,11 @@
 <select name="month">
 #month_select#
 </select>
-<input type="submit" class="button" name="do_select_city" value="Выбрать">
+<input type="submit" class="button" name="do_select_city" value="Р’С‹Р±СЂР°С‚СЊ">
 }}
 
 {{if:if_show_calculator:
-<p>Город: #city_title# <a href="/index.php?module=calc_adv&action=city_info&city=#city_id#" target="_new">Информация о городе</a>
+<p>Р“РѕСЂРѕРґ: #city_title# <a href="/index.php?module=calc_adv&action=city_info&city=#city_id#" target="_new">РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РіРѕСЂРѕРґРµ</a>
 </p>
 
 <form name="calculator" id="calculator" action="/index.php?module=calc_adv&action=calc" method="post">
@@ -28,20 +28,20 @@
 <tr>
 <th rowspan="2" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 <th height="42" scope="col">
-Хронометраж
+РҐСЂРѕРЅРѕРјРµС‚СЂР°Р¶
 </th>
 <th rowspan="2" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 {{if:if_show_prime:
 <th scope="col">
-Прайм %
+РџСЂР°Р№Рј %
 </th>
 <th rowspan="2" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 <th scope="col">
-Не прайм %
+РќРµ РїСЂР°Р№Рј %
 </th>
 <th rowspan="2" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 <th scope="col">
-Кол-во<br>выходов
+РљРѕР»-РІРѕ<br>РІС‹С…РѕРґРѕРІ
 </th>
 <th rowspan="2" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 }}
@@ -49,7 +49,7 @@
 {{if:if_show_time:#times#}}
 
 <th scope="col">
-Иногородний?
+РРЅРѕРіРѕСЂРѕРґРЅРёР№?
 </th>
 <th rowspan="2" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 </tr>
@@ -81,7 +81,7 @@
 			<th width="5%" rowspan="2" align="right" scope="col"><img src="/themes/calc_adv/images/right.jpg" width="45" height="225" /></th>
 		</tr>
 		<tr>
-			<th style="vertical-align: bottom" height="60" align="center" valign="bottom" scope="col"><a href="javascript:document.calculator.submit()"><img src="/themes/calc_adv/images/but_r.jpg" align="bottom" alt="Рассчитать стоимость" width="337" height="60" border="0" /></a></th>
+			<th style="vertical-align: bottom" height="60" align="center" valign="bottom" scope="col"><a href="javascript:document.calculator.submit()"><img src="/themes/calc_adv/images/but_r.jpg" align="bottom" alt="Р Р°СЃСЃС‡РёС‚Р°С‚СЊ СЃС‚РѕРёРјРѕСЃС‚СЊ" width="337" height="60" border="0" /></a></th>
 		</tr>
 		</table></td>
 </tr>
@@ -94,7 +94,7 @@
 
 {{if:if_show_result_string:
 <p class="result">
-#result# <a href="/temp/#filename_html#" target="_new">Результат для печати</a> <a href="/temp/#filename_csv#">Результат в Excel</a>
+#result# <a href="/temp/#filename_html#" target="_new">Р РµР·СѓР»СЊС‚Р°С‚ РґР»СЏ РїРµС‡Р°С‚Рё</a> <a href="/temp/#filename_csv#">Р РµР·СѓР»СЊС‚Р°С‚ РІ Excel</a>
 </p>
 }}
 
@@ -110,40 +110,40 @@
 			<th width="88%" height="114" scope="col">
 <table class="calculator_form">
 <tr>
-<th>Город</th>
+<th>Р“РѕСЂРѕРґ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Месяц</th>
+<th>РњРµСЃСЏС†</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Хронометраж</th>
+<th>РҐСЂРѕРЅРѕРјРµС‚СЂР°Р¶</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 {{if:if_show_result_prime:
 <th>
-Выходов<br>в прайм
+Р’С‹С…РѕРґРѕРІ<br>РІ РїСЂР°Р№Рј
 </th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 <th>
-Выходов<br>не в прайм
+Р’С‹С…РѕРґРѕРІ<br>РЅРµ РІ РїСЂР°Р№Рј
 </th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 }}
 
 {{if:result_if_show_result_time:#result_times#}}
 
-<th>Стоимость</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Сезонный<br>коэффициент</th>
+<th>РЎРµР·РѕРЅРЅС‹Р№<br>РєРѕСЌС„С„РёС†РёРµРЅС‚</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Стоимость<br>с коэфф-том</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ<br>СЃ РєРѕСЌС„С„-С‚РѕРј</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 {{if:result_if_noresident:
-<th>Коэфф-т<br>иногородности</th>
+<th>РљРѕСЌС„С„-С‚<br>РёРЅРѕРіРѕСЂРѕРґРЅРѕСЃС‚Рё</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Стоимость с поправкой<br>на иногородность</th>
+<th>РЎС‚РѕРёРјРѕСЃС‚СЊ СЃ РїРѕРїСЂР°РІРєРѕР№<br>РЅР° РёРЅРѕРіРѕСЂРѕРґРЅРѕСЃС‚СЊ</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 }}
-{{if:result_if_show_discount:<th>Скидка, %</th>
+{{if:result_if_show_discount:<th>РЎРєРёРґРєР°, %</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
-<th>Итоговая сумма</th>
+<th>РС‚РѕРіРѕРІР°СЏ СЃСѓРјРјР°</th>
 <th rowspan="2" height="42" class="bb" scope="col"><img src="/themes/calc_adv/images/bb.png" width="2" height="131" /></th>
 }}
 </tr>

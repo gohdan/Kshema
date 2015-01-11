@@ -1,23 +1,23 @@
-<h1>Администрирование статей</h1>
+<h1>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ СЃС‚Р°С‚РµР№</h1>
 
-<p><a href="#inst_root#/index.php?module=base&action=admin">Возврат в главное меню администрирования</a>
+<p><a href="#inst_root#/index.php?module=base&action=admin">Р’РѕР·РІСЂР°С‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a>
 
 <p>
-<a href="#inst_root#/articles/privileges_edit/">Назначение прав</a>
+<a href="#inst_root#/articles/privileges_edit/">РќР°Р·РЅР°С‡РµРЅРёРµ РїСЂР°РІ</a>
 </p>
 
 <p>
-<a href="#inst_root#/articles/add/">Добавить статью</a><br>
-<a href="#inst_root#/articles/view_by_user/">Мои статьи</a><br>
-<a href="#inst_root#/articles/categories_view/">Категории статей</a><br>
-<a href="#inst_root#/articles/config_edit/">Редактировать настройки</a>
+<a href="#inst_root#/articles/add/">Р”РѕР±Р°РІРёС‚СЊ СЃС‚Р°С‚СЊСЋ</a><br>
+<a href="#inst_root#/articles/view_by_user/">РњРѕРё СЃС‚Р°С‚СЊРё</a><br>
+<a href="#inst_root#/articles/categories_view/">РљР°С‚РµРіРѕСЂРёРё СЃС‚Р°С‚РµР№</a><br>
+<a href="#inst_root#/articles/config_edit/">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РЅР°СЃС‚СЂРѕР№РєРё</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных статей</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃС‚Р°С‚РµР№</h2>
 
-<a href="#inst_root#/articles/install_tables/">Создать базу данных статей</a><br>
-<a href="#inst_root#/articles/update_tables/">Обновить базу данных статей</a><br>
-<a href="#inst_root#/articles/drop_tables/">Уничтожить базу данных статей</a><br>
+<a href="#inst_root#/articles/install_tables/">РЎРѕР·РґР°С‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃС‚Р°С‚РµР№</a><br>
+<a href="#inst_root#/articles/update_tables/">РћР±РЅРѕРІРёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃС‚Р°С‚РµР№</a><br>
+<a href="#inst_root#/articles/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… СЃС‚Р°С‚РµР№</a><br>
 </p>

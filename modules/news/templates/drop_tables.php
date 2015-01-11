@@ -1,8 +1,8 @@
-<h1>Удаление таблиц базы данных новостей</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РЅРѕРІРѕСЃС‚РµР№</h1>
 
 <p>
-<a href="/news/admin/">Вернуться в меню администрирования новостей</a><br>
-<a href="/news/help#db_tables_drop">Справка</a>
+<a href="/news/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РЅРѕРІРѕСЃС‚РµР№</a><br>
+<a href="/news/help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 #content#
@@ -10,11 +10,11 @@
 {{if:result:<p>#result#</p>}}
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/news/drop_tables/" method="post">
-<input type="checkbox" name="drop_news_categories_table" value="ksh_news_categories">Категории новостей<br>
-<input type="checkbox" name="drop_news_table" value="ksh_news">Новости<br>
-<input type="checkbox" name="drop_news_privileges_table" value="ksh_news_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_news_categories_table" value="ksh_news_categories">РљР°С‚РµРіРѕСЂРёРё РЅРѕРІРѕСЃС‚РµР№<br>
+<input type="checkbox" name="drop_news_table" value="ksh_news">РќРѕРІРѕСЃС‚Рё<br>
+<input type="checkbox" name="drop_news_privileges_table" value="ksh_news_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

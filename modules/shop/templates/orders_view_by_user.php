@@ -1,4 +1,4 @@
-<h1>Просмотр заказов клиента #user_name#</h1>
+<h1>РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РєР°Р·РѕРІ РєР»РёРµРЅС‚Р° #user_name#</h1>
 
 <p>#user_email#</p>
 
@@ -6,14 +6,14 @@
 
 <p>#content#</p>
 
-<p>Фильтровать по статусу: <a href="/index.php?module=shop&action=orders_view_by_user&user=#user_id#">Новые</a> | #filters#</p>
+<p>Р¤РёР»СЊС‚СЂРѕРІР°С‚СЊ РїРѕ СЃС‚Р°С‚СѓСЃСѓ: <a href="/index.php?module=shop&action=orders_view_by_user&user=#user_id#">РќРѕРІС‹Рµ</a> | #filters#</p>
 
 <table>
 
 <tr>
-<th style="padding: 0px 3px 0px 3px">Номер</th>
-<th style="padding: 0px 3px 0px 3px">Статус</th>
-<th style="padding: 0px 3px 0px 3px">Изменён</th>
+<th style="padding: 0px 3px 0px 3px">РќРѕРјРµСЂ</th>
+<th style="padding: 0px 3px 0px 3px">РЎС‚Р°С‚СѓСЃ</th>
+<th style="padding: 0px 3px 0px 3px">РР·РјРµРЅС‘РЅ</th>
 </tr>
 #orders_by_user#
 

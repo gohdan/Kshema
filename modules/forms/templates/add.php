@@ -1,6 +1,6 @@
-<h1>Добавление анкеты</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ Р°РЅРєРµС‚С‹</h1>
 
-<p><a href="/index.php?module=forms&action=admin">Вернуться в меню администрирования анкет</a></p>
+<p><a href="/index.php?module=forms&action=admin">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ Р°РЅРєРµС‚</a></p>
 
 <hr>
 
@@ -10,8 +10,8 @@
 <p>#content#</p>
 
 <form action="/index.php?module=forms&action=add" method="post">
-    Название: <input type="text" name="name"><br>
-    Шаблон:<br>
+    РќР°Р·РІР°РЅРёРµ: <input type="text" name="name"><br>
+    РЁР°Р±Р»РѕРЅ:<br>
     <textarea name="template" cols="80" rows="30"></textarea><br>
-    <input type="submit" name="do_add" value="Добавить">
+    <input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

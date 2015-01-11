@@ -1,23 +1,23 @@
 <h1>#heading#</h1>
 
 <p>
-<a href="/modules/admin/">Вернуться в главное меню администрирования</a><br>
-<a href="/guestbook/help/">Справка</a>
+<a href="/modules/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ</a><br>
+<a href="/guestbook/help/">РЎРїСЂР°РІРєР°</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/guestbook/categories_view/">Список гостевых книг</a><br>
-<a href="/guestbook/add/">Добавить объявление</a>
+<a href="/guestbook/categories_view/">РЎРїРёСЃРѕРє РіРѕСЃС‚РµРІС‹С… РєРЅРёРі</a><br>
+<a href="/guestbook/add/">Р”РѕР±Р°РІРёС‚СЊ РѕР±СЉСЏРІР»РµРЅРёРµ</a>
 </p>
 
 <hr>
 
-<h2>Администрирование базы данных сообщений</h2>
+<h2>РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№</h2>
 
 <p>
-<a href="/guestbook/create_tables/">Создать таблицы базы данных</a><br>
-<a href="/guestbook/drop_tables/">Уничтожить таблицы базы данных</a><br>
-<a href="/guestbook/update_tables/">Обновить таблицы базы данных</a>
+<a href="/guestbook/create_tables/">РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/guestbook/drop_tables/">РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a><br>
+<a href="/guestbook/update_tables/">РћР±РЅРѕРІРёС‚СЊ С‚Р°Р±Р»РёС†С‹ Р±Р°Р·С‹ РґР°РЅРЅС‹С…</a>
 </p>

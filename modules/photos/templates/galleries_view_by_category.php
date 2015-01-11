@@ -1,11 +1,11 @@
 <h1>#category#</h1>
 
 <p>
-<a href="/index.php?module=photos&action=admin">Администрировать изображения</a>
+<a href="/index.php?module=photos&action=admin">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ</a>
 </p>
 
 <p>
-<a href="/index.php?module=photos&action=add_gallery&category=#category_id#">Добавить галерею</a>
+<a href="/index.php?module=photos&action=add_gallery&category=#category_id#">Р”РѕР±Р°РІРёС‚СЊ РіР°Р»РµСЂРµСЋ</a>
 </p>
 
 <p>#content#</p>

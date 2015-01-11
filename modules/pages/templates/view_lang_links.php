@@ -1,1 +1,1 @@
-Посмотреть: #view_lang_links#
+РџРѕСЃРјРѕС‚СЂРµС‚СЊ: #view_lang_links#

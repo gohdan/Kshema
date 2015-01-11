@@ -1,13 +1,13 @@
-<h1>Удаление товара из корзины</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚РѕРІР°СЂР° РёР· РєРѕСЂР·РёРЅС‹</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
-<p>Вы действительно хотите удалить товар из корзины?</b>
+<p>Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ С‚РѕРІР°СЂ РёР· РєРѕСЂР·РёРЅС‹?</b>
 
 <form action="/index.php?module=store&action=cart_out" method="post">
 <input type="hidden" name="id" value="#id#">
-<input type="submit" name="do_not_del" value="Нет">
-<input type="submit" name="do_del" value="Да">
+<input type="submit" name="do_not_del" value="РќРµС‚">
+<input type="submit" name="do_del" value="Р”Р°">
 </form>

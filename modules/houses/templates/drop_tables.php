@@ -1,16 +1,16 @@
-<h1>Удаление таблиц базы данных проектов домов</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРѕРµРєС‚РѕРІ РґРѕРјРѕРІ</h1>
 
-<a href="/houses/admin/">Вернуться в меню администрирования проектов домов</a>
+<a href="/houses/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РїСЂРѕРµРєС‚РѕРІ РґРѕРјРѕРІ</a>
 
 #content#
 
 <p>#result#</p>
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/houses/drop_tables/" method="post">
-<input type="checkbox" name="drop_houses_categories_table" value="ksh_houses_categories">Категории проектов домов<br>
-<input type="checkbox" name="drop_houses_table" value="ksh_houses">Проекты домов<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_houses_categories_table" value="ksh_houses_categories">РљР°С‚РµРіРѕСЂРёРё РїСЂРѕРµРєС‚РѕРІ РґРѕРјРѕРІ<br>
+<input type="checkbox" name="drop_houses_table" value="ksh_houses">РџСЂРѕРµРєС‚С‹ РґРѕРјРѕРІ<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>

@@ -28,19 +28,19 @@ function photos_galleries_add()
             {
                 debug ("gallery name isn't empty");
                 exec_query("INSERT INTO ksh_photos_galleries (name, category, descr) VALUES ('".mysql_real_escape_string($_POST['name'])."', '".mysql_real_escape_string($_POST['category'])."', '".mysql_real_escape_string($_POST['descr'])."')");
-                $content['result'] .= "Галерея добавлена";
+                $content['result'] .= "Р“Р°Р»РµСЂРµСЏ РґРѕР±Р°РІР»РµРЅР°";
             }
             else
             {
                 debug ("gallery name is empty");
-                $content['result'] .= "Пожалуйста, задайте имя галереи";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РёРјСЏ РіР°Р»РµСЂРµРё";
             }
         }
     }
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_galleries_add ***");
@@ -68,7 +68,7 @@ function photos_galleries_view()
         {
 			$content['galleries'][$i]['id'] = stripslashes($gallery['id']);
 			$content['galleries'][$i]['name'] = stripslashes($gallery['name']);
-			if (1 == $user['id']) $content['galleries'][$i]['edit_link'] = "<a href=\"/index.php?module=photos&action=gallery_edit&gallery=".$gallery['id']."\">Редактировать</a>";
+			if (1 == $user['id']) $content['galleries'][$i]['edit_link'] = "<a href=\"/index.php?module=photos&action=gallery_edit&gallery=".$gallery['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
 			$i++;
         }
         mysql_free_result($result);
@@ -76,7 +76,7 @@ function photos_galleries_view()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_galleries_view ***");
@@ -110,14 +110,14 @@ function photos_gallery_view()
         {
             debug ("have photo to delete");
             exec_query("DELETE FROM ksh_photos WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Фотография успешно удалена";
+            $content['result'] .= "Р¤РѕС‚РѕРіСЂР°С„РёСЏ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
         }
         else
         {
             debug ("don't have photos to delete");
         }
 
-        $content['add_photo_link'] .= "<a href=\"/index.php?module=photos&action=add&gallery=".$_GET['gallery']."\">Добавить фотографию</a>";
+        $content['add_photo_link'] .= "<a href=\"/index.php?module=photos&action=add&gallery=".$_GET['gallery']."\">Р”РѕР±Р°РІРёС‚СЊ С„РѕС‚РѕРіСЂР°С„РёСЋ</a>";
     }
         $result = exec_query("SELECT * FROM ksh_photos WHERE gallery='".mysql_real_escape_string($_GET['gallery'])."' ORDER BY `id`");
         while ($photo = mysql_fetch_array($result))
@@ -131,8 +131,8 @@ function photos_gallery_view()
             
             if (1 == $user['id'])
             {
-				$content['photos'][$i]['edit_link'] = "<a href=\"/index.php?module=photos&action=edit&photo=".$photo['id']."\">Редактировать</a>";
-				$content['photos'][$i]['del_link'] = "<a href=\"/index.php?module=photos&action=del&photo=".$photo['id']."\">Удалить</a>";
+				$content['photos'][$i]['edit_link'] = "<a href=\"/index.php?module=photos&action=edit&photo=".$photo['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
+				$content['photos'][$i]['del_link'] = "<a href=\"/index.php?module=photos&action=del&photo=".$photo['id']."\">РЈРґР°Р»РёС‚СЊ</a>";
             }
 			else
 			{
@@ -171,7 +171,7 @@ function photos_galleries_view_by_category()
         else
     {
         debug ("user isn't admin");
-        //$content['content'] = "<p>Пожалуйста, войдите в систему как администратор.</p>";
+        //$content['content'] = "<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ.</p>";
     }
         if (isset($_GET['category'])) $content['category_id'] = $_GET['category'];
         else if (isset($_POST['category'])) $content['category_id'] = $_POST['category'];
@@ -184,7 +184,7 @@ function photos_galleries_view_by_category()
 			$content['galleries'][$i]['id'] = stripslashes($gallery['id']);
 			$content['galleries'][$i]['name'] = stripslashes($gallery['name']);
             if (1 == $user['id'])
-				$content['galleries'][$i]['edit_link'] = "<a href=\"/index.php?module=photos&action=gallery_edit&gallery=".$gallery['id']."\">Редактировать</a>";
+				$content['galleries'][$i]['edit_link'] = "<a href=\"/index.php?module=photos&action=gallery_edit&gallery=".$gallery['id']."\">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>";
 			else
 				$content['galleries'][$i]['edit_link'] = "";
 			$i++;
@@ -227,12 +227,12 @@ function photos_galleries_edit()
             {
                 debug ("gallery name isn't empty");
                 exec_query("UPDATE ksh_photos_galleries set name='".mysql_real_escape_string($_POST['name'])."', descr='".mysql_real_escape_string($_POST['descr'])."' WHERE id='".mysql_real_escape_string($gallery_id)."'");
-                $content['result'] .= "Изменения записаны";
+                $content['result'] .= "РР·РјРµРЅРµРЅРёСЏ Р·Р°РїРёСЃР°РЅС‹";
             }
             else
             {
                 debug ("gallery name is empty");
-                $content['result'] .= "Пожалуйста, задайте название галереи";
+                $content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РґР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ РіР°Р»РµСЂРµРё";
             }
         }
         else
@@ -250,7 +250,7 @@ function photos_galleries_edit()
     else
     {
         debug ("user isn't admin");
-        $content['result'] = "Пожалуйста, войдите в систему как администратор";
+        $content['result'] = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: photos_galleries_edit ***");

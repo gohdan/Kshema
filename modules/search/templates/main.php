@@ -1,14 +1,14 @@
-<h1>Поиск</h1>
+<h1>РџРѕРёСЃРє</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
-<p><a href="/#inst_root#/">На главную</a></p>
+<p><a href="/#inst_root#/">РќР° РіР»Р°РІРЅСѓСЋ</a></p>
 
 <form action="#inst_root#/search/" method="post">
 <input type="text" name="search_string" value="#search_string#">
-<input type="submit" name="do_search" value="Искать">
+<input type="submit" name="do_search" value="РСЃРєР°С‚СЊ">
 </form>
 
 #results#

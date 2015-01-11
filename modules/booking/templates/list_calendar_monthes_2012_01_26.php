@@ -10,14 +10,14 @@
 <th class="booking_calendar_top">&nbsp;</th>
 </tr>
 <tr>
-<th class="booking_calendar_top2">номер</th>
-<th class="booking_calendar_top2">этаж</th>
+<th class="booking_calendar_top2">РЅРѕРјРµСЂ</th>
+<th class="booking_calendar_top2">СЌС‚Р°Р¶</th>
 #month_days_cur_th#
-<th class="booking_calendar_top3">завтрак</th>
-<th class="booking_calendar_top3">трансфер</th>
-<th class="booking_calendar_top3">итого</th>
-<th class="booking_calendar_top3">предоплата</th>
-<th class="booking_calendar_top3">остаток</th>
+<th class="booking_calendar_top3">Р·Р°РІС‚СЂР°Рє</th>
+<th class="booking_calendar_top3">С‚СЂР°РЅСЃС„РµСЂ</th>
+<th class="booking_calendar_top3">РёС‚РѕРіРѕ</th>
+<th class="booking_calendar_top3">РїСЂРµРґРѕРїР»Р°С‚Р°</th>
+<th class="booking_calendar_top3">РѕСЃС‚Р°С‚РѕРє</th>
 </tr>
 
 #calendar_rows#

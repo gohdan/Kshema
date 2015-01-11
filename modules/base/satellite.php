@@ -37,11 +37,11 @@ function get_state()
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 		$state = 1;
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 		
 	debug("*** end: Satellite: get_state ***");
 	return $state;
@@ -64,7 +64,7 @@ function get_open_modules()
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 
 		$v=$response->value();
 
@@ -82,8 +82,8 @@ function get_open_modules()
 	}
 	else
 	{
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 	}
 		
 	debug("*** end: Satellite: get_open_modules ***");
@@ -188,7 +188,7 @@ function send_element($table, $type, $data, $data_desc, $if_keep_id = 0)
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 
 		$v=$response->value();
 
@@ -197,7 +197,7 @@ function send_element($table, $type, $data, $data_desc, $if_keep_id = 0)
 
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 		
 
 	debug ("*** end: Satellite: send_element ***");
@@ -226,7 +226,7 @@ function get_element($table, $id)
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 		$v=$response->value();
 		while(list($name,$value) = $v->structeach())
 		{
@@ -239,7 +239,7 @@ function get_element($table, $id)
 		}
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	debug("*** end: Satellite: get_element ***");
 	return $element;
@@ -262,7 +262,7 @@ function get_config($config_table)
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 
 		$v=$response->value();
 
@@ -282,7 +282,7 @@ function get_config($config_table)
 		}
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 		
 	debug("*** end: Satellite: get_config ***");
 	return $sat_config;
@@ -310,13 +310,13 @@ function del_element($table, $id)
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 		$v=$response->value();
 		$result = $v -> scalarval();
 		debug("result: ".$result);
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	debug("*** end: Satellite: del_element ***");
 	return $result;
@@ -349,7 +349,7 @@ function synchronize($table, $type)
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 		$result = 1;
 
 		$v=$response->value();
@@ -364,7 +364,7 @@ function synchronize($table, $type)
 		}
 	}
 	else
-	    debug("Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'");
+	    debug("ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'");
 
 	if ($result)
 	{
@@ -444,18 +444,18 @@ function do_action($action)
 		$message =new xmlrpcmsg($action, array(new xmlrpcval(base64_encode($config['bbcpanel']['password']), "string")));
 
 	$response =$client->send($message);
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 
 	if (!$response ->faultCode(  ))
 	{
-		debug("Îòâåò XMLRPC ñåðâåðà: ".htmlentities($response->serialize()));
+		debug("ÐžÑ‚Ð²ÐµÑ‚ XMLRPC ÑÐµÑ€Ð²ÐµÑ€Ð°: ".htmlentities($response->serialize()));
 		$v=$response->value();
 		$result = $v -> scalarval();
 		debug("result: ".$result);
 	}
 	else
 	{
-		$result = "Ïðîáëåìà: Êîä: " . $response->faultCode(  ) . " Ïðè÷èíà '" .$response->faultString(  )."'";
+		$result = "ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ð°: ÐšÐ¾Ð´: " . $response->faultCode(  ) . " ÐŸÑ€Ð¸Ñ‡Ð¸Ð½Ð° '" .$response->faultString(  )."'";
 		debug($result);
 	}
 

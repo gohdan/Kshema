@@ -57,7 +57,7 @@ function pages_add()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = "";
@@ -139,7 +139,7 @@ function pages_del()
     else
     {
         debug ("user doesn't have admin rights!");
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     debug ("*** end: pages_del ***");
@@ -215,7 +215,7 @@ function pages_edit()
                     if (filesize($home.$file_path) > $max_file_size)
                     {
                         debug ("file size > max file size!");
-                        $content['content'] .= "Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт";
+                        $content['content'] .= "РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚";
                         if (unlink ($home.$file_path)) debug ("file deleted");
                         else debug ("can't delete file!");
                         $file_path = $_POST['old_image'];
@@ -275,7 +275,7 @@ function pages_edit()
     }
     else
     {
-        $content['content'] .= "Пожалуйста, войдите в систему как администратор";
+        $content['content'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РІ СЃРёСЃС‚РµРјСѓ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
     }
 
     return $content;
@@ -372,7 +372,7 @@ function pages_view($page)
 		{
 			if (!headers_sent())
 				header('HTTP/1.1 404 Not Found');
-			$config['pages']['page_title'] = "Страница не найдена";
+			$config['pages']['page_title'] = "РЎС‚СЂР°РЅРёС†Р° РЅРµ РЅР°Р№РґРµРЅР°";
 			$config['themes']['page_tpl'] = $config['themes']['page_404'];
 		}
 
@@ -400,7 +400,7 @@ function pages_list_view()
 			if (isset($_POST['do_del']))
             {
             	exec_query ("DELETE FROM ksh_pages WHERE id='".stripslashes($_POST['id'])."'");
-				$content['content'] .= "Страница успешно удалена";
+				$content['content'] .= "РЎС‚СЂР°РЅРёС†Р° СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
             }
 		}
 
@@ -421,7 +421,7 @@ function pages_list_view()
 	}
 
 		if (0 == count($pages))
-			$content['content'] .= "Разделов нет";
+			$content['content'] .= "Р Р°Р·РґРµР»РѕРІ РЅРµС‚";
 		else
 		{
         	foreach ($pages as $k => $v)
@@ -444,8 +444,8 @@ function pages_list_view()
 					$content['pages'][$i]['show_admin_link'] = "yes";
                 	$content['pages'][$i]['edit_link'] = "<a href=\"/index.php?module=pages&action=edit&page=".$v['id']."\">";
                     $content['pages'][$i]['edit_link_end'] = "</a>";
-                    $content['pages'][$i]['add_hook'] = "<a href=\"/index.php?module=hooks&action=add&to_module=pages&to_type=page&to_id=".stripslashes($v['id'])."&hook_module=news&hook_type=category\">Привязать категорию новостей</a>";
-					$content['pages'][$i]['del_link'] = "<a href=\"/index.php?module=pages&action=del&page=".stripslashes($v['id'])."\">Удалить</a>";
+                    $content['pages'][$i]['add_hook'] = "<a href=\"/index.php?module=hooks&action=add&to_module=pages&to_type=page&to_id=".stripslashes($v['id'])."&hook_module=news&hook_type=category\">РџСЂРёРІСЏР·Р°С‚СЊ РєР°С‚РµРіРѕСЂРёСЋ РЅРѕРІРѕСЃС‚РµР№</a>";
+					$content['pages'][$i]['del_link'] = "<a href=\"/index.php?module=pages&action=del&page=".stripslashes($v['id'])."\">РЈРґР°Р»РёС‚СЊ</a>";
 
 					foreach($config['base']['lang']['list'] as $lang_id => $lang_name)
 					{
@@ -524,7 +524,7 @@ function pages_view_by_category()
         {
             debug ("have pages to delete");
             exec_query("DELETE FROM ksh_pages WHERE id='".mysql_real_escape_string($_POST['id'])."'");
-            $content['result'] .= "Страница успешно удалена";
+            $content['result'] .= "РЎС‚СЂР°РЅРёС†Р° СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°";
         }
         else
         {

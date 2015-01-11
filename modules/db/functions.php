@@ -60,7 +60,7 @@ function exec_query ($sql_query)
 		else
 		{
 			debug ("Error ".mysql_errno() . ": " . mysql_error());
-			debug ("Ошибка при запросе к базе данных");
+			debug ("РћС€РёР±РєР° РїСЂРё Р·Р°РїСЂРѕСЃРµ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…");
 		}
     }
     else
@@ -92,7 +92,7 @@ function create_db()
 	if ($queries_qty > 0)
 	{
 		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content .= "<p>Запросы выполнены</p>";
+		$content .= "<p>Р—Р°РїСЂРѕСЃС‹ РІС‹РїРѕР»РЅРµРЅС‹</p>";
 	}
 
 	return $content;
@@ -144,7 +144,7 @@ function db_replace()
 			$result = exec_query($sql_query);
 			$count = mysql_result($result, 0, 0);
 			mysql_free_result($result);
-			$content['result'] .= "Найдено вхождений: ".$count."";
+			$content['result'] .= "РќР°Р№РґРµРЅРѕ РІС…РѕР¶РґРµРЅРёР№: ".$count."";
 			
 			if (($count > 0) && (isset($_POST['if_replace'])))
 			{
@@ -159,7 +159,7 @@ function db_replace()
 					
 				}
 				mysql_free_result($result);
-				$content['result'] .= "Замена произведена успешно.";
+				$content['result'] .= "Р—Р°РјРµРЅР° РїСЂРѕРёР·РІРµРґРµРЅР° СѓСЃРїРµС€РЅРѕ.";
 			}
 		}
 		
@@ -176,7 +176,7 @@ function db_replace()
 	else
 	{
 		debug ("user doesn't have admin rights");
-		$content['result'] .= "Пожалуйста, войдите на сайт как администратор";
+		$content['result'] .= "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРѕР№РґРёС‚Рµ РЅР° СЃР°Р№С‚ РєР°Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
 	}
     
 	debug ("*** end: db_replace ***");

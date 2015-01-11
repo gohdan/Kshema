@@ -1,14 +1,14 @@
-<h1>Поиск на заказ - добавление</h1>
+<h1>РџРѕРёСЃРє РЅР° Р·Р°РєР°Р· - РґРѕР±Р°РІР»РµРЅРёРµ</h1>
 
 <p>#result#</p>
 
 <p>#content#</p>
 
 <form action="/index.php?module=shop&action=demand_add" method="post">
-Название товара: <input type="text" name="name"><br>
-Автор: <input type="text" name="author"><br>
-ISBN <i>(если известен)</i>: <input type="text" name="isbn"><br>
-Комментарий:<br>
+РќР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°: <input type="text" name="name"><br>
+РђРІС‚РѕСЂ: <input type="text" name="author"><br>
+ISBN <i>(РµСЃР»Рё РёР·РІРµСЃС‚РµРЅ)</i>: <input type="text" name="isbn"><br>
+РљРѕРјРјРµРЅС‚Р°СЂРёР№:<br>
 <textarea name="commentary" style="width: 400px; height: 200px;"></textarea><br>
-<input type="submit" name="do_add" value="Добавить">
+<input type="submit" name="do_add" value="Р”РѕР±Р°РІРёС‚СЊ">
 </form>

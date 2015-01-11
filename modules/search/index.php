@@ -32,7 +32,7 @@ function search_main()
         if (("" == $search_string) || (" " == $search_string))
         {
             debug ("search string is empty");
-            $content['result'] .= "Задан пустой поисковый запрос";
+            $content['result'] .= "Р—Р°РґР°РЅ РїСѓСЃС‚РѕР№ РїРѕРёСЃРєРѕРІС‹Р№ Р·Р°РїСЂРѕСЃ";
         }
         else
         {
@@ -52,7 +52,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Разделы объявлений";
+						$content['results'][$i]['heading'] = "Р Р°Р·РґРµР»С‹ РѕР±СЉСЏРІР»РµРЅРёР№";
 						$if_show_heading = 0;
 					}
 					$content['results'][$i]['element_type'] = "category";
@@ -89,7 +89,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Объявления";
+						$content['results'][$i]['heading'] = "РћР±СЉСЏРІР»РµРЅРёСЏ";
 						$if_show_heading = 0;
 					}
 					if ("bills" != $config['modules']['default_module'])
@@ -139,7 +139,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Разделы статей";
+						$content['results'][$i]['heading'] = "Р Р°Р·РґРµР»С‹ СЃС‚Р°С‚РµР№";
 						$if_show_heading = 0;
 					}
 					$content['results'][$i]['element_type'] = "category";
@@ -176,7 +176,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Статьи";
+						$content['results'][$i]['heading'] = "РЎС‚Р°С‚СЊРё";
 						$if_show_heading = 0;
 					}
 					if ("articles" != $config['modules']['default_module'])
@@ -226,7 +226,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Разделы страниц";
+						$content['results'][$i]['heading'] = "Р Р°Р·РґРµР»С‹ СЃС‚СЂР°РЅРёС†";
 						$if_show_heading = 0;
 					}
 
@@ -269,7 +269,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Страницы";
+						$content['results'][$i]['heading'] = "РЎС‚СЂР°РЅРёС†С‹";
 						$if_show_heading = 0;
 					}
 					if ("pages" != $config['modules']['default_module'])
@@ -323,7 +323,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Авторы";
+						$content['results'][$i]['heading'] = "РђРІС‚РѕСЂС‹";
 						$if_show_heading = 0;
 					}
 	
@@ -357,7 +357,7 @@ function search_main()
 				{
 					if ($if_show_heading)
 					{
-						$content['results'][$i]['heading'] = "Товары";
+						$content['results'][$i]['heading'] = "РўРѕРІР°СЂС‹";
 						$if_show_heading = 0;
 					}
 	

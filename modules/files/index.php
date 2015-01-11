@@ -51,10 +51,10 @@ function files_default_action()
 	$module_data = array (
 		'module' => "files",
 		'module_name' => "files",
-		'module_title' => "Файлы"
+		'module_title' => "Р¤Р°Р№Р»С‹"
 	);
 	$config['files']['page_title'] = $module_data['module_title'];
-	$config['themes']['page_title']['module'] = "Файлы";
+	$config['themes']['page_title']['module'] = "Р¤Р°Р№Р»С‹";
 
 	$config['modules']['current_module'] = "files";
 
@@ -98,8 +98,8 @@ function files_default_action()
 		switch ($_GET['action'])
 		{
 			default:
-				$config['themes']['page_title']['action'] = "Категории";
-				$config['files']['page_title'] .= " - Категории";
+				$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
+				$config['files']['page_title'] .= " - РљР°С‚РµРіРѕСЂРёРё";
 				$cat = new Category();
 				$cnt = $cat -> view("ksh_files_categories");
 				$content .= gen_content("files", "categories_view", array_merge($module_data, $cnt));
@@ -146,8 +146,8 @@ function files_default_action()
 			break;
 
 			case "categories_view":
-				$config['themes']['page_title']['action'] = "Категории";
-				$config['files']['page_title'] .= " - Категории";
+				$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
+				$config['files']['page_title'] .= " - РљР°С‚РµРіРѕСЂРёРё";
 				$cat = new Category();
 				$cnt = $cat -> view("ksh_files_categories");
 				$content .= gen_content("files", "categories_view", array_merge($module_data, $cnt));
@@ -156,8 +156,8 @@ function files_default_action()
 			case "categories_add":
 				if ($priv -> has("files", "config_edit", "write"))
 				{
-					$config['themes']['page_title']['action'] = "Добавление категории";
-					$config['files']['page_title'] .= " - Добавление категории";
+					$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+					$config['files']['page_title'] .= " - Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 					$cat = new Category();
 					$cnt = $cat -> add("ksh_files_categories");
 
@@ -174,8 +174,8 @@ function files_default_action()
 			case "categories_del":
 				if ($priv -> has("files", "config_edit", "write"))
 				{
-					$config['themes']['page_title']['action'] = "Удаление категории";
-					$config['files']['page_title'] .= " - Удаление категории";
+					$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+					$config['files']['page_title'] .= " - РЈРґР°Р»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 					$cat = new Category();
 					$cnt = $cat -> del("ksh_files_categories", "ksh_files", $_GET['category']);
 					$content .= gen_content("files", "categories_del", array_merge($module_data, $cnt));
@@ -187,8 +187,8 @@ function files_default_action()
 			case "categories_edit":
 				if ($priv -> has("files", "config_edit", "write"))
 				{
-					$config['themes']['page_title']['action'] = "Редактирование категории";
-					$config['files']['page_title'] .= " - Редактирование категории";
+					$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
+					$config['files']['page_title'] .= " - Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё";
 					$cat = new Category();
 
 					$old_name = $cat -> get_name("ksh_files_categories", $_GET['category']);
@@ -251,7 +251,7 @@ function files_default_action()
 			case "add":
 				if ($priv -> has("files", "config_edit", "write"))
 				{
-					$config['themes']['page_title']['action'] = "Добавление файла";
+					$config['themes']['page_title']['action'] = "Р”РѕР±Р°РІР»РµРЅРёРµ С„Р°Р№Р»Р°";
 
 					if (isset($_FILES['file']))
 					{
@@ -273,7 +273,7 @@ function files_default_action()
 	                    if (filesize($config['files']['files_dir'].$file_path) > $max_file_size)
 	                    {
 	                        debug ("file size > max file size!");
-	                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+	                        $content .= "<p>РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РЅРµР»СЊР·СЏ Р·Р°РєР°С‡Р°С‚СЊ С„Р°Р№Р» СЂР°Р·РјРµСЂРѕРј Р±РѕР»СЊС€Рµ ".($max_file_size / 1024)." РєРёР»РѕР±Р°Р№С‚</p>";
 	                        if (unlink ($config['files']['files_dir'].$file_path)) debug ("file deleted");
 	                        else debug ("can't delete file!");
 	                        $file_path = "";
@@ -297,7 +297,7 @@ function files_default_action()
 			case "edit":
 				if ($priv -> has("files", "config_edit", "write"))
 				{
-					$config['themes']['page_title']['action'] = "Редактирование файла";
+					$config['themes']['page_title']['action'] = "Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»Р°";
 					$element = 0;
 					if (isset($_GET['element']))
 						$element = $_GET['element'];
@@ -322,7 +322,7 @@ function files_default_action()
 			case "del":
 				if ($priv -> has("files", "config_edit", "write"))
 				{
-					$config['themes']['page_title']['action'] = "Удаление файла";
+					$config['themes']['page_title']['action'] = "РЈРґР°Р»РµРЅРёРµ С„Р°Р№Р»Р°";
 					$dob = new DataObject();
 					$dob -> table = "ksh_files";
 					$cnt = $dob -> del($_GET['element']);
@@ -365,8 +365,8 @@ function files_default_action()
 	else
 	{
 		debug ("*** action: default");
-		$config['themes']['page_title']['action'] = "Категории";
-		$config['files']['page_title'] .= " - Категории";
+		$config['themes']['page_title']['action'] = "РљР°С‚РµРіРѕСЂРёРё";
+		$config['files']['page_title'] .= " - РљР°С‚РµРіРѕСЂРёРё";
 		$cat = new Category();
 		$cnt = $cat -> view("ksh_files_categories");
 		$content .= gen_content("files", "categories_view", array_merge($module_data, $cnt));

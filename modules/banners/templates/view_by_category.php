@@ -3,9 +3,9 @@
 {{if:result:<p>#result#</p>}}
 
 {{if:if_show_admin_link:<p>
-<a href="/banners/admin/">Администрирование</a><br>
-<a href="/banners/view_categories/">Просмотр всех категорий</a><br>
-<a href="/banners/add_banners/category:#category_id#">Добавить баннер</a>
+<a href="/banners/admin/">РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ</a><br>
+<a href="/banners/view_categories/">РџСЂРѕСЃРјРѕС‚СЂ РІСЃРµС… РєР°С‚РµРіРѕСЂРёР№</a><br>
+<a href="/banners/add_banners/category:#category_id#">Р”РѕР±Р°РІРёС‚СЊ Р±Р°РЅРЅРµСЂ</a>
 </p>}}
 
 {{if:content:<p>#content#</p>}}

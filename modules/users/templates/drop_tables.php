@@ -1,8 +1,8 @@
-<h1>Удаление таблиц базы данных пользователей</h1>
+<h1>РЈРґР°Р»РµРЅРёРµ С‚Р°Р±Р»РёС† Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</h1>
 
 <p>
-<a href="/users/admin/">Вернуться в меню администрирования пользователей</a><br>
-<a href="/users/help#db_tables_drop">Справка</a>
+<a href="/users/admin/">Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a><br>
+<a href="/users/help#db_tables_drop">РЎРїСЂР°РІРєР°</a>
 </p>
 
 
@@ -11,11 +11,11 @@
 {{if:result:<p>#result#</p>}}
 
 <p>
-Уничтожить таблицы:
+РЈРЅРёС‡С‚РѕР¶РёС‚СЊ С‚Р°Р±Р»РёС†С‹:
 </p>
 <form action="/users/drop_tables/" method="post">
-<input type="checkbox" name="drop_users_table" value="ksh_users">Пользователи<br>
-<input type="checkbox" name="drop_users_groups_table" value="ksh_users_groups">Группы пользователей<br>
-<input type="checkbox" name="drop_users_privileges_table" value="ksh_users_privileges">Привилегии<br>
-<input type="submit" name="do_drop" value="Уничтожить">
+<input type="checkbox" name="drop_users_table" value="ksh_users">РџРѕР»СЊР·РѕРІР°С‚РµР»Рё<br>
+<input type="checkbox" name="drop_users_groups_table" value="ksh_users_groups">Р“СЂСѓРїРїС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№<br>
+<input type="checkbox" name="drop_users_privileges_table" value="ksh_users_privileges">РџСЂРёРІРёР»РµРіРёРё<br>
+<input type="submit" name="do_drop" value="РЈРЅРёС‡С‚РѕР¶РёС‚СЊ">
 </form>
