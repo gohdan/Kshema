@@ -252,8 +252,18 @@ function news_view_by_category()
 
 		$dt = explode("-", $row['date']);
         $content[$config['news']['newslist_template']][$i]['date'] = $dt[2].".".$dt[1].".".$dt[0];
-        $content[$config['news']['newslist_template']][$i]['descr'] = stripslashes($row['descr']);
 		$content[$config['news']['newslist_template']][$i]['full_text'] = stripslashes($row['full_text']);
+		$descr = stripslashes($row['descr']);
+		if ("" == $descr)
+		{
+			$sentences = explode(".", strip_tags($content[$config['news']['newslist_template']][$i]['full_text']));
+			for ($j = 0; $j <3; $j++)
+				if (isset($sentences[$j]))
+					$descr .= $sentences[$j].". ";
+			$descr = rtrim($descr, " ");
+		}
+		$content[$config['news']['newslist_template']][$i]['descr'] = $descr;
+
         $content[$config['news']['newslist_template']][$i]['id'] = $row['id'];
 		$content[$config['news']['newslist_template']][$i]['name'] = stripslashes($row['name']);
 		if ("" == $row['url'])
