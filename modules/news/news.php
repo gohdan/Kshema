@@ -221,7 +221,7 @@ function news_view_by_category()
 
 	// FIXME: Check if there are categories; else user has a warning
     debug ("category name: ".$content['category']);
-    $result = exec_query("SELECT * FROM ksh_news WHERE category='".mysql_real_escape_string($category)."' ORDER BY date, id DESC");
+    $result = exec_query("SELECT * FROM `ksh_news` WHERE `category`='".mysql_real_escape_string($category)."' ORDER BY `date` DESC, `id` DESC");
 
     while ($row = mysql_fetch_array($result))
     {
