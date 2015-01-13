@@ -62,7 +62,7 @@ $config['base']['ftp_root'] = '/home/kshema/www/';
 $config['base']['categories']['list_prefix'] = " .";
 $config['base']['categories']['chain_divider'] = " / ";
 
-$config['base']['ext_links_redirect'] = "yes";
+$config['base']['ext_links_redirect'] = "no";
 $config['base']['use_captcha'] = "no";
 
 $config['base']['lang']['default'] = "ru";
