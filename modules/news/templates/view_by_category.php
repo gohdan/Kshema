@@ -10,3 +10,4 @@
 #news#
 </table>
 
+{{if:category_pages:<p>#category_pages#</p>}}

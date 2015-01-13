@@ -175,11 +175,37 @@ function news_default_action()
                         break;
 
                         case "view_by_category":
-							if (isset($_GET['element']))
-								$_GET['category'] = $_GET['element'];
 							$config['themes']['page_title']['action'] = "Просмотр новостей в категории";
-							$content_data = news_view_by_category();
-                            $content .= gen_content("news", $config['news']['category_template'], $content_data);
+
+							if(isset($_GET['category']))
+								$category = $_GET['category'];
+							else if (isset($_GET['element']))
+								$category = $_GET['element'];
+							else
+								$category = 0;
+
+							$sql_query = "SELECT * FROM `ksh_news_categories` WHERE `id` = '".mysql_real_escape_string($category)."'";
+							$result = exec_query($sql_query);
+							$cat = mysql_fetch_array($result);
+							mysql_free_result($result);
+
+							if ("" != $cat['template'])
+								$config['news']['category_template'] = stripslashes($cat['template']);
+							if ("" != $cat['list_template'])
+								$config['news']['newslist_template'] = stripslashes($cat['list_template']);
+							if ("" != $cat['page_template'])
+								$config['themes']['page_tpl'] = stripslashes($cat['page_template']);
+							if ("" != $cat['menu_template'])
+								$config['themes']['menu_tpl'] = $cat['menu_template'];
+
+							$dbo = new DataObject;
+							$dbo -> categories_table = "ksh_news_categories";
+							$dbo -> elements_table = "ksh_news";
+							$dbo -> elements_on_page = $config['news']['elements_on_page'];
+							$cnt = $dbo -> view_by_category($category);
+							$cnt['news'] = $cnt['elements'];
+		                    $content .= gen_content("news", "view_by_category", $cnt);		
+
                         break;
 
                         case "edit":

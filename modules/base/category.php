@@ -501,11 +501,15 @@ function get_parent($categories_table, $category)
 
 	$sql_query = "SELECT `parent` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	if ($result && mysql_num_rows($result))
+	{
+		$row = mysql_fetch_array($result);
+		$parent = stripslashes($row['parent']);
+		debug("parent: ".$parent);
+	}
+	if ($result)
+		mysql_free_result($result);
 
-	$parent = stripslashes($row['parent']);
-	debug("parent: ".$parent);
 
 	debug ("=== end: category: get_parent ===");
 	return $parent;

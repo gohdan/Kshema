@@ -174,6 +174,8 @@ $config['news']['newslist_template'] = "news";
 $config['news']['page_tpl'] = "default";
 $config['news']['menu_tpl'] = "news";
 $config['news']['rss_qty'] = 10;
+$config['news']['elements_on_page'] = 5;
+$config['news']['descr_sentences'] = 2;
 
 $config['performance']['use'] = "yes";
 

@@ -75,21 +75,25 @@ function view_by_category($category = 0)
 		$template['title'] .= " - ".$content['category_title'];
 		$content['category_id'] = stripslashes($row['id']);
 
-		$parent = stripslashes($row['parent']);
-		$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($parent)."'";
-		$result_parent = exec_query($sql_query);
-		$row_parent = mysql_fetch_array($result_parent);
-		mysql_free_result($result_parent);
-		$parent_name = stripslashes($row_parent['name']);
-		if ("" != $parent_name && NULL != $parent_name)
-			$content['parent_link'] = $parent_name;
-		else
-			$content['parent_link'] = $parent;
+		if (isset($row['parent']) && "" != $row['parent'])
+		{
+			$parent = stripslashes($row['parent']);
 
-		$parents_list = $cat -> get_parents_list($categories_table, $category);
-		foreach($parents_list as $k => $v)
-			if ($v)
-				$config['themes']['page_title']['categories_title'][]['title'] = $cat -> get_title($categories_table, $v);
+			$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($parent)."'";
+			$result_parent = exec_query($sql_query);
+			$row_parent = mysql_fetch_array($result_parent);
+			mysql_free_result($result_parent);
+			$parent_name = stripslashes($row_parent['name']);
+			if ("" != $parent_name && NULL != $parent_name)
+				$content['parent_link'] = $parent_name;
+			else
+				$content['parent_link'] = $parent;
+
+			$parents_list = $cat -> get_parents_list($categories_table, $category);
+			foreach($parents_list as $k => $v)
+				if ($v)
+					$config['themes']['page_title']['categories_title'][]['title'] = $cat -> get_title($categories_table, $v);
+		}
 
 		$config['themes']['page_title']['element'] = $content['category_title'];		
 
@@ -116,6 +120,7 @@ function view_by_category($category = 0)
 
 	    if ($pages_qty > 1)
 	    {
+			debug("building category_pages");
 	        for ($i = 1; $i <= $pages_qty; $i++)
 	        {
 				$content['category_pages'][$i]['id'] = $i;
@@ -130,6 +135,8 @@ function view_by_category($category = 0)
 				else
 					$content['category_pages'][$i]['category'] = $category;
 
+				$content['category_pages'][$i]['category_id'] = $category;
+
 				if ($config['modules']['current_module'] != $config['modules']['default_module'])
 				{
 					debug("current module isn't default");
@@ -139,8 +146,10 @@ function view_by_category($category = 0)
 				{
 					debug("current module is default");
 					$content['category_pages'][$i]['module'] = "";
+					$content['category_pages'][$i]['module_name'] = $config['modules']['current_module'];
 				}
-				if ("view_by_category" != $config[$config['modules']['current_module']]['default_action'])
+
+				if (isset($config[$config['modules']['current_module']]['default_action']) && ("view_by_category" != $config[$config['modules']['current_module']]['default_action']))
 				{
 					debug("view_by_category isn't default action");
 					$content['category_pages'][$i]['action'] = "/view_by_category";
@@ -149,6 +158,7 @@ function view_by_category($category = 0)
 				{
 					debug("view_by_category is default action");
 					$content['category_pages'][$i]['action'] = "";
+					$content['category_pages'][$i]['action_name'] = "view_by_category";
 				}
 
 				if (isset($config['base']['inst_root']))
@@ -182,7 +192,10 @@ function view_by_category($category = 0)
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
 		{
 			foreach ($row as $k => $v)
-				$content['elements'][$i][$k] = stripslashes($v);
+				$row[$k] = stripslashes($v);
+
+			foreach ($row as $k => $v)
+				$content['elements'][$i][$k] = $v;
 
 			if (isset($content['elements'][$i]['date']))
 				$content['elements'][$i]['date'] = format_date($content['elements'][$i]['date'], $config['base']['lang']['current']);
@@ -197,6 +210,31 @@ function view_by_category($category = 0)
 				debug("empty name, replacing by id");
 				$content['elements'][$i]['name'] = $content['elements'][$i]['id'];
 			}
+
+			if ("" == $row['descr'])
+			{
+				debug("empty descr, replacing by beginning of full text");
+
+				if (isset($row['full_text_'.$config['base']['lang']['current']]))
+					$full_text = $row['full_text_'.$config['base']['lang']['current']];
+				else if (isset($row['full_text']))
+					$full_text = $row['full_text'];
+				else
+					$full_text = "";
+
+				if ("" != $full_text)
+				{
+					$descr = "";
+					$sentences = explode(".", strip_tags($full_text));
+					for ($j = 0; $j < $config[$config['modules']['current_module']]['descr_sentences']; $j++)
+						if (isset($sentences[$j]))
+							$descr .= $sentences[$j].". ";
+					$descr = rtrim($descr, " ");
+
+					$content['elements'][$i]['descr'] = $descr;
+				}
+			}
+
 
 			if ($config['modules']['current_module'] != $config['modules']['default_module'])
 			{
@@ -255,32 +293,34 @@ function view_by_category($category = 0)
 	$i = 0;
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `parent` = '".mysql_real_escape_string($category)."'";
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-	{
-		$content['subcategories'][$i]['id'] = stripslashes($row['id']);
-		$content['subcategories'][$i]['parent'] = stripslashes($row['parent']);
-		$content['subcategories'][$i]['name'] = stripslashes($row['name']);
-		$content['subcategories'][$i]['title'] = stripslashes($row['title']);
-		if (isset($config['base']['inst_root']))
-			$content['subcategories'][$i]['inst_root'] = $config['base']['inst_root'];
-		if ($config['modules']['current_module'] != $config['modules']['default_module'])
+	if ($result && mysql_num_rows($result))
+		while ($row = mysql_fetch_array($result))
 		{
-			$content['subcategories'][$i]['module_name'] = "/".$config['modules']['current_module'];
-			$content['subcategories'][$i]['action_name'] = "/view_by_category";
+			$content['subcategories'][$i]['id'] = stripslashes($row['id']);
+			$content['subcategories'][$i]['parent'] = stripslashes($row['parent']);
+			$content['subcategories'][$i]['name'] = stripslashes($row['name']);
+			$content['subcategories'][$i]['title'] = stripslashes($row['title']);
+			if (isset($config['base']['inst_root']))
+				$content['subcategories'][$i]['inst_root'] = $config['base']['inst_root'];
+			if ($config['modules']['current_module'] != $config['modules']['default_module'])
+			{
+				$content['subcategories'][$i]['module_name'] = "/".$config['modules']['current_module'];
+				$content['subcategories'][$i]['action_name'] = "/view_by_category";
+			}
+			if ("view_by_category" != $config[$config['modules']['current_module']]['default_action'])
+				$content['subcategories'][$i]['action_name'] = "/view_by_category";
+
+			if ("" == $content['subcategories'][$i]['module_name'] && "" == $content['subcategories'][$i]['action_name'])
+				$content['subcategories'][$i]['inst_root'] = rtrim($content['subcategories'][$i]['inst_root'], "/");
+
+			if ("" != $content['subcategories'][$i]['name'] && NULL != $content['subcategories'][$i]['name'])
+				$content['subcategories'][$i]['category_link'] = $content['subcategories'][$i]['name'];
+			else
+				$content['subcategories'][$i]['category_link'] = $content['subcategories'][$i]['id'];
+			$i++;
 		}
-		if ("view_by_category" != $config[$config['modules']['current_module']]['default_action'])
-			$content['subcategories'][$i]['action_name'] = "/view_by_category";
-
-		if ("" == $content['subcategories'][$i]['module_name'] && "" == $content['subcategories'][$i]['action_name'])
-			$content['subcategories'][$i]['inst_root'] = rtrim($content['subcategories'][$i]['inst_root'], "/");
-
-		if ("" != $content['subcategories'][$i]['name'] && NULL != $content['subcategories'][$i]['name'])
-			$content['subcategories'][$i]['category_link'] = $content['subcategories'][$i]['name'];
-		else
-			$content['subcategories'][$i]['category_link'] = $content['subcategories'][$i]['id'];
-		$i++;
-	}
-	mysql_free_result($result);
+	if ($result)
+		mysql_free_result($result);
 	debug("subcategories qty: ".count($content['subcategories']));
 
 	// Get parents
