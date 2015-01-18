@@ -183,4 +183,36 @@ function db_replace()
     return $content;
 }
 
+function db_field_exists($table, $field)
+{
+	global $config;
+	global $user;
+	debug("*** db_field_exists ***");
+
+	$fields = array();
+
+	$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table)."`";
+	$result = exec_query($sql_query);
+	while ($row = mysql_fetch_array($result))
+		$fields[] = stripslashes($row['Field']);		
+
+	dump($fields);
+
+	if (in_array($field, $fields))
+	{
+		debug("field exists");
+		$res = 1;
+	}
+	else
+	{
+		debug("field doesn't exist");
+		$res = 0;
+	}
+
+	mysql_free_result($result);
+
+	debug("*** end: db_field_exists ***");
+	return $res;
+}
+
 ?>
