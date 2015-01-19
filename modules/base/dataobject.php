@@ -942,7 +942,7 @@ function add()
 
 			if ($result)
 			{
-				if ("" == $_POST['name'])
+				if (!isset($_POST['name']) || "" == $_POST['name'])
 					$_POST['name'] = $this -> generate_unique_name($this -> table, $_POST['title']);
 
 				$_POST['name'] = str_replace("/", "", $_POST['name']);
@@ -982,7 +982,7 @@ function add()
 					$values .= ", '".mysql_real_escape_string($user['id'])."'";
 				}
 
-				if (in_array("date",  $db_fields))
+				if (in_array("date",  $db_fields) && !isset($_POST['date']))
 				{
 					$fields .= ", `date`";
 					$values .= ", '".mysql_real_escape_string(date("Y-m-d"))."'";
