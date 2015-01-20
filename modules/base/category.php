@@ -499,6 +499,8 @@ function get_parent($categories_table, $category)
 	debug("categories_table: ".$categories_table);
 	debug("category: ".$category);
 
+	$parent = 0;
+
 	$sql_query = "SELECT `parent` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
 	$result = exec_query($sql_query);
 	if ($result && mysql_num_rows($result))
