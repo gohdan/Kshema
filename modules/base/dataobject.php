@@ -1421,7 +1421,7 @@ function del($element)
 				$result_del = $sat -> del_element($config[$config['modules']['current_module']]['table'], $_POST['id']);
 				debug("result del: ".$result_del);
 			}
-			else if (isset($config['bbcpanel']['bbcpanel_domain']) && "" != $config['bbcpanel']['bbcpanel_domain'])
+			else if ("yes" == $config['satellite']['use'] && isset($config['bbcpanel']['bbcpanel_domain']) && "" != $config['bbcpanel']['bbcpanel_domain'])
 			{
 				debug("deleting from control panel");
 				$sat = new Satellite;
