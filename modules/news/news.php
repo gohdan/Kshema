@@ -472,8 +472,18 @@ function news_edit()
             if ("" != $_POST['name'])
             {
                 debug ("news name isn't empty");
-                exec_query("UPDATE ksh_news set name='".mysql_real_escape_string($_POST['name'])."', date='".mysql_real_escape_string($_POST['date'])."', category='".mysql_real_escape_string($_POST['category'])."',
-				short_descr='".mysql_real_escape_string($_POST['short_descr'])."', descr='".mysql_real_escape_string($_POST['descr'])."', descr_image='".mysql_real_escape_string($file_path)."', full_text='".mysql_real_escape_string($_POST['full_text'])."' WHERE id='".mysql_real_escape_string($news_id)."'");
+				$sql_query = "UPDATE ksh_news set
+					`name` = '".mysql_real_escape_string($_POST['name'])."',
+					`date` = '".mysql_real_escape_string($_POST['date'])."',
+					`category` = '".mysql_real_escape_string($_POST['category'])."',";
+				if (isset($_POST['short_descr']))
+					$sql_query .= "`short_descr` = '".mysql_real_escape_string($_POST['short_descr'])."',";
+
+				$sql_query .= "`descr` = '".mysql_real_escape_string($_POST['descr'])."',
+					`descr_image` = '".mysql_real_escape_string($file_path)."',
+					`full_text` = '".mysql_real_escape_string($_POST['full_text'])."'
+					WHERE `id` = '".mysql_real_escape_string($news_id)."'";
+                exec_query($sql_query);
                 $content['result'] .= "Изменения записаны";
             }
             else
