@@ -605,6 +605,9 @@ function news_view()
     $content['descr_image'] = stripslashes($news['descr_image']);
     $content['descr'] = stripslashes($news['descr']);
     $content['full_text'] = stripslashes($news['full_text']);
+	if ("" == $content['full_text'])
+		$content['full_text'] = $content['descr'];
+
     $content['category'] = stripslashes(mysql_result(exec_query("SELECT title FROM ksh_news_categories WHERE id='".mysql_real_escape_string($news['category'])."'"), 0, 0));
     $content['category_id'] = stripslashes($news['category']);
 	
