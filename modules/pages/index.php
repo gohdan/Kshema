@@ -143,6 +143,10 @@ function pages_default_action()
 
                         case "update_tables":
 							$config['themes']['page_title']['action'] = "Обновление таблиц БД";
+							
+							if (!in_array("ksh_pages_privileges", db_tables_list()))
+								$priv -> create_table("ksh_pages_privileges");
+
 							if ($priv -> has("pages", "admin", "write"))
 						        $content .= gen_content("pages", "tables_update", pages_tables_update());
 							else
