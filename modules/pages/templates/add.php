@@ -26,7 +26,7 @@
 <tr><td>Общий шаблон:</td><td><input type="text" name="template" value="default"></td></tr>
 <tr><td>Шаблон меню:</td><td><input type="text" name="menu_template" value="default"></td></tr>
 <tr><td>Содержание:</td></tr>
-<tr><td colspan="2"><textarea style="width: 800px; height: 600px" name="full_text"></textarea></td></tr>
+<tr><td colspan="2"><textarea name="full_text"></textarea></td></tr>
 <tr><td></td><td><input type="submit" name="do_add" value="Добавить"></td></tr>
 </table>
 </form>

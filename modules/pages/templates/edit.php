@@ -31,7 +31,7 @@
 <tr><td>Общий шаблон <i>(по умолчанию - default)</i>:</td><td><input type="text" name="template" value="#template#"></td></tr>
 <tr><td>Шаблон меню <i>(по умолчанию - default)</i>:</td><td><input type="text" name="menu_template" value="#menu_template#"></td></tr>
 <tr><td>Содержание:</td></tr>
-<tr><td colspan="2"><textarea style="width: 800px; height: 600px" name="full_text">#full_text#</textarea></td></tr>
+<tr><td colspan="2"><textarea name="full_text">#full_text#</textarea></td></tr>
 <tr><td></td><td><input type="submit" name="do_update" value="Сохранить"></td></tr>
 </table>
 </form>
