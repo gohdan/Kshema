@@ -26,6 +26,8 @@ function pages_add()
 		$category_id = $_GET['element'];
 	else if (isset($_POST['category']))
 		$category_id = $_POST['category'];
+	else
+		$category_id = 0;
 
 	$content['category'] = $category_id;
 
@@ -255,17 +257,13 @@ function pages_edit()
         $result = exec_query("SELECT * FROM `ksh_pages` WHERE id='".mysql_real_escape_string($page_id)."'");
         $page = mysql_fetch_array($result);
         mysql_free_result($result);
-        $content['id'] .= stripslashes($page['id']);
-        $content['category'] .= stripslashes($page['category']);
-        $content['subcategory'] .= stripslashes($page['subcategory']);
-        $content['position'] .= stripslashes($page['position']);
-        $content['image'] .= stripslashes($page['image']);
-        $content['name'] .= stripslashes($page['name']);
+
+		foreach($page as $k => $v)
+			$content[$k] = stripslashes($v);
+
         $content['title'] .= htmlspecialchars(stripslashes($page[$field_title]));
         $content['meta_keywords'] .= stripslashes($page[$field_meta_keywords]);
         $content['meta_description'] .= stripslashes($page[$field_meta_description]);
-		$content['template'] .= stripslashes($page['template']);
-		$content['menu_template'] .= stripslashes($page['menu_template']);
         $content['full_text'] .= htmlspecialchars(stripslashes($page[$field_full_text]));
 
 		$cat = new Category();
