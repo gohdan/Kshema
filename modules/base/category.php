@@ -325,7 +325,12 @@ function add($table_name)
 		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
 	}
 
-	$content['categories_select'] = $this -> get_select($table_name, $_POST['parent']);
+	if (isset($_POST['parent']))
+		$parent = $_POST['parent'];
+	else
+		$parent = 0;
+
+	$content['categories_select'] = $this -> get_select($table_name, $parent);
 
 
 	debug ("=== end: category: view ===");
