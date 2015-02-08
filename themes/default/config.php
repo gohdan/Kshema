@@ -165,6 +165,7 @@ $config['modules']['installed'][] = "auto_models";
 
 $config['pages']['page_title'] = "Kshema";
 $config['pages']['sort_list_by'] = "name";
+$config['pages']['default_action'] = "view";
 
 $config['news']['last_news_qty'] = 3;
 $config['news']['news_template'] = "view";
