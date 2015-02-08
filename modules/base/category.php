@@ -374,10 +374,10 @@ function del($categories_table, $elements_table, $category_id, $if_del_elements 
 		$result = exec_query($sql_query);
 		$row = mysql_fetch_array($result);
 		mysql_free_result($result);
-	}
 
-	$content['id'] = stripslashes($row['id']);
-	$content['title'] = stripslashes($row['title']);
+		$content['id'] = stripslashes($row['id']);
+		$content['title'] = stripslashes($row['title']);
+	}
 
 	debug ("=== end: category: view ===");
 	return $content;
