@@ -13,8 +13,8 @@
 <form action="/#module_name#/categories_edit/#id#/" method="post">
 <input type="hidden" name="id" value="#id#">
 <table>
-<tr><td>Системное название (латинскими буквами; можно использовать цифры):</td><td><input type="text" name="name" value="#name#"></td></tr>
-<tr><td>Название для вывода пользователю (можно любой текст):</td><td><input type="text" name="title" value="#title#"></td></tr>
+<tr><td>Системное название (латинскими буквами; можно использовать цифры):</td><td><input type="text" name="name" value="#name#" size="40"></td></tr>
+<tr><td>Название для вывода пользователю (можно любой текст):</td><td><input type="text" name="title" value="#title#" size="40"></td></tr>
 <tr><td>Подкатегория в категории:</td><td><select name="parent"><option value="0">Нет</option>#categories_select#</select></td></tr>
 <tr><td>Порядок вывода:</td><td><input type="text" name="position" size="2" value="#position#"></td></tr>
 <tr><td>Шаблон всей страницы <i>(по умолчанию - default)</i>:</td><td><input type="text" name="page_template" value="#page_template#"></td></tr>
