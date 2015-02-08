@@ -296,18 +296,18 @@ function pages_list()
 
 function pages_view($page)
 {
-        debug ("*** pages_view ***");
-        global $config;
-		global $user;
-        $content = array(
-        	'content' => '',
-            'id' => '',
-            'title' => '',
-            'full_text' => '',
-            'template' => '',
-			'edit_link' => '',
-			'lang' => ''
-        );
+    debug ("*** pages_view ***");
+    global $config;
+	global $user;
+    $content = array(
+     	'content' => '',
+        'id' => '',
+        'title' => '',
+        'full_text' => '',
+        'template' => '',
+		'edit_link' => '',
+		'lang' => ''
+    );
 
 	$field_title = "title";
 	$field_full_text = "full_text";
@@ -329,16 +329,20 @@ function pages_view($page)
 	        $page = mysql_fetch_array($result);
 	        mysql_free_result($result);
 
-			$config['modules']['current_category'] = stripslashes($page['category']);
-			$config['modules']['current_id'] = stripslashes($page['id']);
+			foreach($page as $k => $v)
+				$page[$k] = stripslashes($v);
 
-			$content['id'] = stripslashes($page['id']);
-	        $content['title'] = stripslashes($page[$field_title]);
-			$content['name'] = stripslashes($page['name']);
-			$content['meta_keywords'] = stripslashes($page[$field_meta_keywords]);
-			$content['meta_description'] = stripslashes($page[$field_meta_description]);
-			$content['template'] = stripslashes($page['template']);
-	        $content['full_text'] = stripslashes($page[$field_full_text]);
+			foreach($page as $k => $v)
+				$content[$k] = $v;
+
+			$config['modules']['current_category'] = $page['category'];
+			$config['modules']['current_id'] = $page['id'];
+
+
+	        $content['title'] = $page[$field_title];
+			$content['meta_keywords'] = $page[$field_meta_keywords];
+			$content['meta_description'] = $page[$field_meta_description];
+	        $content['full_text'] = $page[$field_full_text];
 
 			if (1 == $user['id'])
 				$content['show_edit_link'] = "yes";
@@ -350,21 +354,35 @@ function pages_view($page)
 
 			$config['themes']['page_title']['element'] = $content['title'];
 
-			$sql_query = "SELECT `menu_template` FROM `ksh_pages_categories` WHERE `id` = '".$page['category']."'";
-			$menu_tpl = stripslashes(mysql_result(exec_query($sql_query), 0, 0));
-			debug ("menu_tpl: ".$menu_tpl);
-			if ("" != $menu_tpl)
-				$config['themes']['menu_tpl'] = $menu_tpl;
-			debug ("tpl: ".$config['themes']['menu_tpl']);
-
-			if ("" != $page['menu_template'])
+			$category = array();
+			if ("" != $page['category'])
 			{
-				debug ("page-specific menu template is set: ".$page['menu_template']);
-				$config['themes']['menu_tpl'] = $page['menu_template'];
-				debug ("tpl: ".$config['themes']['menu_tpl']);
+				$sql_query = "SELECT `page_template`, `menu_template` FROM `ksh_pages_categories` WHERE `id` = '".mysql_real_escape_string($page['category'])."'";
+				$result = exec_query($sql_query);
+				$category = mysql_fetch_array($result);
+				mysql_free_result($result);
+				foreach($category as $k => $v)
+					$category[$k] = stripslashes($v);
 			}
 
-			if ("" != $page['template']) $config['themes']['page_tpl'] = $page['template'];
+			if (("" == $page['template']) && isset($category['page_template']))
+			{
+				debug ("page-specific template is set: ".$page['template']);
+				$config['themes']['page_tpl'] = $category['page_template'];
+			}
+			else
+				$config['themes']['page_tpl'] = $page['template'];
+			debug ("page_tpl: ".$config['themes']['page_tpl']);
+
+			if (("" == $page['menu_template']) && isset($category['menu_template']))
+			{
+				debug ("page-specific menu template is set: ".$page['menu_template']);
+				$config['themes']['menu_tpl'] = $category['menu_template'];
+			}
+			else
+				$config['themes']['menu_tpl'] = $page['menu_template'];
+			debug ("menu_tpl: ".$config['themes']['menu_tpl']);
+
 		}
 		else
 		{

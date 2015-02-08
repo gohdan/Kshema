@@ -110,7 +110,6 @@ function pages_default_action()
 					$result = $cat -> del("ksh_pages_categories", "ksh_pages", $_POST['category']);
 				}
 			}
-			
                 debug ("*** action: ".$_GET['action']);
                 switch ($_GET['action'])
                 {
@@ -167,7 +166,10 @@ function pages_default_action()
 							if ($priv -> has("pages", "admin", "write"))
 							{
 								$cat = new Category();
-								$cnt = $cat -> add("ksh_pages_categories");
+								$cnt = $cat -> add("ksh_pages_categories");							if (isset($_GET['page']))
+								$page = $_GET['page'];
+							else if (isset($_GET['element']))
+								$page = $_GET['element'];
     	                        $content .= gen_content("pages", "categories_add", array_merge($module_data, $cnt));
 							}
 							else
@@ -199,8 +201,17 @@ function pages_default_action()
 							$config['pages']['page_title'] .= " - Редактирование категории";
 							if ($priv -> has("pages", "admin", "write"))
 							{
+								if (isset($_POST['category']))
+									$category = $_POST['category'];
+								else if (isset($_GET['category']))
+									$category = $_GET['category'];
+								else if (isset($_GET['element']))
+									$category = $_GET['element'];
+								else
+									$category = 0;
+
 								$cat = new Category();
-								$cnt = $cat -> edit("ksh_pages_categories", $_GET['category']);
+								$cnt = $cat -> edit("ksh_pages_categories", $category);
 		                        $content .= gen_content("pages", "categories_edit", array_merge($module_data, $cnt));
 							}
 							else
@@ -251,11 +262,16 @@ function pages_default_action()
 
                         case "view":
 							$config['themes']['page_title']['action'] = "Просмотр страницы";
-//                                $content .= gen_content("pages", "view_".$_GET['page'], pages_view($_GET['page']));
+
 							$_GET['module'] = "pages";
 							$_GET['action'] = "view";
-							// $_GET['page'] = "glued_logs";
-							$content .= gen_content("pages", "view", pages_view($_GET['page']));
+
+							if (isset($_GET['page']))
+								$page = $_GET['page'];
+							else if (isset($_GET['element']))
+								$page = $_GET['element'];
+
+							$content .= gen_content("pages", "view", pages_view($page));
                         break;
 
                         case "list_view":
