@@ -8,8 +8,11 @@ include_once ("categories.php");
 include_once ("news.php");
 
 /* Import RSS */
-include_once ($config['base']['doc_root']."/libs/lastrss/lastRSS.php");
-include_once ("import_rss.php");
+if ("" != $config['news']['rss_url'])
+{
+	include_once ($config['base']['doc_root']."/libs/lastrss/lastRSS.php");
+	include_once ("import_rss.php");
+}
 
 function news_admin()
 {
