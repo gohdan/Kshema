@@ -179,8 +179,15 @@ function pages_default_action()
 							$config['pages']['page_title'] .= " - Удаление категории";
 							if ($priv -> has("pages", "admin", "write"))
 							{
+								if (isset($_GET['category']))
+									$category = $_GET['category'];
+								else if (isset($_GET['element']))
+									$category = $_GET['element'];
+								else
+									$category = 0;
+
 								$cat = new Category();
-								$cnt = $cat -> del("ksh_pages_categories", "ksh_pages", $_GET['category']);
+								$cnt = $cat -> del("ksh_pages_categories", "ksh_pages", $category);
                 	            $content .= gen_content("pages", "categories_del", array_merge($module_data, $cnt));
 							}
 							else
