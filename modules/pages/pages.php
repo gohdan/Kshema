@@ -136,7 +136,7 @@ function pages_del()
         mysql_free_result($result);
 
         $content['id'] = stripslashes($page['id']);
-		$content['title'] = stripslashes($page['title']);
+		$content['title'] = stripslashes($page['title'.'_'.$config['base']['lang']['current']]);
     }
     else
     {
