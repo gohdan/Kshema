@@ -523,7 +523,13 @@ function pages_view_by_category()
 
 	$i = 0;
 
-    $category = $_GET['category'];
+	if (isset($_GET['category']))
+	    $category = $_GET['category'];
+	else if (isset($_GET['element']))
+		$category = $_GET['element'];
+	else
+		$category = 0;
+
 	$content['category_id'] = $category;
 	
 	$result = exec_query ("SELECT * FROM ksh_pages_categories WHERE id='".mysql_real_escape_string($category)."'");
