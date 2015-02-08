@@ -21,11 +21,10 @@ function pages_add()
     $if_file_exists = 0;
     $file_path = "";
 
-
-	if (isset($_GET['element']))
-		$category_id = $_GET['element'];
-	else if (isset($_POST['category']))
+	if (isset($_POST['category']))
 		$category_id = $_POST['category'];
+	else if (isset($_GET['element']))
+		$category_id = $_GET['element'];
 	else
 		$category_id = 0;
 
