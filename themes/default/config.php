@@ -41,8 +41,8 @@ $config['base']['debug_user'] = 0; // set to 0 to show debug to every (even non-
 $config['base']['error_reporting'] = 0; // use in production
 //$config['base']['error_reporting'] = E_ALL; // use to develop
 $config['base']['logs_path'] = $_SERVER['DOCUMENT_ROOT']."/logs/";
-$config['base']['logs_write'] = "no";
-$config['base']['debug_echo'] = "yes";
+$config['base']['logs_write'] = "yes";
+$config['base']['debug_echo'] = "no";
 $config['base']['debug_file'] = "no";
 
 $config['base']['site_name'] = "Kshema";
@@ -64,6 +64,11 @@ $config['base']['categories']['chain_divider'] = " / ";
 
 $config['base']['ext_links_redirect'] = "no";
 $config['base']['use_captcha'] = "no";
+
+$config['base']['http_redirect'] = array(
+	'301' => array(
+	)
+);
 
 $config['base']['lang']['default'] = "ru";
 $config['base']['lang']['current'] = $config['base']['lang']['default'];

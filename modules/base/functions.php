@@ -9,10 +9,18 @@ function debug ($info, $level = 1)
 
 	if (((1 == $user['id'] || $config['base']['debug_user'] == $user['id'] || "0" == $config['base']['debug_user'])) && $level <= $config['base']['debug_level'])
 	{
-		if (phpversion() >= 5.4)
-			echo ("<span class=\"debug_info\">".htmlspecialchars($info, ENT_SUBSTITUTE, $config['base']['output_charset'])."</span><br>\n");
-		else
-			echo ("<span class=\"debug_info\">".htmlspecialchars($info)."</span><br>\n");
+		if ("yes" == $config['base']['debug_echo'])
+		{
+			if (phpversion() >= 5.4)
+				$debug_string = htmlspecialchars($info, ENT_SUBSTITUTE, $config['base']['output_charset']);
+			else
+				$debug_string = htmlspecialchars($info);
+
+			echo ("<span class=\"debug_info\">".$debug_string."</span><br>\n");
+		}
+
+		if ("yes" == $config['base']['debug_file'])
+			write_file_log($info, $level);
 	}
     return 1;
 }
@@ -26,14 +34,20 @@ function dump($var)
 	{
 		$info = (print_r($var, TRUE));
 
-		if (phpversion() >= 5.4)
-			$info = htmlspecialchars($info, ENT_SUBSTITUTE, $config['base']['output_charset']);
-		else
-			$info = htmlspecialchars($info);
+		if ("yes" == $config['base']['debug_file'])
+			write_file_log($info);
 
-		echo ("<span class=\"debug_info\"><pre>");
-		echo($info);
-		echo ("</pre></span>");
+		if ("yes" == $config['base']['debug_echo'])
+		{
+			if (phpversion() >= 5.4)
+				$info = htmlspecialchars($info, ENT_SUBSTITUTE, $config['base']['output_charset']);
+			else
+				$info = htmlspecialchars($info);
+
+			echo ("<span class=\"debug_info\"><pre>");
+			echo($info);
+			echo ("</pre></span>");
+		}
 	}
 	return 1;
 }
@@ -43,29 +57,36 @@ function write_file_log($var, $level = 1)
 	global $user;
 	global $config;
 
-	if($level <= $config['base']['debug_level'] || "yes" == $config['base']['logs_write'])
+	$messages = array(
+		'write_success' => "Success, wrote to file",
+		'write_fail' => "Cannot write to file",
+		'file_not_writable' => "The file is not writable",
+		'file_not_open' => "Cannot open file"
+	);
+
+	if ((($level <= $config['base']['debug_level'] || "yes" == $config['base']['logs_write'])) && !in_array($var, $messages))
 	{
 		if (!file_exists($config['base']['logs_path']))
 			mkdir($config['base']['logs_path']);
 
 		$filename = $config['base']['logs_path'].date("Y_m_d").".txt";
-		debug ("file name: ".$filename);
+		//debug ("file name: ".$filename);
 
 	   	if ($log = fopen($filename, 'a'))
 		{
 			if (is_writable($filename))
 			{
 				if (fwrite($log, date("H:i:s")." ".$var."\n\n"))
-					debug("Success, wrote to file");
+					debug($messages['write_success']);
 				else
-					debug("Cannot write to file");
+					debug($messages['write_fail']);
 			}
 			else
-				debug("The file is not writable");
+				debug($messages['file_not_writable']);
 		    fclose($log);
 		}
 		else
-			debug("Cannot open file");
+			debug($messages['file_not_open']);
 	}
 	return 1;
 }
@@ -243,114 +264,145 @@ function base_process_request()
 	debug("GET:", 2);
 	dump($_GET);
 
-	if (isset($_GET['query']) && ("admin" == $_GET['query'] || "admin/" == $_GET['query']))
-	{
-		debug("redirecting to admin");
-		$_GET['module'] = "auth";
-		$_GET['action'] = "show_login_form";
-	}
-	else if (isset($_GET['query']) && !strstr($_GET['query'], "&"))
-	{
-		debug("using human-friendly url");
-		$_GET['query'] = rtrim($_GET['query'], "/");
-		$params = explode("/", $_GET['query']);
-		dump($params);
+	debug("SERVER:");
+	dump($_SERVER);
 
-		foreach ($params as $k => $v)
-		{
-			debug("processing param ".$v);
-
-			if (in_array($v, $config['base']['lang']['list']))
+	if (isset($config['base']['http_redirect']) && is_array($config['base']['http_redirect']))
+	{
+		foreach($config['base']['http_redirect'] as $redirect_code => $redirects)
+			foreach($redirects as $query => $location)
 			{
-				debug("looks like a language");
-				$config['base']['lang']['current'] = $v;
-				$_GET['language'] = $v;
-				debug("set default language to ".$config['base']['lang']['current']);
-			}
-			else if (preg_match('/page(\d+).html/s', $v, $matches))
-			{
-				debug("looks like a page");
-				// preg_match('/(\d+)/s', $v, $matches); 
-				debug("matches", 2);
-				dump($matches);
-				debug("page: ".$matches[1]);
-				$_GET['page'] = $matches[1];
-			}
-			else if (preg_match('/([a-zA-Z0-9-_]+).html/s', $v, $matches))
-			{
-				debug("looks like an element to view");
-				// preg_match('/(\d+)/s', $v, $matches); 
-				debug("matches", 2);
-				dump($matches);
-				debug("element: ".$matches[1]);
-				$_GET['element'] = $matches[1];
-				$_GET['action'] = "view";
-			}
-			else if (preg_match('/satellite_(\d+)/s', $v, $matches))
-			{
-				debug("looks like a satellite");
-				debug("matches", 2);
-				dump($matches);
-				debug("satellite: ".$matches[1]);
-				$_GET['satellite'] = $matches[1];
-			}
-			else if (preg_match('/:/s', $v, $matches))
-			{
-				debug("looks like a GET parameter");
-				debug("matches", 2);
-				dump($matches);
-				$param = explode(":", $v);
-				debug ($param[0]." is ".$param[1]);
-				$_GET[$param[0]] = $param[1];
-			}
-			else if ("" != $v)
-			{
-				if (isset($_GET['language']))
-					$k--;
-				switch($k)
+				debug($redirect_code.": ".$query);
+				if ($query == $_SERVER['REQUEST_URI'])
 				{
-					default:
-					break;
+					debug("executing redirect to ".$location);
+					if (!headers_sent())
+					{
+						header("Location: ".$location, TRUE, $redirect_code);
+						exit;
+					}
+					else
+						debug("headers sent");
+				}
+			}
+	}
 
-					case "0":
-						debug("looks like a module");
-						if (module_exists($v))
-						{
-							debug("module exists");
-							$_GET['module'] = $v;
-						}
-						else
-						{
-							debug("module doesn't exist, using default module");
-							$_GET['module'] = $config['modules']['default_module'];
-							include_once ($config['modules']['location']."/".$_GET['module']."/index.php");
-							$fn = $_GET['module']."_get_actions_list";
-							if (in_array($v, $fn()))
+	// If headers already sent or no redirect occured
+
+	if (isset($_GET['query']))
+	{
+		if ("admin" == $_GET['query'] || "admin/" == $_GET['query'])
+		{
+			debug("redirecting to admin");
+			$_GET['module'] = "auth";
+			$_GET['action'] = "show_login_form";
+		}
+		else if (!strstr($_GET['query'], "&"))
+		{
+			debug("using human-friendly url");
+			$_GET['query'] = rtrim($_GET['query'], "/");
+
+			$params = explode("/", $_GET['query']);
+			dump($params);
+
+			foreach ($params as $k => $v)
+			{
+				debug("processing param ".$v);
+
+				if (in_array($v, $config['base']['lang']['list']))
+				{
+					debug("looks like a language");
+					$config['base']['lang']['current'] = $v;
+					$_GET['language'] = $v;
+					debug("set default language to ".$config['base']['lang']['current']);
+				}
+				else if (preg_match('/page(\d+).html/s', $v, $matches))
+				{
+					debug("looks like a page");
+					// preg_match('/(\d+)/s', $v, $matches); 
+					debug("matches", 2);
+					dump($matches);
+					debug("page: ".$matches[1]);
+					$_GET['page'] = $matches[1];
+				}
+				else if (preg_match('/([a-zA-Z0-9-_]+).html/s', $v, $matches))
+				{
+					debug("looks like an element to view");
+					// preg_match('/(\d+)/s', $v, $matches); 
+					debug("matches", 2);
+					dump($matches);
+					debug("element: ".$matches[1]);
+					$_GET['element'] = $matches[1];
+					$_GET['action'] = "view";
+				}
+				else if (preg_match('/satellite_(\d+)/s', $v, $matches))
+				{
+					debug("looks like a satellite");
+					debug("matches", 2);
+					dump($matches);
+					debug("satellite: ".$matches[1]);
+					$_GET['satellite'] = $matches[1];
+				}
+				else if (preg_match('/:/s', $v, $matches))
+				{
+					debug("looks like a GET parameter");
+					debug("matches", 2);
+					dump($matches);
+					$param = explode(":", $v);
+					debug ($param[0]." is ".$param[1]);
+					$_GET[$param[0]] = $param[1];
+				}
+				else if ("" != $v)
+				{
+					if (isset($_GET['language']))
+						$k--;
+					switch($k)
+					{
+						default:
+						break;
+
+						case "0":
+							debug("looks like a module");
+							if (module_exists($v))
 							{
-								debug("action exists, treat parameter like an action");
-								$_GET['action'] = $v;
+								debug("module exists");
+								$_GET['module'] = $v;
 							}
 							else
 							{
-								debug("action doesn't exist, using default action, treat parameter as an element");
-								$_GET['action'] = $config[$_GET['module']]['default_action'];
-								$_GET['element'] = $v;
+								debug("module doesn't exist, using default module");
+								$_GET['module'] = $config['modules']['default_module'];
+								include_once ($config['modules']['location']."/".$_GET['module']."/index.php");
+								$fn = $_GET['module']."_get_actions_list";
+								if (in_array($v, $fn()))
+								{
+									debug("action exists, treat parameter like an action");
+									$_GET['action'] = $v;
+								}
+								else
+								{
+									debug("action doesn't exist, using default action, treat parameter as an element");
+									$_GET['action'] = $config[$_GET['module']]['default_action'];
+									$_GET['element'] = $v;
+								}
 							}
-						}
-					break;
+						break;
 	
-					case "1":
-						debug("treat like an action");
-						$_GET['action'] = $v;
-					break;
+						case "1":
+							debug("treat like an action");
+							$_GET['action'] = $v;
+						break;
 
-					case "2":
-						debug("treat like an element");
-						$_GET['element'] = $v;
-					break;
+						case "2":
+							debug("treat like an element");
+							$_GET['element'] = $v;
+						break;
+					}
 				}
 			}
 		}
+		else
+			debug("using normal params processing");
 	}
 	debug("new GET:", 2);
 	dump($_GET);
