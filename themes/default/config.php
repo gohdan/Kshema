@@ -67,7 +67,12 @@ $config['base']['use_captcha'] = "no";
 
 $config['base']['http_redirect'] = array(
 	'301' => array(
-	)
+		// '/query' => 'new location'
+	) 
+);
+
+$config['base']['url_short'] = array(
+	'admin' => 'auth/show_login_form'
 );
 
 $config['base']['lang']['default'] = "ru";

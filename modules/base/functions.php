@@ -291,13 +291,14 @@ function base_process_request()
 
 	if (isset($_GET['query']))
 	{
-		if ("admin" == $_GET['query'] || "admin/" == $_GET['query'])
-		{
-			debug("redirecting to admin");
-			$_GET['module'] = "auth";
-			$_GET['action'] = "show_login_form";
-		}
-		else if (!strstr($_GET['query'], "&"))
+		foreach($config['base']['url_short'] as $url_short => $url_long)
+			if (strstr($_GET['query'], $url_short))
+			{
+				$_GET['query'] = str_replace($url_short, $url_long, $_GET['query']);
+				debug("longened query: ".$_GET['query']);
+			}
+
+		if (!strstr($_GET['query'], "&"))
 		{
 			debug("using human-friendly url");
 			$_GET['query'] = rtrim($_GET['query'], "/");
