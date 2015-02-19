@@ -54,6 +54,8 @@ function hooks_add()
 		$category_id = $_GET['category'];
 	if (isset($_POST['category']))
 		$category_id = $_POST['category'];
+	else
+		$category_id = 0;
 
 	$cat = new Category();
 	$content['categories_select'] = $cat -> get_select("ksh_hooks_categories", $category_id);
