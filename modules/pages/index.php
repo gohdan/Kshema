@@ -126,10 +126,7 @@ function pages_default_action()
 
                         case "create_tables":
 							$config['themes']['page_title']['action'] = "Создание таблиц БД";
-							if ($priv -> has("pages", "admin", "write"))
-	                            $content .= gen_content("pages", "tables_create", pages_tables_create());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
+                            $content .= gen_content("pages", "tables_create", pages_tables_create());
                         break;
 
                         case "drop_tables":
