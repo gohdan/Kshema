@@ -335,6 +335,122 @@ function banners_add()
     return $content;
 }
 
+function banners_add_batch()
+{
+    debug ("*** banners_add_batch ***");
+    global $config;
+    global $user;
+
+    global $upl_pics_dir;
+    global $doc_root;
+    global $max_file_size;
+    global $home;
+
+
+    $content = array (
+    	'content' => '',
+        'result' => '',
+        'categories_select' => '',
+        'date' => ''
+    );
+
+	if (isset($_GET['category']))
+		$category_id = $_GET['category'];
+	else if (isset($_GET['element']))
+		$category_id = $_GET['element'];
+	else if (isset($_POST['category']))
+		$category_id = $_POST['category'];
+	else
+		$category_id = 0;
+	
+	$content['category'] = $category_id;
+    $content['date'] = date("Y-m-d");		
+
+    $i = 0;
+    $result = exec_query("SELECT * FROM ksh_banners_categories");
+    while ($category = mysql_fetch_array($result))
+    {
+        debug ("show category ".$category['id']);
+        $content['categories_select'][$i]['id'] = $category['id'];
+        $content['categories_select'][$i]['name'] = $category['name'];
+        $content['categories_select'][$i]['title'] = $category['title'];
+        if ($category['id'] == $category_id)
+			$content['categories_select'][$i]['selected'] = " selected";
+        else
+			$content['categories_select'][$i]['selected'] = "";
+        $i++;
+    }
+    mysql_free_result($result);
+
+    debug ("user id: ".$user['id']);
+    if (1 == $user['id'])
+    {
+        debug ("user is admin");
+
+		if (isset($_POST['do_add']))
+		{
+            debug ("have data to add");
+			for ($i = 0; $i <= 9; $i++)
+			{
+
+	    		if (isset($_FILES['image_'.$i]))
+					$image = $_FILES['image_'.$i];
+	    		$if_file_exists = 0;
+	    		$file_path = "";
+
+	            if ((isset($image)) && ("" != $image['name']))
+   	            {
+       	            debug ("there is an image to upload");
+           	        if (file_exists($doc_root.$upl_pics_dir."banners/".$image['name'])) $if_file_exists = 1;
+               	    $file_path = upload_file($image['name'],$image['tmp_name'],$home,$upl_pics_dir."banners/",$if_file_exists);
+                   	debug ("size: ".filesize($home.$file_path));
+
+                    if (filesize($home.$file_path) > $max_file_size)
+   	                {
+       	                debug ("file size > max file size!");
+           	            $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
+               	        if (unlink ($home.$file_path)) debug ("file deleted");
+                   	    else debug ("can't delete file!");
+                        $file_path = "";
+   	                }
+
+					if ("" != $file_path)
+					{
+						$name = str_replace($upl_pics_dir."banners/", "", $file_path);
+	      	        	$sql_query = "INSERT INTO `ksh_banners` (
+							`name`,
+							`title`,
+							`category`,
+							`file`,
+							`type`
+							) VALUES (
+							'".mysql_real_escape_string($name)."',
+							'".mysql_real_escape_string($name)."',
+							'".mysql_real_escape_string($_POST['category'])."',
+							'".mysql_real_escape_string($file_path)."',
+							'".mysql_real_escape_string($_POST['type'])."'
+						)";
+						exec_query($sql_query);
+					}
+           	    }
+               	else
+   	                debug ("no image to upload");
+			}
+		}
+		else
+			debug ("no data to add");
+    }
+    else
+    {
+        debug ("user isn't admin");
+        $content['content'] = "Пожалуйста, войдите в систему как администратор";
+    }
+
+    debug ("*** end: banners_add_batch ***");
+    return $content;
+}
+
+
 function banners_edit()
 {
     debug ("*** banners_edit ***");

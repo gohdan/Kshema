@@ -165,6 +165,14 @@ function banners_default_action()
 								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
+                        case "add_banners_batch":
+							$config['themes']['page_title']['action'] = "Добавление пачки баннеров";
+							if ($priv -> has("banners", "admin", "write"))
+	                           $content .= gen_content("banners", "add_batch", banners_add_batch());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
+                        break;
+
                         case "view_by_category":
 							$config['themes']['page_title']['action'] = "Просмотр баннеров в категории";
 							$content_data = banners_view_by_category();
