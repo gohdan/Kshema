@@ -58,6 +58,8 @@ function hooks_default_action()
 		);
 		$config['pages']['page_title'] = $module_data['module_title'];
 
+		$priv = new Privileges();
+
         if (isset($_GET['action']))
         {
 			if (1 == $user['id'])
@@ -80,43 +82,68 @@ function hooks_default_action()
                 switch ($_GET['action'])
                 {
                         default:
+							if ($priv -> has("hooks", "admin", "write"))
                                 //$content .= gen_content("hooks", "frontpage", hooks_frontpage());
                                 $content .= gen_content("hooks", "admin", hooks_admin());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "create_tables":
 							$config['pages']['page_title'] .= " - Создание таблиц";
-                                $content .= gen_content("hooks", "tables_create", hooks_tables_create());
+                            $content .= gen_content("hooks", "tables_create", hooks_tables_create());
                         break;
 
                         case "drop_tables":
 							$config['pages']['page_title'] .= " - Удаление таблиц";
+							if ($priv -> has("hooks", "admin", "write"))
                                 $content .= gen_content("hooks", "drop_tables", hooks_tables_drop());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "update_tables":
 							$config['pages']['page_title'] .= " - Обновление таблиц";
+
+							if (!in_array("ksh_hooks_privileges", db_tables_list()))
+								$priv -> create_table("ksh_hooks_privileges");
+
+							if ($priv -> has("hooks", "admin", "write"))
                                 $content .= gen_content("hooks", "tables_update", hooks_tables_update());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "add":
 							$config['pages']['page_title'] .= " - Добавление привязки";
+							if ($priv -> has("hooks", "admin", "write"))
                                 $content .= gen_content("hooks", "add", hooks_add());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
 						case "del":
 							$config['pages']['page_title'] .= " - Удаление привязки";
+							if ($priv -> has("hooks", "admin", "write"))
                                 $content .= gen_content("hooks", "del", hooks_del());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "edit":
 							$config['pages']['page_title'] .= " - Редактирование привязки";
+							if ($priv -> has("hooks", "admin", "write"))
                                 $content .= gen_content("hooks", "edit", hooks_edit());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "admin":
 							$config['pages']['page_title'] .= " - Администрирование";
+							if ($priv -> has("hooks", "admin", "write"))
                                 $content .= gen_content("hooks", "admin", hooks_admin());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "help":
@@ -138,23 +165,38 @@ function hooks_default_action()
 
                         case "categories_add":
 							$config['pages']['page_title'] .= " - Добавление категории";
-							$cat = new Category();
-							$cnt = $cat -> add("ksh_hooks_categories");
-                            $content .= gen_content("hooks", "categories_add", array_merge($module_data, $cnt));
+							if ($priv -> has("hooks", "admin", "write"))
+							{
+								$cat = new Category();
+								$cnt = $cat -> add("ksh_hooks_categories");
+        	                    $content .= gen_content("hooks", "categories_add", array_merge($module_data, $cnt));
+							}
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "categories_del":
 							$config['pages']['page_title'] .= " - Удаление категории";
-							$cat = new Category();
-							$cnt = $cat -> del("ksh_hooks_categories", "ksh_hooks", $_GET['category']);
-                            $content .= gen_content("hooks", "categories_del", array_merge($module_data, $cnt));
+							if ($priv -> has("hooks", "admin", "write"))
+							{
+								$cat = new Category();
+								$cnt = $cat -> del("ksh_hooks_categories", "ksh_hooks", $_GET['category']);
+	                            $content .= gen_content("hooks", "categories_del", array_merge($module_data, $cnt));
+							}
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
 						case "categories_edit":
 							$config['pages']['page_title'] .= " - Редактирование категории";
-							$cat = new Category();
-							$cnt = $cat -> edit("ksh_hooks_categories", $_GET['category']);
-	                        $content .= gen_content("hooks", "categories_edit", array_merge($module_data, $cnt));
+							if ($priv -> has("hooks", "admin", "write"))
+							{
+								$cat = new Category();
+								$cnt = $cat -> edit("ksh_hooks_categories", $_GET['category']);
+		                        $content .= gen_content("hooks", "categories_edit", array_merge($module_data, $cnt));
+							}
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
 						case "view_by_category":
@@ -165,6 +207,7 @@ function hooks_default_action()
 							$dobj -> categories_table = "ksh_hooks_categories";
 							$dobj -> elements_table = "ksh_hooks";
 							$dobj -> elements_on_page = $config['hooks']['elements_on_page'];
+							$dobj -> order_field = "id";
 							$cnt = $dobj -> view_by_category($_GET['category']);
 	                        $content .= gen_content("hooks", "view_by_category", array_merge($module_data, $cnt));
 						break;
@@ -173,9 +216,12 @@ function hooks_default_action()
 
         else
         {
-                debug ("*** action: default");
-                // $content = gen_content("hooks", "frontpage", hooks_frontpage());
+            debug ("*** action: default");
+            // $content = gen_content("hooks", "frontpage", hooks_frontpage());
+			if ($priv -> has("hooks", "admin", "write"))
                 $content = gen_content("hooks", "admin", hooks_admin());
+			else
+				$content .= gen_content("auth", "show_login_form", auth_show_login_form());
         }
 
         debug("=== end: mod: hooks ===<br>");
