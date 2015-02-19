@@ -259,9 +259,12 @@ function create_table($table_name)
 		$categories = array();
 		$sql_query = "SELECT `id` FROM `ksh_".mysql_real_escape_string($module)."_categories` ORDER BY `id`";
 		$result = exec_query($sql_query);
-		while ($row = mysql_fetch_array($result))
-			$categories[] = stripslashes($row['id']);
-		mysql_free_result($result);
+		if ($result)
+		{
+			while ($row = mysql_fetch_array($result))
+				$categories[] = stripslashes($row['id']);
+			mysql_free_result($result);
+		}
 
 		debug("categories:", 2);
 		dump($categories);
