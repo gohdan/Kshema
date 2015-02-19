@@ -20,49 +20,49 @@ function portfolio_install_tables()
 	else
 	{
 		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='utf8'";
+		$charset = " charset='".$config['db']['charset']."'";
 	}
 
+	$cat = new Category();
+	$result =  $cat -> create_table("ksh_portfolio_categories");
+	$content['result'] .= $result['result'];
 
-        $queries[] = "create table if not exists ksh_portfolio (
-                id int auto_increment primary key,
-                name tinytext,
-                author int,
-                category int,
-                image tinytext,
-				descr_image tinytext,
-				descr text,
-				short_descr text,
-                full_text text,
-                date date,
-				url tinytext
-        )".$charset;
+	$priv = new Privileges();
+	$result =  $priv -> create_table("ksh_portfolio_privileges");
+	$content['result'] .= $result['result'];
 
-        $queries[] = "create table if not exists ksh_portfolio_categories (
-                id int auto_increment primary key,
-                name tinytext,
-				title tinytext,
-				template tinytext,
-				list_template tinytext,
-				portfolio_template tinytext,
-				page_template tinytext,
-				menu_template tinytext
-        )".$charset;
+	$acc = new Access();
+	$result =  $acc -> create_table("ksh_portfolio_access");
+	$content['result'] .= $result['result'];
 
-        $queries_qty = count($queries);
+    $queries[] = "CREATE TABLE IF NOT EXISTS `ksh_portfolio` (
+            `id` int auto_increment primary key,
+            `name` tinytext,
+			`title` tinytext,
+            `date` date,
+			`year` tinytext,
+            `category` int,
+			`image` tinytext,
+			`descr` mediumtext,
+			`full_text` mediumtext,
+			`images` mediumtext,
+			`tags` mediumtext
+    )".$charset;
 
-        $content['queries_qty'] .= $queries_qty;
+    $queries_qty = count($queries);
 
-        if ($queries_qty > 0)
-        {
-                foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-                $content['result'] .= "Запросы выполнены";
-        }
-        else
-        	$content['result'] .= "Запросов нет";
+    $content['queries_qty'] .= $queries_qty;
+
+    if ($queries_qty > 0)
+    {
+            foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
+            $content['result'] .= "Запросы выполнены";
+    }
+    else
+    	$content['result'] .= "Запросов нет";
 
 	debug ("*** end: portfolio_install_tables ***");
-        return $content;
+    return $content;
 }
 
 function portfolio_drop_tables()

@@ -1,14 +1,24 @@
-{{if:if_show_admin_link:
+<h1>#title#</h1>
+
+{{if:show_admin_link:
 <p>
-<a href="/index.php?module=portfolio&amp;action=edit&amp;portfolio=#id#">Редактировать</a><br>
-<a href="/index.php?module=portfolio&amp;action=del&amp;portfolio=#id#">Удалить</a>
+<a href="/portfolio/admin/">Администрирование портфолио</a><br>
+<a href="/portfolio/edit/#id#/">Редактировать</a><br>
+<a href="/portfolio/del/#id#/">Удалить</a>
 </p>
 }}
 
-{{if:descr_image:<p><img src="#descr_image#"></p>}}
+<p><a href="/">Главная</a> / <a href="/portfolio/">Портфолио</a> / #title#</p>
+
+{{if:image:<p><img src="#image#"></p>}}
 
 {{if:date:<p>#date#</p>}}
+<p>Год: #year#</p>
+<p>Метки: #tags#</p>
+
 
 #full_text#
 
-<p><a href="/index.php?module=portfolio&amp;action=view_by_category&amp;category=#category_id#">Все портфолио из категории "#category#"</a></p>
+#images#
+
+<p><a href="/portfolio/">Вернуться к портфолио проектов</a></p>
