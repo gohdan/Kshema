@@ -211,7 +211,7 @@ function view_by_category($category = 0)
 				$content['elements'][$i]['name'] = $content['elements'][$i]['id'];
 			}
 
-			if ("" == $row['descr'])
+			if (!isset($row['descr']) || "" == $row['descr'])
 			{
 				debug("empty descr, replacing by beginning of full text");
 
