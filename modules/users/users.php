@@ -472,7 +472,7 @@ function users_profile_view()
 		$i = 0;
 		$modules = array_merge($config['modules']['core'], $config['modules']['installed']);
 		foreach ($modules as $k => $v)
-			if ($priv -> has($v, "default", "read"))
+			if ($priv -> has($v, "default", "read") || $priv -> has("base", "default", "write"))
 			{
 				$content['modules'][$i]['inst_root'] = $config['base']['inst_root'];
 				$content['modules'][$i]['name'] = $v;
