@@ -69,72 +69,136 @@ function banners_default_action()
 
         debug("<br>=== mod: banners ===");
 
+		if(isset($_GET['element']) && !isset($_GET['banners']))
+			$_GET['banners'] = rtrim($_GET['element'], "/");
+
+		$module_data = array (
+			'module_name' => "banners",
+			'module_title' => "Баннеры"
+		);
+
+		$config['pages']['page_title'] = $module_data['module_title'];
+		$config['themes']['page_title']['module'] = "Баннеры";
+
+		$priv = new Privileges();
+
         if (isset($_GET['action']))
         {
                 debug ("*** action: ".$_GET['action']);
                 switch ($_GET['action'])
                 {
                         default:
-                                //$content .= gen_content("banners", "frontpage", banners_frontpage());
-                                $content .= gen_content("banners", "admin", banners_admin());
+							if ($priv -> has("banners", "admin", "write"))
+							{
+								$config['themes']['page_title']['action'] = "";
+    	                        //$content .= gen_content("banners", "frontpage", banners_frontpage());
+        	                    $content .= gen_content("banners", "admin", banners_admin());
+							}
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "admin":
-                                $content .= gen_content("banners", "admin", banners_admin());
+							$config['themes']['page_title']['action'] = "Администрирование";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "admin", banners_admin());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "help":
-                                $content .= gen_content("banners", "help", banners_help());
+							$config['themes']['page_title']['action'] = "Справка";
+                            $content .= gen_content("banners", "help", banners_help());
                         break;
 
                         case "install_tables":
-                                $content .= gen_content("banners", "install_tables", banners_install_tables());
+							$config['themes']['page_title']['action'] = "Создание таблиц БД";
+                            $content .= gen_content("banners", "install_tables", banners_install_tables());
                         break;
 
                         case "drop_tables":
-                                $content .= gen_content("banners", "drop_tables", banners_drop_tables());
+							$config['themes']['page_title']['action'] = "Уничтожение таблиц БД";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "drop_tables", banners_drop_tables());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "update_tables":
-                                $content .= gen_content("banners", "update_tables", banners_update_tables());
+							$config['themes']['page_title']['action'] = "Обновление таблиц БД";
+
+							if (!in_array("ksh_banners_privileges", db_tables_list()))
+								$priv -> create_table("ksh_banners_privileges");
+
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "update_tables", banners_update_tables());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "view_categories":
-                                $content .= gen_content("banners", "categories_view", banners_categories_view());
+							$config['themes']['page_title']['action'] = "Просмотр категорий";
+                            $content .= gen_content("banners", "categories_view", banners_categories_view());
                         break;
 
                         case "add_category":
-                                $content .= gen_content("banners", "categories_add", banners_categories_add());
+							$config['themes']['page_title']['action'] = "Добавление категории";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "categories_add", banners_categories_add());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "del_category":
-                                $content .= gen_content("banners", "categories_del", banners_categories_del());
+							$config['themes']['page_title']['action'] = "Удаление категории";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "categories_del", banners_categories_del());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "add_banners":
-                                $content .= gen_content("banners", "add", banners_add());
+							$config['themes']['page_title']['action'] = "Добавление баннеров";
+							if ($priv -> has("banners", "admin", "write"))
+	                           $content .= gen_content("banners", "add", banners_add());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "view_by_category":
-								$content_data = banners_view_by_category();
-                                $content .= gen_content("banners", "view_by_category", $content_data);
+							$config['themes']['page_title']['action'] = "Просмотр баннеров в категории";
+							$content_data = banners_view_by_category();
+                            $content .= gen_content("banners", "view_by_category", $content_data);
                         break;
 
                         case "edit":
-                                $content .= gen_content("banners", "edit", banners_edit());
+							$config['themes']['page_title']['action'] = "Редактирование баннера";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "edit", banners_edit());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "del":
-                                $content .= gen_content("banners", "del", banners_del());
+							$config['themes']['page_title']['action'] = "Удаление баннера";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "del", banners_del());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 
                         case "view":
-								$content_data = banners_view();
-                                $content .= gen_content("banners", $config['banners']['banners_template'], $content_data);
+							$config['themes']['page_title']['action'] = "Просмотр баннера";
+							$content_data = banners_view();
+                            $content .= gen_content("banners", $config['banners']['banners_template'], $content_data);
                         break;
 
                         case "category_edit":
-                                $content .= gen_content("banners", "categories_edit", banners_categories_edit());
+							$config['themes']['page_title']['action'] = "Редактирование категории";
+							if ($priv -> has("banners", "admin", "write"))
+	                            $content .= gen_content("banners", "categories_edit", banners_categories_edit());
+							else
+								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
                         break;
 				}
         }
@@ -142,6 +206,7 @@ function banners_default_action()
         else
         {
                 debug ("*** action: default");
+				$config['themes']['page_title']['action'] = "Администрирование";
                 //$content = gen_content("banners", "frontpage", banners_frontpage());
                 $content = gen_content("banners", "admin", banners_admin());
 	     }

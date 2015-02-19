@@ -26,6 +26,10 @@ function banners_install_tables()
 	$priv = new Privileges();
 	$priv -> create_table("ksh_banners_privileges");
 
+	$acc = new Access();
+	$result =  $acc -> create_table("ksh_banners_access");
+	$content['result'] .= $result['result'];
+
         $queries[] = "create table if not exists `ksh_banners` (
                 `id` int auto_increment primary key,
                 `name` tinytext,
@@ -127,6 +131,13 @@ function banners_update_tables()
 	{
 		$priv = new Privileges();
 		$priv -> create_table("ksh_banners_privileges");
+		$content['result'] .= $result['result'];
+	}
+
+	if (!in_array("ksh_banners_access", $tables))
+	{
+		$acc = new Access();
+		$acc -> create_table("ksh_banners_access");
 		$content['result'] .= $result['result'];
 	}
 
