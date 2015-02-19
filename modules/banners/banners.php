@@ -5,7 +5,7 @@
 include_once ($config['modules']['location']."files/index.php"); // to upload pictures
 
 
-function banners_hook($type, $id)
+function banners_hook($type, $id = 0)
 {
     debug("=== banners_hook ===");
     global $user;
@@ -25,28 +25,33 @@ function banners_hook($type, $id)
 			$row = mysql_fetch_array($result);
 			mysql_free_result($result);
 
-			$banner['id'] = stripslashes($row['id']);
-			$banner['name'] = stripslashes($row['name']);
-			$banner['title'] = stripslashes($row['title']);
-			$banner['category'] = stripslashes($row['category']);
-			$banner['file'] = stripslashes($row['file']);
-			$banner['descr'] = stripslashes($row['descr']);
-			$banner['params'] = stripslashes($row['params']);
-			$banner['alt'] = stripslashes($row['alt']);
-			$banner['width'] = stripslashes($row['width']);
-			$banner['height'] = stripslashes($row['height']);
-			$banner['type'] = stripslashes($row['type']);
-			$banner['class'] = stripslashes($row['class']);
-			$banner['link'] = stripslashes($row['link']);
+			foreach($row as $k => $v)
+				$banner[$k] = stripslashes($v);
 
 			dump($banner);
 
 			$content = gen_content("banners", $banner['type'], $banner);
 
-
 		break;
 
 		case "category":
+
+			if (0 == $id)
+			{
+				$sql_query = "SELECT `hook_id` FROM `ksh_hooks` WHERE
+					`hook_module` = 'banners' AND
+					`hook_type` = 'category' AND
+					`to_module` = '".mysql_real_escape_string($config['modules']['current_module'])."' AND
+					(
+						(`to_type` = 'category' AND	`to_id` = '".$config['modules']['current_category']."')	OR
+						(`to_type` = 'element' AND `to_id` = '".$config['modules']['current_id']."')
+					)";
+				$result = exec_query($sql_query);
+				$row = mysql_fetch_array($result);
+				$id = stripslashes($row['hook_id']);
+				mysql_free_result($result);
+				debug("category id: ".$id);
+			}
 
 			// Determining templates
 			$sql_query = "SELECT `name`	FROM `ksh_banners_categories` WHERE `id` = '".mysql_real_escape_string($id)."'";
@@ -66,6 +71,8 @@ function banners_hook($type, $id)
 				$banners_list = "banners_hooked";
 			}
 
+			debug("template_file: ".$template_file);
+			debug("banners_list: ".$banners_list);
 
 			$i = 0;
 
@@ -73,22 +80,14 @@ function banners_hook($type, $id)
 			$result = exec_query($sql_query);
 			while ($row = mysql_fetch_array($result))
 			{
-				$cnt[$banners_list][$i]['id'] = stripslashes($row['id']);
-				$cnt[$banners_list][$i]['name'] = stripslashes($row['name']);
-				$cnt[$banners_list][$i]['title'] = stripslashes($row['title']);
-				$cnt[$banners_list][$i]['category'] = stripslashes($row['category']);
-				$cnt[$banners_list][$i]['file'] = stripslashes($row['file']);
-				$cnt[$banners_list][$i]['descr'] = stripslashes($row['descr']);
-				$cnt[$banners_list][$i]['params'] = stripslashes($row['params']);
-				$cnt[$banners_list][$i]['alt'] = stripslashes($row['alt']);
-				$cnt[$banners_list][$i]['width'] = stripslashes($row['width']);
-				$cnt[$banners_list][$i]['height'] = stripslashes($row['height']);
-				$cnt[$banners_list][$i]['type'] = stripslashes($row['type']);
-				$cnt[$banners_list][$i]['class'] = stripslashes($row['class']);
-				$cnt[$banners_list][$i]['link'] = stripslashes($row['link']);
+				foreach ($row as $k => $v)
+					$cnt[$banners_list][$i][$k] = stripslashes($v);
+
 				$i++;
 			}
 			mysql_free_result($result);
+
+			$cnt['banners_qty'] = $i;
 
 			if ("1" == $user['id'])
 				$cnt['show_admin_link'] = "yes";
