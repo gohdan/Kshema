@@ -26,5 +26,5 @@
 
 {{if:category_pages:<p>#category_pages#</p>}}
 
-{{if:result:#result#}}
+{{if:result:<p>#result#</p>}}
 
