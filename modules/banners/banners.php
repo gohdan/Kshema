@@ -83,6 +83,9 @@ function banners_hook($type, $id = 0)
 				foreach ($row as $k => $v)
 					$cnt[$banners_list][$i][$k] = stripslashes($v);
 
+				$cnt[$banners_list][$i]['i'] = $i;
+				$cnt[$banners_list][$i]['number'] = $i+1;
+
 				$i++;
 			}
 			mysql_free_result($result);
