@@ -15,6 +15,7 @@
 <table summary="portfolio add table">
 <tr><td>Название:</td><td><input type="text" name="title" size="50"></td></tr>
 <tr><td>Дата <i>(ГГГГ-ММ-ДД, не меняйте формат!)</i>:</td><td><input type="text" name="date" size="10" align="right" value="#date#"></td></tr>
+<tr><td>Порядок вывода (чем больше, тем раньше):</td><td><input type="text" name="order" size="3" align="right"></td></tr>
 <tr><td>Годы (через запятую):</td><td><input type="text" name="year" size="50" align="right" value="#year#"></td></tr>
 <tr><td>Теги (через запятую):</td><td><input type="text" name="tags" size="50" align="right" value="#tags#"></td></tr>
 <tr><td>Изображение-описание:</td><td><input type="file" name="image"></td></tr>

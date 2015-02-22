@@ -163,7 +163,7 @@ function portfolio_view_all()
 	else if (isset($_GET['year']))
 		$sql_query .= " WHERE `year` LIKE '%|".mysql_real_escape_string($_GET['year'])."|%'";
 
-	$sql_query .= " ORDER BY `date` DESC, `id` DESC LIMIT ".mysql_real_escape_string(($start_page - 1) * $elements_on_page).",".$elements_on_page;
+	$sql_query .= " ORDER BY `order` DESC, `date` DESC, `id` DESC LIMIT ".mysql_real_escape_string(($start_page - 1) * $elements_on_page).",".$elements_on_page;
 	$result = exec_query($sql_query);
 
 	$i = 0;
@@ -399,6 +399,7 @@ function portfolio_edit()
 					`name`= '".mysql_real_escape_string($_POST['name'])."',
 					`title` = '".mysql_real_escape_string($_POST['title'])."',
 					`date` = '".mysql_real_escape_string($_POST['date'])."',
+					`order` = '".mysql_real_escape_string($_POST['order'])."',
 					`year` = '".mysql_real_escape_string($_POST['year'])."',
 					`category` = '".mysql_real_escape_string($_POST['category'])."',
 					`tags` = '".mysql_real_escape_string($_POST['tags'])."',

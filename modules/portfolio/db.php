@@ -2,15 +2,11 @@
 
 // Database functions of the "portfolio" module
 
-function portfolio_install_tables()
+function portfolio_gen_create_table_query()
 {
-	debug ("*** portfolio_install_tables ***");
+	global $user;
 	global $config;
-    $content = array (
-    	'content' => '',
-        'queries_qty' => '',
-        'result' => ''
-    );
+	debug ("*** portfolio_gen_create_table_query ***");
 
 	if ("yes" == $config['db']['old_engine'])
 	{
@@ -22,6 +18,39 @@ function portfolio_install_tables()
 		debug ("db engine isn't too old, using charsets");
 		$charset = " charset='".$config['db']['charset']."'";
 	}
+
+    $sql_query = "CREATE TABLE IF NOT EXISTS `ksh_portfolio` (
+            `id` int auto_increment primary key,
+            `name` tinytext,
+			`title` tinytext,
+			`order` mediumint,
+            `date` date,
+			`year` tinytext,
+            `category` int,
+			`image` tinytext,
+			`descr` mediumtext,
+			`full_text` mediumtext,
+			`images` mediumtext,
+			`tags` mediumtext
+    )".$charset;
+
+
+	debug ("*** end: portfolio_gen_create_table_query ***");
+	return $sql_query;
+}
+
+
+function portfolio_install_tables()
+{
+	debug ("*** portfolio_install_tables ***");
+	global $config;
+    $content = array (
+    	'content' => '',
+        'queries_qty' => '',
+        'result' => ''
+    );
+
+
 
 	$cat = new Category();
 	$result =  $cat -> create_table("ksh_portfolio_categories");
@@ -35,19 +64,7 @@ function portfolio_install_tables()
 	$result =  $acc -> create_table("ksh_portfolio_access");
 	$content['result'] .= $result['result'];
 
-    $queries[] = "CREATE TABLE IF NOT EXISTS `ksh_portfolio` (
-            `id` int auto_increment primary key,
-            `name` tinytext,
-			`title` tinytext,
-            `date` date,
-			`year` tinytext,
-            `category` int,
-			`image` tinytext,
-			`descr` mediumtext,
-			`full_text` mediumtext,
-			`images` mediumtext,
-			`tags` mediumtext
-    )".$charset;
+	$queries[] = portfolio_gen_create_table_query();
 
     $queries_qty = count($queries);
 
@@ -99,8 +116,49 @@ function portfolio_update_tables()
 
     $queries = array();
 
-    // $queries[] = ""; // Write your SQL queries here
+	$tables = db_tables_list();
 
+	if (!in_array("ksh_portfolio_categories", $tables))
+	{
+		$cat = new Category();
+		$cat -> create_table("ksh_portfolio_categories");
+		$content['result'] .= $result['result'];
+	}
+
+	if (!in_array("ksh_portfolio_privileges", $tables))
+	{
+		$priv = new Privileges();
+		$priv -> create_table("ksh_portfolio_privileges");
+		$content['result'] .= $result['result'];
+	}
+
+	if (!in_array("ksh_portfolio_access", $tables))
+	{
+		$acc = new Access();
+		$acc -> create_table("ksh_portfolio_access");
+		$content['result'] .= $result['result'];
+	}
+
+	if (!in_array("ksh_portfolio", $tables))
+		$queries[] = portfolio_gen_create_table_query();
+
+	/* Checking fields in ksh_portfolio */
+
+	$i = 0;
+	$sql_query = "SHOW FIELDS IN `ksh_portfolio`";
+	$result = exec_query($sql_query);
+	while ($row = mysql_fetch_array($result))
+	{
+		$field_names[$i] = stripslashes($row['Field']);
+		$field_types[$i] = stripslashes($row['Type']);
+		$i++;
+	}
+	mysql_free_result($result);
+
+	if (!in_array("order", $field_names))
+		$queries[] = "ALTER TABLE `ksh_portfolio` ADD `order` mediumint";
+
+	/* End: Checking fields in ksh_portfolio */
 
     $queries_qty = count($queries);
     $content['queries_qty'] .= $queries_qty;
