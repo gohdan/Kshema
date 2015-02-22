@@ -292,11 +292,16 @@ function base_process_request()
 	if (isset($_GET['query']))
 	{
 		foreach($config['base']['url_short'] as $url_short => $url_long)
-			if (strstr($_GET['query'], $url_short))
+		{
+			$slen = strlen($url_short);
+			if ($url_short == substr($_GET['query'], 0, $slen))
 			{
-				$_GET['query'] = str_replace($url_short, $url_long, $_GET['query']);
+				debug($url_short." is in ".$_GET['query']);
+				$_GET['query'] = substr_replace($_GET['query'], $url_long, 0, $slen);
 				debug("longened query: ".$_GET['query']);
 			}
+		}
+
 
 		if (!strstr($_GET['query'], "&"))
 		{
