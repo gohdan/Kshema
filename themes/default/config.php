@@ -213,6 +213,8 @@ $config['shop']['recommended_goods_sort_order'] = "DESC";
 
 $config['templater']['show_null_values'] = "no"; // set to "yes" to show
 
+$config['template']['css'] = ""; // additional CSS file
+
 $config['themes']['current'] = "default";
 $config['themes']['dir'] = $config['base']['doc_root']."/themes/";
 $config['themes']['page_tpl'] = "default"; // could be changed by modules to show diffrnt

@@ -29,7 +29,8 @@ function pages_gen_create_table_query()
 		`position` int,
 		`image` tinytext,
 		`template` tinytext,
-		`menu_template` tinytext
+		`menu_template` tinytext,
+		`css` tinytext
 	";
 
 	if (count($config['base']['lang']['list']))
@@ -210,6 +211,8 @@ function pages_tables_update()
 		$queries[] = "ALTER TABLE `ksh_pages` ADD `image` tinytext";
 	if (!in_array("position", $field_names))
 		$queries[] = "ALTER TABLE `ksh_pages` ADD `position` int";
+	if (!in_array("css", $field_names))
+		$queries[] = "ALTER TABLE `ksh_pages` ADD `css` tinytext";
 
 	if (in_array("title", $field_names))
 	{

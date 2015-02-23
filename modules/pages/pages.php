@@ -89,6 +89,7 @@ function pages_add()
 			`".$field_meta_description."`,
 			`template`,
 			`menu_template`,
+			`css`,
 			`".$field_full_text."`
 			) VALUES (
 			'".mysql_real_escape_string($_POST['name'])."',
@@ -101,6 +102,7 @@ function pages_add()
 			'".mysql_real_escape_string($_POST['meta_description'])."',
 			'".mysql_real_escape_string($_POST['template'])."',
 			'".mysql_real_escape_string($_POST['menu_template'])."',
+			'".mysql_real_escape_string($_POST['css'])."',
 			'".mysql_real_escape_string($_POST['full_text'])."'
 			)");
     }
@@ -242,6 +244,7 @@ function pages_edit()
 				`image` = '".mysql_real_escape_string($file_path)."',
 				`template` = '".mysql_real_escape_string($_POST['template'])."',
 				`menu_template` = '".mysql_real_escape_string($_POST['menu_template'])."',
+				`css` = '".mysql_real_escape_string($_POST['css'])."',
 				`".$field_title."` = '".mysql_real_escape_string($_POST['title'])."',
 				`".$field_full_text."` = '".mysql_real_escape_string($_POST['full_text'])."',
 				`".$field_meta_keywords."` = '".mysql_real_escape_string($_POST['meta_keywords'])."',
@@ -350,6 +353,7 @@ function pages_view($page)
 			$config['pages']['page_name'] = $content['name'];
 			$config['pages']['meta_keywords'] = $content['meta_keywords'];
 			$config['pages']['meta_description'] = $content['meta_description'];
+			$config['template']['css'] = $content['css'];
 
 			$config['themes']['page_title']['element'] = $content['title'];
 

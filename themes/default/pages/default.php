@@ -13,8 +13,10 @@ echo <<<END
 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel='stylesheet' href='/themes/default/css/main.css' type='text/css' />
-
 END;
+
+if ("" != $config['template']['css'])
+	echo ("\n<link rel='stylesheet' href='".$config['template']['css']."' type='text/css' />\n");
 
 include("includes/tinymce_init.php");
 
