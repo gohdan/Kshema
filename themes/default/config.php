@@ -81,6 +81,18 @@ $config['base']['lang']['list'][] = "ru";
 $config['base']['lang']['list'][] = "en";
 $config['base']['lang']['list'][] = "de";
 
+$config['base']['lang']['titles'] = array(
+	"ru" => "Русский",
+	"en" => "English",
+	"de" => "Deutch"
+);
+
+$config['base']['lang']['titles_int'] = array(
+	"ru" => "Russian",
+	"en" => "English",
+	"de" => "German"
+);
+
 $config['base']['send_emails'] = "yes"; // set to "yes" to send
 
 $config['base']['mail']['from_address'] = "kshema@handyhosting.ru";
@@ -133,7 +145,7 @@ $config['bills']['categories_table'] = "ksh_bills_categories";
 $config['counter']['use'] = "no";
 
 $config['db']['connected'] = "no";
-$config['db']['timezone'] = "+04:00";
+$config['db']['timezone'] = "+03:00";
 
 $config['files']['upl_dir'] = "uploads/"; // must be writable to web server
 $config['files']['files_dir'] = $config['base']['doc_root']."/".$config['files']['upl_dir']."files/";
@@ -176,6 +188,7 @@ $config['modules']['installed'][] = "auto_models";
 $config['pages']['page_title'] = "Kshema";
 $config['pages']['sort_list_by'] = "name";
 $config['pages']['default_action'] = "view";
+$config['pages']['css'] = ""; // additional CSS file
 
 $config['news']['last_news_qty'] = 3;
 $config['news']['news_template'] = "view";
@@ -187,8 +200,13 @@ $config['news']['menu_tpl'] = "news";
 $config['news']['rss_qty'] = 10;
 $config['news']['elements_on_page'] = 5;
 $config['news']['descr_sentences'] = 2;
+$config['news']['css'] = ""; // additional CSS file
 
 $config['performance']['use'] = "yes";
+
+$config['portfolio']['page_tpl'] = "default";
+$config['portfolio']['elements_on_page'] = "3";
+$config['portfolio']['css'] = ""; // additional CSS file
 
 $config['projects']['another_doc_root'] = "/var/www/html/kshema/www/";
 
@@ -213,7 +231,7 @@ $config['shop']['recommended_goods_sort_order'] = "DESC";
 
 $config['templater']['show_null_values'] = "no"; // set to "yes" to show
 
-$config['template']['css'] = ""; // additional CSS file
+$config['template']['css'] = array(); // additional CSS file
 
 $config['themes']['current'] = "default";
 $config['themes']['dir'] = $config['base']['doc_root']."/themes/";
