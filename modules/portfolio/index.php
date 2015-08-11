@@ -76,6 +76,9 @@ function portfolio_default_action()
 	$config['pages']['page_title'] = $module_data['module_title'];
 	$config['themes']['page_title']['module'] = "Портфолио";
 
+	if ("" != $config['portfolio']['css'])
+		$config['template']['css'][] = $config['portfolio']['css'];
+
 	$priv = new Privileges();
 
 	if (isset($_POST['do_del_category']))

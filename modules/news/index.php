@@ -118,6 +118,9 @@ function news_default_action()
 	
 	$config['themes']['page_title']['module'] = "Новости";
 
+	if ("" != $config['news']['css'])
+		$config['template']['css'][] = $config['news']['css'];
+
         if (isset($_GET['action']))
         {
                 debug ("*** action: ".$_GET['action']);

@@ -95,6 +95,9 @@ function pages_default_action()
 		$config['pages']['page_title'] = $module_data['module_title'];
 		$config['themes']['page_title']['module'] = "Страницы";
 
+		if ("" != $config['pages']['css'])
+			$config['template']['css'][] = $config['pages']['css'];
+
 		$priv = new Privileges();
 
         debug("<br>=== mod: pages ===");

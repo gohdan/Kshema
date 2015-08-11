@@ -353,7 +353,7 @@ function pages_view($page)
 			$config['pages']['page_name'] = $content['name'];
 			$config['pages']['meta_keywords'] = $content['meta_keywords'];
 			$config['pages']['meta_description'] = $content['meta_description'];
-			$config['template']['css'] = $content['css'];
+			$config['template']['css'][] = $content['css'];
 
 			$config['themes']['page_title']['element'] = $content['title'];
 

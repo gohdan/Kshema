@@ -15,8 +15,8 @@ echo <<<END
 <link rel='stylesheet' href='/themes/default/css/main.css' type='text/css' />
 END;
 
-if ("" != $config['template']['css'])
-	echo ("\n<link rel='stylesheet' href='".$config['template']['css']."' type='text/css' />\n");
+foreach ($config['template']['css'] as $css_idx => $css_file)
+	echo ("\n<link rel='stylesheet' href='".$css_file."' type='text/css' />\n");
 
 include("includes/tinymce_init.php");
 
