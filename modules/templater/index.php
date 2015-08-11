@@ -206,13 +206,16 @@ function output ($content)
 	{
 		$sql_query = "SELECT * FROM `ksh_themes_tparts`";
 		$result = exec_query($sql_query);
-		while ($row = mysql_fetch_array($result))
+		if ($result)
 		{
-			$title = stripslashes($row['title']);
-			$tpart = stripslashes($row['tpart']);
-			$template[$title] = $tpart;
+			while ($row = mysql_fetch_array($result))
+			{
+				$title = stripslashes($row['title']);
+				$tpart = stripslashes($row['tpart']);
+				$template[$title] = $tpart;
+			}
+			mysql_free_result($result);
 		}
-		mysql_free_result($result);
 	}
 
 	debug("template:", 2);
