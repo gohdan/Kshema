@@ -171,21 +171,21 @@ function pages_tables_update()
 	if (!in_array("ksh_pages_categories", $tables))
 	{
 		$cat = new Category();
-		$cat -> create_table("ksh_pages_categories");
+		$result = $cat -> create_table("ksh_pages_categories");
 		$content['result'] .= $result['result'];
 	}
 
 	if (!in_array("ksh_pages_privileges", $tables))
 	{
 		$priv = new Privileges();
-		$priv -> create_table("ksh_pages_privileges");
+		$result = $priv -> create_table("ksh_pages_privileges");
 		$content['result'] .= $result['result'];
 	}
 
 	if (!in_array("ksh_pages_access", $tables))
 	{
 		$acc = new Access();
-		$acc -> create_table("ksh_pages_access");
+		$result = $acc -> create_table("ksh_pages_access");
 		$content['result'] .= $result['result'];
 	}
 
