@@ -17,7 +17,7 @@ echo ("<title>".$template['title']."</title>\n");
 
 echo <<<END
 <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/themes/default/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/themes/default/css/admin.css" type="text/css" />
 <script src="/libs/jquery.min.js"></script>
 <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
 END;
@@ -31,6 +31,19 @@ echo <<<END
 </head>
 <body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+	  <div class="navbar-header">
+	  <a class="navbar-brand">
+END;
+
+echo ($config['base']['site_name']);
+
+echo <<<END
+	  </a>
+      </div>
+	</div>
+</nav>
 END;
 
 echo ($content);
