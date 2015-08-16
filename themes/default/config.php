@@ -125,6 +125,9 @@ $config['articles']['table'] = "ksh_articles";
 $config['articles']['categories_table'] = "ksh_articles_categories";
 
 $config['auth']['allow_registration'] = "no";
+$config['auth']['admin_actions'] = array(
+	'show_login_form'
+);
 
 $config['auto_models']['sort_list_by'] = "name";
 $config['auto_models']['elements_on_page'] = 100;
@@ -228,6 +231,23 @@ $config['shop']['new_goods_sort_by'] = "name";
 $config['shop']['popular_goods_sort_order'] = "name";
 $config['shop']['recommended_goods_sort_by'] = "id";
 $config['shop']['recommended_goods_sort_order'] = "DESC";
+$config['shop']['admin_actions'] = array(
+	'admin',
+	'install_tables',
+	'drop_tables',
+	'update_tables',
+	'categories_add',
+	'categories_edit',
+	'categories_del',
+	'authors_add',
+	'authors_edit',
+	'authors_del',
+	'goods_view_hidden',
+	'goods_add',
+	'goods_edit',
+	'goods_del',
+	'user_del'
+);
 
 $config['templater']['show_null_values'] = "no"; // set to "yes" to show
 
@@ -263,6 +283,9 @@ $config['users']['categories_table'] = "ksh_users_groups";
 $config['users']['additional_fields'][0]['name'] = "";
 $config['users']['additional_fields'][0]['title'] = "";
 $config['users']['additional_fields'][0]['db_type'] = "";
+$config['users']['admin_actions'] = array(
+	'profile_view'
+);
 
 $config['weather']['link'] = "http://api.wunderground.com/api/***/geolookup/conditions/q/***.json";
 $config['weather']['update_interval'] = 3600;

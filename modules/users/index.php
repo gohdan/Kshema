@@ -110,6 +110,9 @@ function users_default_action()
 			$_GET['action'] = rtrim($_GET['action'], "/");
                 debug ("action: ".$_GET['action']);
 
+			if (in_array($_GET['action'], $config['users']['admin_actions']))
+				$config['themes']['admin'] = "yes";
+
 			if (isset($_GET['element']))
 				$_GET['element'] = rtrim($_GET['element'], "/");
 

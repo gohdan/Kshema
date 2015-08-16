@@ -40,56 +40,59 @@ function shop_frontpage()
 	$i = 0;
 	
     $result = exec_query ("SELECT `id`, `name` FROM `ksh_shop_categories`");
-    while ($row = mysql_fetch_array($result))
-		$categories[] = $row;
-    mysql_free_result ($result);
+	if ($result && mysql_num_rows($result))
+	{
+	    while ($row = mysql_fetch_array($result))
+			$categories[] = $row;
+	    mysql_free_result ($result);
 
-    foreach ($categories as $ck => $cv)
-    {
-		$sql_query = "SELECT COUNT(*) FROM `ksh_shop_goods` WHERE category='".$cv['id']."' AND (`if_hide` IS NULL OR `if_hide` != '1')";
-		$goods_qty = mysql_result(exec_query($sql_query), 0, 0);
-		debug ("goods qty: ".$goods_qty);
-        if (0 != $goods_qty)
-        {
-			debug("there are goods, processing");
-			$content['goods_last'][$i]['begin_row'] = "yes";
-			$content['goods_last'][$i]['lastitems_qty'] = $lastitems;
-			$content['goods_last'][$i]['category_title'] = stripslashes($cv['name']);
-	        unset ($goods);
+	    foreach ($categories as $ck => $cv)
+    	{
+			$sql_query = "SELECT COUNT(*) FROM `ksh_shop_goods` WHERE category='".$cv['id']."' AND (`if_hide` IS NULL OR `if_hide` != '1')";
+			$goods_qty = mysql_result(exec_query($sql_query), 0, 0);
+			debug ("goods qty: ".$goods_qty);
+	        if (0 != $goods_qty)
+    	    {
+				debug("there are goods, processing");
+				$content['goods_last'][$i]['begin_row'] = "yes";
+				$content['goods_last'][$i]['lastitems_qty'] = $lastitems;
+				$content['goods_last'][$i]['category_title'] = stripslashes($cv['name']);
+		        unset ($goods);
 
-			$sql_query = "SELECT `id`, `name`, `image` FROM `ksh_shop_goods` 
-				WHERE category='".$cv['id']."'
-				AND (`if_hide` IS NULL OR `if_hide` != '1')
-				ORDER BY `id` DESC LIMIT ".$lastitems;
-	        $result = exec_query ($sql_query);
-	        while ($row = mysql_fetch_array($result))
-				$goods[] = $row;
-	        mysql_free_result($result);
+				$sql_query = "SELECT `id`, `name`, `image` FROM `ksh_shop_goods` 
+					WHERE category='".$cv['id']."'
+					AND (`if_hide` IS NULL OR `if_hide` != '1')
+					ORDER BY `id` DESC LIMIT ".$lastitems;
+		        $result = exec_query ($sql_query);
+		        while ($row = mysql_fetch_array($result))
+					$goods[] = $row;
+	        	mysql_free_result($result);
 
-			$j = 0;
-	        foreach ($goods as $k => $v)
-	        {
-				debug("processing good ".$k.", i=".$i.", j=".$j);
-				$content['goods_last'][$i]['id'] = stripslashes($v['id']);
-				$content['goods_last'][$i]['image'] = stripslashes($v['image']);
-				$content['goods_last'][$i]['name'] = stripslashes($v['name']);
-				$i++;
-				$j++;
-
-				if ($j == $lastgoods)
-				{
-					$content['goods_last'][$i]['end_row'] = "yes";
-			        if ("yes" == $config['shop']['show_last_goods_link'])
+				$j = 0;
+		        foreach ($goods as $k => $v)
+	    	    {
+					debug("processing good ".$k.", i=".$i.", j=".$j);
+					$content['goods_last'][$i]['id'] = stripslashes($v['id']);
+					$content['goods_last'][$i]['image'] = stripslashes($v['image']);
+					$content['goods_last'][$i]['name'] = stripslashes($v['name']);
+					$i++;
+					$j++;
+	
+					if ($j == $lastgoods)
 					{
-						$content['goods_last'][$i]['show_last_goods_link'] = "yes";
-						$content['goods_last'][$i]['category_id'] = stripslashes($cv['id']);
-						$content['goods_last'][$i]['category_title'] = stripslashes($cv['name']);
-						$content['goods_last'][$i]['lastitems_qty'] = $lastitems;
+						$content['goods_last'][$i]['end_row'] = "yes";
+				        if ("yes" == $config['shop']['show_last_goods_link'])
+						{
+							$content['goods_last'][$i]['show_last_goods_link'] = "yes";
+							$content['goods_last'][$i]['category_id'] = stripslashes($cv['id']);
+							$content['goods_last'][$i]['category_title'] = stripslashes($cv['name']);
+							$content['goods_last'][$i]['lastitems_qty'] = $lastitems;
+						}
 					}
 				}
-			}
-        }
-    }
+	        }
+    	}
+	}
 
     debug ("*** end: shop_frontpage ***");
     return $content;
@@ -144,7 +147,11 @@ function shop_default_action()
 
         if (isset($_GET['action']))
         {
-                debug ("*** action: ".$_GET['action']);
+				debug ("*** action: ".$_GET['action']);
+
+				if (in_array($_GET['action'], $config['shop']['admin_actions']))
+						$config['themes']['admin'] = "yes";
+
                 switch ($_GET['action'])
                 {
                         default:

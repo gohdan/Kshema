@@ -77,7 +77,11 @@ function auth_default_action()
     $content = "";
     if (isset($_GET['action']))
     {
-        debug ("action: ".$_GET['action']);
+		debug ("action: ".$_GET['action']);
+
+		if (in_array($_GET['action'], $config['auth']['admin_actions']))
+			$config['themes']['admin'] = "yes";
+
         switch ($_GET['action'])
         {
             default:
