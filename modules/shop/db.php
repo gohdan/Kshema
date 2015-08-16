@@ -21,6 +21,9 @@ function shop_install_tables()
 		debug ("db engine isn't too old, using charsets");
 		$charset = " charset='utf8'";
 	}
+	$cat = new Category();
+	$result =  $cat -> create_table("ksh_shop_categories");
+	$content['result'] .= $result['result'];
 
 	$priv = new Privileges();
 	$result =  $priv -> create_table("ksh_shop_privileges");
@@ -37,14 +40,7 @@ function shop_install_tables()
 				`image` tinytext,
 				`descr` text,
 				`if_hide` varchar(1)
-        )".$charset;
-
-        $queries[] = "create table if not exists ksh_shop_categories (
-                id int auto_increment primary key,
-                parent int,
-                name tinytext,
-				template tinytext
-        )".$charset;
+		)".$charset;
 
         $queries[] = "create table if not exists ksh_shop_goods (
                 id int auto_increment primary key,
@@ -213,6 +209,13 @@ function shop_update_tables()
 	/* Checking tables */
 
 	$tables = db_tables_list();
+
+	if (!in_array("ksh_shop_categories", $tables))
+	{
+		$cat = new Category();
+		$result = $cat -> create_table("ksh_shop_categories");
+		$content['result'] .= $result['result'];
+	}
 
 	if (!in_array("ksh_shop_privileges", $tables))
 	{
