@@ -26,6 +26,10 @@ function shop_install_tables()
 	$result =  $priv -> create_table("ksh_shop_privileges");
 	$content['result'] .= $result['result'];
 
+	$acc = new Access();
+	$result =  $acc -> create_table("ksh_shop_access");
+	$content['result'] .= $result['result'];
+
         $queries[] = "create table if not exists ksh_shop_authors (
                 id int auto_increment primary key,
                 name tinytext,
@@ -208,21 +212,21 @@ function shop_update_tables()
 
 	/* Checking tables */
 
-	$tables = array();
-	$sql_query = "SHOW TABLES";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-		$tables[] = stripslashes($row['Tables_in_'.$db_name]);
-	mysql_free_result($result);
-
-	debug("tables:", 2);
-	dump($tables);
+	$tables = db_tables_list();
 
 	if (!in_array("ksh_shop_privileges", $tables))
 	{
 		$priv = new Privileges();
 		$result =  $priv -> create_table("ksh_shop_privileges");
+		$content['result'] .= $result['result'];
 	}
+
+	if (!in_array("ksh_shop_access", $tables))
+	{
+		$acc = new Access();
+		$result = $acc -> create_table("ksh_shop_access");
+		$content['result'] .= $result['result'];
+	}	
 
 	if (!in_array("ksh_shop_collections", $tables))
 	{
@@ -243,10 +247,12 @@ function shop_update_tables()
 
 	$sql_query = "SHOW FIELDS IN `ksh_shop_goods`";
 	$result = exec_query($sql_query);
+	$i = 0;
 	while ($row = mysql_fetch_array($result))
 	{
 		$field_names[$i] = stripslashes($row['Field']);
 		$field_types[$i] = stripslashes($row['Type']);
+		$i++;
 	}
 	mysql_free_result($result);
 
