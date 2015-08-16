@@ -187,6 +187,7 @@ $config['modules']['installed'][] = "themes";
 $config['modules']['installed'][] = "guestbook";
 $config['modules']['installed'][] = "files";
 $config['modules']['installed'][] = "auto_models";
+$config['modules']['installed'][] = "shop";
 
 $config['pages']['page_title'] = "Kshema";
 $config['pages']['sort_list_by'] = "name";
