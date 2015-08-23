@@ -227,6 +227,7 @@ $config['satellite']['id'] = "1";
 $config['shop']['lastitems'] = "4";
 $config['shop']['goods_on_page'] = "20";
 $config['shop']['categories_goods_sort_by'] = "name";
+$config['shop']['categories_goods_sort_order'] = "ASC";
 $config['shop']['show_last_goods_link'] = "yes";
 $config['shop']['new_goods_sort_by'] = "name";
 $config['shop']['popular_goods_sort_order'] = "name";
