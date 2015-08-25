@@ -124,11 +124,11 @@ function gen_content($module, $template, $content)
         $tpl = templater_logic($tpl, $content);
         debug ("; end: proceeding logical structure");
 
-		$pattern="/\{\{([a-z0-9\:]+)\}\}/i";
+		$pattern="/\{\{([a-z0-9\:_]+)\}\}/i";
         if (preg_match_all($pattern, $tpl, $dynamic_content))
         {
             debug ("dynamic content exists");
-			print_r($dynamic_content);
+			dump($dynamic_content);
 
             foreach ($dynamic_content[1] as $k => $v)
             {
@@ -137,14 +137,18 @@ function gen_content($module, $template, $content)
 	            $dc = explode(":", $v);
 	            $dc[0] = str_replace("{", "", $dc[0]);
 	            $dc[1] = $dc[1];
-	            $dc[2] = str_replace("}", "", $dc[2]);
+				if (isset($dc[2]))
+		            $dc[2] = str_replace("}", "", $dc[2]);
+				else
+					$dc[2] = "";
 	            debug($dc[0].":".$dc[1].":".$dc[2], 2);
 	            debug ("including module ".$dc[0]);
 	            include_once ($mods_dir."/".$dc[0]."/index.php");
 	            debug ("dyn content 0: ".$v, 2);
 	            debug ("dc 1: ".$dc[1], 2);
 	            debug ("dc 2: ".$dc[2], 2 );
-	            $new_tpl = str_replace ($v, $dc[1]($dc[2]), $tpl);
+				$f_name = $dc[0]."_".$dc[1];
+	            $new_tpl = str_replace ("{{".$v."}}", $f_name($dc[2]), $tpl);
 	            debug ("changing template ".$tpl." on ".$new_tpl);
 	            $tpl = $new_tpl;
 			}
