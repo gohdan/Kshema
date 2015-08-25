@@ -80,227 +80,190 @@ function pages_get_actions_list()
 
 function pages_default_action()
 {
-        global $user;
-        global $config;
+	global $user;
+	global $config;
 
-        $content = "";
+	debug("=== mod: pages ===");
 
-		if(isset($_GET['element']) && !isset($_GET['page']))
-			$_GET['page'] = rtrim($_GET['element'], "/");
+	$content = "";
 
-		$module_data = array (
-			'module_name' => "pages",
-			'module_title' => "Страницы"
-		);
-		$config['pages']['page_title'] = $module_data['module_title'];
-		$config['themes']['page_title']['module'] = "Страницы";
+	if(isset($_GET['element']) && !isset($_GET['page']))
+		$_GET['page'] = rtrim($_GET['element'], "/");
 
-		if ("" != $config['pages']['css'])
-			$config['template']['css'][] = $config['pages']['css'];
+	$module_data = array (
+		'module_name' => "pages",
+		'module_title' => "Страницы"
+	);
+	$config['pages']['page_title'] = $module_data['module_title'];
+	$config['themes']['page_title']['module'] = "Страницы";
 
-		$priv = new Privileges();
+	if ("" != $config['pages']['css'])
+		$config['template']['css'][] = $config['pages']['css'];
 
-        debug("<br>=== mod: pages ===");
+	$priv = new Privileges();
 
-        if (isset($_GET['action']))
-        {
-			if (isset($_POST['do_del_category']))
-			{
-				if ($priv -> has("pages", "admin", "write"))
-				{
-					debug ("deleting category");
-					$cat = new Category();
-					$result = $cat -> del("ksh_pages_categories", "ksh_pages", $_POST['category']);
-				}
-			}
-                debug ("*** action: ".$_GET['action']);
-                switch ($_GET['action'])
-                {
-                        default:
-							$config['themes']['page_title']['action'] = "";
-							$content .= gen_content("pages", "frontpage", pages_frontpage());
-							$content .= gen_content("pages", "view", pages_view("frontpage"));
-                        break;
+	if (isset($_POST['do_del_category']))
+	{
+		if ($priv -> has("pages", "admin", "write"))
+		{
+			debug ("deleting category");
+			$cat = new Category();
+			$result = $cat -> del("ksh_pages_categories", "ksh_pages", $_POST['category']);
+		}
+	}
 
-                        case "help":
-							$config['themes']['page_title']['action'] = "Справка";
-                            $content .= gen_content("pages", "help", pages_help());
-                        break;
+	$action = "default";
+	if (isset($_GET['action']))
+	{
+		debug("*** have GET action");
+		$action = $_GET['action'];
+	}
 
-                        case "create_tables":
-							$config['themes']['page_title']['action'] = "Создание таблиц БД";
-                            $content .= gen_content("pages", "tables_create", pages_tables_create());
-                        break;
+	debug ("*** action: ".$action);
 
-                        case "drop_tables":
-							$config['themes']['page_title']['action'] = "Удаление таблиц БД";
-							if ($priv -> has("pages", "admin", "write"))
-	                            $content .= gen_content("pages", "drop_tables", pages_tables_drop());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+	if (in_array($action, $config['pages']['admin_actions']))
+		$config['themes']['admin'] = "yes";
 
-                        case "update_tables":
-							$config['themes']['page_title']['action'] = "Обновление таблиц БД";
-							
-							if (!in_array("ksh_pages_privileges", db_tables_list()))
-								$priv -> create_table("ksh_pages_privileges");
+	if (in_array($action, $config['pages']['admin_actions']) && !($priv -> has("pages", "admin", "write")))
+		$content .= gen_content("auth", "show_login_form", auth_show_login_form());
+	else switch ($action)
+	{
+		default:
+			$config['themes']['page_title']['action'] = "";
+			$content .= gen_content("pages", "frontpage", pages_frontpage());
+			$content .= gen_content("pages", "view", pages_view("frontpage"));
+		break;
 
-							if ($priv -> has("pages", "admin", "write"))
-						        $content .= gen_content("pages", "tables_update", pages_tables_update());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "help":
+			$config['themes']['page_title']['action'] = "Справка";
+			$content .= gen_content("pages", "help", pages_help());
+		break;
 
-						case "categories_view":
-							$config['themes']['page_title']['action'] = "Категории";
-							$config['pages']['page_title'] .= " - Категории";
-							$cat = new Category();
-							$cnt = $cat -> view("ksh_pages_categories");
-							$content .= gen_content("pages", "categories_view", array_merge($module_data, $cnt));
-						break;
+		case "create_tables":
+			$config['themes']['page_title']['action'] = "Создание таблиц БД";
+			$content .= gen_content("pages", "tables_create", pages_tables_create());
+		break;
 
-                        case "categories_add":
-							$config['themes']['page_title']['action'] = "Добавление категории";
-							$config['pages']['page_title'] .= " - Добавление категории";
-							if ($priv -> has("pages", "admin", "write"))
-							{
-								$cat = new Category();
-								$cnt = $cat -> add("ksh_pages_categories");							if (isset($_GET['page']))
-								$page = $_GET['page'];
-							else if (isset($_GET['element']))
-								$page = $_GET['element'];
-    	                        $content .= gen_content("pages", "categories_add", array_merge($module_data, $cnt));
-							}
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "drop_tables":
+			$config['themes']['page_title']['action'] = "Удаление таблиц БД";
+			$content .= gen_content("pages", "drop_tables", pages_tables_drop());
+		break;
 
-                        case "categories_del":
-							$config['themes']['page_title']['action'] = "Удаление категории";
-							$config['pages']['page_title'] .= " - Удаление категории";
-							if ($priv -> has("pages", "admin", "write"))
-							{
-								if (isset($_GET['category']))
-									$category = $_GET['category'];
-								else if (isset($_GET['element']))
-									$category = $_GET['element'];
-								else
-									$category = 0;
+		case "update_tables":
+			$config['themes']['page_title']['action'] = "Обновление таблиц БД";
+			if (!in_array("ksh_pages_privileges", db_tables_list()))
+			$priv -> create_table("ksh_pages_privileges");
+	        $content .= gen_content("pages", "tables_update", pages_tables_update());
+		break;
 
-								$cat = new Category();
-								$cnt = $cat -> del("ksh_pages_categories", "ksh_pages", $category);
-                	            $content .= gen_content("pages", "categories_del", array_merge($module_data, $cnt));
-							}
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "categories_view":
+			$config['themes']['page_title']['action'] = "Категории";
+			$config['pages']['page_title'] .= " - Категории";
+			$cat = new Category();
+			$cnt = $cat -> view("ksh_pages_categories");
+			$content .= gen_content("pages", "categories_view", array_merge($module_data, $cnt));
+		break;
 
-						case "categories_edit":
-							$config['themes']['page_title']['action'] = "Редактирование категории";
-							$config['pages']['page_title'] .= " - Редактирование категории";
-							if ($priv -> has("pages", "admin", "write"))
-							{
-								if (isset($_POST['category']))
-									$category = $_POST['category'];
-								else if (isset($_GET['category']))
-									$category = $_GET['category'];
-								else if (isset($_GET['element']))
-									$category = $_GET['element'];
-								else
-									$category = 0;
+		case "categories_add":
+			$config['themes']['page_title']['action'] = "Добавление категории";
+			$config['pages']['page_title'] .= " - Добавление категории";
+			$cat = new Category();
+			$cnt = $cat -> add("ksh_pages_categories");
+			if (isset($_GET['page']))
+				$page = $_GET['page'];
+			else if (isset($_GET['element']))
+				$page = $_GET['element'];
+			$content .= gen_content("pages", "categories_add", array_merge($module_data, $cnt));
+		break;
 
-								$cat = new Category();
-								$cnt = $cat -> edit("ksh_pages_categories", $category);
-		                        $content .= gen_content("pages", "categories_edit", array_merge($module_data, $cnt));
-							}
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "categories_del":
+			$config['themes']['page_title']['action'] = "Удаление категории";
+			$config['pages']['page_title'] .= " - Удаление категории";
+			if (isset($_GET['category']))
+				$category = $_GET['category'];
+			else if (isset($_GET['element']))
+				$category = $_GET['element'];
+			else
+				$category = 0;
 
+			$cat = new Category();
+			$cnt = $cat -> del("ksh_pages_categories", "ksh_pages", $category);
+			$content .= gen_content("pages", "categories_del", array_merge($module_data, $cnt));
+		break;
 
-						case "view_by_category":
-							$config['themes']['page_title']['action'] = "Просмотр страниц в категории";
-							$content_data = pages_view_by_category();
-                            $content .= gen_content("pages", "view_by_category", $content_data);
-                        break;
+		case "categories_edit":
+			$config['themes']['page_title']['action'] = "Редактирование категории";
+			$config['pages']['page_title'] .= " - Редактирование категории";
 
-                        case "add":
-							$config['themes']['page_title']['action'] = "Добавление страницы";
-							$config['themes']['admin'] = "yes";
-							if ($priv -> has("pages", "admin", "write"))
-                            	$content .= gen_content("pages", "add", pages_add());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+			if (isset($_POST['category']))
+				$category = $_POST['category'];
+			else if (isset($_GET['category']))
+				$category = $_GET['category'];
+			else if (isset($_GET['element']))
+				$category = $_GET['element'];
+			else
+				$category = 0;
+			$cat = new Category();
+			$cnt = $cat -> edit("ksh_pages_categories", $category);
+			$content .= gen_content("pages", "categories_edit", array_merge($module_data, $cnt));
+		break;
 
-						case "del":
-							$config['themes']['page_title']['action'] = "Удаление страницы";
-							$config['themes']['admin'] = "yes";
-							if ($priv -> has("pages", "admin", "write"))
-                            	$content .= gen_content("pages", "del", pages_del());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "view_by_category":
+			$config['themes']['page_title']['action'] = "Просмотр страниц в категории";
+			$content_data = pages_view_by_category();
+			$content .= gen_content("pages", "view_by_category", $content_data);
+		break;
 
-                        case "edit":
-							$config['themes']['page_title']['action'] = "Редактирование страницы";
-							$config['themes']['admin'] = "yes";
-							if ($priv -> has("pages", "admin", "write"))
-	                            $content .= gen_content("pages", "edit", pages_edit());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "add":
+			$config['themes']['page_title']['action'] = "Добавление страницы";
+			$config['themes']['admin'] = "yes";
+			$content .= gen_content("pages", "add", pages_add());
+		break;
 
-                        case "admin":
-							$config['themes']['page_title']['action'] = "Администрирование";
-							if ($priv -> has("pages", "admin", "write"))
-                            	$content .= gen_content("pages", "admin", pages_admin());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+		case "del":
+			$config['themes']['page_title']['action'] = "Удаление страницы";
+			$config['themes']['admin'] = "yes";
+			$content .= gen_content("pages", "del", pages_del());
+		break;
 
-                        case "view":
-							$config['themes']['page_title']['action'] = "Просмотр страницы";
+		case "edit":
+			$config['themes']['page_title']['action'] = "Редактирование страницы";
+			$config['themes']['admin'] = "yes";
+			$content .= gen_content("pages", "edit", pages_edit());
+		break;
 
-							$_GET['module'] = "pages";
-							$_GET['action'] = "view";
+		case "admin":
+			$config['themes']['page_title']['action'] = "Администрирование";
+			$content .= gen_content("pages", "admin", pages_admin());
+		break;
 
-							if (isset($_GET['page']))
-								$page = $_GET['page'];
-							else if (isset($_GET['element']))
-								$page = $_GET['element'];
+		case "view":
+			$config['themes']['page_title']['action'] = "Просмотр страницы";
 
-							$content .= gen_content("pages", "view", pages_view($page));
-                        break;
+			$_GET['module'] = "pages";
+			$_GET['action'] = "view";
 
-                        case "list_view":
-							$config['themes']['page_title']['action'] = "Список страниц";
-                            $content .= gen_content("pages", "list_view", pages_list_view());
-                        break;
+			if (isset($_GET['page']))
+				$page = $_GET['page'];
+			else if (isset($_GET['element']))
+				$page = $_GET['element'];
 
-                        case "transfer":
-							$config['themes']['page_title']['action'] = "Перенос страниц";
-							if ($priv -> has("pages", "admin", "write"))
-	                            $content .= gen_content("pages", "transfer", pages_transfer());
-							else
-								$content .= gen_content("auth", "show_login_form", auth_show_login_form());
-                        break;
+			$content .= gen_content("pages", "view", pages_view($page));
+		break;
 
-                }
-        }
+		case "list_view":
+			$config['themes']['page_title']['action'] = "Список страниц";
+			$content .= gen_content("pages", "list_view", pages_list_view());
+		break;
 
-        else
-        {
-                debug ("*** action: default");
-				$config['themes']['page_title']['action'] = "";
-                $content = gen_content("pages", "frontpage", pages_frontpage());
-				$content .= gen_content("pages", "view", pages_view("frontpage"));
-        }
+		case "transfer":
+			$config['themes']['page_title']['action'] = "Перенос страниц";
+			$content .= gen_content("pages", "transfer", pages_transfer());
+		break;
+	}
 
-        debug("=== end: mod: pages ===<br>");
-        return $content;
-
+	debug("=== end: mod: pages ===");
+	return $content;
 }
 
 ?>
