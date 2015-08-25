@@ -17,7 +17,7 @@ echo ("<title>".$template['title']."</title>\n");
 
 echo <<<END
 <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/themes/default/css/admin.css" type="text/css" />
+<link rel="stylesheet" href="/themes/energomir/css/admin.css" type="text/css" />
 <script src="/libs/jquery.min.js"></script>
 <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
 END;

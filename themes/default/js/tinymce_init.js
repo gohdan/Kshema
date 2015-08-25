@@ -1,0 +1,27 @@
+tinyMCE.init({
+    language: "ru",
+	mode : "textareas",
+    theme : "advanced",
+	ask : "true",
+	relative_urls : false,
+	plugins : "table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,searchreplace,print,contextmenu",
+    theme_advanced_buttons1_add_before : "ibrowser,save,separator",
+    theme_advanced_buttons2_add : "fontselect,fontsizeselect",
+    theme_advanced_buttons3_add : "separator,insertdate,inserttime,preview,zoom,separator,forecolor,backcolor",
+    theme_advanced_buttons3_add_before: "cut,copy,paste,separator,search,replace,separator",
+    theme_advanced_buttons4_add_before : "tablecontrols,separator",
+    theme_advanced_buttons4_add : "emotions,iespell,flash,advhr,separator,print",
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_toolbar_align : "left",
+    theme_advanced_path_location : "bottom",
+    plugin_insertdate_dateFormat : "%Y-%m-%d",
+    plugin_insertdate_timeFormat : "%H:%M:%S",
+    extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
+	external_link_list_url : "example_data/example_link_list.js",
+	external_image_list_url : "example_data/example_image_list.js",
+    flash_external_list_url : "example_data/example_flash_list.js",
+	content_css : "css/custom_content.css",
+	theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+	font_size_style_values : "10px,12px,13px,14px,16px,18px,20px"
+});
+

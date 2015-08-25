@@ -1,3 +1,9 @@
 body {
   padding: 50px 20px 20px 20px;
 }
+
+textarea
+{
+	width: 800px;
+	height: 600px;
+}
