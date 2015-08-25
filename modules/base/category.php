@@ -721,6 +721,30 @@ function get_categories_list($table_name, $parent = 0, $subcats = array())
 	return $subcats;
 }
 
+function get_categories_level($table_name, $parent = 0)
+{
+	global $user;
+	global $config;
+	debug ("=== category: get_categories_level ===");
+	debug ("parent: ".$parent);
+
+	$categories = array();
+
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."'";
+	$result = exec_query($sql_query);
+
+	while ($row = mysql_fetch_array($result))
+	{
+		$id = stripslashes($row['id']);
+		debug ("category: ".$id);
+		$categories[] = $id;
+	}
+	mysql_free_result($result);
+
+	debug ("=== end: category: get_categories_level ===");
+	return $categories;
+}
+
 function get_id_by_name($name)
 {
 	global $user;
