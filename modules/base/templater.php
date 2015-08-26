@@ -50,7 +50,8 @@ function colonize($el_array, $cols_qty = 2)
 			$i++;
 	}
 
-	$el_array[$idx]['row_end'] = "yes";
+	if (isset($idx))
+		$el_array[$idx]['row_end'] = "yes";
 
 	debug("new elements array:", 2);
 	dump($el_array);
