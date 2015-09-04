@@ -234,6 +234,7 @@ function db_fields_list($table)
 		{
 			$fields['names'][$i] = stripslashes($row['Field']);
 			$fields['types'][$i] = stripslashes($row['Type']);
+			$fields['null'][$i] = stripslashes($row['Null']);
 			$i++;
 		}
 		mysql_free_result($result);
