@@ -32,9 +32,9 @@ function create_table($table_name)
 		}
 
 		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
-			`id` int auto_increment primary key,
+			`id` int unsigned auto_increment primary key,
 			`parent` int,
-			`position` int,
+			`position` int unsigned default '4294967295',
 			`name` tinytext,
 			`title` tinytext,
 			`template` tinytext,
@@ -95,41 +95,34 @@ function update_table($table_name)
         'result' => ''
     );
 
-	if (1 == $user['id'])
-	{
-		debug ("user is admin");
+	$queries = array();
 
-		$queries_qty = array();
-
-		if (!in_array($table_name, db_tables_list()))
-			$this -> create_table($table_name);
-
-		$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table_name)."`";
-		$result = exec_query($sql_query);
-		while ($row = mysql_fetch_array($result))
-		{
-			$field_names[$i] = stripslashes($row['Field']);
-			$field_types[$i] = stripslashes($row['Type']);
-		}
-		mysql_free_result($result);
-
-		if (!in_array("position", $field_names))
-		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int";
-			$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '1'"; 
-			$content['result'] .= "<p>В таблицу категорий успешно добавлено поле position</p>";
-		}
-
-		if ($queries_qty > 0)
-			foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-
-
-	}
+	if (!in_array($table_name, db_tables_list()))
+		$this -> create_table($table_name);
 	else
 	{
-		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		$fields = db_fields_list($table_name);
+
+		if (!in_array("position", $fields['names']))
+		{
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int unsigned default '4294967295'";
+			$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295'"; 
+			$content['result'] .= "<p>В таблицу категорий успешно добавлено поле position</p>";
+		}
+		else
+		{
+			foreach($fields['names'] as $k => $v)
+				if ("position" == $v)
+					if ("int(11)" == $fields['types'][$k])
+					{
+						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295'";
+						$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295' WHERE `position` = '0'";
+					}
+		}
 	}
+
+	foreach ($queries as $sql_query)
+		exec_query ($sql_query);
 
 	debug ("=== end: category: update_table ===");
 	return $content;
@@ -193,7 +186,7 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 	debug ("=== category: get_subcategories ===");
 	debug ("parent: ".$parent_id);
 	dump ($subcats);
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent_id."'";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent_id."' ORDER BY `position` DESC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysql_fetch_array($result))
@@ -462,7 +455,7 @@ function get_list($categories_table)
 
 	$list = array ();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."`";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` ORDER BY `position` DESC, `id` ASC";
 	$result = exec_query($sql_query);
 	while ($row = mysql_fetch_array($result))
 	{
@@ -705,7 +698,7 @@ function get_categories_list($table_name, $parent = 0, $subcats = array())
 	debug ("=== category: get_categories_list ===");
 	debug ("parent: ".$parent);
 	dump ($subcats);
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."'";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` DESC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysql_fetch_array($result))
@@ -730,7 +723,7 @@ function get_categories_level($table_name, $parent = 0)
 
 	$categories = array();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."'";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` DESC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysql_fetch_array($result))
