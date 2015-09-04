@@ -298,6 +298,9 @@ function add($table_name)
 			foreach($_POST as $k => $v)
 				if (db_field_exists($table_name, $k))
 				{
+					if (("position" == $k) && ("" == $v))
+							$v = '4294967295';
+
 					$fields .= "`".mysql_real_escape_string($k)."`, ";
 					$values .= "'".mysql_real_escape_string($v)."', ";
 				}
@@ -423,7 +426,11 @@ function edit($categories_table, $category_id)
 			$sql_query = "UPDATE `".mysql_real_escape_string($categories_table)."` SET ";
 			foreach($_POST as $k => $v)
 				if (db_field_exists($categories_table, $k))
+				{
+					if (("position" == $k) && ("" == $v))
+						$v = '4294967295';
 					$sql_query .= "`".mysql_real_escape_string($k)."` = '".mysql_real_escape_string($v)."', ";
+				}
 			$sql_query = rtrim($sql_query, ", ");
 			$sql_query .= " WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
 
@@ -444,6 +451,9 @@ function edit($categories_table, $category_id)
 
 	foreach($row as $k => $v)
 		$content[$k] = stripslashes($v);
+
+	if ("4294967295" == $content['position'])
+		$content['position'] = "";
 
 	$content['categories_select'] = $this -> get_select ($categories_table, stripslashes($row['parent']));
 
