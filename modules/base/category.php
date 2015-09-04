@@ -34,7 +34,7 @@ function create_table($table_name)
 		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
 			`id` int unsigned auto_increment primary key,
 			`parent` int,
-			`position` int unsigned default '4294967295',
+			`position` int unsigned default '4294967295' not null,
 			`name` tinytext,
 			`title` tinytext,
 			`template` tinytext,
@@ -105,7 +105,7 @@ function update_table($table_name)
 
 		if (!in_array("position", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int unsigned default '4294967295'";
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int unsigned default '4294967295' not null";
 			$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295'"; 
 			$content['result'] .= "<p>В таблицу категорий успешно добавлено поле position</p>";
 		}
@@ -113,11 +113,15 @@ function update_table($table_name)
 		{
 			foreach($fields['names'] as $k => $v)
 				if ("position" == $v)
+				{
 					if ("int(11)" == $fields['types'][$k])
 					{
-						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295'";
+						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
 						$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295' WHERE `position` = '0'";
 					}
+					if ("YES" == $fields['null'][$k])
+						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
+				}
 		}
 	}
 
