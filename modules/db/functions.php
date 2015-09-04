@@ -215,4 +215,33 @@ function db_field_exists($table, $field)
 	return $res;
 }
 
+function db_fields_list($table)
+{
+	global $config;
+	global $user;
+	debug("*** db_fields_list ***");
+
+	debug("table: ".$table);
+
+	$fields = array();
+
+	if ("" != $table)
+	{
+		$i = 0;
+		$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table)."`";
+		$result = exec_query($sql_query);
+		while ($row = mysql_fetch_array($result))
+		{
+			$fields['names'][$i] = stripslashes($row['Field']);
+			$fields['types'][$i] = stripslashes($row['Type']);
+			$i++;
+		}
+		mysql_free_result($result);
+	}
+
+	debug("*** end: db_fields_list ***");
+	return $fields;
+}
+
+
 ?>
