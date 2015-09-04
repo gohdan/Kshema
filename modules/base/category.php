@@ -186,7 +186,7 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 	debug ("=== category: get_subcategories ===");
 	debug ("parent: ".$parent_id);
 	dump ($subcats);
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent_id."' ORDER BY `position` DESC, `id` ASC";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent_id."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysql_fetch_array($result))
@@ -455,7 +455,7 @@ function get_list($categories_table)
 
 	$list = array ();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` ORDER BY `position` DESC, `id` ASC";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 	while ($row = mysql_fetch_array($result))
 	{
@@ -698,7 +698,7 @@ function get_categories_list($table_name, $parent = 0, $subcats = array())
 	debug ("=== category: get_categories_list ===");
 	debug ("parent: ".$parent);
 	dump ($subcats);
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` DESC, `id` ASC";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysql_fetch_array($result))
@@ -723,7 +723,7 @@ function get_categories_level($table_name, $parent = 0)
 
 	$categories = array();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` DESC, `id` ASC";
+	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysql_fetch_array($result))
