@@ -8,10 +8,11 @@
 
 <p>#content#</p>
 
-<form action="/#module_name#/categories_add/" method="post">
+<form action="/#module_name#/categories_add/" method="post" enctype="multipart/form-data">
 <table>
 <tr><td>Системное название (латинские буквы и цифры):</td><td><input type="text" name="name" size="40"></td></tr>
 <tr><td>Название для вывода пользователю (любые символы):</td><td><input type="text" name="title" size="40"></td></tr>
+<tr><td>Изображение-описание:</td><td><input type="file" name="image"></td></tr>
 <tr><td>Подкатегория в категории:</td><td><select name="parent"><option value="0">Нет</option>#categories_select#</select></td></tr>
 <tr><td>Порядок вывода:</td><td><input type="text" name="position" size="2"></td></tr>
 <tr><td>Шаблон всей страницы <i>(по умолчанию - default)</i>:</td><td><input type="text" name="page_template" value="default"></td></tr>

@@ -16,68 +16,59 @@ function create_table($table_name)
         'result' => ''
     );
 
-	if (1 == $user['id'])
+	if ("yes" == $config['db']['old_engine'])
 	{
-		debug ("user is admin");
-
-		if ("yes" == $config['db']['old_engine'])
-		{
-			debug ("db engine is too old, don't using charsets");
-			$charset = "";
-		}
-		else
-		{
-			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='utf8'";
-		}
-
-		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
-			`id` int unsigned auto_increment primary key,
-			`parent` int,
-			`position` int unsigned default '4294967295' not null,
-			`name` tinytext,
-			`title` tinytext,
-			`template` tinytext,
-			`list_template` tinytext,
-			`element_template` tinytext,
-			`page_template` tinytext,
-			`menu_template` tinytext
-		)".$charset;
-
-		exec_query($sql_query);
-		$content['result'] .= "<p>Таблица категорий успешно создана</p>";
-
-		$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table_name)."`";
-		$result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
-		$rows_qty = $row['COUNT(*)'];
-		debug("rows_qty: ".$rows_qty);
-		if (!$rows_qty)
-		{
-			$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
-				`id`,
-				`parent`,
-				`position`,
-				`name`,
-				`title`,
-				`menu_template`
-				) VALUES (
-				'1',
-				'0',
-				'1',
-				'main',
-				'Главная',
-				'default'
-				)";
-			exec_query($sql_query);
-			$content['result'] .= "<p>Основная категория успешно создана</p>";
-		}
+		debug ("db engine is too old, don't using charsets");
+		$charset = "";
 	}
 	else
 	{
-		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		debug ("db engine isn't too old, using charsets");
+		$charset = " charset='utf8'";
+	}
+
+	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
+		`id` int unsigned auto_increment primary key,
+		`parent` int,
+		`position` int unsigned default '4294967295' not null,
+		`name` tinytext,
+		`title` tinytext,
+		`image` tinytext,
+		`template` tinytext,
+		`list_template` tinytext,
+		`element_template` tinytext,
+		`page_template` tinytext,
+		`menu_template` tinytext
+	)".$charset;
+
+	exec_query($sql_query);
+	$content['result'] .= "<p>Таблица категорий успешно создана</p>";
+
+	$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table_name)."`";
+	$result = exec_query($sql_query);
+	$row = mysql_fetch_array($result);
+	mysql_free_result($result);
+	$rows_qty = $row['COUNT(*)'];
+	debug("rows_qty: ".$rows_qty);
+	if (!$rows_qty)
+	{
+		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+			`id`,
+			`parent`,
+			`position`,
+			`name`,
+			`title`,
+			`menu_template`
+			) VALUES (
+			'1',
+			'0',
+			'1',
+			'main',
+			'Главная',
+			'default'
+			)";
+		exec_query($sql_query);
+		$content['result'] .= "<p>Основная категория успешно создана</p>";
 	}
 
 	debug ("=== end: category: create_table ===");
@@ -103,11 +94,17 @@ function update_table($table_name)
 	{
 		$fields = db_fields_list($table_name);
 
+		if (!in_array("image", $fields['names']))
+		{
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `image` tinytext";
+			$content['result'] .= "<p>В таблицу категорий добавлено поле image</p>";
+		}
+
 		if (!in_array("position", $fields['names']))
 		{
 			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int unsigned default '4294967295' not null";
 			$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295'"; 
-			$content['result'] .= "<p>В таблицу категорий успешно добавлено поле position</p>";
+			$content['result'] .= "<p>В таблицу категорий добавлено поле position</p>";
 		}
 		else
 		{
@@ -280,58 +277,49 @@ function add($table_name)
 		'categories_select' => ''
     );
 
-	if (1 == $user['id'])
+	if (isset($_POST['do_add_category']))
 	{
-		debug ("user is admin");
-		if (isset($_POST['do_add_category']))
+		if ("" == $_POST['name'])
 		{
-			if ("" == $_POST['name'])
+			$dob = new Dataobject();
+			$_POST['name'] = $dob -> generate_unique_name($table_name, $_POST['title']);
+		}
+		$_POST['name'] = str_replace("/", "", $_POST['name']);
+
+		$fl = new File();
+		$_POST['image'] = $fl -> upload("image");
+
+		$fields = "";
+		$values = "";
+		foreach($_POST as $k => $v)
+			if (db_field_exists($table_name, $k))
 			{
-				$dob = new Dataobject();
-				$_POST['name'] = $dob -> generate_unique_name($table_name, $_POST['title']);
+				if (("position" == $k) && ("" == $v))
+						$v = '4294967295';
+
+				$fields .= "`".mysql_real_escape_string($k)."`, ";
+				$values .= "'".mysql_real_escape_string($v)."', ";
 			}
 
-			$_POST['name'] = str_replace("/", "", $_POST['name']);
+		$fields = rtrim($fields, ", ");
+		$values = rtrim($values, ", ");
 
-			$fields = "";
-			$values = "";
-			foreach($_POST as $k => $v)
-				if (db_field_exists($table_name, $k))
-				{
-					if (("position" == $k) && ("" == $v))
-							$v = '4294967295';
+		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (".$fields.") VALUES (".$values.")";
+		exec_query($sql_query);
 
-					$fields .= "`".mysql_real_escape_string($k)."`, ";
-					$values .= "'".mysql_real_escape_string($v)."', ";
-				}
+		$last_id = mysql_insert_id();
+		$module = $config['modules']['current_module'];
+		$acc = new Access();
+		$acc -> add_default($module, "category", $last_id);
 
-			$fields = rtrim($fields, ", ");
-			$values = rtrim($values, ", ");
-
-			$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (".$fields.") VALUES (".$values.")";
-			exec_query($sql_query);
-
-			$last_id = mysql_insert_id();
-			$module = $config['modules']['current_module'];
-			$acc = new Access();
-			$acc -> add_default($module, "category", $last_id);
-
-			$content['result'] .= "<p>Категория успешно добавлена</p>";
-		}
-	}
-	else
-	{
-		debug ("user isn't admin!");
-		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
+		$content['result'] .= "<p>Категория успешно добавлена</p>";
 	}
 
+	$parent = 0;
 	if (isset($_POST['parent']))
 		$parent = $_POST['parent'];
-	else
-		$parent = 0;
 
 	$content['categories_select'] = $this -> get_select($table_name, $parent);
-
 
 	debug ("=== end: category: view ===");
 	return $content;
@@ -350,27 +338,18 @@ function del($categories_table, $elements_table, $category_id, $if_del_elements 
         'result' => ''
     );
 
-	if (1 == $user['id'])
+	if (isset($_POST['do_del_category']))
 	{
-		debug ("user is admin");
-		if (isset($_POST['do_del_category']))
+		$sql_query = "DELETE FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
+		exec_query($sql_query);
+		$content['result'] .= "<p>Категория успешно удалена</p>";
+	
+		if ($if_del_elements)
 		{
-			$sql_query = "DELETE FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
+			$sql_query = "DELETE FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".mysql_real_escape_string($category_id)."'";
 			exec_query($sql_query);
-			$content['result'] .= "<p>Категория успешно удалена</p>";
-		
-			if ($if_del_elements)
-			{
-				$sql_query = "DELETE FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".mysql_real_escape_string($category_id)."'";
-				exec_query($sql_query);
-				$content['result'] .= "<p>Элементы категории успешно удалены</p>";
-			}
+			$content['result'] .= "<p>Элементы категории успешно удалены</p>";
 		}
-	}
-	else
-	{
-		debug ("user isn't admin!");
-		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
 	}
 
 	if (!isset($_POST['do_del_category']))
@@ -400,6 +379,7 @@ function edit($categories_table, $category_id)
 		'id' => '',
 		'name' => '',
 		'title' => '',
+		'image' => '',
 		'template' => '',
 		'list_template' => '',
 		'element_template' => '',
@@ -408,40 +388,33 @@ function edit($categories_table, $category_id)
 		'categories_select' => ''
     );
 
-	if (1 == $user['id'])
+	if (isset($_POST['do_update_category']))
 	{
-		debug ("user is admin");
-		if (isset($_POST['do_update_category']))
+		if ("" == $_POST['name'])
 		{
-			if ("" == $_POST['name'])
-			{
-				$dob = new Dataobject();
-				$name = $dob -> generate_unique_name($categories_table, $_POST['title']);
-			}
-			else
-				$name = $_POST['name'];
-
-			$name = str_replace("/", "", $name);
-
-			$sql_query = "UPDATE `".mysql_real_escape_string($categories_table)."` SET ";
-			foreach($_POST as $k => $v)
-				if (db_field_exists($categories_table, $k))
-				{
-					if (("position" == $k) && ("" == $v))
-						$v = '4294967295';
-					$sql_query .= "`".mysql_real_escape_string($k)."` = '".mysql_real_escape_string($v)."', ";
-				}
-			$sql_query = rtrim($sql_query, ", ");
-			$sql_query .= " WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
-
-			exec_query($sql_query);
-			$content['result'] .= "<p>Изменения успешно записаны</p>";
+			$dob = new Dataobject();
+			$name = $dob -> generate_unique_name($categories_table, $_POST['title']);
 		}
-	}
-	else
-	{
-		debug ("user isn't admin!");
-		$content['result'] .= "<p>Пожалуйста, войдите как администратор</p>";
+		else
+			$name = $_POST['name'];
+		$name = str_replace("/", "", $name);
+
+		$fl = new File();
+		$_POST['image'] = $fl -> upload("image");
+
+		$sql_query = "UPDATE `".mysql_real_escape_string($categories_table)."` SET ";
+		foreach($_POST as $k => $v)
+			if (db_field_exists($categories_table, $k))
+			{
+				if (("position" == $k) && ("" == $v))
+					$v = '4294967295';
+				$sql_query .= "`".mysql_real_escape_string($k)."` = '".mysql_real_escape_string($v)."', ";
+			}
+		$sql_query = rtrim($sql_query, ", ");
+		$sql_query .= " WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
+
+		exec_query($sql_query);
+		$content['result'] .= "<p>Изменения успешно записаны</p>";
 	}
 
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
@@ -452,7 +425,7 @@ function edit($categories_table, $category_id)
 	foreach($row as $k => $v)
 		$content[$k] = stripslashes($v);
 
-	if ("4294967295" == $content['position'])
+	if ("4294967295" == $content['position']) // mask default position
 		$content['position'] = "";
 
 	$content['categories_select'] = $this -> get_select ($categories_table, stripslashes($row['parent']));

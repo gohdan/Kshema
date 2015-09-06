@@ -10,11 +10,14 @@
 
 <p>#content#</p>
 
-<form action="/#module_name#/categories_edit/#id#/" method="post">
+<form action="/#module_name#/categories_edit/#id#/" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="#id#">
+<input type="hidden" name="old_image" value="#image#">
 <table>
 <tr><td>Системное название (латинскими буквами; можно использовать цифры):</td><td><input type="text" name="name" value="#name#" size="40"></td></tr>
 <tr><td>Название для вывода пользователю (можно любой текст):</td><td><input type="text" name="title" value="#title#" size="40"></td></tr>
+{{if:image:<tr><td colspan="2"><img src="#image#"></td></tr>}}
+<tr><td>Новое изображение-описание:</td><td><input type="file" name="image"></td></tr>
 <tr><td>Подкатегория в категории:</td><td><select name="parent"><option value="0">Нет</option>#categories_select#</select></td></tr>
 <tr><td>Порядок вывода:</td><td><input type="text" name="position" size="2" value="#position#"></td></tr>
 <tr><td>Шаблон всей страницы <i>(по умолчанию - default)</i>:</td><td><input type="text" name="page_template" value="#page_template#"></td></tr>
