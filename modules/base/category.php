@@ -219,7 +219,8 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 				$prnt = mysql_fetch_array($res_parent);
 				mysql_free_result($res_parent);
 				$parent = stripslashes($prnt['parent']);
-				$subcats[$id]['chain'] = stripslashes($prnt['title']).$config['base']['categories']['chain_divider'].$subcats[$id]['chain'];
+				//$subcats[$id]['chain'] = stripslashes($prnt['title']).$config['base']['categories']['chain_divider'].$subcats[$id]['chain'];
+				$subcats[$id]['chain'] = $config['base']['categories']['list_prefix'].$subcats[$id]['chain'];
 			}
 		}
 
