@@ -1,7 +1,7 @@
 <h1>#module_title# - Добавление категорий</h1>
 
 <p>
-<a href="/#module_name#/categories_view/">Вернуться к просмотру категорий</a><br>
+<a href="/#module_name#/categories_view_adm/">Вернуться к просмотру категорий</a><br>
 </p>
 
 <p>#result#</p>
