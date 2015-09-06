@@ -249,6 +249,7 @@ $config['shop']['popular_goods_sort_order'] = "name";
 $config['shop']['recommended_goods_sort_by'] = "id";
 $config['shop']['recommended_goods_sort_order'] = "DESC";
 $config['shop']['show_multiple_add_form'] = "yes";
+$config['shop']['upl_dir'] = "shop/"; // must be writable to web server
 $config['shop']['admin_actions'] = array(
 	'admin',
 	'install_tables',
