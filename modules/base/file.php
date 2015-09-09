@@ -284,12 +284,14 @@ function download($url)
 		$file_path =  $dir.$fname;
 
 		file_put_contents($file_path, file_get_contents($url));
+
+		$www_path = "/".ltrim($config['files']['upl_dir'], "/").$config[$module]['upl_dir'].$fname;
 	}
 	else
 		debug("url is empty, doing nothing");
 
 	debug("*** end: fn: url ***");
-	return $file_path;
+	return $www_path;
 }
 
 
