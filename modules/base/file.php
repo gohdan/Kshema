@@ -176,27 +176,7 @@ function stow ($file_name,$tmp_file_name,$home,$store_place,$if_file_exists)
 	debug ("script path: ".$_SERVER['SCRIPT_NAME']);
 	debug ("domain dir: ".$config['base']['domain_dir']);
 
-	$fname_parts = explode(".", $file_name);
-	$fname_parts_qty = count($fname_parts);
-	$file_name = "";
-	for ($i = 0; $i < ($fname_parts_qty - 1); $i++)
-		$file_name .= $fname_parts[$i];
-
-	$file_name = transliterate($file_name, "ru", "en").".".transliterate($fname_parts[$i++], "ru", "en");
-	debug ("transliterated file name: ".$file_name);
-
-	$fname = explode(".", $file_name);
-	$basename = $fname[0];
-
-	$inc = 1;
-	while (file_exists($home.$config['base']['domain_dir'].$store_place.$file_name))
-	{
-		debug("file ".$file_name." exists, incrementing base name");
-		$inc++;
-		$fname[0] = $basename."_".$inc;
-		$file_name = implode(".", $fname);
-		debug("new name: ".$file_name);
-	}
+	$file_name = $this -> gen_unique_name($home.$config['base']['domain_dir'].$store_place, $file_name);
 
    	debug ("file doesn't exist, copying");
 	$file_path = $store_place.$file_name;
@@ -247,6 +227,71 @@ function get_thumbnail($file)
 	debug("*** end: fn: get_thumbnail ***");
 	return $thumb;
 }
+
+function gen_unique_name($path, $file_name)
+{
+	global $config;
+	debug ("*** fn: gen_unique_name ***");
+
+	$fname_parts = explode(".", $file_name);
+	$fname_parts_qty = count($fname_parts);
+	$file_name = "";
+	for ($i = 0; $i < ($fname_parts_qty - 1); $i++)
+		$file_name .= $fname_parts[$i];
+
+	$file_name = transliterate($file_name, "ru", "en").".".transliterate($fname_parts[$i++], "ru", "en");
+	debug ("transliterated file name: ".$file_name);
+
+	$fname = explode(".", $file_name);
+	$basename = $fname[0];
+
+	$inc = 1;
+	while (file_exists($path.$file_name))
+	{
+		debug("file ".$file_name." exists, incrementing base name");
+		$inc++;
+		$fname[0] = $basename."_".$inc;
+		$file_name = implode(".", $fname);
+		debug("new name: ".$file_name);
+	}
+
+	debug ("*** end: fn: gen_unique_name ***");
+	return $file_name;
+}
+
+function download($url)
+{
+	global $config;
+
+	debug("*** fn: url ***");
+	debug("url: ".$url);
+
+	$file_path = "";
+
+	if ("" != $url)
+	{
+		debug("url is not empty, downloading");
+		$module = $config['modules']['current_module'];
+		$dir = $config['base']['doc_root'].$config['files']['upl_dir'].$config[$module]['upl_dir'];
+		debug("dir: ".$dir);
+
+		$url_arr = explode("/", $url);
+		$fname = array_pop($url_arr);
+		debug("fname: ".$fname);
+
+		$fname = $this -> gen_unique_name($dir, $fname);
+
+		$file_path =  $dir.$fname;
+
+		file_put_contents($file_path, file_get_contents($url));
+	}
+	else
+		debug("url is empty, doing nothing");
+
+	debug("*** end: fn: url ***");
+	return $file_path;
+}
+
 
 }
 
