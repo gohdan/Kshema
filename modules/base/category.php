@@ -34,6 +34,10 @@ function create_table($table_name)
 		`name` tinytext,
 		`title` tinytext,
 		`image` tinytext,
+		`h1` tinytext,
+		`description` mediumtext,
+		`meta_keywords` tinytext,
+		`meta_description` tinytext,
 		`template` tinytext,
 		`list_template` tinytext,
 		`element_template` tinytext,
@@ -119,6 +123,30 @@ function update_table($table_name)
 					if ("YES" == $fields['null'][$k])
 						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
 				}
+		}
+
+		if (!in_array("h1", $fields['names']))
+		{
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `h1` tinytext";
+			$content['result'] .= "<p>В таблицу категорий добавлено поле h1</p>";
+		}
+
+		if (!in_array("description", $fields['names']))
+		{
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `description` mediumtext";
+			$content['result'] .= "<p>В таблицу категорий добавлено поле description</p>";
+		}
+
+		if (!in_array("meta_keywords", $fields['names']))
+		{
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `meta_keywords` tinytext";
+			$content['result'] .= "<p>В таблицу категорий добавлено поле meta_keywords</p>";
+		}
+
+		if (!in_array("meta_description", $fields['names']))
+		{
+			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `meta_description` tinytext";
+			$content['result'] .= "<p>В таблицу категорий добавлено поле meta_description</p>";
 		}
 	}
 
