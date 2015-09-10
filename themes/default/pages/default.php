@@ -13,6 +13,9 @@ echo <<<END
 
 END;
 
+echo ("<meta name=\"description\" content=\"".$config['themes']['meta_description']."\">\n");
+echo ("<meta name=\"keywords\" content=\"".$config['themes']['meta_keywords']."\">\n");
+
 echo ("<title>".$template['title']."</title>\n");
 
 echo <<<END

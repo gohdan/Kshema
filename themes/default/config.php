@@ -289,6 +289,8 @@ $config['themes']['categories_title_reverse'] = "yes";
 $config['themes']['admin'] = "no"; // common case 
 $config['themes']['admin_page'] = "default"; // admin - to use own page to admin interface, default - to use common page view
 $config['themes']['page_404'] = "404";
+$config['themes']['meta_keywords'] = "";
+$config['themes']['meta_description'] = "";
 
 $config['updater']['url'] = "http://kshema.handyhosting.ru/updates/";
 $config['updater']['dl_path'] = "uploads/updater/";
