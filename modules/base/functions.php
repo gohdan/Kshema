@@ -25,13 +25,16 @@ function debug ($info, $level = 1)
     return 1;
 }
 
-function dump($var)
+function dump($var, $description = "")
 {
 	global $user;
 	global $config;
 
     if (((1 == $user['id']) || ($config['base']['debug_user'] == $user['id'])) && $config['base']['debug_level'] >= 2)
 	{
+		if ("" != $description)
+			debug($description);
+
 		$info = (print_r($var, TRUE));
 
 		if ("yes" == $config['base']['debug_file'])
