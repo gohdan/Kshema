@@ -124,7 +124,9 @@ function pages_default_action()
 	if (in_array($action, $config['pages']['admin_actions']))
 		$config['themes']['admin'] = "yes";
 
-	if (in_array($action, $config['pages']['admin_actions']) && !($priv -> has("pages", "admin", "write")))
+	if (in_array($action, $config['pages']['admin_actions']) && 
+			!($priv -> has("pages", "admin", "write")) &&
+			("create_tables" != $action))
 		$content .= gen_content("auth", "show_login_form", auth_show_login_form());
 	else switch ($action)
 	{
