@@ -24,22 +24,6 @@ function shop_goods_view_all()
 	else
 		debug ("user isn't admin");
 
-	if (isset($_POST['do_del']))
-	{
-		if (1 == $user['id'])
-		{
-			debug ("user is admin, deleting from DB");
-			exec_query ("delete from ksh_shop_goods where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Товар удалён";
-		}
-		else
-		{
-			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не удалён";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
-		}
-	}
-
 	$content['all_goods'] = shop_goods_list();
 
 	foreach ($content['all_goods'] as $k => $v)
@@ -60,241 +44,116 @@ function shop_goods_add()
 	debug ("*** shop_goods_add ***");
 	global $user;
 	global $config;
+
 	$content = array(
 		'result' => '',
 		'content' => '',
-		'authors' => '',
+		'authors' => array(),
 		'categories' => ''
 	);
 
-	/* Image uploading funcs */
+	$upls = array(
+		'image',
+		'images',
+		'pdf',
+		'epub',
+		'mp3'
+	);
 
-	global $upl_pics_dir;
-    global $doc_root;
-    global $max_file_size;
-    global $home;
+	$fl = new File();
 
-    if (isset($_FILES['image'])) $image = $_FILES['image'];
-    if (isset($_FILES['images'])) $images = $_FILES['images'];
-    if (isset($_FILES['pdf'])) $pdf = $_FILES['pdf'];
-    if (isset($_FILES['epub'])) $epub = $_FILES['epub'];
-    if (isset($_FILES['mp3'])) $mp3 = $_FILES['mp3'];
-
-    $if_file_exists = 0;
-    $file_path = "";
-
-	if ("" != $image['name'])
+	foreach ($upls as $upl)
 	{
-		debug ("there is an image to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/".$image['name'])) $if_file_exists = 1;
-		$file_path = upload_file($image['name'],$image['tmp_name'],$home,$upl_pics_dir."shop/",$if_file_exists);
-		debug ("size: ".filesize($home.$file_path));
+		$uploaded = $fl -> upload($upl);
+		if ("" != $uploaded)
+			$_POST[$upl] = $uploaded;
+	}
 
-		if (filesize($home.$file_path) > $max_file_size)
+	if (isset($_POST['image_url']))
+	{
+		if ("" != $_POST['image_url'])
 		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$file_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$file_path = "";
+			$_POST['image'] = $fl -> download($_POST['image_url']);
+			debug("using downloaded image: ".$_POST['image']);
 		}
-
-		$_POST['image'] = $file_path;
-
-	}
-	else
-	{
-		debug ("no image to upload");
-		$file_path = $_POST['image'];
+		unset($_POST['image_url']);
 	}
 
-	$if_file_exists = 0;
-	if ("" != $images['name'])
-	{
-		debug ("there is an additional image to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/".$images['name'])) $if_file_exists = 1;
-		$images_path = upload_file($images['name'],$images['tmp_name'],$home,$upl_pics_dir."shop/",$if_file_exists);
-		debug ("size: ".filesize($home.$file_path));
+	$category = 0;
+	if (isset($_POST['category']))
+		$category = $_POST['category'];
+	else if (isset($_GET['category']))
+		$category = $_GET['category'];
+	else if (isset($_GET['element']))
+		$category = $_GET['element'];
+	$content['category'] = $category;
 
-		if (filesize($home.$images_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$images_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$images_path = "";
-		}
-
-		$_POST['images'] = $images_path;
-	}
-	else
-	{
-		debug ("no additional images to upload");
-		$file_path = $_POST['image'];
-	}
-
-	$if_file_exists = 0;
-	$pdf_path = "";
-	if ("" != $pdf['name'])
-	{
-		debug ("there is a pdf to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/pdf/".$pdf['name'])) $if_file_exists = 1;
-		$pdf_path = upload_file($pdf['name'],$pdf['tmp_name'],$home,$upl_pics_dir."shop/pdf/",$if_file_exists);
-		debug ("size: ".filesize($home.$pdf_path));
-
-		if (filesize($home.$pdf_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$pdf_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$pdf_path = "";
-		}
-
-		$_POST['pdf'] = $pdf_path;
-	}
-	else
-	{
-		debug ("no additional images to upload");
-		$pdf_path = $_POST['pdf'];
-	}
-
-
-	$if_file_exists = 0;
-	$epub_path = "";
-	if ("" != $epub['name'])
-	{
-		debug ("there is a epub to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/epub/".$epub['name'])) $if_file_exists = 1;
-		$epub_path = upload_file($epub['name'],$epub['tmp_name'],$home,$upl_pics_dir."shop/epub/",$if_file_exists);
-		debug ("size: ".filesize($home.$epub_path));
-
-		if (filesize($home.$epub_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$epub_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$epub_path = "";
-		}
-
-		$_POST['epub'] = $epub_path;
-	}
-	else
-	{
-		debug ("no additional images to upload");
-		$epub_path = $_POST['epub'];
-	}
-
-
-	$if_file_exists = 0;
-	$mp3_path = "";
-	if ("" != $mp3['name'])
-	{
-		debug ("there is a mp3 to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/mp3/".$mp3['name'])) $if_file_exists = 1;
-		$mp3_path = upload_file($mp3['name'],$mp3['tmp_name'],$home,$upl_pics_dir."shop/mp3/",$if_file_exists);
-		debug ("size: ".filesize($home.$mp3_path));
-
-		if (filesize($home.$mp3_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$mp3_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$mp3_path = "";
-		}
-
-		$_POST['mp3'] = $mp3_path;
-	}
-	else
-	{
-		debug ("no additional images to upload");
-		$mp3_path = $_POST['mp3'];
-	}
-
-
-	/* End: Image uploading funcs */
-
-
-	if (1 == $user['id'])
-	{
-		debug ("user is admin");
-	}
-	else
-		debug ("user isn't admin");
+	$cat = new Category();
+	$content['categories_select'] = $cat -> get_select("ksh_shop_categories", $category);
 
 	if (isset($_POST['do_add']))
 	{
-		if (1 == $user['id'])
+        unset ($_POST['do_add']);
+
+		if (isset($_POST['new_link_title']) && ("" != $_POST['new_link_title']) && ("" != $_POST['new_link_url']))
+			$_POST['links'] .= $_POST['new_link_title'] . "|" . $_POST['new_link_img']. "|" . $_POST['new_link_url'];
+		unset($_POST['new_link_title']);
+		unset($_POST['new_link_img']);
+		unset($_POST['new_link_url']);
+
+
+		if (!isset($_POST['name']) || ("" == $_POST['name']))
 		{
-			debug ("user is admin, inserting into DB");
-
-	        unset ($_POST['do_add']);
-
-			if ("" != $_POST['new_link_title'] && "" != $_POST['new_link_url'])
-				$_POST['links'] .= $_POST['new_link_title'] . "|" . $_POST['new_link_img']. "|" . $_POST['new_link_url'];
-			unset($_POST['new_link_title']);
-			unset($_POST['new_link_img']);
-			unset($_POST['new_link_url']);
-			debug ("link: ".$_POST['links']);
-
-        	foreach ($_POST as $k => $v)
-        	{
-	            $fields .= $k.",";
-            	$values .= "'".mysql_real_escape_string($v)."',";
-        	}
-
-        	$sql_query = "INSERT INTO ksh_shop_goods (".ereg_replace(",$","",$fields).") values (".ereg_replace(",$","",$values).")";
-
-        	exec_query ($sql_query);
-
-			$content['result'] = "Товар добавлен";
-
-			if (in_array("rss", $config['modules']['installed']) && "yes" == $config['rss']['use'])
-			{
-				include_once($config['modules']['location']."/rss/index.php");
-				rss_add($_POST['name'], $config['base']['site_url']."/shop/view_good/good:".mysql_insert_id(), $_POST['commentary'], date("Y-m-d"));
-			}
+			$dbo = new DataObject();
+			$_POST['name'] = $dbo -> generate_unique_name("ksh_shop_goods", $_POST['title']);
 		}
-		else
+
+		$fields = "";
+		$values = "";
+       	foreach ($_POST as $k => $v)
+       	{
+            $fields .= "`".mysql_real_escape_string($k)."`, ";
+           	$values .= "'".mysql_real_escape_string($v)."', ";
+       	}
+		$fields = rtrim($fields, ", ");
+		$values = rtrim($values, ", ");
+
+       	$sql_query = "INSERT INTO `ksh_shop_goods` (".$fields.") VALUES (".$values.")";
+
+       	exec_query ($sql_query);
+
+		$content['result'] = "Товар добавлен";
+
+		if (in_array("rss", $config['modules']['installed']) && "yes" == $config['rss']['use'])
 		{
-			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Товар не добавлен";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
+			include_once($config['modules']['location']."/rss/index.php");
+			rss_add($_POST['name'], $config['base']['site_url']."/shop/view_good/good:".mysql_insert_id(), $_POST['description'], date("Y-m-d"));
 		}
 	}
 
+	$i = 0;
 	$authors = shop_authors_list();
 	foreach ($authors as $k => $v)
 	{
-		if (isset($_POST['author']) && $v['id'] == $_POST['author'])
-			$if_selected = " selected";
-		else
-			$if_selected = "";
-
-		$content['authors'] .= "<option value=\"".$v['id']."\"".$if_selected.">".$v['name']."</option>";
-	}
-
-	$categories = shop_categories_list();
-	foreach ($categories as $k => $v)
-	{
-		if (isset($_POST['category']) && $v['id'] == $_POST['category'])
-			$if_selected = " selected";
-		else
-			$if_selected = "";
-		$content['categories'] .= "<option value=\"".$v['id']."\"".$if_selected.">".$v['name']."</option>";
+		$content['authors_select'][$i]['id'] = $v['id'];
+		$content['authors_select'][$i]['name'] = $v['name'];
+		if (isset($_POST['author']) && ($v['id'] == $_POST['author']))
+			$content['authors_select'][$i]['selected'] = "yes";
+		$i++;
 	}
 
 	debug ("*** end:shop_goods_add ***");
+
 	return $content;
 }
 
 function shop_goods_edit()
 {
 	debug ("*** shop_goods_edit ***");
+
 	global $user;
 	global $config;
+
 	$content = array(
 		'result' => '',
 		'content' => '',
@@ -316,7 +175,8 @@ function shop_goods_edit()
 		'new_price' => '',
 		'used_qty' => '',
 		'used_price' => '',
-		'commentary' => '',
+		'description' => '',
+		'description_short' => '',
 		'if_new' => '',
 		'if_popular' => '',
 		'if_recommended' => '',
@@ -328,17 +188,6 @@ function shop_goods_edit()
 		'tags' => ''
 	);
 
-
-    global $upl_pics_dir;
-    global $doc_root;
-    global $max_file_size;
-    global $home;
-
-    if (isset($_FILES['image'])) $image = $_FILES['image'];
-    if (isset($_FILES['images'])) $images = $_FILES['images'];
-    if (isset($_FILES['pdf'])) $pdf = $_FILES['pdf'];
-    if (isset($_FILES['epub'])) $epub = $_FILES['epub'];
-    if (isset($_FILES['mp3'])) $mp3 = $_FILES['mp3'];
 
 	if (isset($_POST['images_del']))
 	{
@@ -361,220 +210,92 @@ function shop_goods_edit()
 		unset($_POST['mp3_del']);
 	}
 
-    $if_file_exists = 0;
-    $file_path = "";
+	$upls = array(
+		'image',
+		'images',
+		'pdf',
+		'epub',
+		'mp3'
+	);
 
-	if ("" != $image['name'])
+	$fl = new File();
+
+	foreach ($upls as $upl)
 	{
-		debug ("there is an image to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/".$image['name'])) $if_file_exists = 1;
-		$file_path = upload_file($image['name'],$image['tmp_name'],$home,$upl_pics_dir."shop/",$if_file_exists);
-		debug ("size: ".filesize($home.$file_path));
+		$uploaded = $fl -> upload($upl);
+		if ("" != $uploaded)
+			$_POST[$upl] = $uploaded;
+	}
 
-		if (filesize($home.$file_path) > $max_file_size)
+	if (isset($_POST['image_url']))
+	{
+		if ("" != $_POST['image_url'])
 		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$file_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$file_path = "";
+			$_POST['image'] = $fl -> download($_POST['image_url']);
+			unset($_POST['image_url']);
+			debug("using downloaded image: ".$_POST['image']);
 		}
-
-		$_POST['image'] = $file_path;
-
-	}
-	else
-	{
-		debug ("no image to upload");
-		$file_path = $_POST['image'];
+		unset($_POST['image_url']);
 	}
 
-	$if_file_exists = 0;
-	if ("" != $images['name'])
-	{
-		debug ("there is an additional image to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/".$images['name'])) $if_file_exists = 1;
-		$images_path = upload_file($images['name'],$images['tmp_name'],$home,$upl_pics_dir."shop/",$if_file_exists);
-		debug ("size: ".filesize($home.$file_path));
+//	if (!isset($_POST['image']) || ("" == $_POST['image']))
+//		$_POST['image'] = $_POST['
 
-		if (filesize($home.$images_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$images_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$images_path = "";
-		}
-
-		$_POST['images'] = $images_path;
-	}
-	else
-	{
-		debug ("no additional images to upload");
-		$file_path = $_POST['image'];
-	}
-
-	$if_file_exists = 0;
-	$pdf_path = "";
-	if ("" != $pdf['name'])
-	{
-		debug ("there is a pdf to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/pdf/".$pdf['name'])) $if_file_exists = 1;
-		$pdf_path = upload_file($pdf['name'],$pdf['tmp_name'],$home,$upl_pics_dir."shop/pdf/",$if_file_exists);
-		debug ("size: ".filesize($home.$pdf_path));
-
-		if (filesize($home.$pdf_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$pdf_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$pdf_path = "";
-		}
-
-		$_POST['pdf'] = $pdf_path;
-	}
-	else
-	{
-		debug ("no additional pdf to upload");
-		$pdf_path = $_POST['pdf'];
-	}
-
-	$if_file_exists = 0;
-	$epub_path = "";
-	if ("" != $epub['name'])
-	{
-		debug ("there is a epub to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/epub/".$epub['name'])) $if_file_exists = 1;
-		$epub_path = upload_file($epub['name'],$epub['tmp_name'],$home,$upl_pics_dir."shop/epub/",$if_file_exists);
-		debug ("size: ".filesize($home.$epub_path));
-
-		if (filesize($home.$pdf_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$epub_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$pdf_path = "";
-		}
-
-		$_POST['epub'] = $epub_path;
-	}
-	else
-	{
-		debug ("no additional pdf to upload");
-		$epub_path = $_POST['epub'];
-	}
-
-	$if_file_exists = 0;
-	$mp3_path = "";
-	if ("" != $mp3['name'])
-	{
-		debug ("there is a mp3 to upload");
-		if (file_exists($doc_root.$upl_pics_dir."shop/mp3/".$mp3['name'])) $if_file_exists = 1;
-		$mp3_path = upload_file($mp3['name'],$mp3['tmp_name'],$home,$upl_pics_dir."shop/mp3/",$if_file_exists);
-		debug ("size: ".filesize($home.$mp3_path));
-
-		if (filesize($home.$mp3_path) > $max_file_size)
-		{
-			debug ("file size > max file size!");
-			$content['content'] .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-			if (unlink ($home.$mp3_path)) debug ("file deleted");
-			else debug ("can't delete file!");
-			$mp3_path = "";
-		}
-
-		$_POST['mp3'] = $mp3_path;
-	}
-	else
-	{
-		debug ("no additional pdf to upload");
-		$mp3_path = $_POST['mp3'];
-	}
-
-	if (1 == $user['id'])
-	{
-		debug ("user is admin");
-	}
-	else
-		debug ("user isn't admin");
+	if (isset($_POST['id']))
+		$id = mysql_real_escape_string($_POST['id']);
+	else if (isset($_GET['element']))
+		$id = mysql_real_escape_string($_GET['element']);
 
 	if (isset($_POST['do_update']))
 	{
-		if (1 == $user['id'])
-		{
-			$id = mysql_real_escape_string($_POST['id']);
-        	unset ($_POST['do_update']);
-        	unset ($_POST['id']);
+       	unset ($_POST['do_update']);
+       	unset ($_POST['id']);
 
-			/* Links processing */
+		/* Links processing */
 
-			$links = "";
-			if (isset($_POST['links']))
-				foreach($_POST['links'] as $k => $v)
-				{
-					if (("" != $_POST['link_title_'.$v]) && ("" != $_POST['link_url_'.$v]))
-						$links .= $_POST['link_title_'.$v] . "|" . $_POST['link_img_'.$v] .  "|" . $_POST['link_url_'.$v] . "|";
-					unset($_POST['link_title_'.$v]);
-					unset($_POST['link_img_'.$v]);
-					unset($_POST['link_url_'.$v]);
-				}
+		$links = "";
+		if (isset($_POST['links']))
+			foreach($_POST['links'] as $k => $v)
+			{
+				if (("" != $_POST['link_title_'.$v]) && ("" != $_POST['link_url_'.$v]))
+					$links .= $_POST['link_title_'.$v] . "|" . $_POST['link_img_'.$v] .  "|" . $_POST['link_url_'.$v] . "|";
+				unset($_POST['link_title_'.$v]);
+				unset($_POST['link_img_'.$v]);
+				unset($_POST['link_url_'.$v]);
+			}
 
-			debug ("links: ".$links);
+		debug ("links: ".$links);
 
-			if ("" != $_POST['new_link_title'] && "" != $_POST['new_link_url'])
-				$links .= $_POST['new_link_title'] . "|" . $_POST['new_link_img'] . "|" . $_POST['new_link_url'] . "|";
-			debug ("links: ".$links);
+		if (isset($_POST['new_link_title']) && ("" != $_POST['new_link_title']) && ("" != $_POST['new_link_url']))
+			$links .= $_POST['new_link_title'] . "|" . $_POST['new_link_img'] . "|" . $_POST['new_link_url'] . "|";
+		debug ("links: ".$links);
 
-			$_POST['links'] = substr($links, 0, -1);
-			debug ("POST links: ".$_POST['links']);
-			unset($_POST['new_link_title']);
-			unset($_POST['new_link_img']);
-			unset($_POST['new_link_url']);
+		$_POST['links'] = substr($links, 0, -1);
+		debug ("POST links: ".$_POST['links']);
+		unset($_POST['new_link_title']);
+		unset($_POST['new_link_img']);
+		unset($_POST['new_link_url']);
 
-			/* End: Links processing */
+		/* End: Links processing */
 
-        	$sql_query = "UPDATE ksh_shop_goods SET ";
-        	foreach ($_POST as $k => $v) $sql_query .= $k."='".mysql_real_escape_string($v)."', ";
-        	$sql_query = ereg_replace(", $","",$sql_query)." WHERE id='".$id."'";
+       	$sql_query = "UPDATE `ksh_shop_goods` SET ";
+       	foreach ($_POST as $k => $v)
+			$sql_query .= "`".mysql_real_escape_string($k)."` = '".mysql_real_escape_string($v)."', ";
+       	$sql_query = rtrim($sql_query, ", ")." WHERE `id` = '".$id."'";
 
-        	exec_query ($sql_query);
-			$content['result'] = "Изменения записаны";
-		}
-		else
-		{
-			debug ("user isn't admin, doing nothing");
-			$content['result'] = "Изменения не записаны";
-			$content['content'] = "Пожалуйста, войдите в систему как администратор";
-		}
+       	exec_query ($sql_query);
+		$content['result'] = "Изменения записаны";
 	}
 
-	$result = exec_query("SELECT * FROM ksh_shop_goods WHERE id='".mysql_real_escape_string($_GET['goods'])."'");
+	$result = exec_query("SELECT * FROM `ksh_shop_goods` WHERE `id` = '".mysql_real_escape_string($id)."'");
 	$good = mysql_fetch_array($result);
 	mysql_free_result($result);
 
-	$content['id'] = stripslashes($good['id']);
-	$content['name'] = stripslashes($good['name']);
-	$content['image'] = stripslashes($good['image']);
-	$content['images'] = stripslashes($good['images']);
-	$content['genre'] = stripslashes($good['genre']);
-	$content['original_name'] = stripslashes($good['original_name']);
-	$content['format'] = stripslashes($good['format']);
-	$content['language'] = stripslashes($good['language']);
-	$content['year'] = stripslashes($good['year']);
-	$content['publisher'] = stripslashes($good['publisher']);
-	$content['pages_qty'] = stripslashes($good['pages_qty']);
-	$content['weight'] = stripslashes($good['weight']);
-	$content['new_qty'] = stripslashes($good['new_qty']);
-	$content['new_price'] = stripslashes($good['new_price']);
-	$content['used_qty'] = stripslashes($good['used_qty']);
-	$content['used_price'] = stripslashes($good['used_price']);
-	$content['commentary'] = stripslashes($good['commentary']);
-	$content['pdf'] = stripslashes($good['pdf']);
-	$content['epub'] = stripslashes($good['epub']);
-	$content['mp3'] = stripslashes($good['mp3']);
-	$content['embed'] = stripslashes($good['embed']);
-	$content['tags'] = stripslashes($good['tags']);
+	foreach($good as $k => $v)
+		$content[$k] = stripslashes($v);
+
+	$cat = new Category();
+	$content['categories_select'] = $cat -> get_select("ksh_shop_categories", $content['category']);
 
 	$content['links_edit'] = shop_goods_links_extract(stripslashes($good['links']));
 	debug("links_edit:", 2);
@@ -582,20 +303,15 @@ function shop_goods_edit()
 
 	if ("1" == stripslashes($good['if_new']))
 		$content['if_new'] = "yes";
-	else
-		$content['if_new'] = "";
+
 	if ("1" == stripslashes($good['if_popular']))
 		$content['if_popular'] = "yes";
-	else
-		$content['if_popular'] = "";
+
 	if ("1" == stripslashes($good['if_hide']))
 		$content['if_hide'] = "yes";
-	else
-		$content['if_hide'] = "";
+
 	if ("1" == stripslashes($good['if_recommended']))
 		$content['if_recommended'] = "yes";
-	else
-		$content['if_recommended'] = "";
 
 	$authors = shop_authors_list();
 	foreach ($authors as $k => $v)
@@ -605,16 +321,8 @@ function shop_goods_edit()
 		$content['authors'] .= ">".$v['name']."</option>";
 	}
 
-	$categories = shop_categories_list();
-	foreach ($categories as $k => $v)
-	{
-		$content['categories'] .= "<option value=\"".$v['id']."\"";
-		if ($good['category'] == $v['id']) $content['categories'] .= " selected";
-		$content['categories'] .= ">".$v['name']."</option>";
-	}
-
-
 	debug ("*** end:shop_goods_edit ***");
+
 	return $content;
 }
 
@@ -629,17 +337,25 @@ function shop_goods_del()
 		'id' => '',
 		'name' => ''
 	);
-	if (1 == $user['id'])
-	{
-		debug ("user is admin");
-	}
-	else
-		debug ("user isn't admin");
 
-	$result = exec_query("select name from ksh_shop_goods where id='".mysql_real_escape_string($_GET['goods'])."'");
-	$content['id'] = $_GET['goods'];
-	$content['name'] = stripslashes(mysql_result($result, 0, 0));
-	mysql_free_result ($result);
+	if (isset($_GET['goods']))
+		$id = $_GET['goods'];
+	else if (isset($_GET['element']))
+		$id = $_GET['element'];
+	else
+		$id = 0;
+
+
+	$sql_query = "SELECT `title`, `category` from `ksh_shop_goods` where `id` = '".mysql_real_escape_string($id)."'";
+	$result = exec_query($sql_query);
+	if ($result && mysql_num_rows($result))
+	{
+		$row = mysql_fetch_array($result);
+		$content['id'] = $id;
+		$content['title'] = stripslashes($row['title']);
+		$content['category'] = stripslashes($row['category']);
+		mysql_free_result ($result);
+	}
 
 	debug ("*** end:shop_goods_del ***");
 	return $content;
@@ -648,6 +364,7 @@ function shop_goods_del()
 function shop_goods_list()
 {
 	debug ("*** shop_goods_list ***");
+	$goods = array();
     $i = 0;
     $result = exec_query ("select id,name,author,category from ksh_shop_goods order by id");
     while ($good = mysql_fetch_array($result))
@@ -694,25 +411,63 @@ function shop_view_by_categories()
 		$id = $_GET['categories'];
 	else if (isset($_POST['categories']))
 		$id = $_POST['categories'];
+	else if (isset($_GET['element']))
+		$id = $_GET['element'];
 	else
 		$id = 0;
 
+	$cat = new Category();
+
 	$content['category_id'] = $id;
-	$content['category_name'] = stripslashes(mysql_result(exec_query("SELECT name FROM ksh_shop_categories WHERE id='".$id."'"),0,0));
-	$category_template = stripslashes(mysql_result(exec_query("SELECT template FROM ksh_shop_categories WHERE id='".$id."'"),0,0));
-	
+
+	$sql_query = "SELECT * FROM `ksh_shop_categories` WHERE `id` = '".mysql_real_escape_string($id)."'";
+	$result = exec_query($sql_query);
+	$row = mysql_fetch_array($result);
+	mysql_free_result($result);
+
+	$content['category_name'] = stripslashes($row['name']);
+
+	$content['category_title'] = stripslashes($row['title']);
+	$content['h1'] = stripslashes($row['h1']);
+	if ("" == $content['h1'])
+		$content['h1'] = $content['category_title'];
+
+	$content['description'] = stripslashes($row['description']);
+	$config['themes']['page_title']['element'] = $content['category_title'];
+	$config['themes']['meta_keywords'] = stripslashes($row['meta_keywords']);
+	$config['themes']['meta_description'] = stripslashes($row['meta_description']);
+
+
+	$category_template = stripslashes($row['page_template']);
+
 	if ("" != $category_template)
 		$config['themes']['page_tpl'] = $category_template;
 
+	$i = 0;
+	$content['categories_top'] = array();
+	$categories_top = $cat -> get_categories_level("ksh_shop_categories", 0);
+	foreach($categories_top as $k => $v)
+	{
+		$content['categories_top'][$i] = $cat -> get_category("ksh_shop_categories", $v);
+
+		if ($id == $content['categories_top'][$i]['id'])
+			$content['categories_top'][$i]['active'] = "yes";
+
+		if (in_array($content['categories_top'][$i]['id'], $cat -> get_parents_list("ksh_shop_categories", $id)))
+			$content['categories_top'][$i]['parent_active'] = "yes";
+
+		$i++;
+	}
+
 	/* Show subcategories */
 	$i = 0;
-	$sql_query = "SELECT * FROM `ksh_shop_categories` WHERE `parent` = '".mysql_real_escape_string($id)."'";
+	$sql_query = "SELECT * FROM `ksh_shop_categories` WHERE `parent` = '".mysql_real_escape_string($id)."' ORDER BY `position`, `id` ASC";
 	$result = exec_query($sql_query);
 	while ($row = mysql_fetch_array($result))
 	{
 		$subcat_id = stripslashes($row['id']);
-		$content['subcategories'][$i]['id'] = $subcat_id;
-		$content['subcategories'][$i]['name'] = stripslashes($row['name']);
+		foreach($row as $k => $v)
+			$content['subcategories'][$i][$k] = stripslashes($v);
 
 		$last_subcat_goods = shop_view_last($subcat_id);
 		$content['subcategories'][$i]['subcategories_last_goods'] = gen_content("shop", "list_subcategories_last_goods", $last_subcat_goods);
@@ -732,6 +487,8 @@ function shop_view_by_categories()
 		$start_page = $_GET['page'];
     else
 		$start_page = 1; // Need to determine correct LIMIT
+	
+	debug("start page: ".$start_page);
 
 	$goods_qty = mysql_result(exec_query("SELECT COUNT(*) FROM ksh_shop_goods WHERE category='".$id."' AND (`if_hide` IS NULL OR `if_hide` != '1')"), 0, 0);
     debug ("goods qty: ".$goods_qty);
@@ -739,25 +496,29 @@ function shop_view_by_categories()
     debug ("pages qty: ".$pages_qty);
 
 	if (0 != $goods_qty)
+	{
 		if ("yes" == $config['shop']['show_multiple_add_form'])
 			$content['show_multiple_add_form'] = "yes";
 		else
 			$content['show_multiple_add_form'] = "";
+	}
     else
 		$content['content'] = "";
 
-	$result = exec_query("SELECT * FROM ksh_shop_goods WHERE category='".mysql_real_escape_string($id)."' AND (`if_hide` IS NULL OR `if_hide` != '1') ORDER BY ".mysql_real_escape_string($config['shop']['categories_goods_sort_by'])." ".mysql_real_escape_string($config['shop']['categories_goods_sort_order'])." LIMIT ".mysql_real_escape_string(($start_page - 1) * $goods_on_page).",".$goods_on_page);
+	$sql_query = "SELECT * FROM ksh_shop_goods WHERE category='".mysql_real_escape_string($id)."' AND (`if_hide` IS NULL OR `if_hide` != '1')
+		ORDER BY ".mysql_real_escape_string($config['shop']['categories_goods_sort_by'])."
+		".mysql_real_escape_string($config['shop']['categories_goods_sort_order'])."
+		LIMIT ".mysql_real_escape_string(($start_page - 1) * $goods_on_page).",".$goods_on_page;
+	$result = exec_query($sql_query);
 
 	$i = 0;
     while ($good = mysql_fetch_array($result))
     {
-		$content['goods_by_category'][$i]['author'] = stripslashes($good['author']);
-		$content['goods_by_category'][$i]['author_name'] = stripslashes(mysql_result(exec_query("SELECT name FROM ksh_shop_authors WHERE id='".$good['author']."'"),0,0));
-		$content['goods_by_category'][$i]['id'] = stripslashes($good['id']);
-		$content['goods_by_category'][$i]['name'] = stripslashes($good['name']);
-		$content['goods_by_category'][$i]['image'] = stripslashes($good['image']);
-		$content['goods_by_category'][$i]['new_qty'] = stripslashes($good['new_qty']);
-		$content['goods_by_category'][$i]['new_price'] = stripslashes($good['new_price']);
+		foreach($good as $k => $v)
+			$content['goods_by_category'][$i][$k] = stripslashes($v);
+
+
+		$content['goods_by_category'][$i]['author_name'] = shop_authors_get_name($content['goods_by_category'][$i]['author']);
 
 		if ("1" == $good['if_new'])
 			$content['goods_by_category'][$i]['is_new'] = "yes";
@@ -800,7 +561,7 @@ function shop_view_by_categories()
             if ((!isset($_GET['page']) && ($i == 1)) || ($i == $_GET['page']))
                 $content['pages'] .= " | ".$i;
             else
-                $content['pages'] .= " | <a href=\"/index.php?module=shop&action=view_by_categories&categories=".$id."&page=".$i."\">".$i."</a>";
+                $content['pages'] .= " | <a href=\"/shop/view_by_categories/".$id."/page:".$i."\">".$i."</a>";
         }
     }
 	else
@@ -1412,7 +1173,7 @@ function shop_view_good()
 		'original_name' => '',
 		'format' => '',
 		'pages_qty' => '',
-		'commentary' => '',
+		'description' => '',
 		'images' => '',
 		'show_order_form' => '',
 		'show_query_form' => '',
@@ -1436,39 +1197,25 @@ function shop_view_good()
 	else
 		debug ("user isn't admin");
 
-	if (isset($_GET['good'])) $id = $_GET['good'];
-	else $id = 0;
+	if (isset($_GET['good']))
+		$id = $_GET['good'];
+	else if (isset($_GET['element']))
+		$id = $_GET['element'];
+	else
+		$id = 0;
 
 	$config['modules']['current_id'] = $id;
 
-	$result = exec_query("SELECT * FROM ksh_shop_goods WHERE id='".mysql_real_escape_string($id)."'");
+	$result = exec_query("SELECT * FROM `ksh_shop_goods` WHERE id='".mysql_real_escape_string($id)."'");
 	$good = mysql_fetch_array($result);
     mysql_free_result($result);
 
-	$content['category'] = stripslashes($good['category']);
-	$config['modules']['current_category'] = $content['category'];
+	foreach($good as $k => $v)
+		$content[$k] = stripslashes($v);
 
 	$content['category_name'] = mysql_result(exec_query("SELECT name FROM ksh_shop_categories WHERE id='".$good['category']."'"),0,0);
-	$content['author'] = stripslashes($good['author']);
-    $content['author_name'] = mysql_result(exec_query("SELECT name FROM ksh_shop_authors WHERE id='".$good['author']."'"),0,0);
-
-	$content['id'] = stripslashes($good['id']);
-	$content['name'] = stripslashes($good['name']);
-	$content['image'] = stripslashes($good['image']);
-	$content['publisher'] = stripslashes($good['publisher']);
-	$content['year'] = stripslashes($good['year']);
-	$content['genre'] = stripslashes($good['genre']);
-	$content['original_name'] = stripslashes($good['original_name']);
-	$content['format'] = stripslashes($good['format']);
-	$content['language'] = stripslashes($good['language']);
-	$content['pages_qty'] = stripslashes($good['pages_qty']);
-	$content['commentary'] = stripslashes($good['commentary']);
-	$content['images'] = stripslashes($good['images']);
-	$content['new_price'] = stripslashes($good['new_price']);
-	$content['pdf'] = stripslashes($good['pdf']);
-	$content['epub'] = stripslashes($good['epub']);
-	$content['mp3'] = stripslashes($good['mp3']);
-	$content['embed'] = stripslashes($good['embed']);
+    $content['author_name'] = shop_authors_get_name($content['author']);
+	$config['modules']['current_category'] = $content['category'];
 
 	$content['links'] = shop_goods_links_extract(stripslashes($good['links']));
 
@@ -1544,6 +1291,30 @@ function shop_view_good()
 	debug("goods_by_author_row", 3);
 	dump($content['goods_by_author_row']);
 
+	$i = 0;
+	$content['categories_top'] = array();
+	$cat = new Category();
+	$categories_top = $cat -> get_categories_level("ksh_shop_categories", 0);
+	foreach($categories_top as $k => $v)
+	{
+		$content['categories_top'][$i] = $cat -> get_category("ksh_shop_categories", $v);
+
+		if ($id == $content['categories_top'][$i]['id'])
+			$content['categories_top'][$i]['active'] = "yes";
+
+		if (in_array($content['categories_top'][$i]['id'], $cat -> get_parents_list("ksh_shop_categories", $id)))
+			$content['categories_top'][$i]['parent_active'] = "yes";
+
+		$i++;
+	}
+
+	if ("" == $content['h1'])
+		$content['h1'] = $content['title'];
+
+	$config['themes']['meta_keywords'] = $content['meta_keywords'];
+	$config['themes']['meta_description'] = $content['meta_description'];
+	$config['themes']['page_title']['element'] = $content['title'];
+
 	debug ("*** end:shop_view_good ***");
 	return $content;
 }
@@ -1553,6 +1324,8 @@ function shop_view_good()
 function shop_view_last($category = 0, $mode = "category")
 {
 	global $config;
+	global $user;
+
 	debug ("*** shop_view_last ***");
 
 	$content = array(
@@ -1616,7 +1389,7 @@ function shop_view_last($category = 0, $mode = "category")
     	while ($good = mysql_fetch_array($result))
     	{
 			$content['goods_by_category'][$i]['author'] = stripslashes($good['author']);
-			$content['goods_by_category'][$i]['author_name'] = stripslashes(mysql_result(exec_query("SELECT `name` FROM `ksh_shop_authors` WHERE `id` = '".$good['author']."'"),0,0));
+			$content['goods_by_category'][$i]['author_name'] = shop_authors_get_name($content['goods_by_category'][$i]['author']);
 			$content['goods_by_category'][$i]['id'] = stripslashes($good['id']);
 			$content['goods_by_category'][$i]['name'] = stripslashes($good['name']);
 			$content['goods_by_category'][$i]['image'] = stripslashes($good['image']);
@@ -1659,13 +1432,6 @@ function shop_goods_view_hidden()
 		debug ("user is admin");
 		$content['show_admin_link'] = "yes";
 		$content['show_add_link'] = "yes";
-
-		if (isset($_POST['do_del']))
-		{
-			debug ("user is admin, deleting from DB");
-			exec_query ("delete from ksh_shop_goods where id='".mysql_real_escape_string($_POST['id'])."'");
-			$content['result'] = "Товар удалён";
-		}
 
 	    $sql_query =  "SELECT `id`,`name`,`author`,`category` FROM `ksh_shop_goods` WHERE `if_hide` = '1' ORDER BY `id`";
 		$result = exec_query($sql_query);

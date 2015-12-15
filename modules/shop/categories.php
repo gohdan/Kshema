@@ -164,23 +164,33 @@ function shop_categories_del()
 		'result' => '',
 		'content' => '',
 		'id' => '',
-		'name' => ''
+		'name' => '',
+		'if_subcats' => ''
 	);
-	if (1 == $user['id'])
-	{
-		debug ("user is admin");
-	}
+
+	if (isset($_POST['categories']))
+		$id = $_POST['categories'];
+	else if (isset($_GET['categories']))
+		$id = $_GET['categories'];
+	else if (isset($_GET['element']))
+		$id = $_GET['element'];
 	else
-		debug ("user isn't admin");
+		$id = 0;
 
-	$result = exec_query("select name from ksh_shop_categories where id='".mysql_real_escape_string($_GET['categories'])."'");
-	$content['id'] = $_GET['categories'];
-	$content['name'] = stripslashes(mysql_result($result, 0, 0));
+	$sql_query = "SELECT * FROM `ksh_shop_categories` WHERE `id` = '".mysql_real_escape_string($id)."'";
+	$result = exec_query($sql_query);
+	$row = mysql_fetch_array($result);
 	mysql_free_result ($result);
+	foreach($row as $k => $v)
+		$content[$k] = stripslashes($v);
 
-	$result = exec_query("select count(*) from ksh_shop_categories where parent='".mysql_real_escape_string($_GET['categories'])."'");
-	if ("0" != mysql_result($result, 0, 0))
-		$content['content'] = "Внимание! Категория <b>".$content['name']."</b> содержит в себе подкатегории!";
+	$sql_query = "SELECT COUNT(*) FROM `ksh_shop_categories` WHERE `parent` = '".mysql_real_escape_string($id)."'";
+	$result = exec_query($sql_query);
+	$row = mysql_fetch_array($result);
+	mysql_free_result($result);
+	$qty = stripslashes($row['COUNT(*)']);
+	if ("0" != $qty)
+		$content['if_subcats'] = "yes";
 
 	debug ("*** end:shop_categories_del ***");
 	return $content;
@@ -191,18 +201,44 @@ function shop_categories_list()
 	debug ("*** shop_categories_list ***");
 	global $config;
 	$i = 0;
-	$result = exec_query ("select id,name,parent from ksh_shop_categories order by id");
+	$result = exec_query ("select `id`, `title`, `parent` from `ksh_shop_categories` order by `id`");
 	while ($category = mysql_fetch_array($result))
 	{
-		$categories[$i]['id'] = stripslashes($category['id']);
-		$categories[$i]['name'] = stripslashes($category['name']);
-		$categories[$i]['parent'] = stripslashes($category['parent']);
+		foreach($category as $k => $v)
+			$categories[$i][$k] = stripslashes($v);
 		$i++;
 	}
 	mysql_free_result($result);
 	debug ("*** end: shop_categories_list ***");
 	return $categories;
 }
+
+function shop_dyn_top_categories()
+{
+	debug ("*** shop_dyn_top_categories ***");
+	global $config;
+	global $user;
+
+	$content = "";
+
+	$cat = new Category();
+
+	$i = 0;
+	$cnt['categories_top'] = array();
+	$categories_top = $cat -> get_categories_level("ksh_shop_categories", 0);
+	foreach($categories_top as $k => $v)
+	{
+		$cnt['categories_top'][$i] = $cat -> get_category("ksh_shop_categories", $v);
+		$i++;
+	}
+
+	$content = gen_content("shop", "dyn_categories_top", $cnt);
+
+
+	debug ("*** end: shop_dyn_top_categories ***");
+	return $content;
+}
+
 
 
 ?>

@@ -1,6 +1,6 @@
 <h1>Добавление товаров</h1>
 
-<p><a href="/shop/goods_view_all/">К просмотру товаров</a></p>
+<p><a href="/shop/admin/">Администрирование магазина</a></p>
 
 <hr>
 
@@ -10,19 +10,19 @@
 
 <p>Незаполненные пункты в информации о товаре не показываются.</p>
 
-<form action="/shop/goods_add/" method="post" enctype="multipart/form-data">
+<form action="/shop/goods_add/#category#/" method="post" enctype="multipart/form-data">
 
 <table>
 
 <tr><td>Изображение:</td><td><input type="file" name="image"></td></tr>
 <tr><td>Дополнительное изображение:</td><td><input type="file" name="images"></td></tr>
-<tr><td>Название товара:</td><td><input type="text" name="name" size="30"></td></tr>
-<tr><td>Автор:</td><td><select name="author">
-#authors#
-</select></td></tr>
-<tr><td>Категория:</td><td><select name="category">
-#categories#
-</select></td></tr>
+<tr><td>Системное название товара (для URL):</td><td><input type="text" name="name" size="30"></td></tr>
+<tr><td>Название товара:</td><td><input type="text" name="title" size="30"></td></tr>
+<tr><td>Автор:</td><td><select name="author">#authors_select#</select></td></tr>
+<tr><td>Категория:</td><td><select name="category">#categories_select#</select></td></tr>
+<tr><td>H1:</td><td><input type="text" name="h1" size="60"></td></tr>
+<tr><td>Meta keywords:</td><td><input type="text" name="meta_keywords" size="60"></td></tr>
+<tr><td>Meta description:</td><td><input type="text" name="meta_description" size="60"></td></tr>
 <tr><td>Метки (через запятую):</td><td><input type="text" name="tags" size="60"></td></tr>
 <tr><td>PDF:</td><td><input type="file" name="pdf"></td></tr>
 <tr><td>epub:</td><td><input type="file" name="epub"></td></tr>
@@ -50,18 +50,16 @@
 <input type="text" name="new_link_img" size="30"> изображение<br>
 <input type="text" name="new_link_url" size="30"> ссылка</td>
 </tr>
-
-<!--
-Б/у экземпляры:<br>
-Количество: <input type="text" name="used_qty"><br>
-Цена: <input type="text" name="used_price"><br>
-<hr>
--->
-
+<tr><td colspan="2">Б/у экземпляры:</td></tr>
+<tr><td>Количество:</td><td><input type="text" name="used_qty"></td></tr>
+<tr><td>Цена:</td><td><input type="text" name="used_price"></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><td colspan="2">embed:<br>
 <textarea name="embed"></textarea></td></tr>
-<tr><td colspan="2">Комментарий:<br>
-<textarea name="commentary"></textarea></td></tr>
+<tr><td colspan="2">Краткое описание:<br>
+<textarea name="description_short"></textarea></td></tr>
+<tr><td colspan="2">Описание:<br>
+<textarea name="description"></textarea></td></tr>
 
 </table>
 

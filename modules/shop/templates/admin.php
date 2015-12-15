@@ -15,7 +15,7 @@
 <hr>
 
 <p>
-<a href="/shop/categories_view/">Категории товаров</a><br>
+<a href="/shop/categories_view_adm/">Категории товаров</a><br>
 <a href="/shop/authors_view/">Авторы</a><br>
 <a href="/shop/collections_view/">Коллекции</a><br>
 <a href="/shop/goods_view_all/">Все товары</a><br>

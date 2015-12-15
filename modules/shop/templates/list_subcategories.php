@@ -1,4 +1,4 @@
-<a href="/shop/view_by_categories/categories:#id#">#name#</a><br>
+<a href="/shop/view_by_categories/categories:#id#">#title#</a><br>
 <table>
 <tr>
 #subcategories_last_goods#

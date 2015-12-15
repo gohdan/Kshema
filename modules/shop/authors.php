@@ -376,6 +376,8 @@ function shop_authors_list()
 	global $user;
 	global $config;
 
+	$authors = array();
+
     $i = 0;
     $result = exec_query ("SELECT `id`, `name`, `category`, `if_hide`, `image` FROM `ksh_shop_authors` ORDER BY `name`");
     while ($author = mysql_fetch_array($result))
@@ -390,6 +392,29 @@ function shop_authors_list()
     mysql_free_result($result);
 	debug ("*** end: shop_authors_list ***");
     return $authors;
+}
+
+function shop_authors_get_name($id)
+{
+	debug ("*** shop_authors_get_name ***");
+	global $user;
+	global $config;
+
+	$name = "";
+
+	if ($id)
+	{
+		$sql_query = "SELECT `name` FROM `ksh_shop_authors` WHERE `id` = '".mysql_real_escape_string($id)."'";
+		$result = exec_query($sql_query);
+		if ($result && mysql_num_rows($result))
+		{
+			$row = mysql_fetch_array($result);
+			$name = stripslashes($row['name']);
+		}
+	}
+
+	debug ("*** end: shop_authors_get_name ***");
+    return $name;
 }
 
 ?>

@@ -30,13 +30,17 @@
 
 <tr><td>Новое дополнительное изображение:</td><td><input type="file" name="images"></td></tr>
 
-<tr><td>Название товара:</td><td><input type="text" name="name" size="30" value="#name#"></td></tr>
+<tr><td>Системное название товара (для URL):</td><td><input type="text" name="name" size="30" value="#name#"></td></tr>
+<tr><td>Название товара:</td><td><input type="text" name="title" size="30" value="#title#"></td></tr>
 <tr><td>Автор:</td><td><select name="author">
 #authors#
 </select></td></tr>
 <tr><td>Категория:</td><td><select name="category">
-#categories#
+#categories_select#
 </select></td></tr>
+<tr><td>H1:</td><td><input type="text" name="h1" size="60" value="#h1#"></td></tr>
+<tr><td>Meta keywords:</td><td><input type="text" name="meta_keywords" size="60" value="#meta_keywords#"></td></tr>
+<tr><td>Meta description:</td><td><input type="text" name="meta_description" size="60" value="#meta_description#"></td></tr>
 <tr><td>Метки (через запятую):</td><td><input type="text" name="tags" size="60" value="#tags#"></td></tr>
 {{if:pdf:<tr><td>PDF:</td><td><a href="#pdf#">скачать</a> <input type="checkbox" name="pdf_del" value="1"> удалить</td></tr>}}
 <tr><td>Закачать PDF:</td><td><input type="file" name="pdf"></td></tr>
@@ -69,18 +73,17 @@
 <input type="text" name="new_link_img" size="30"> изображение<br>
 <input type="text" name="new_link_url" size="30"> ссылка</td></tr>
 
-
-<!--
-Б/у экземпляры:<br>
-Количество: <input type="text" name="used_qty" value="#used_qty#"><br>
-Цена: <input type="text" name="used_price" value = "#used_price#"><br>
-<hr>
--->
+<tr><td colspan="2">Б/у экземпляры:</td>
+<tr><td>Количество:</td><td><input type="text" name="used_qty" value="#used_qty#"></td></tr>
+<tr><td>Цена:</td><td><input type="text" name="used_price" value = "#used_price#"></td></tr>
+<tr><td colspan="2"><hr></td>
 
 <tr><td colspan="2">embed:<br>
 <textarea name="embed">#embed#</textarea></td></tr>
-<tr><td colspan="2">Комментарий:<br>
-<textarea name="commentary">#commentary#</textarea></td></tr>
+<tr><td colspan="2">Краткое описание:<br>
+<textarea name="description_short">#description_short#</textarea></td></tr>
+<tr><td colspan="2">Описание:<br>
+<textarea name="description">#description#</textarea></td></tr>
 </table>
 <input type="submit" name="do_update" value="Записать">
 </form>

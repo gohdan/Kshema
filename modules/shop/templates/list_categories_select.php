@@ -1,1 +1,2 @@
-<option value="#id#"{{if:selected: selected}}>#name#</option>
+<option value="#id#" #selected#>#chain##title#</option>
+

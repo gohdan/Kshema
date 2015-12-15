@@ -1,4 +1,4 @@
-<h1>#category_name#</h1>
+<h1>#h1#</h1>
 
 <p>#result#</p>
 
@@ -15,6 +15,8 @@
 #subcategories#
 <p>
 }}
+
+{{if:description:#description#}}
 
 <p>Страницы: #pages# |<p>
 

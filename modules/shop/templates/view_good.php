@@ -42,7 +42,7 @@
 							{{if:format:<tr><th>Формат</th><td>#format#</td></tr>}}
 							{{if:language:<tr><th>Язык</th><td>#language#</td></tr>}}
 							{{if:pages_qty:<tr><th>Количество страниц</th><td>#pages_qty#</td></tr>}}
-							{{if:commentary:<tr><th>Комментарий</th><td>#commentary#</td></tr>}}
+							{{if:description:<tr><th>Описание</th><td>#description#</td></tr>}}
 							{{if:pdf:<tr><th>PDF</th><td>{{<a href="#pdf#">скачать (#pdf_size# #pdf_measure#)</a>}}</td></tr>}}
 							{{if:epub:<tr><th>epub</th><td>{{<a href="#epub#">скачать (#epub_size# #epub_measure#)</a>}}</td></tr>}}
 							{{if:mp3:<tr><th>mp3</th><td>{{<a href="#mp3#">скачать (#mp3_size# #mp3_measure#)</a>}}</td></tr>}}
