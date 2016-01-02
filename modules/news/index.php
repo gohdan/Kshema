@@ -69,7 +69,7 @@ function news_frontpage()
         $content['admin_link'] .= "<p><a href=\"/news/admin/\">Администрировать новости</a></p>";
     }
 
-    $result = exec_query("SELECT * FROM ksh_news ORDER BY id DESC LIMIT ".mysql_real_escape_string($config['news']['last_news_qty'])."");
+    $result = exec_query("SELECT * FROM ksh_news ORDER BY `date` DESC, `id` DESC LIMIT ".mysql_real_escape_string($config['news']['last_news_qty'])."");
 
     while ($row = mysql_fetch_array($result))
     {
