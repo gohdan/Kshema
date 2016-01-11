@@ -235,6 +235,8 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 			$subcats[$id]['module_name'] = $config['modules']['current_module'];
 			if (stripslashes($row['id']) == $config['modules']['current_category'])
 				$subcats[$id]['current'] = "yes";
+			if ("4294967295" == $subcats[$id]['position'])
+				$subcats[$id]['position'] = "";
 
 			if (1 == $user['id'])
 				$subcats[$id]['show_admin_link'] = "yes";
