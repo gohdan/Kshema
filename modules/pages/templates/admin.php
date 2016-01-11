@@ -8,7 +8,7 @@
 <hr>
 
 <p>
-<a href="/pages/categories_view/">Список категорий</a><br>
+<a href="/pages/categories_view_adm/">Категории страниц</a><br>
 <a href="/pages/list_view/">Список всех страниц</a><br>
 <a href="/pages/add/">Добавить страницу</a>
 </p>

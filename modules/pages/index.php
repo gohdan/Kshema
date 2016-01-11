@@ -61,6 +61,7 @@ function pages_get_actions_list()
 		'drop_tables',
 		'update_tables',
 		'categories_view',
+		'categories_view_adm',
 		'categories_add',
 		'categories_del',
 		'categories_edit',
@@ -95,7 +96,7 @@ function pages_default_action()
 		'module_title' => "Страницы"
 	);
 	$config['pages']['page_title'] = $module_data['module_title'];
-	$config['themes']['page_title']['module'] = "Страницы";
+	$config['themes']['page_title']['module'] = $module_data['module_title'];
 
 	if ("" != $config['pages']['css'])
 		$config['template']['css'][] = $config['pages']['css'];
@@ -154,11 +155,19 @@ function pages_default_action()
 		case "update_tables":
 			$config['themes']['page_title']['action'] = "Обновление таблиц БД";
 			if (!in_array("ksh_pages_privileges", db_tables_list()))
-			$priv -> create_table("ksh_pages_privileges");
+				$priv -> create_table("ksh_pages_privileges");
 	        $content .= gen_content("pages", "tables_update", pages_tables_update());
 		break;
 
 		case "categories_view":
+			$config['themes']['page_title']['action'] = "Категории";
+			$config['pages']['page_title'] .= " - Категории";
+			$cat = new Category();
+			$cnt = $cat -> view("ksh_pages_categories");
+			$content .= gen_content("pages", "categories_view", array_merge($module_data, $cnt));
+		break;
+
+		case "categories_view_adm":
 			$config['themes']['page_title']['action'] = "Категории";
 			$config['pages']['page_title'] .= " - Категории";
 			$cat = new Category();

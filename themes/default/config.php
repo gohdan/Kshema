@@ -199,6 +199,7 @@ $config['pages']['admin_actions'] = array(
 	'drop_tables',
 	'update_tables',
 	'categories_view',
+	'categories_view_adm',
 	'categories_add',
 	'categories_edit',
 	'categories_del',
