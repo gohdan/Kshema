@@ -456,54 +456,58 @@ function users_profile_view()
 		$id = $user['id'];
 	debug("id: ".$id);
 
-	$priv = new Privileges();
+	if ($id) // user exists
+	{
+		$priv = new Privileges();
 	
-	if ($priv -> has("users", "profile_edit", "write"))
-	{
-		$content['show_admin_link'] = "yes";
-		$content['show_profile_edit_link'] = "yes";
-	}
+		if ($priv -> has("users", "profile_edit", "write"))
+		{
+			$content['show_admin_link'] = "yes";
+			$content['show_profile_edit_link'] = "yes";
+		}
 
-	if ($id == $user['id'])
-	{
-		$content['show_logout_link'] = "yes";
-		$content['show_change_password_link'] = "yes";
+		if ($id == $user['id'])
+		{
+			$content['show_logout_link'] = "yes";
+			$content['show_change_password_link'] = "yes";
 
-		$i = 0;
-		$modules = array_merge($config['modules']['core'], $config['modules']['installed']);
-		foreach ($modules as $k => $v)
-			if ($priv -> has($v, "default", "read") || $priv -> has("base", "default", "write"))
-			{
-				$content['modules'][$i]['inst_root'] = $config['base']['inst_root'];
-				$content['modules'][$i]['name'] = $v;
-				$content['modules'][$i]['title'] = modules_get_title($v);
-				if ($priv -> has($v, "admin", "write"))
-					$content['modules'][$i]['admin'] = "yes";
-				$i++;
-			}
-	}
+			$i = 0;
+			$modules = array_merge($config['modules']['core'], $config['modules']['installed']);
+			foreach ($modules as $k => $v)
+				if ($priv -> has($v, "default", "read") || $priv -> has("base", "default", "write"))
+				{
+					$content['modules'][$i]['inst_root'] = $config['base']['inst_root'];
+					$content['modules'][$i]['name'] = $v;
+					$content['modules'][$i]['title'] = modules_get_title($v);
+					if ($priv -> has($v, "admin", "write"))
+						$content['modules'][$i]['admin'] = "yes";
+					$i++;
+				}
+		}
 	
-	$sql_query = "SELECT * FROM `ksh_users` WHERE `id` = '".mysql_real_escape_string($id)."'";
-	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
-	foreach($row as $k => $v)
-		$content[$k] = stripslashes($v);
+		$sql_query = "SELECT * FROM `ksh_users` WHERE `id` = '".mysql_real_escape_string($id)."'";
+		$result = exec_query($sql_query);
+		$row = mysql_fetch_array($result);
+		mysql_free_result($result);
+		foreach($row as $k => $v)
+			$content[$k] = stripslashes($v);
 
-	if (!isset($content['last_login_date']) || "" == $content['last_login_date'] || "NULL" == $content['last_login_date'] || NULL == $content['last_login_date'])
-	{
-		if (isset($content['last_login_date']))
-			unset($content['last_login_date']);
-		if (isset($last_login_time))
-			unset($content['last_login_time']);
-		$content['last_login_date_never'] = "yes";
+		if (!isset($content['last_login_date']) || "" == $content['last_login_date'] || "NULL" == $content['last_login_date'] || NULL == $content['last_login_date'])
+		{
+			if (isset($content['last_login_date']))
+				unset($content['last_login_date']);
+			if (isset($last_login_time))
+				unset($content['last_login_time']);
+			$content['last_login_date_never'] = "yes";
+		}
+		else
+			$content['last_login_date'] = format_date($content['last_login_date'], "ru");
+
+
+		$content['group'] = users_get_group_title(stripslashes($row['group']));
 	}
 	else
-		$content['last_login_date'] = format_date($content['last_login_date'], "ru");
-
-
-	$content['group'] = users_get_group_title(stripslashes($row['group']));
-
+		$content['user_not_exists'] = "yes";
 
 	debug ("*** end: users_profile_view ***");
 	return $content;

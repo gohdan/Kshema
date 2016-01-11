@@ -2,12 +2,12 @@
 
 {{if:show_admin_link:<p><a href="#inst_root#/base/admin/">Администрировать сайт</a></p>}}
 
+{{if:user_not_exists:<p>Пользователь не существует или не выполнен вход в систему</p>}}
+
 {{if:show_logout_link:<p><a href="#inst_root#/auth/logout">Выйти из системы</a></p>}}
 {{if:show_change_password_link:<p><a href="#inst_root#/auth/change_password">Сменить пароль</a></p>}}
 
-
-
-<h2>Личные данные</h2>
+{{if:id:<h2>Личные данные</h2>}}
 
 {{if:id:ID: #id#<br>}}
 {{if:login:Логин: #login#<br>}}
