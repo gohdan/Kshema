@@ -188,6 +188,7 @@ $config['modules']['installed'][] = "guestbook";
 $config['modules']['installed'][] = "files";
 $config['modules']['installed'][] = "auto_models";
 $config['modules']['installed'][] = "shop";
+$config['modules']['installed'][] = "photos";
 
 $config['pages']['page_title'] = "Kshema";
 $config['pages']['sort_list_by'] = "name";
@@ -223,6 +224,21 @@ $config['news']['descr_sentences'] = 2;
 $config['news']['css'] = ""; // additional CSS file
 
 $config['performance']['use'] = "yes";
+
+$config['photos']['admin_actions'] = array(
+	'admin',
+	'install_tables',
+	'drop_tables',
+	'update_tables',
+	'categories_view_adm',
+	'categories_add',
+	'categories_edit',
+	'categories_del',
+	'add',
+	'edit',
+	'del'
+);
+$config['photos']['css'] = "";
 
 $config['portfolio']['page_tpl'] = "default";
 $config['portfolio']['elements_on_page'] = "3";

@@ -11,7 +11,8 @@
 </p>
 <form action="/index.php?module=photos&action=drop_tables" method="post">
 <input type="checkbox" name="drop_photos_categories_table" value="ksh_photos_categories">Категории коллекций<br>
-<input type="checkbox" name="drop_photos_galleries_table" value="ksh_photos_galleries">Коллекции<br>
 <input type="checkbox" name="drop_photos_table" value="ksh_photos">Фотографии<br>
+<input type="checkbox" name="drop_photos_access_table" value="ksh_photos_access">Таблица доступов<br>
+<input type="checkbox" name="drop_photos_privileges_table" value="ksh_photos_privileges">Таблица прав<br>
 <input type="submit" name="do_drop" value="Уничтожить">
 </form>

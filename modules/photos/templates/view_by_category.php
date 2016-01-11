@@ -1,13 +1,11 @@
-<h1>#category#</h1>
+<h1>#category_title#</h1>
 
+
+{{if:show_admin_link:
 <p>
-<a href="/index.php?module=photos&action=admin">Вернуться к меню администрирования</a>
+<a href="/photos/admin/">В меню администрирования</a><br>
+<a href="/photos/add/#category#">Добавить фотографии</a>
 </p>
+}}
 
-<p>
-<a href="/index.php?module=photos&action=add_gallery&category=#category_id#">Добавить галерею</a>
-</p>
-
-#content#
-
-#galleries#
+#photos#
