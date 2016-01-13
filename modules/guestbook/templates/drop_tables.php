@@ -6,7 +6,6 @@
 
 <p>
 <a href="/guestbook/admin/">Вернуться к меню администрирования</a><br>
-<a href="/guestbook/help#db_tables_drop">Справка</a>
 </p>
 
 
@@ -14,8 +13,8 @@
 Уничтожить таблицы:
 </p>
 <form action="/guestbook/drop_tables/" method="post">
-<input type="checkbox" name="drop_categories_table" value="ksh_guestbook_categories">Гостевые книги<br>
 <input type="checkbox" name="drop_guestbook_table" value="ksh_guestbook">Сообщения<br>
 <input type="checkbox" name="drop_privileges_table" value="ksh_guestbook_privileges">Привилегии<br>
+<input type="checkbox" name="drop_access_table" value="ksh_guestbook_access">Права доступа<br>
 <input type="submit" name="do_drop" value="Уничтожить">
 </form>

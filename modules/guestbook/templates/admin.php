@@ -2,14 +2,14 @@
 
 <p>
 <a href="/modules/admin/">Вернуться в главное меню администрирования</a><br>
-<a href="/guestbook/help/">Справка</a>
 </p>
 
 <hr>
 
 <p>
-<a href="/guestbook/categories_view/">Список гостевых книг</a><br>
-<a href="/guestbook/add/">Добавить объявление</a>
+<a href="/guestbook/moderate/">Утверждение сообщений</a><br>
+<a href="/guestbook/view/">Просмотр сообщений</a><br>
+<a href="/guestbook/add/">Добавить сообщение</a><br>
 </p>
 
 <hr>

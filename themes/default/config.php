@@ -159,6 +159,15 @@ $config['files']['thumb_width'] = "200";
 $config['files']['thumb_height'] = "100";
 
 $config['guestbook']['messages_on_page'] = "20";
+$config['guestbook']['admin_actions'] = array(
+	'admin',
+	'create_tables',
+	'drop_tables',
+	'update_tables',
+	'del',
+	'moderate'
+);
+$config['guestbook']['css'] = "";
 
 $config['hooks']['default_action'] = "admin";
 $config['hooks']['elements_on_page'] = "20";
@@ -245,6 +254,11 @@ $config['portfolio']['elements_on_page'] = "3";
 $config['portfolio']['css'] = ""; // additional CSS file
 
 $config['projects']['another_doc_root'] = "/var/www/html/kshema/www/";
+
+$config['recaptcha']['use'] = "no";
+$config['recaptcha']['url'] = "https://www.google.com/recaptcha/api/siteverify";
+$config['recaptcha']['secret'] = "";
+$config['recaptcha']['sitekey'] = "";
 
 $config['redirect']['immediately'] = "yes";
 

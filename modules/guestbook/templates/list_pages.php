@@ -1,1 +1,1 @@
-{{if:show_link:<a href="/guestbook/view_by_category/#category#/page#id#/">}}#id#{{if:show_link:</a>}}
+{{if:show_link:<a href="/guestbook/view/page:#id#/">}}#id#{{if:show_link:</a>}}

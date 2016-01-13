@@ -2,7 +2,6 @@
 
 <p>
 <a href="/guestbook/admin/">Вернуться к меню администрирования</a><br>
-<a href="/guestbook/help#db_tables_create">Справка</a>
 </p>
 
 {{if:content:<p>#content#</p>}}
