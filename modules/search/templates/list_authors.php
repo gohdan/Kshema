@@ -1,1 +1,0 @@
-<a href="/index.php?module=shop&action=view_by_authors&authors=#id#">#name#</a><br>

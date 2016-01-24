@@ -1,1 +1,0 @@
-<a href="/index.php?module=shop&action=view_by_categories&categories=#id#">#name#</a><br>
