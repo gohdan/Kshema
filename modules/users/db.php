@@ -163,6 +163,8 @@ function users_install_tables()
 		$charset = " charset='utf8'";
 	}
 
+	$queries = array();
+
 	$priv = new Privileges();
 	$result =  $priv -> create_table("ksh_users_privileges");
 	$content['result'] .= $result['result'];
