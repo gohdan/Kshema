@@ -2,10 +2,15 @@
 
 // Base functions of the "articles" module
 
+include_once ($config['modules']['location']."articles/config.php");
 
-include_once ("db.php");
-include_once ("categories.php");
-include_once ("articles.php");
+$config_file = $config['base']['doc_root']."/config/articles.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."articles/db.php");
+include_once ($config['modules']['location']."articles/categories.php");
+include_once ($config['modules']['location']."articles/articles.php");
 
 
 function articles_admin()

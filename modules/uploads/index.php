@@ -2,9 +2,9 @@
 
 // Base functions of the "uploads" module
 
+include_once ($config['modules']['location']."uploads/db.php");
 
-include_once ($mods_dir."/files/index.php"); // to upload files
-include_once ("db.php");
+include_once ($config['modules']['location']."files/index.php"); // to upload files
 
 function uploads_admin()
 {

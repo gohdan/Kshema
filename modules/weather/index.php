@@ -2,9 +2,14 @@
 
 // Base functions of the "weather" module
 
+include_once ($config['modules']['location']."weather/config.php");
 
-include_once ("db.php");
-include_once ("weather.php");
+$config_file = $config['base']['doc_root']."/config/weather.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."weather/db.php");
+include_once ($config['modules']['location']."weather/weather.php");
 
 function weather_admin()
 {

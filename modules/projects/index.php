@@ -2,13 +2,16 @@
 
 // Base functions of the "projects" module
 
+include_once ($config['modules']['location']."projects/config.php");
 
-include_once ("db.php");
-include_once ("categories.php");
-include_once ("projects.php");
-include_once ("files.php");
+$config_file = $config['base']['doc_root']."/config/projects.php";
+if (file_exists($config_file))
+	include($config_file);
 
-
+include_once ($config['modules']['location']."projects/db.php");
+include_once ($config['modules']['location']."projects/categories.php");
+include_once ($config['modules']['location']."projects/projects.php");
+include_once ($config['modules']['location']."projects/files.php");
 
 function projects_admin()
 {

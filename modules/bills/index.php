@@ -2,9 +2,14 @@
 
 // Base functions of the "bills" module
 
+include_once ($config['modules']['location']."bills/config.php");
 
-include_once ("db.php");
-include_once ("bills.php");
+$config_file = $config['base']['doc_root']."/config/bills.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."bills/db.php");
+include_once ($config['modules']['location']."bills/bills.php");
 //include_once ("xmlrpcclient.php");
 
 // XMLRPC functionality class

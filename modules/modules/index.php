@@ -4,6 +4,13 @@
 
 debug ("modules module included");
 
+include_once ($config['modules']['location']."modules/config.php");
+
+$config_file = $config['base']['doc_root']."/config/modules.php";
+if (file_exists($config_file))
+	include($config_file);
+
+
 function module_exists($module)
 {
 	global $user;

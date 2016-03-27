@@ -2,16 +2,21 @@
 
 // Base functions of the "news" module
 
+include_once ($config['modules']['location']."news/config.php");
 
-include_once ("db.php");
-include_once ("categories.php");
-include_once ("news.php");
+$config_file = $config['base']['doc_root']."/config/news.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."news/db.php");
+include_once ($config['modules']['location']."news/categories.php");
+include_once ($config['modules']['location']."news/news.php");
 
 /* Import RSS */
 if ("" != $config['news']['rss_url'])
 {
 	include_once ($config['base']['doc_root']."/libs/lastrss/lastRSS.php");
-	include_once ("import_rss.php");
+	include_once ($config['modules']['location']."news/import_rss.php");
 }
 
 function news_admin()

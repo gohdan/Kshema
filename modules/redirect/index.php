@@ -2,6 +2,13 @@
 
 // Base functions of the "redirect" module
 
+include_once ($config['modules']['location']."redirect/config.php");
+
+$config_file = $config['base']['doc_root']."/config/redirect.php";
+if (file_exists($config_file))
+	include($config_file);
+
+
 function redirect_links_replace($text)
 {
 	global $user;

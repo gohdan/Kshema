@@ -2,9 +2,15 @@
 
 // Base functions of the auth module
 
-include ("db.php");
-include ("auth.php");
-include ("old_func.php");
+include_once ($config['modules']['location']."auth/config.php");
+
+$config_file = $config['base']['doc_root']."/config/auth.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."auth/db.php");
+include_once ($config['modules']['location']."auth/auth.php");
+include_once ($config['modules']['location']."auth/old_func.php");
 
 include_once ($config['modules']['location']."files/index.php"); // to upload pictures
 

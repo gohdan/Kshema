@@ -2,10 +2,13 @@
 
 // Base functions of the "themes" module
 
+include_once ($config['modules']['location']."themes/config.php");
 
-include_once ("db.php");
-include_once ("xmlrpcserver.php");
+$config_file = $config['base']['doc_root']."/config/themes.php";
+if (file_exists($config_file))
+	include($config_file);
 
+include_once ($config['modules']['location']."themes/db.php");
 
 function themes_admin()
 {

@@ -2,9 +2,14 @@
 
 // Base functions of the "menu" module
 
+include_once ($config['modules']['location']."menu/config.php");
 
-include_once ("db.php");
-include_once ("elements.php");
+$config_file = $config['base']['doc_root']."/config/menu.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."menu/db.php");
+include_once ($config['modules']['location']."menu/elements.php");
 
 function menu_admin()
 {

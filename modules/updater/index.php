@@ -2,10 +2,14 @@
 
 // Base functions of the "updater" module
 
+include_once ($config['modules']['location']."updater/config.php");
 
-include_once ("db.php");
+$config_file = $config['base']['doc_root']."/config/updater.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."updater/db.php");
 // include_once ("xmlrpcserver.php");
-
 
 function updater_admin()
 {

@@ -2,9 +2,14 @@
 
 // Base functions of the "guestbook" module
 
+include_once ($config['modules']['location']."guestbook/config.php");
 
-include_once ("db.php");
-include_once ("guestbook.php");
+$config_file = $config['base']['doc_root']."/config/guestbook.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."guestbook/db.php");
+include_once ($config['modules']['location']."guestbook/guestbook.php");
 
 function guestbook_admin()
 {

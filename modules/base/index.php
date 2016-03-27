@@ -2,19 +2,25 @@
 
 // Base functions of "base" module
 
-include_once($config['modules']['location']."/base/functions.php");
+include_once ($config['modules']['location']."base/config.php");
+$config_file = $config['base']['doc_root']."/config/base.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once($config['modules']['location']."base/functions.php");
 debug ("! base module included");
-include_once("category.php");
-include_once("dataobject.php");
-include_once("privileges.php");
-include_once("access.php");
-include_once("file.php");
-include_once("templater.php");
-include_once($config['modules']['location']."/base/config.php");
-include_once($config['modules']['location']."/base/log.php");
+
+include_once($config['modules']['location']."base/category.php");
+include_once($config['modules']['location']."base/dataobject.php");
+include_once($config['modules']['location']."base/privileges.php");
+include_once($config['modules']['location']."base/access.php");
+include_once($config['modules']['location']."base/file.php");
+include_once($config['modules']['location']."base/templater.php");
+include_once($config['modules']['location']."base/config_class.php");
+include_once($config['modules']['location']."base/log.php");
 
 if ("yes" == $config['satellite']['use'])
-	include_once("satellite.php");
+	include_once($config['modules']['location']."base/satellite.php");
 
 function base_admin()
 {

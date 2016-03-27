@@ -2,11 +2,17 @@
 
 // Base functions of the users module
 
-include_once("db.php");
-include_once("groups.php");
-include_once("users.php");
-include_once("old_functions.php");
-include_once("user.php");
+include_once ($config['modules']['location']."users/config.php");
+
+$config_file = $config['base']['doc_root']."/config/users.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once($config['modules']['location']."users/db.php");
+include_once($config['modules']['location']."users/groups.php");
+include_once($config['modules']['location']."users/users.php");
+include_once($config['modules']['location']."users/old_functions.php");
+include_once($config['modules']['location']."users/user.php");
 
 // XMLRPC functionality class
 if ($config['users']['xmlrpc_use'])

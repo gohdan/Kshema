@@ -2,10 +2,15 @@
 
 // Base functions of the "files" modules
 
-include_once ("db.php");
-include_once ("files.php");
-include_once ("upload.php");
+include_once ($config['modules']['location']."files/config.php");
 
+$config_file = $config['base']['doc_root']."/config/files.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."files/db.php");
+include_once ($config['modules']['location']."files/files.php");
+include_once ($config['modules']['location']."files/upload.php");
 
 function files_admin()
 {

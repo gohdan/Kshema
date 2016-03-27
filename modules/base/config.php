@@ -1,231 +1,115 @@
 <?php
 
-class Config
-{
+global $config;
+global $debug;
+global $user;
+global $upl_pics_dir;
+global $doc_root;
+global $max_file_size;
+global $home;
+global $page_title;
+global $template;
 
-var $table;
+$mods_dir = "modules";
+$upl_pics_dir = "/uploads/"; // must be writable to web server
+$max_file_size = 2000 * 1024; // in bytes
+$doc_root = $_SERVER['DOCUMENT_ROOT'];
+$home = $doc_root;
 
-function create_table()
-{
-	global $user;
-	global $config;
-	debug("*** Config: create_table ***");
-	$content = array(
-		'result' => ''
-	);
+$page_title = "Kshema";
 
-	if ("yes" == $config['db']['old_engine'])
-	{
-		debug ("db engine is too old, don't using charsets");
-		$charset = "";
-	}
-	else
-	{
-		debug ("db engine isn't too old, using charsets");
-		$charset = " charset='utf8'";
-	}
+$config['base']['site_name'] = "Kshema";
+$config['base']['site_owner'] = "Goh'Dan";
+$config['base']['site_url'] = "http://kshema-test.gohdan.ru";
+$config['base']['admin_email'] = "gohdan@gohdan.ru";
 
-	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($this -> table)."` (
-		`id` int auto_increment primary key,
-		`name` tinytext,
-		`value` tinytext,
-		`descr` tinytext
-	)".$charset;
+$config['base']['version'] = "0.8.5";
 
-	exec_query($sql_query);
-	if (0 == mysql_errno())
-		$content['result'] = "Таблица конфига создана успешно";
-	else
-		$content['result'] = "Не удалось создать таблицу настроек, ошибка базы данных";
+$config['base']['debug_level'] = 0; // 0 - no debug, 1 - simple debug, 2 - verbose debug (var dump etc.);
+$config['base']['debug_user'] = 0; // set to 0 to show debug to every (even non-authenticated) user
+$config['base']['error_reporting'] = 0; // use in production
+//$config['base']['error_reporting'] = E_ALL; // use to develop
+$config['base']['logs_path'] = $_SERVER['DOCUMENT_ROOT']."/logs/";
+$config['base']['logs_write'] = "yes";
+$config['base']['debug_echo'] = "no";
+$config['base']['debug_file'] = "no";
 
-	debug("*** end: Config: create_table ***");
-	return $content;
-}
+$config['base']['inst_root'] = ""; // Put here a directory Kshema is installed in; no slash at the end!
+$config['base']['domain_dir'] = "";
+$config['base']['doc_root'] = $_SERVER['DOCUMENT_ROOT'].$config['base']['inst_root'] ;
+$config['base']['output_charset'] = "utf8"; // utf8 or utf8
 
-function edit()
-{
-	global $user;
-	global $config;
-	debug("*** Config: edit ***");
+$config['base']['ftp_server'] = "kshema.handyhosting.ru";
+$config['base']['ftp_username'] = "kshema";
+$config['base']['ftp_password'] = "kshems";
+$config['base']['ftp_root'] = '/home/kshema/www/';
 
-	$content = array(
-		'module' => $config['modules']['current_module'],
-		'satellite_id' => '',
-		'config_elements' => ''
-	);
+$config['base']['categories']['list_prefix'] = " .";
+$config['base']['categories']['chain_divider'] = " / ";
 
-	if (isset($_GET['satellite']))
-	{
-		$satellite = $_GET['satellite'];
-		debug("satellite: ".$satellite);
-		$content['satellite_id'] = $satellite;
-		$sat = new Satellite;
-		$sat -> id = $satellite;
-		$sat -> url = $sat -> get_url();
-	}
-	else
-		$satellite = 0;
+$config['base']['ext_links_redirect'] = "no";
+$config['base']['use_captcha'] = "no";
 
-	if (isset($_POST['do_update']))
-	{
-		if ("" != $_POST['new_name'] && "" != $_POST['new_descr'])
-		{
-			if ($satellite)
-			{
-				debug("inserting to satellite");
-				$data_desc = array(
-					'name' => 'string',
-					'value' => 'string',
-					'descr' => 'string'
-				);
-				$data = array(
-					'name' => $_POST['new_name'],
-					'value' => $_POST['new_value'],
-					'descr' => $_POST['new_descr']
-				);
-				$sat -> send_element($this -> table, "insert", $data, $data_desc);
-			}
-			else
-			{
-				debug("deleting from local table");
-				$sql_query = "INSERT INTO `".mysql_real_escape_string($this -> table)."` 
-					(`name`, `descr`, `value`)
-					VALUES (
-					'".mysql_real_escape_string($_POST['new_name'])."',
-					'".mysql_real_escape_string($_POST['new_descr'])."',
-					'".mysql_real_escape_string($_POST['new_value'])."'
-					)";
-				exec_query($sql_query);
-			}
-		}
+$config['base']['http_redirect'] = array(
+	'301' => array(
+		// '/query' => 'new location'
+	) 
+);
 
+$config['base']['url_short'] = array(
+	'admin' => 'auth/show_login_form'
+);
 
-		foreach($_POST['entries'] as $k => $v)
-		{
-			if ("" == $_POST['name_'.$v] || "" == $_POST['descr_'.$v])
-				if ($satellite)
-				{
-					debug("deleting from satellite");
-					$sat -> del_element($this -> table, $v);
-				}
-				else
-				{
-					debug("delete from local table");
-					$sql_query = "DELETE FROM `".mysql_real_escape_string($this -> table)."` WHERE `id` = '".mysql_real_escape_string($v)."'";
-					exec_query($sql_query);
-				}
-			else
-				if ($satellite)
-				{
-					debug("updating on satellite");
-					$data_desc = array(
-						'id' => 'string',
-						'name' => 'string',
-						'value' => 'string',
-						'descr' => 'string'
-					);
-					$data = array(
-						'id' => $v,
-						'name' => $_POST['name_'.$v],
-						'value' => $_POST['value_'.$v],
-						'descr' => $_POST['descr_'.$v]
-					);
-					$sat -> send_element($this -> table, "update", $data, $data_desc);
-				}
-				else
-				{
-					debug("updating in local table");
-					$sql_query = "UPDATE `".mysql_real_escape_string($this -> table)."` SET
-						`name` = '".mysql_real_escape_string($_POST['name_'.$v])."',
-						`descr` = '".mysql_real_escape_string($_POST['descr_'.$v])."',
-						`value` = '".mysql_real_escape_string($_POST['value_'.$v])."'
-						WHERE `id` = '".mysql_real_escape_string($v)."'";
-					exec_query($sql_query);
-				}
-		}
-	}
+$config['base']['lang']['default'] = "ru";
+$config['base']['lang']['current'] = $config['base']['lang']['default'];
+$config['base']['lang']['list'][] = "ru";
+$config['base']['lang']['list'][] = "en";
+$config['base']['lang']['list'][] = "de";
 
-	if (isset($_GET['satellite']))
-	{
-		debug("getting config from satellite");
-		$satellite = $_GET['satellite'];
-		debug("satellite: ".$satellite);
-		$sat = new Satellite;
-		$sat -> id = $satellite;
-		$sat -> url = $sat -> get_url();
-		$content['config_elements'] = $sat -> get_config($this -> table);
-	}
-	else
-	{
-		debug("getting config from database");
-		$sql_query = "SELECT * FROM `".mysql_real_escape_string($this -> table)."`";
-		$result = exec_query($sql_query);
-		$i = 0;
-		while ($row = mysql_fetch_array($result))
-		{
-			$content['config_elements'][$i]['id'] = stripslashes($row['id']);
-			$content['config_elements'][$i]['name'] = stripslashes($row['name']);
-			if (phpversion() >= 5.4)
-				$content['config_elements'][$i]['value'] = htmlspecialchars(stripslashes($row['value']), ENT_QUOTES, $config['base']['output_charset']);
-			else
-				$content['config_elements'][$i]['value'] = htmlspecialchars(stripslashes($row['value']));
-			$content['config_elements'][$i]['descr'] = stripslashes($row['descr']);
-			$i++;
-		}
-		mysql_free_result($result);
-	}
+$config['base']['lang']['titles'] = array(
+	"ru" => "Русский",
+	"en" => "English",
+	"de" => "Deutch"
+);
 
-	debug("*** end: Config: edit ***");
-	return $content;
-}
+$config['base']['lang']['titles_int'] = array(
+	"ru" => "Russian",
+	"en" => "English",
+	"de" => "German"
+);
 
-function get()
-{
-	global $user;
-	global $config;
-	debug("*** Config: get ***");
+$config['base']['send_emails'] = "yes"; // set to "yes" to send
 
-	$cnf = array();
+$config['base']['mail']['from_address'] = "kshema@handyhosting.ru";
+$config['base']['mail']['from_name'] = "Kshema";
+$config['base']['mail']['host'] = "handyhosting.ru"; // Host to connect. Default is localhost
+$config['base']['mail']['username'] = "kshema"; // The username to use for SMTP authentication.
+$config['base']['mail']['password'] = "kshema"; // The password to use for SMTP authentication.
+$config['base']['mail']['port'] = "25"; // The port to connect. Default is 25
+$config['base']['mail']['backend'] = "smtp"; // mail, sendmail, smtp
+$config['base']['mail']['sendmail_path'] = "/usr/bin/sendmail"; // The location of the sendmail program on the filesystem. Default is /usr/bin/sendmail
+$config['base']['mail']['sendmail_args'] = "-i"; // Additional parameters to pass to the sendmail. Default is -i
+$config['base']['mail']['auth'] = "TRUE"; // Whether or not to use SMTP authentication. Default is FALSE
+$config['base']['mail']['localhost'] = "localhost"; // The value to give when sending EHLO or HELO. Default is localhost
+$config['base']['mail']['timeout'] = "NULL"; // The SMTP connection timeout. Default is NULL (no timeout)
+$config['base']['mail']['verp'] = "FALSE"; // Whether to use VERP or not. Default is FALSE
+$config['base']['mail']['debug'] = "TRUE"; // Whether to enable SMTP debug mode or not. Default is FALSE
+//$config['base']['mail']['persist'] = "yes"; // Indicates whether or not the SMTP connection should persist over multiple calls to the send() method.
+$config['base']['mail']['use_phpmailer'] = "yes"; // Use PHPMailer class to send emails through SMTP
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($this -> table)."`";
-	$result = exec_query($sql_query);
-	$i = 0;
-	while ($row = mysql_fetch_array($result))
-	{
-		$cnf[$i]['id'] = stripslashes($row['id']);
-		$cnf[$i]['name'] = stripslashes($row['name']);
-		$cnf[$i]['value'] = stripslashes($row['value']);
-		$cnf[$i]['descr'] = stripslashes($row['descr']);
-		$i++;
-	}
-	mysql_free_result($result);
+$config['base']['timezone'] = "Europe/Moscow";
 
-	debug("*** end: Config: get ***");
-	return $cnf;
-}
+$config['libs']['location'] = $_SERVER['DOCUMENT_ROOT']."libs/";
 
-function get_list()
-{
-	global $user;
-	global $config;
-	debug("*** Config: get_list ***");
+$config['recaptcha']['use'] = "no";
+$config['recaptcha']['url'] = "https://www.google.com/recaptcha/api/siteverify";
+$config['recaptcha']['secret'] = "";
+$config['recaptcha']['sitekey'] = "";
 
-	$cnf = array();
+$config['satellite']['use'] = "no";
+$config['satellite']['table'] = "ksh_bbcpanel_bbs";
+$config['satellite']['id'] = "1";
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($this -> table)."`";
-	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
-	{
-		$name = stripslashes($row['name']);
-		$value = stripslashes($row['value']);
-		$cnf[$name] = $value;
-	}
-	mysql_free_result($result);
-
-	debug("*** end: Config: get_list ***");
-	return $cnf;
-}
-
-}
+$config['template']['css'] = array(); // additional CSS file
 
 ?>

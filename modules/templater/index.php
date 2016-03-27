@@ -4,6 +4,12 @@
 
 debug ("templater module included");
 
+include_once ($config['modules']['location']."templater/config.php");
+
+$config_file = $config['base']['doc_root']."/config/templater.php";
+if (file_exists($config_file))
+	include($config_file);
+
 function templater_find_template($module, $template)
 {
 	global $user;
@@ -58,7 +64,6 @@ function templater_find_template($module, $template)
 
 function gen_content($module, $template, $content)
 {
-    global $theme_dir;
     global $mods_dir;
 	global $config;
 
@@ -166,7 +171,6 @@ function output ($content)
 {
 	global $config;
     global $user;
-    global $theme_dir;
 	global $template;
     debug ("=== mod: templater; fn: output ===");
     if (isset($_GET['page_template']))

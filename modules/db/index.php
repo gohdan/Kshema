@@ -3,7 +3,13 @@
 // Base functions of the "db" module
 debug ("! db module included");
 
-include_once ("functions.php");
+include_once ($config['modules']['location']."db/config.php");
+
+$config_file = $config['base']['doc_root']."/config/db.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."db/functions.php");
 
 function db_admin()
 {

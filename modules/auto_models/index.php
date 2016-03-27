@@ -2,15 +2,20 @@
 
 // Base functions of the "auto_models" module
 
+include_once ($config['modules']['location']."auto_models/config.php");
 
-include_once ("db.php");
-include_once ("models.php");
-include_once ("characteristics.php");
-include_once ("prices.php");
-include_once ("equipment.php");
-include_once ("images.php");
-include_once ("videos.php");
-include_once ("colors.php");
+$config_file = $config['base']['doc_root']."/config/auto_models.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."auto_models/db.php");
+include_once ($config['modules']['location']."auto_models/models.php");
+include_once ($config['modules']['location']."auto_models/characteristics.php");
+include_once ($config['modules']['location']."auto_models/prices.php");
+include_once ($config['modules']['location']."auto_models/equipment.php");
+include_once ($config['modules']['location']."auto_models/images.php");
+include_once ($config['modules']['location']."auto_models/videos.php");
+include_once ($config['modules']['location']."auto_models/colors.php");
 
 function auto_models_frontpage()
 {

@@ -2,7 +2,13 @@
 
 // Base functions of the "performance" module
 
-// echo ("performance module included<br>\n");
+debug ("performance module included");
+
+include_once ($config['modules']['location']."performance/config.php");
+
+$config_file = $config['base']['doc_root']."/config/performance.php";
+if (file_exists($config_file))
+	include($config_file);
 
 // ### BY ANDREW ###########################################
 function startTimer()

@@ -2,9 +2,14 @@
 
 // Base functions of the "hooks" module
 
+include_once ($config['modules']['location']."hooks/config.php");
 
-include_once ("db.php");
-include_once ("hooks.php");
+$config_file = $config['base']['doc_root']."/config/hooks.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."hooks/db.php");
+include_once ($config['modules']['location']."hooks/hooks.php");
 
 function hooks_admin()
 {

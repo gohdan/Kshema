@@ -2,9 +2,14 @@
 
 // Base functions of the "portfolio" module
 
-include_once ("db.php");
-include_once ("portfolio.php");
+include_once ($config['modules']['location']."portfolio/config.php");
 
+$config_file = $config['base']['doc_root']."/config/portfolio.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."portfolio/db.php");
+include_once ($config['modules']['location']."portfolio/portfolio.php");
 
 function portfolio_admin()
 {

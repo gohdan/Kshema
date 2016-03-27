@@ -2,10 +2,14 @@
 
 // Base functions of the "rss" module
 
+include_once ($config['modules']['location']."rss/config.php");
 
+$config_file = $config['base']['doc_root']."/config/rss.php";
+if (file_exists($config_file))
+	include($config_file);
 
-include_once ("db.php");
-include_once ("rss.php");
+include_once ($config['modules']['location']."rss/db.php");
+include_once ($config['modules']['location']."rss/rss.php");
 
 function rss_admin()
 {

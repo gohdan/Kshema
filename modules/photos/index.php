@@ -2,8 +2,14 @@
 
 // Base functions of the "photos" module
 
-include_once ("db.php");
-include_once ("photos.php");
+include_once ($config['modules']['location']."photos/config.php");
+
+$config_file = $config['base']['doc_root']."/config/photos.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."photos/db.php");
+include_once ($config['modules']['location']."photos/photos.php");
 
 function photos_admin()
 {

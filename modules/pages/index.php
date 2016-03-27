@@ -2,9 +2,14 @@
 
 // Base functions of the "pages" module
 
+include_once ($config['modules']['location']."pages/config.php");
 
-include_once ("db.php");
-include_once ("pages.php");
+$config_file = $config['base']['doc_root']."/config/pages.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."pages/db.php");
+include_once ($config['modules']['location']."pages/pages.php");
 
 include_once ($config['modules']['location']."files/index.php"); // to upload pictures
 

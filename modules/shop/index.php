@@ -2,16 +2,21 @@
 
 // Base functions of the "shop" module
 
-include_once ("db.php");
-include_once ("categories.php");
-include_once ("authors.php");
-include_once ("goods.php");
-include_once ("users.php");
-include_once ("cart.php");
-include_once ("orders.php");
-include_once ("requests.php");
-include_once ("demand.php");
+include_once ($config['modules']['location']."shop/config.php");
 
+$config_file = $config['base']['doc_root']."/config/shop.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."shop/db.php");
+include_once ($config['modules']['location']."shop/categories.php");
+include_once ($config['modules']['location']."shop/authors.php");
+include_once ($config['modules']['location']."shop/goods.php");
+include_once ($config['modules']['location']."shop/users.php");
+include_once ($config['modules']['location']."shop/cart.php");
+include_once ($config['modules']['location']."shop/orders.php");
+include_once ($config['modules']['location']."shop/requests.php");
+include_once ($config['modules']['location']."shop/demand.php");
 
 include_once ($config['modules']['location']."/files/index.php"); // to upload pictures
 

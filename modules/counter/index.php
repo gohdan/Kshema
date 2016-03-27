@@ -2,8 +2,14 @@
 
 // Base functions of the counter module
 
-include_once("db.php");
-include_once("counter.php");
+include_once ($config['modules']['location']."counter/config.php");
+
+$config_file = $config['base']['doc_root']."/config/counter.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once($config['modules']['location']."counter/db.php");
+include_once($config['modules']['location']."counter/counter.php");
 
 function counter_admin()
 {

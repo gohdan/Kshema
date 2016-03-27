@@ -2,9 +2,14 @@
 
 // Base functions of the "bbcpanel" module
 
+include_once ($config['modules']['location']."bbcpanel/config.php");
 
-include_once ("db.php");
-include_once ("bb.php");
+$config_file = $config['base']['doc_root']."/config/bbcpanel.php";
+if (file_exists($config_file))
+	include($config_file);
+
+include_once ($config['modules']['location']."bbcpanel/db.php");
+include_once ($config['modules']['location']."bbcpanel/bb.php");
 
 // XMLRPC functionality class
 include_once($config['base']['doc_root']."/libs/xmlrpc/xmlrpc.inc");
