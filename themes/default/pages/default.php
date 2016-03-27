@@ -30,9 +30,6 @@ foreach ($config['template']['css'] as $css_idx => $css_file)
 
 include("includes/tinymce_init.php");
 
-if (isset($_GET['action']) && "view_by_user" == $_GET['action'])
-	include("includes/bills.php");
-
 echo <<<END
 </head>
 <body>
