@@ -39,6 +39,10 @@ $config['base']['domain_dir'] = "";
 $config['base']['doc_root'] = $_SERVER['DOCUMENT_ROOT'].$config['base']['inst_root'] ;
 $config['base']['output_charset'] = "utf8"; // utf8 or utf8
 
+$config['base']['admin_actions'] = array(
+	'install'
+);
+
 $config['base']['ftp_server'] = "kshema.handyhosting.ru";
 $config['base']['ftp_username'] = "kshema";
 $config['base']['ftp_password'] = "kshems";

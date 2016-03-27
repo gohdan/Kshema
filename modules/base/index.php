@@ -118,6 +118,9 @@ function base_default_action()
 		else
 			$module_data['inst_root'] = "";
 
+		if (in_array($_GET['action'], $config['base']['admin_actions']))
+			$config['themes']['admin'] = "yes";
+
         if (isset($_GET['action']))
         {
                 debug ("*** action: ".$_GET['action']);
