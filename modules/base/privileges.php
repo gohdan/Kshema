@@ -28,83 +28,72 @@ function create_table($table_name)
         'result' => ''
     );
 
-	if (1 == $user['id'])
+	if ("yes" == $config['db']['old_engine'])
 	{
-		debug ("user is admin");
-
-		if ("yes" == $config['db']['old_engine'])
-		{
-			debug ("db engine is too old, don't using charsets");
-			$charset = "";
-		}
-		else
-		{
-			debug ("db engine isn't too old, using charsets");
-			$charset = " charset='utf8'";
-		}
-
-		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
-			`uid` int auto_increment primary key,
-			`action` tinytext,
-			`type` tinytext,
-			`id` int,
-			`read` boolean,
-			`write` boolean
-		)".$charset;
-
-		exec_query($sql_query);
-		$content['result'] .= "<p>Таблица привилегий успешно создана</p>";
-
-		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
-			`action`,
-			`type`,
-			`id`,
-			`read`,
-			`write`
-			) VALUES (
-			'default',
-			'group',
-			'1',
-			'1',
-			'1'
-			)";
-		exec_query($sql_query);
-		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
-			`action`,
-			`type`,
-			`id`,
-			`read`,
-			`write`
-			) VALUES (
-			'default',
-			'group',
-			'2',
-			'1',
-			'0'
-			)";
-		exec_query($sql_query);
-		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
-			`action`,
-			`type`,
-			`id`,
-			`read`,
-			`write`
-			) VALUES (
-			'default',
-			'group',
-			'0',
-			'1',
-			'0'
-			)";
-		exec_query($sql_query);
-		$content['result'] .= "<p>Основные привилегии успешно добавлены</p>";
-
+		debug ("db engine is too old, don't using charsets");
+		$charset = "";
 	}
 	else
 	{
-		debug ("user isn't admin!");
-		$content['result'] = "<p>Пожалуйста, войдите как администратор</p>";
+		debug ("db engine isn't too old, using charsets");
+		$charset = " charset='utf8'";
 	}
+
+	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
+		`uid` int auto_increment primary key,
+		`action` tinytext,
+		`type` tinytext,
+		`id` int,
+		`read` boolean,
+		`write` boolean
+	)".$charset;
+
+	exec_query($sql_query);
+	$content['result'] .= "<p>Таблица привилегий успешно создана</p>";
+
+	$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+		`action`,
+		`type`,
+		`id`,
+		`read`,
+		`write`
+		) VALUES (
+		'default',
+		'group',
+		'1',
+		'1',
+		'1'
+		)";
+	exec_query($sql_query);
+	$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+		`action`,
+		`type`,
+		`id`,
+		`read`,
+		`write`
+		) VALUES (
+		'default',
+		'group',
+		'2',
+		'1',
+		'0'
+		)";
+	exec_query($sql_query);
+	$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+		`action`,
+		`type`,
+		`id`,
+		`read`,
+		`write`
+		) VALUES (
+		'default',
+		'group',
+		'0',
+		'1',
+		'0'
+		)";
+	exec_query($sql_query);
+	$content['result'] .= "<p>Основные привилегии успешно добавлены</p>";
 
 	debug ("=== end: privileges: create_table ===");
 	return $content;
