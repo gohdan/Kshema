@@ -24,7 +24,7 @@ function users_table_create($table)
 	}
 	$queries = array();
 
-	$sql_query = "create table if not exists `".mysql_real_escape_string($table)."` (
+	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table)."` (
                 `id` int auto_increment primary key,
                 `login` tinytext,
                 `password` tinytext,
@@ -59,16 +59,23 @@ function users_table_create($table)
 	$queries[] = $sql_query;
 
 	$psw="";
-	for($i=0; $i < 8; $i++)
-		$psw.=chr(rand(48,57));
-	// echo $psw;
-	$content['result'] .= "Ваш пароль: ".$psw."<br>";
+	for($i=0; $i < 12; $i++)
+	{
+		//$psw.=chr(rand(48,57));
+		//$psw.=chr(rand(33,126));
+		$num = rand(48,122);
+		if ((($num > 57) && ($num < 65)) || (($num > 90) && ($num < 97)))
+			$num = rand(48, 57);
 
-	$queries[] = "insert into ksh_users 
-		(`id`, `login`, `password`, `group`, `name`) values (
+		$psw.=chr($num);
+	}
+
+	$queries[] = "INSERT INTO `ksh_users`
+		(`id`, `login`, `email`, `password`, `group`, `name`) VALUES (
 		'1',
+		'admin',
 		'".$config['base']['admin_email']."',
-		'".mysql_real_escape_string(md5($config['base']['admin_email']."\n".$psw))."',
+		'".mysql_real_escape_string(md5("admin"."\n".$psw))."',
 		'1',
 		'Admin'
 		)";
@@ -80,8 +87,11 @@ function users_table_create($table)
 	{
 		foreach ($queries as $idx => $sql_query)
 			exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "<p>Запросы создания таблицы пользователей выполнены</p>";
 	}
+
+	$content['result'] .= "<p>Ваш логин: admin</p><p>Ваш пароль: ".$psw."</p>";
+
 	debug("content: ", 2);
 	dump($content);
 
@@ -111,7 +121,7 @@ function users_groups_table_create($table)
 	}
 	$queries = array();
 
-	$queries[] = "CREATE TABLE IF NOT EXISTS ksh_users_groups (
+	$queries[] = "CREATE TABLE IF NOT EXISTS `ksh_users_groups` (
 		`id` int auto_increment primary key,
 		`name` tinytext,
 		`title` tinytext,
@@ -123,8 +133,8 @@ function users_groups_table_create($table)
 		`redirect` tinytext
 	)".$charset;
 
-	$queries[] = "INSERT INTO ksh_users_groups (`id`, `title`) values ('1', 'Администраторы')";
-	$queries[] = "INSERT INTO ksh_users_groups (`id`, `title`) values ('2', 'Пользователи')";
+	$queries[] = "INSERT INTO `ksh_users_groups` (`id`, `title`) values ('1', 'Администраторы')";
+	$queries[] = "INSERT INTO `ksh_users_groups` (`id`, `title`) values ('2', 'Пользователи')";
 
 
 	$queries_qty = count($queries);
@@ -134,7 +144,7 @@ function users_groups_table_create($table)
 	{
 		foreach ($queries as $idx => $sql_query)
 			exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
+		$content['result'] .= "Запросы создания пользовательских групп выполнены";
 	}
 
 	debug("*** end: users_groups_table_create ***");
@@ -163,8 +173,6 @@ function users_install_tables()
 		$charset = " charset='utf8'";
 	}
 
-	$queries = array();
-
 	$priv = new Privileges();
 	$result =  $priv -> create_table("ksh_users_privileges");
 	$content['result'] .= $result['result'];
@@ -173,18 +181,6 @@ function users_install_tables()
 	$content['result'] .= $cnt['result'];
 	$cnt = users_table_create("ksh_users");
 	$content['result'] .= $cnt['result'];
-
-	$queries_qty = count($queries);
-
-	$content['queries_qty'] .= $queries_qty;
-
-	if ($queries_qty > 0)
-	{
-		foreach ($queries as $idx => $sql_query) exec_query ($sql_query);
-		$content['result'] .= "Запросы выполнены";
-	}
-	else
-		$content['result'] .= "Запросов нет";
 
 	debug ("*** end: users_install_tables ***");
         return $content;
