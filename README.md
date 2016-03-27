@@ -6,12 +6,7 @@ Free and open source CMS/CMF
 
 === Install ===
 
-1. Copy all files to web server.
+* Copy all files to web server (containing directory must be writable to web server)
 
-2. Copy themes/default to your own theme (for example, themes/sample).
+* Go to /setup/, fill the form, it will write necessary config files to /config/
 
-3. Change themes/sample/db_config.php according to your hosting parameters.
-
-4. In config.php change include to your own theme.
-
-5. Go to /base/install . It will create some necessary tables and admin account. Take the password it will gave to you, login value is the value of $config['base']['admin_email']
