@@ -116,6 +116,7 @@ if (isset($_POST['do_save']))
 
 \$config['modules']['default_module'] = \"frontpage\";
 
+\$config['modules']['core'][] = array();
 \$config['modules']['core'][] = \"auth\";
 \$config['modules']['core'][] = \"base\";
 \$config['modules']['core'][] = \"db\";
