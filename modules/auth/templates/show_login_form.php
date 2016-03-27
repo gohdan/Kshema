@@ -3,8 +3,8 @@
 #content#
 
 <form class="auth_login" action="#inst_root#/auth/login/" method="post">
-Ваш e-mail: <input type="text" name="login"><br>
-Пароль: <input type="password" name="password"><br>
+<input type="text" name="login" placeholder="Логин"><br>
+<input type="password" name="password" placeholder="Пароль"><br>
 <input type="submit" name="do_login" value="Войти">
 </form>
 
