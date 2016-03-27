@@ -17,7 +17,7 @@ function recurse_copy($src,$dst) {
     closedir($dir);
 } 
 
-$config_dir = $_SERVER['DOCUMENT_ROOT']."/config/";
+$config_dir = $_SERVER['DOCUMENT_ROOT']."/config";
 if (!file_exists($config_dir))
 	mkdir($config_dir);
 
@@ -130,7 +130,7 @@ if (isset($_POST['do_save']))
 \$config['modules']['core'][] = \"uploads\";
 \$config['modules']['core'][] = \"users\";
 
-\$config['modules']['installed'][] = array();
+\$config['modules']['installed'] = array();
 
 \$config['modules']['location'] = \$config['base']['doc_root'].\"/modules/\";
 
