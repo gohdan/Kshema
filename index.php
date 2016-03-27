@@ -13,6 +13,8 @@ if ($config['base']['error_reporting'])
 else
 	ini_set('display_errors', 0);
 
+include_once($config['modules']['location']."base/index.php");
+
 if (isset($config['performance']['use']) && ("yes" == $config['performance']['use']))
 {
 	include_once ($mods_dir."/performance/index.php");
@@ -23,6 +25,7 @@ foreach($config['modules']['core'] as $module)
 	include_once($config['modules']['location'].$module."/index.php");
 
 connect_2db ($config['db']['db_user'], $config['db']['db_password'], $config['db']['db_host'], $config['db']['db_name']);
+
 base_process_request();
 
 date_default_timezone_set($config['base']['timezone']);
