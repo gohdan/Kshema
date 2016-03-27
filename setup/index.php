@@ -17,6 +17,10 @@ function recurse_copy($src,$dst) {
     closedir($dir);
 } 
 
+$config_dir = $_SERVER['DOCUMENT_ROOT']."/config/";
+if (!file_exists($config_dir))
+	mkdir($config_dir);
+
 echo <<<END
 <!DOCTYPE html>
 <html lang="en">
@@ -54,14 +58,8 @@ if (isset($_POST['do_save']))
 		$theme_dir = "../themes/".$theme_name;
 	}
 
-	$config_file = "../config.php";
-	$config_line = "<?php include_once (\"themes/".$theme_name."/config.php\"); ?>";
-
-	file_put_contents($config_file, $config_line);
-
-
-	$db_config_file = $theme_dir."/db_config.php";
-	$db_params = "<?php
+	$config_file = $config_dir."/db.php";
+	$config_params = "<?php
 
 \$config['db']['old_engine'] = \"no\";
 \$config['db']['charset'] = \"utf8\"; // cp1251 or utf8
@@ -74,8 +72,72 @@ if (isset($_POST['do_save']))
 
 ?>
 ";
+	file_put_contents($config_file, $config_params);
 
-	file_put_contents($db_config_file, $db_params);
+
+	$config_file = $config_dir."/base.php";
+	$config_params = "<?php
+
+\$config['base']['site_name'] = \"".$_POST['base_site_name']."\";
+\$config['base']['site_owner'] = \"".$_POST['base_site_owner']."\";
+\$config['base']['site_url'] = \"".$_POST['base_site_url']."\";
+\$config['base']['admin_email'] = \"".$_POST['base_admin_email']."\";
+
+\$config['base']['debug_level'] = 0; // 0 - no debug, 1 - simple debug, 2 - verbose debug (var dump etc.);
+\$config['base']['debug_user'] = 0; // set to 0 to show debug to every (even non-authenticated) user
+\$config['base']['error_reporting'] = 0; // use in production
+//\$config['base']['error_reporting'] = E_ALL; // use to develop
+\$config['base']['logs_path'] = \$_SERVER['DOCUMENT_ROOT'].\"/logs/\";
+\$config['base']['logs_write'] = \"yes\";
+\$config['base']['debug_echo'] = \"no\";
+\$config['base']['debug_file'] = \"no\";
+
+\$config['base']['inst_root'] = \"\"; // Put here a directory Kshema is installed in; no slash at the end!
+\$config['base']['doc_root'] = \$_SERVER['DOCUMENT_ROOT'].\$config['base']['inst_root'];
+
+?>
+";
+	file_put_contents($config_file, $config_params);
+
+
+	$config_file = $config_dir."/themes.php";
+	$config_params = "<?php
+
+\$config['themes']['dir'] = \$config['base']['doc_root'].\"/themes/\";
+\$config['themes']['current'] = \"".$theme_name."\";
+
+?>
+";
+	file_put_contents($config_file, $config_params);
+
+
+	$config_file = $config_dir."/modules.php";
+	$config_params = "<?php
+
+\$config['modules']['default_module'] = \"frontpage\";
+
+\$config['modules']['core'][] = \"auth\";
+\$config['modules']['core'][] = \"base\";
+\$config['modules']['core'][] = \"db\";
+\$config['modules']['core'][] = \"files\";
+\$config['modules']['core'][] = \"frontpage\";
+\$config['modules']['core'][] = \"hooks\";
+\$config['modules']['core'][] = \"menu\";
+\$config['modules']['core'][] = \"modules\";
+\$config['modules']['core'][] = \"templater\";
+\$config['modules']['core'][] = \"themes\";
+\$config['modules']['core'][] = \"updater\";
+\$config['modules']['core'][] = \"uploads\";
+\$config['modules']['core'][] = \"users\";
+
+\$config['modules']['installed'][] = array();
+
+\$config['modules']['location'] = \$config['base']['doc_root'].\"/modules/\";
+
+?>
+";
+	file_put_contents($config_file, $config_params);
+
 
 	echo ("<br><p>Config files saved. Please check <b>/themes/".$theme_name."/config.php</b> manually. And don't forget to delete /setup/ directory.</p>");	
 	echo ("<p><a href=\"/base/install/\">Go to setup admin account and basic DB tables</a> or <a href=\"/setup\">go through this setup again</a>.</p>");
@@ -112,6 +174,15 @@ or copy default theme to new: <input type="text" name="new_theme" placeholder="n
 <tr><td>Database: </td><td><input type="text" name="db_name" placeholder="DB name"></td></tr>
 <tr><td>User: </td><td><input type="text" name="db_user" placeholder="User name"></td></tr>
 <tr><td>Password: </td><td><input type="text" name="db_password" placeholder="Password"></td></tr>
+</table>
+
+<h2>Site parameters</h2>
+
+<table>
+<tr><td>Site name: </td><td><input type="text" name="base_site_name" placeholder="Kshema" size="40"></td></tr>
+<tr><td>Site owner: </td><td><input type="text" name="base_site_owner" placeholder="John Smith" size="40"></td></tr>
+<tr><td>Site url: </td><td><input type="text" name="base_site_url" placeholder="http://kshema-test.handyhosting.ru" size="40"></td></tr>
+<tr><td>Admin email: </td><td><input type="text" name="base_admin_email" placeholder="user@example.org" size="40"></td></tr>
 </table>
 
 <br>
