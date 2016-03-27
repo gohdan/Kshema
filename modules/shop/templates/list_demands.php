@@ -1,1 +1,0 @@
-<li>#user# (#email#): #name#; автор - #author#; ISBN - #isbn#; #commentary# <a href="/index.php?module=shop&action=demand_del&demand=#id#">Удалить</a></li>

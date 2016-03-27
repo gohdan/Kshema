@@ -1,1 +1,0 @@
-<option name="category" value="#id#" #selected#>#name#</option>

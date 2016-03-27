@@ -1,1 +1,0 @@
-<option value="#qty#">#qty#</option>

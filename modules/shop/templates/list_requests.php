@@ -1,1 +1,0 @@
-<li>#user# (#email#): #good#, #qty# экз. <a href="/index.php?module=shop&action=requests_del&requests=#id#">Удалить</a></li>

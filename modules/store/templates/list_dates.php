@@ -1,1 +1,0 @@
-<a href="/index.php?module=store&action=inouts_view&date=#date#">#date#</a><br>

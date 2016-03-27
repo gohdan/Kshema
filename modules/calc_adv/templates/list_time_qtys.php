@@ -1,1 +1,0 @@
-<td><input type="text" size="3" name="time_qty_#id#"></td>
