@@ -140,7 +140,7 @@ if (isset($_POST['do_save']))
 	file_put_contents($config_file, $config_params);
 
 
-	echo ("<br><p>Config files saved. Please check <b>/themes/".$theme_name."/config.php</b> manually. And don't forget to delete /setup/ directory.</p>");	
+	echo ("<br><p>Config files saved. Please check <b>/config/*.php</b> manually if needed. And don't forget to delete /setup/ directory.</p>");	
 	echo ("<p><a href=\"/base/install/\">Go to setup admin account and basic DB tables</a> or <a href=\"/setup\">go through this setup again</a>.</p>");
 
 }
