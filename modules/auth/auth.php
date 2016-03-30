@@ -15,16 +15,20 @@ function auth_enticate()
     if (isset($_SESSION['authed']))
     {
         debug ("session has auth data");
-        //$_SESSION['authed'] = 1;
+
         if ("1" == $_SESSION['authed'])
         {
-            debug ("authed from session");
-            //$user['id'] = get_user_id();
-            $user['id'] = $_SESSION['id'];
-			$user['group'] = users_get_group($user['id']);
-			$user['role'] = get_user_role($user['id']);
-            debug ("user role: ".$user['role']);
-            $result = 1;
+			if (isset($_SESSION['id']))
+			{
+	            debug ("authed from session");
+	            $user['id'] = $_SESSION['id'];
+				$user['group'] = users_get_group($user['id']);
+				$user['role'] = get_user_role($user['id']);
+        	    debug ("user role: ".$user['role']);
+	            $result = 1;
+			}
+			else
+				unset($_SESSION['authed']);
         }
         else
             debug ("hadn't been authed from session");
@@ -309,18 +313,9 @@ function auth_register()
     global $user;
 	global $config;
 
-    global $upl_pics_dir;
-    global $doc_root;
-    global $max_file_size;
-    global $home;
-
     $content = array(
 		'content' => '',
-		'session_name' => session_name(),
-		'session_id' => session_id(),
-		'if_wrong_captcha' => '',
-		'if_passwords_not_equal' => '',
-		'if_login_exists' => '',
+		'if_email_exists' => '',
 		'if_success' => '',
 		'if_use_registration_form' => ''
 	);
@@ -333,98 +328,22 @@ function auth_register()
 				$content['if_'.$k.'_empty'] = "yes";
 		}
 
-	if(isset($_POST['city']))
-		$content['city_selected_'.$_POST['city']] = "yes";
-
 	$if_register = 1;
 
     if (isset($_POST['do_register']))
     {
         debug ("have POST data");
 
-		if(!isset($_SESSION['captcha_keystring']) || ($_SESSION['captcha_keystring'] !=  $_POST['keystring']))
-		{
-			$content['if_wrong_captcha'] = "yes";
-			$if_register = 0;
-		}
-
-		if ("" == $_POST['password1'])
-		{
-			$content['if_empty_password'] = "yes";
-			$if_register = 0;
-		}
-
-		if ($_POST['password1'] != $_POST['password2'])
-		{
-			debug ("passwords are not equal!");
-			$content['if_passwords_not_equal'] = "yes";
-			$if_register = 0;
-		}
-
-		if ("yes" == $config['auth']['strong_passwords'] && !auth_check_password_strength($_POST['password1']))
-		{
-			$content['if_weak_password'] = "yes";
-			$if_register = 0;		
-		}
-
-		if (isset($_POST['group']))
-		{
-			debug ("group is set");
-			if (isset($config['auth']['required_fields'][$_POST['group']]))
-			{
-				debug ("; required fields are set");
-				foreach($config['auth']['required_fields'][$_POST['group']] as $k => $v)
-				{
-					debug ("field: ".$v);
-					if (!isset($_POST[$v]) || "" == $_POST[$v])
-					{
-						debug ("post ".$v.": empty");
-						$if_register = 0;
-					}
-					else
-						debug ("post ".$v.": not empty");
-				}
-			}
-			
-			if (isset($config['auth']['required_fields_alt'][$_POST['group']]))
-			{
-				debug ("; alternate required fields are set");
-				$if_field_exists = 0;
-				foreach($config['auth']['required_fields_alt'][$_POST['group']] as $field_group_id => $field_group)
-				{
-					debug ("checking field group ".$field_group_id);
-					foreach ($field_group as $k => $v)
-					{
-						debug ("field: ".$v);
-						if (isset($_POST[$v]) && "" != $_POST[$v])
-						{
-							debug ("post ".$v.": set");
-							$if_field_exists = 1;
-						}
-						else
-							debug ("post ".$v.": empty");
-					}
-
-					if (!$if_field_exists)
-					{
-						debug ("alternate fields are not set");
-						$if_register = 0;
-					}
-					else
-						debug ("alternate fields are set");
-				}
-			}
-		}
-
-		$sql_query = "SELECT count(*) FROM ksh_users WHERE login='".mysql_real_escape_string($_POST['login'])."'";
+		$sql_query = "SELECT COUNT(*) FROM `ksh_users` WHERE `email`='".mysql_real_escape_string($_POST['email'])."'";
         $result = exec_query($sql_query);
-       	$if_exist = mysql_result($result, 0, 0);
+		$row = mysql_fetch_array($result);
         mysql_free_result($result);
-		if ("0" != $if_exist)
+		$qty = stripslashes($row['COUNT(*)']);
+		if ("0" != $qty)
 		{
-            debug ("such login exists!");
+            debug ("email already exists!");
 			$if_register = 0;
-			$content['if_login_exists'] = "yes";
+			$content['if_email_exists'] = "yes";
 		}
 
         if (1 == $if_register)
@@ -432,103 +351,25 @@ function auth_register()
 
             debug ("trying to register");
 
-			if (isset($_POST['group']) && is_numeric($_POST['group']) && ("1" != $_POST['group']))
-				$group = $_POST['group'];
-			else
-				$group = 2;
+			debug ("POST email: ".$_POST['email']);
 
-			debug ("POST login: ".$_POST['login']);
-			debug ("POST passwd: ".md5($_POST['password1']));
-			debug ("DB passwd: ".md5($_POST['login']."\n".$_POST['password1']));
+			$password = auth_gen_password();
 
-			$fields = "`login`, `password`, `group`";
-			$values = "'".mysql_real_escape_string($_POST['login'])."',
-				'".mysql_real_escape_string(md5($_POST['login']."\n".$_POST['password1']))."',
-				'".mysql_real_escape_string($group)."'";
+			$db_password = auth_crypt_password($_POST['email'], $password);
 
-			$reg_fields = array(
-				'name', 'first_name', 'sur_name', 'city', 'site', 'url', 'phone', 'phone_mob', 'phone_stat'
-			);
+			debug ("DB passwd: ".$db_password);
 
-			foreach($reg_fields as $k => $v)
-				if (isset($_POST[$v]))
-				{
-					$fields .= ", `".mysql_real_escape_string($v)."`";
-					$values .= ", '".mysql_real_escape_string($_POST[$v])."'";
-				}
+			$fields = "`email`, `login`, `password`, `group`";
+			$values = "'".mysql_real_escape_string($_POST['email'])."',
+				'".mysql_real_escape_string($_POST['email'])."',
+				'".mysql_real_escape_string($db_password)."',
+				'2'";
 
-
-
-		    if (isset($_FILES['image']))
-			{
-				$image = $_FILES['image'];
-			    $if_file_exists = 0;
-			    $file_path = "";
-
-                if ((isset($image)) && ("" != $image['name']))
-                {
-
-                    debug ("there is an image to upload");
-                    if (file_exists($doc_root.$upl_pics_dir."users/".$image['name'])) $if_file_exists = 1;
-                    $file_path = upload_file($image['name'],$image['tmp_name'],$home,$upl_pics_dir."users/",$if_file_exists);
-                    debug ("size: ".filesize($home.$file_path));
-
-                    if (filesize($home.$file_path) > $max_file_size)
-                    {
-                        debug ("file size > max file size!");
-                        $content .= "<p>Простите, но нельзя закачать файл размером больше ".($max_file_size / 1024)." килобайт</p>";
-                        if (unlink ($home.$file_path)) debug ("file deleted");
-                        else debug ("can't delete file!");
-                        $file_path = "";
-                    }
-
-                    $_POST['image'] = $file_path;
-
-                }
-                else
-                {
-                    debug ("no image to upload");
-                    if (isset($_POST['image']))
-                    	$file_path = $_POST['image'];
-                    else
-                    	$file_path = "";
-                }
-
-				if ("" != $file_path)
-				{
-					$fields .= ", `image`";
-					$values .= ", '".mysql_real_escape_string($file_path)."'";
-				}
-
-			}
 
 			debug("fields: ".$fields);
 			debug("values: ".$values);
 
-			if (isset($config['users']['additional_fields']))
-				foreach($config['users']['additional_fields'] as $k => $v)
-					if ("" != $v['name'])
-						if (isset($_POST[$v['name']]))
-						{
-							$fields .= ", `".mysql_real_escape_string($v['name'])."`";
-							if (is_array($_POST[$v['name']]))
-							{
-								$values .= ", '";
-								foreach($_POST[$v['name']] as $af_idx => $af_val)
-									$values .= "|".mysql_real_escape_string($af_val);
-								$values .= "|'";
-							}
-							else
-							{
-								debug($v['name'].": ".$_POST[$v['name']]);
-								$values .= ", '".mysql_real_escape_string($_POST[$v['name']])."'";
-							}
-						}
-
-			$sql_query = "INSERT INTO ksh_users (".$fields.") VALUES (".$values.")";
-			echo ($sql_query);
-
-
+			$sql_query = "INSERT INTO `ksh_users` (".$fields.") VALUES (".$values.")";
             exec_query($sql_query);
 
             $content['if_success'] = "yes";
@@ -537,18 +378,13 @@ function auth_register()
 
 			$cnt['site_url'] = $config['base']['site_url'];	
 			$cnt['site_name'] = $config['base']['site_name'];
-			if (isset($_POST['name']) && ("" != $_POST['name']))
-				$cnt['name'] = $_POST['name'];
-			else
-				if (isset($_POST['first_name']) && ("" != $_POST['first_name']))
-					$cnt['name'] = $_POST['first_name'];
 
-			$cnt['login'] = $_POST['login'];
-			$cnt['password'] = $_POST['password1'];
+			$cnt['login'] = $_POST['email'];
+			$cnt['password'] = $password;
 			$cnt['admin_email'] = $config['base']['admin_email'];
 
 			$headers = "Content-type: text/plain; charset=utf-8 \r\n";
-			$to = $_POST['login'];
+			$to = $_POST['email'];
 			$subject = gen_content("auth", "mail_register_user_subject", $cnt);
 			$message = gen_content("auth", "mail_register_user_message", $cnt);
 
@@ -567,8 +403,18 @@ function auth_register()
 			$_SESSION['password'] = $_POST['password1'];
 			$_SESSION['POST'] = $_POST;
 
+			$sql_query = "SELECT `id` FROM `ksh_users` WHERE `email` = '".mysql_real_escape_string($_POST['email'])."'";
+			$result = exec_query($sql_query);
+			if ($result && mysql_num_rows($result))
+			{
+				$row = mysql_fetch_array($result);
+				mysql_free_result($result);
+				$_SESSION['id'] = stripslashes($row['id']);
+				$_SESSION['authed'] = 1;
+			}
+
 			if (!headers_sent())
-				header("Location: ".$config['base']['inst_root']."/auth/login/");
+				header("Location: /users/profile_view/");
         }
 
     }
@@ -581,8 +427,6 @@ function auth_register()
     if (0 == $if_register)
 	{
 		$tpl_name = "show_register_form";
-		if (isset($_GET['group']))
-			$tpl_name .= "_".$_GET['group'];
 		$content['content'] .= gen_content("auth", $tpl_name, array_merge(auth_show_register_form(), $content));
 	}
 
@@ -621,6 +465,42 @@ function auth_check_password_strength($password)
 
 	debug ("*** end: auth_check_password_strength ***");
 	return $result;
+}
+
+function auth_gen_password()
+{
+	global $config;
+
+	debug ("*** auth_gen_password ***");
+
+	$length = 12;
+
+	$psw="";
+	for($i=0; $i < $length; $i++)
+	{
+		//$psw.=chr(rand(48,57));
+		//$psw.=chr(rand(33,126));
+		$num = rand(48,122);
+		if ((($num > 57) && ($num < 65)) || (($num > 90) && ($num < 97)))
+			$num = rand(48, 57);
+		$psw.=chr($num);
+	}
+
+	debug ("*** end: auth_gen_password ***");
+	return $psw;
+}
+
+function auth_crypt_password($login, $password)
+{
+	global $config;
+
+	debug ("*** auth_crypt_password ***");
+
+	$password_new = md5($login."\n".$password);
+
+	debug ("*** end: auth_crypt_password ***");
+
+	return $password_new;
 }
 
 ?>
