@@ -58,24 +58,15 @@ function users_table_create($table)
 
 	$queries[] = $sql_query;
 
-	$psw="";
-	for($i=0; $i < 12; $i++)
-	{
-		//$psw.=chr(rand(48,57));
-		//$psw.=chr(rand(33,126));
-		$num = rand(48,122);
-		if ((($num > 57) && ($num < 65)) || (($num > 90) && ($num < 97)))
-			$num = rand(48, 57);
-
-		$psw.=chr($num);
-	}
+	$psw = auth_gen_password();
+	$psw_db = auth_crypt_password("admin", $psw);
 
 	$queries[] = "INSERT INTO `ksh_users`
 		(`id`, `login`, `email`, `password`, `group`, `name`) VALUES (
 		'1',
 		'admin',
 		'".$config['base']['admin_email']."',
-		'".mysql_real_escape_string(md5("admin"."\n".$psw))."',
+		'".mysql_real_escape_string($psw_db)."',
 		'1',
 		'Admin'
 		)";
