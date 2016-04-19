@@ -23,7 +23,7 @@ $config['base']['site_owner'] = "Goh'Dan";
 $config['base']['site_url'] = "http://kshema-test.gohdan.ru";
 $config['base']['admin_email'] = "gohdan@gohdan.ru";
 
-$config['base']['version'] = "0.8.5";
+$config['base']['version'] = "0.9";
 
 $config['base']['debug_level'] = 0; // 0 - no debug, 1 - simple debug, 2 - verbose debug (var dump etc.);
 $config['base']['debug_user'] = 0; // set to 0 to show debug to every (even non-authenticated) user
