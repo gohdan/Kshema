@@ -1,27 +1,34 @@
-tinyMCE.init({
-    language: "ru",
-	mode : "textareas",
-    theme : "advanced",
-	ask : "true",
-	relative_urls : false,
-	plugins : "table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,searchreplace,print,contextmenu",
-    theme_advanced_buttons1_add_before : "ibrowser,save,separator",
-    theme_advanced_buttons2_add : "fontselect,fontsizeselect",
-    theme_advanced_buttons3_add : "separator,insertdate,inserttime,preview,zoom,separator,forecolor,backcolor",
-    theme_advanced_buttons3_add_before: "cut,copy,paste,separator,search,replace,separator",
-    theme_advanced_buttons4_add_before : "tablecontrols,separator",
-    theme_advanced_buttons4_add : "emotions,iespell,flash,advhr,separator,print",
-    theme_advanced_toolbar_location : "top",
-    theme_advanced_toolbar_align : "left",
-    theme_advanced_path_location : "bottom",
-    plugin_insertdate_dateFormat : "%Y-%m-%d",
-    plugin_insertdate_timeFormat : "%H:%M:%S",
-    extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
-	external_link_list_url : "example_data/example_link_list.js",
-	external_image_list_url : "example_data/example_image_list.js",
-    flash_external_list_url : "example_data/example_flash_list.js",
-	content_css : "css/custom_content.css",
-	theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
-	font_size_style_values : "10px,12px,13px,14px,16px,18px,20px"
-});
+tinymce.init({
+    selector: "textarea",
+    theme: "modern",
+	language: "ru",
+    plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+         "save table contextmenu directionality emoticons template paste textcolor"
+   ],
+   content_css: "/themes/default/css/tinymce.css",
+   menu : { // this is the complete default configuration
+        edit   : {title : 'Edit'  , items : 'undo redo | cut copy paste pastetext | selectall'},
+        insert : {title : 'Insert', items : 'link media | template hr'},
+        view   : {title : 'View'  , items : 'visualaid'},
+        format : {title : 'Format', items : 'bold italic underline strikethrough superscript subscript | formats | removeformat'},
+        table  : {title : 'Table' , items : 'inserttable tableprops deletetable | cell row column'},
+        tools  : {title : 'Tools' , items : 'spellchecker code'}
+   },
+   toolbar: [
+   			"undo redo removeformat | formatselect fontselect fontsizeselect | cut copy paste | print preview ",
+			"bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent blockquote subscript superscript | link image media emoticons | forecolor backcolor", 
+	],
+   style_formats: [
+        {title: 'Bold text', inline: 'b'},
+        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+        {title: 'Example 1', inline: 'span', classes: 'example1'},
+        {title: 'Example 2', inline: 'span', classes: 'example2'},
+        {title: 'Table styles'},
+        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+    ],
+	convert_urls: false,
+ }); 
 
