@@ -78,7 +78,7 @@ if (isset($_POST['do_save']))
 	$config_file = $config_dir."/base.php";
 	$config_params = "<?php
 
-\$config['base']['site_name'] = \"".$_POST['base_site_name']."\";
+\$config['base']['site_name'] = \"".str_replace('"', '\"', $_POST['base_site_name'])."\";
 \$config['base']['site_owner'] = \"".$_POST['base_site_owner']."\";
 \$config['base']['site_url'] = \"".$_POST['base_site_url']."\";
 \$config['base']['admin_email'] = \"".$_POST['base_admin_email']."\";
