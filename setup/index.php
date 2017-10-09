@@ -64,6 +64,7 @@ if (isset($_POST['do_save']))
 \$config['db']['old_engine'] = \"no\";
 \$config['db']['charset'] = \"utf8\"; // cp1251 or utf8
 \$config['db']['collation'] = \"utf8_unicode_ci\"; // cp1251_general_ci or utf8_unicode_ci
+\$config['db']['conn_id'] = 0; // MySQL connection id used in mysqli
 
 \$config['db']['db_user'] = \"".$_POST['db_user']."\";
 \$config['db']['db_password'] = \"".$_POST['db_password']."\";

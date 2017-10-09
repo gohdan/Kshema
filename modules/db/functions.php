@@ -15,10 +15,10 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
 	debug ("db host: ".$db_host);
     debug ("db name: ".$db_name);
     
-	if (!($conn_id = @mysql_connect ($db_host, $db_user, $db_password)))
+	if (!($config['db']['conn_id'] = @mysqli_connect ($db_host, $db_user, $db_password)))
     {
     	debug ("Cannot connect to database server");
-		debug (mysql_errno() . ": " . mysql_error());
+		debug (mysqli_errno($config['db']['conn_id']) . ": " . mysqli_error($config['db']['conn_id']));
         $config['db']['connected'] = "no";
     }
     else
@@ -26,7 +26,7 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
     	debug ("connected to DB server");
         $config['db']['connected'] = "yes";
     
-	    if (isset($db_name)) mysql_select_db ($db_name);
+	    if (isset($db_name)) mysqli_select_db ($config['db']['conn_id'], $db_name);
 
 	    debug ("setting right charsets");
 		if ("yes" == $config['db']['old_engine'])
@@ -55,11 +55,11 @@ function exec_query ($sql_query)
 	debug ($sql_query);
     if ("yes" == $config['db']['connected'])
     {
-		$result = mysql_query ($sql_query);
-		if (0 == mysql_errno()) debug ("OK");
+		$result = mysqli_query ($config['db']['conn_id'], $sql_query);
+		if (0 == mysqli_errno($config['db']['conn_id'])) debug ("OK");
 		else
 		{
-			debug ("Error ".mysql_errno() . ": " . mysql_error());
+			debug ("Error ".mysqli_errno($config['db']['conn_id']) . ": " . mysqli_error($config['db']['conn_id']));
 			debug ("Ошибка при запросе к базе данных");
 		}
     }
