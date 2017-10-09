@@ -6,7 +6,7 @@ class User
 var $satellite_id;
 var $table;
 
-function User()
+function __construct()
 {
 	global $user;
 	global $config;
