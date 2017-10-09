@@ -172,7 +172,7 @@ or copy default theme to new: <input type="text" name="new_theme" placeholder="n
 <h2>MySQL connection parameters</h2>
 
 <table>
-<tr><td>Host: </td><td><input type="text" name="db_host" placeholder="Host name"></td></tr>
+<tr><td>Host: </td><td><input type="text" name="db_host" placeholder="Host name" value="localhost"></td></tr>
 <tr><td>Database: </td><td><input type="text" name="db_name" placeholder="DB name"></td></tr>
 <tr><td>User: </td><td><input type="text" name="db_user" placeholder="User name"></td></tr>
 <tr><td>Password: </td><td><input type="text" name="db_password" placeholder="Password"></td></tr>
