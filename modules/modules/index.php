@@ -22,9 +22,11 @@ function module_exists($module)
 	debug("module: ".$module, 2);
 
 	$dirlist = scandir($config['modules']['location']);
+	debug("---------------- begin: modules_is_module cycle ----------------");
 	foreach($dirlist as $k => $v)
 		if (modules_is_module($v))
 			$modules[] = $v;
+	debug("---------------- end: modules_is_module cycle ----------------");
 
 	debug("modules list:", 2);
 	dump($modules);
