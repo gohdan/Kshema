@@ -118,18 +118,12 @@ function auth_login()
 		}
 		else
 		{
-			$sql_query = "SELECT count(*) FROM `ksh_users` WHERE `login` = '".mysql_real_escape_string($login)."'";
-	        $result = exec_query($sql_query);
-	        $if_exist = mysql_result($result, 0, 0);
-	        mysql_free_result($result);
+			$if_exist = db_get_count("ksh_users", "*", "`login` = '".db_escape($login)."'");
 
 	        if ("1" == $if_exist)
 	        {
 	            debug("user exists");
-				$sql_query = "SELECT `password` FROM `ksh_users` WHERE `login`= '".mysql_real_escape_string($login)."'";
-	            $result = exec_query($sql_query);
-	            $psw = mysql_result($result, 0, 0);
-	            mysql_free_result($result);
+				$psw = db_get_field("ksh_users", "password", "`login`= '".mysql_real_escape_string($login)."'");
 	            debug("DB passw: ".$psw);
 	            debug("given psw: ".md5($login."\n".$password));
 	            if ($psw == md5($login."\n".$password))
@@ -502,5 +496,18 @@ function auth_crypt_password($login, $password)
 
 	return $password_new;
 }
+
+function auth_get_user_id($login)
+{
+    debug ("*** auth_get_user_id ***");
+
+	$id = db_get_field("ksh_users", "id", " `login` = '".db_escape($login)."'");
+    debug("user id: ".$id);
+
+    debug ("*** end: auth_get_user_id ***");
+    return $id;
+}
+
+
 
 ?>

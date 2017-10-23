@@ -9,7 +9,7 @@ if (file_exists($config_file))
 	include($config_file);
 
 include_once ($config['modules']['location']."auth/db.php");
-include_once ($config['modules']['location']."auth/auth.php");
+include_once ($config['modules']['location']."auth/functions.php");
 include_once ($config['modules']['location']."auth/old_func.php");
 
 include_once ($config['modules']['location']."files/index.php"); // to upload pictures

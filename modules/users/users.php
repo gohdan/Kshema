@@ -208,12 +208,12 @@ function users_user_del()
 function users_get_name($id)
 {
 	debug ("*** users_get_name ***");
-	$sql_query = "SELECT name FROM ksh_users WHERE id='".mysql_real_escape_string($id)."'";
-	$result = exec_query($sql_query);
-	$user = mysql_fetch_array($result);
-	mysql_free_result($result);
+
+	$user_name = db_get_field("ksh_users", "name", "id='".db_escape($id)."'");
+	debug ("user name: ".$user_name);
+
 	debug ("*** end: users_get_name ***");
-	return stripslashes($user['name']);
+	return stripslashes($user_name);
 }
 
 function users_get_group($user_id = 0)
@@ -223,13 +223,7 @@ function users_get_group($user_id = 0)
 	debug ("*** users_get_group ***");
 	
 	if ($user_id)
-	{
-		$sql_query = "SELECT `group` FROM `ksh_users` WHERE `id` = '".mysql_real_escape_string($user_id)."'";
-		$result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
-		$group_id = stripslashes($row['group']);
-	}
+		$group_id = db_get_field("ksh_users", "group", "`id` = '".db_escape($user_id)."'");
 	else
 		$group_id = $user['group'];
 
@@ -244,13 +238,8 @@ function users_get_group_title($id)
 	debug("*** users_get_group_title ***");
 
 	debug("id: ".$id);
-	
-	$sql_query = "SELECT `title` FROM `ksh_users_groups` WHERE `id` = '".mysql_real_escape_string($id)."'";
-	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
 
-	$title = stripslashes($row['title']);
+	$title = db_get_field("ksh_users_groups", "title", "`id` = '".mysql_real_escape_string($id)."'");
 
 	debug("*** end: users_get_group_title ***");
 	return $title;
@@ -473,6 +462,7 @@ function users_profile_view()
 
 			$i = 0;
 			$modules = array_merge($config['modules']['core'], $config['modules']['installed']);
+			$content['modules'] = array();
 			foreach ($modules as $k => $v)
 				if ($priv -> has($v, "default", "read") || $priv -> has("base", "default", "write"))
 				{
@@ -484,11 +474,8 @@ function users_profile_view()
 					$i++;
 				}
 		}
-	
-		$sql_query = "SELECT * FROM `ksh_users` WHERE `id` = '".mysql_real_escape_string($id)."'";
-		$result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
+
+		$row = db_get_row_by_query("SELECT * FROM `ksh_users` WHERE `id` = '".mysql_real_escape_string($id)."'");
 		foreach($row as $k => $v)
 			$content[$k] = stripslashes($v);
 
@@ -520,12 +507,8 @@ function users_get_redirect($id)
 	debug("*** users_get_redirect ***");
 
 	$group_id = users_get_group($id);
-	$sql_query = "SELECT `redirect` FROM `ksh_users_groups` WHERE `id` = '".$group_id."'";
-	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
 
-	$redirect = stripslashes($row['redirect']);
+	$redirect = db_get_field("ksh_users_groups", "redirect", "`id` = '".$group_id."'");
 	debug ("redirect: ".$redirect);
 	debug ("referer: ".$_SERVER['HTTP_REFERER']);
 	debug ("strpos: ".strpos($_SERVER['HTTP_REFERER'], "auth/login"));

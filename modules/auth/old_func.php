@@ -15,17 +15,6 @@ function gen_auth_form()
     return $form;
 }
 
-function auth_get_user_id($login)
-{
-    debug ("=== mod: auth; fn: auth_get_user_id ===");
-    $result = exec_query("SELECT id FROM ksh_users WHERE login='".mysql_real_escape_string($login)."'");
-    $id = mysql_result($result, 0, 0);
-    debug("user id: ".$id);
-    mysql_free_result($result);
-    debug ("=== end: mod: auth; fn: auth_get_user_id ===");
-    return $id;
-}
-
 function get_user_id()
 {
     return 1;

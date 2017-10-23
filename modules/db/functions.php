@@ -47,7 +47,7 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
 	return 1;
 }
 
-function exec_query ($sql_query)
+function db_exec_query($sql_query)
 {
 	global $config;
 	debug ($sql_query, 2);
@@ -64,6 +64,12 @@ function exec_query ($sql_query)
     	debug ("not connected to DB!");
 		$result = "";
     }
+	return $result;
+}
+
+function exec_query ($sql_query)
+{
+	$result = db_exec_query($sql_query);
 	return $result;
 }
 
@@ -252,5 +258,60 @@ if (!function_exists('mysql_real_escape_string'))
 	}
 }
 
+function db_escape($string)
+{
+	global $config;
+	$escaped_string = mysqli_real_escape_string($config['db']['conn_id'], $string);
+	return ($escaped_string);
+}
+
+function db_get_row($table, $where)
+{
+	$sql_query = "SELECT * FROM `".db_escape($table)."` WHERE ".$where;
+	$result = db_exec_query($sql_query);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
+	return $row;
+}
+
+function db_get_row_by_query($sql_query)
+{
+	$result = db_exec_query($sql_query);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	mysqli_free_result($result);
+	return $row;
+}
+
+function db_get_field($table, $field, $where)
+{
+	$sql_query = "SELECT `".db_escape($field)."` FROM `".db_escape($table)."` WHERE ".$where;
+
+	$row = db_get_row_by_query($sql_query);
+	$value = stripslashes($row[$field]);
+
+	return $value;
+}
+
+function db_get_count($table, $field = "*", $where = "")
+{
+	global $config;
+	debug("*** db_get_count ***", 2);
+
+	if ($field == "*")
+		$ct = "COUNT(".db_escape($field).")";
+	else
+		$ct = "COUNT(`".db_escape($field)."`)";
+
+	$sql_query = "SELECT ".$ct." FROM `".db_escape($table)."`";
+	if ("" != $where)
+		$sql_query .= "WHERE ".$where;
+	
+	$row = db_get_row_by_query($sql_query);
+	$count = $row[$ct];
+	debug("count: ".$count, 2);
+
+	debug("*** db_get_count ***", 2);
+	return $count;
+}
 
 ?>
