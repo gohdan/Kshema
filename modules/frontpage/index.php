@@ -2,6 +2,8 @@
 
 // Base functions of the "frontpage" module
 
+include_once ($config['modules']['location']."frontpage/config.php");
+
 function frontpage_default()
 {
 	global $config;
@@ -13,6 +15,15 @@ function frontpage_default()
         debug ("*** end: frontpage_default");
 
         return $content;
+}
+
+function frontpage_get_actions_list()
+{
+	$actions = array(
+		'view'
+	);
+
+	return $actions;
 }
 
 
@@ -30,6 +41,7 @@ function frontpage_default_action()
                 switch ($_GET['action'])
                 {
                         default:
+						case "view":
                                 $config['themes']['page_tpl'] = "frontpage";
 								$content = gen_content("frontpage", "default", frontpage_default());
                         break;
