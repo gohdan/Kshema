@@ -123,7 +123,7 @@ function auth_login()
 	        if ("1" == $if_exist)
 	        {
 	            debug("user exists");
-				$psw = db_get_field("ksh_users", "password", "`login`= '".mysql_real_escape_string($login)."'");
+				$psw = db_get_field("ksh_users", "password", "`login`= '".db_escape($login)."'");
 	            debug("DB passw: ".$psw);
 	            debug("given psw: ".md5($login."\n".$password));
 	            if ($psw == md5($login."\n".$password))
@@ -328,15 +328,7 @@ function auth_register()
     {
         debug ("have POST data");
 
-		/*
-		$sql_query = "SELECT COUNT(*) FROM `ksh_users` WHERE `email`='".mysql_real_escape_string($_POST['email'])."'";
-        $result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-        mysql_free_result($result);
-		$qty = stripslashes($row['COUNT(*)']);
-		*/
-
-		$qty = db_get_count("ksh_users", "*", "`email`='".mysql_real_escape_string($_POST['email'])."'");
+		$qty = db_get_count("ksh_users", "*", "`email`='".db_escape($_POST['email'])."'");
 		if ("0" != $qty)
 		{
             debug ("email already exists!");
@@ -358,9 +350,9 @@ function auth_register()
 			debug ("DB passwd: ".$db_password);
 
 			$fields = "`email`, `login`, `password`, `group`";
-			$values = "'".mysql_real_escape_string($_POST['email'])."',
-				'".mysql_real_escape_string($_POST['email'])."',
-				'".mysql_real_escape_string($db_password)."',
+			$values = "'".db_escape($_POST['email'])."',
+				'".db_escape($_POST['email'])."',
+				'".db_escape($db_password)."',
 				'2'";
 
 
@@ -386,7 +378,14 @@ function auth_register()
 			$subject = gen_content("auth", "mail_register_user_subject", $cnt);
 			$message = gen_content("auth", "mail_register_user_message", $cnt);
 
-			mail ($to, $subject, $message, $headers);
+			debug("to: ".$to);
+			debug("subject: ".$subject);
+			debug("headers: ".$headers);
+			debug("message: ".$message);
+
+			$res_mail = mail ($to, $subject, $message, $headers);
+
+			debug("res_mail: ".$res_mail);
 
 			$to = $config['base']['admin_email'];
 			$subject = gen_content("auth", "mail_register_admin_subject", $cnt);
@@ -400,7 +399,7 @@ function auth_register()
 			$_SESSION['login'] = $_POST['email'];
 			$_SESSION['password'] = $password;
 			$_SESSION['POST'] = $_POST;
-			$_SESSION['id'] = db_get_field("ksh_users", "id", "`email` = '".mysql_real_escape_string($_POST['email'])."'");
+			$_SESSION['id'] = db_get_field("ksh_users", "id", "`email` = '".db_escape($_POST['email'])."'");
 			$_SESSION['authed'] = 1;
 
 			if (!headers_sent())

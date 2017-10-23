@@ -239,7 +239,7 @@ function users_get_group_title($id)
 
 	debug("id: ".$id);
 
-	$title = db_get_field("ksh_users_groups", "title", "`id` = '".mysql_real_escape_string($id)."'");
+	$title = db_get_field("ksh_users_groups", "title", "`id` = '".db_escape($id)."'");
 
 	debug("*** end: users_get_group_title ***");
 	return $title;
@@ -475,7 +475,7 @@ function users_profile_view()
 				}
 		}
 
-		$row = db_get_row_by_query("SELECT * FROM `ksh_users` WHERE `id` = '".mysql_real_escape_string($id)."'");
+		$row = db_get_row_by_query("SELECT * FROM `ksh_users` WHERE `id` = '".db_escape($id)."'");
 		foreach($row as $k => $v)
 			$content[$k] = stripslashes($v);
 

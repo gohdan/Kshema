@@ -172,7 +172,7 @@ function get ($module, $action, $privilege, $type, $id)
 	debug ("id: ".$id,2 );
 
 	$db_tables = array();
-	$table = mysql_real_escape_string("ksh_".$module."_privileges");
+	$table = db_escape("ksh_".$module."_privileges");
 	$sql_query = "SHOW TABLES";
 	$result = exec_query($sql_query);
 	while ($row = mysqli_fetch_array($result, MYSQLI_NUM))
@@ -180,9 +180,9 @@ function get ($module, $action, $privilege, $type, $id)
 	
 	if (in_array($table, $db_tables))
 	{
-		$where = "`action` = '".mysql_real_escape_string($action)."' 
-			AND `type` = '".mysql_real_escape_string($type)."'
-			AND `id` = '".mysql_real_escape_string($id)."'";
+		$where = "`action` = '".db_escape($action)."' 
+			AND `type` = '".db_escape($type)."'
+			AND `id` = '".db_escape($id)."'";
 
 		$privilege = db_get_field($table, $privilege, $where);
 		debug ("privilege: ".$privilege);
