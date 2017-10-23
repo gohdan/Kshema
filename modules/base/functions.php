@@ -267,7 +267,7 @@ function base_process_request()
 	debug("GET:", 2);
 	dump($_GET);
 
-	debug("SERVER:");
+	debug("SERVER:", 2);
 	dump($_SERVER);
 
 	if (isset($config['base']['http_redirect']) && is_array($config['base']['http_redirect']))
@@ -309,7 +309,7 @@ function base_process_request()
 		if (!strstr($_GET['query'], "&"))
 		{
 			debug("using human-friendly url");
-			$_GET['query'] = rtrim($_GET['query'], "/");
+			$_GET['query'] = trim($_GET['query'], "/");
 
 			$params = explode("/", $_GET['query']);
 			dump($params);
