@@ -328,11 +328,15 @@ function auth_register()
     {
         debug ("have POST data");
 
+		/*
 		$sql_query = "SELECT COUNT(*) FROM `ksh_users` WHERE `email`='".mysql_real_escape_string($_POST['email'])."'";
         $result = exec_query($sql_query);
 		$row = mysql_fetch_array($result);
         mysql_free_result($result);
 		$qty = stripslashes($row['COUNT(*)']);
+		*/
+
+		$qty = db_get_count("ksh_users", "*", "`email`='".mysql_real_escape_string($_POST['email'])."'");
 		if ("0" != $qty)
 		{
             debug ("email already exists!");
@@ -393,19 +397,11 @@ function auth_register()
 			/* End: Mail block */
 
 			$_SESSION['do_login'] = "yes";
-			$_SESSION['login'] = $_POST['login'];
-			$_SESSION['password'] = $_POST['password1'];
+			$_SESSION['login'] = $_POST['email'];
+			$_SESSION['password'] = $password;
 			$_SESSION['POST'] = $_POST;
-
-			$sql_query = "SELECT `id` FROM `ksh_users` WHERE `email` = '".mysql_real_escape_string($_POST['email'])."'";
-			$result = exec_query($sql_query);
-			if ($result && mysql_num_rows($result))
-			{
-				$row = mysql_fetch_array($result);
-				mysql_free_result($result);
-				$_SESSION['id'] = stripslashes($row['id']);
-				$_SESSION['authed'] = 1;
-			}
+			$_SESSION['id'] = db_get_field("ksh_users", "id", "`email` = '".mysql_real_escape_string($_POST['email'])."'");
+			$_SESSION['authed'] = 1;
 
 			if (!headers_sent())
 				header("Location: /users/profile_view/");
