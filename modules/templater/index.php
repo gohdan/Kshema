@@ -281,7 +281,13 @@ function templater_logic($tpl, $content)
 				$condition_trigger = "";
 			$condition_text = $branches[2][$branch_idx];
 			debug("condition_name: ".$condition_name);
-			debug("condition_trigger: ".$condition_trigger);
+			if (is_array($condition_trigger))
+			{
+				debug("condition_trigger:");
+				dump($condition_trigger);
+			}
+			else
+				debug("condition_trigger: ".$condition_trigger);
 			debug("condition_text: ".$condition_text);
 
 	        if  (("" != $condition_trigger) &&
