@@ -7,13 +7,13 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
 
     global $config;
 
-	debug ("*** connect_2db");
+	debug ("*** connect_2db", 2);
 
-	debug ("connecting to db");
-	debug ("db user: ".$db_user);
-    debug ("db password hash: ".md5($db_password));
-	debug ("db host: ".$db_host);
-    debug ("db name: ".$db_name);
+	debug ("connecting to db", 2);
+	debug ("db user: ".$db_user, 2);
+    debug ("db password hash: ".md5($db_password), 2);
+	debug ("db host: ".$db_host, 2);
+    debug ("db name: ".$db_name, 2);
     
 	if (!($config['db']['conn_id'] = @mysqli_connect ($db_host, $db_user, $db_password)))
     {
@@ -23,16 +23,14 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
     }
     else
     {
-    	debug ("connected to DB server");
+    	debug ("connected to DB server", 2);
         $config['db']['connected'] = "yes";
     
 	    if (isset($db_name)) mysqli_select_db ($config['db']['conn_id'], $db_name);
 
-	    debug ("setting right charsets");
+	    debug ("setting right charsets", 2);
 		if ("yes" == $config['db']['old_engine'])
-		{
-			debug ("db engine is too old, don't using charsets");
-		}
+			debug ("db engine is too old, don't using charsets", 2);
 		else
 		{
 			exec_query("SET names '".$config['db']['charset']."'");
@@ -45,28 +43,26 @@ function connect_2db($db_user, $db_password, $db_host, $db_name)
 		}
     }
     
-	debug ("*** end: connect_2db");
+	debug ("*** end: connect_2db", 2);
 	return 1;
 }
 
 function exec_query ($sql_query)
 {
 	global $config;
-	debug ($sql_query);
+	debug ($sql_query, 2);
     if ("yes" == $config['db']['connected'])
     {
 		$result = mysqli_query ($config['db']['conn_id'], $sql_query);
-		if (0 == mysqli_errno($config['db']['conn_id'])) debug ("OK");
+		if (0 == mysqli_errno($config['db']['conn_id']))
+			debug ("OK", 2);
 		else
-		{
-			debug ("Error ".mysqli_errno($config['db']['conn_id']) . ": " . mysqli_error($config['db']['conn_id']));
-			debug ("Ошибка при запросе к базе данных");
-		}
+			debug ("DB error: ".mysqli_errno($config['db']['conn_id']) . ": " . mysqli_error($config['db']['conn_id']));
     }
     else
     {
     	debug ("not connected to DB!");
-		$result = "";    	
+		$result = "";
     }
 	return $result;
 }

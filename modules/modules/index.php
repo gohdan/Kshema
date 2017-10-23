@@ -2,7 +2,7 @@
 
 // Base functions of "modules" module
 
-debug ("modules module included");
+debug ("modules module included", 2);
 
 include_once ($config['modules']['location']."modules/config.php");
 

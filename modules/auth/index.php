@@ -14,7 +14,7 @@ include_once ($config['modules']['location']."auth/old_func.php");
 
 include_once ($config['modules']['location']."files/index.php"); // to upload pictures
 
-debug ("! auth module included");
+debug ("auth module included", 2);
 
 function auth_admin()
 {

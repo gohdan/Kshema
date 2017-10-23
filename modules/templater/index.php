@@ -2,7 +2,7 @@
 
 // Base functions of the templater module
 
-debug ("templater module included");
+debug ("templater module included", 2);
 
 include_once ($config['modules']['location']."templater/config.php");
 

@@ -1,7 +1,7 @@
 <?php
 
 // Base functions of the "db" module
-debug ("! db module included");
+debug ("db module included", 2);
 
 include_once ($config['modules']['location']."db/config.php");
 

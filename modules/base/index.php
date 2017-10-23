@@ -8,7 +8,7 @@ if (file_exists($config_file))
 	include($config_file);
 
 include_once($config['modules']['location']."base/functions.php");
-debug ("! base module included");
+debug ("base module included", 2);
 
 include_once($config['modules']['location']."base/category.php");
 include_once($config['modules']['location']."base/dataobject.php");
