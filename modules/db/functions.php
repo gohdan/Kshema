@@ -240,5 +240,17 @@ function db_fields_list($table)
 	return $fields;
 }
 
+if (!function_exists('mysql_real_escape_string'))
+{
+	debug("function mysql_real_escape_string doesn't exist, defining wrapper", 2);
+
+	function mysql_real_escape_string($string)
+	{
+		global $config;
+		$new_string = mysqli_real_escape_string($config['db']['conn_id'], $string);
+		return $new_string;
+	}
+}
+
 
 ?>
