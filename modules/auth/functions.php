@@ -397,7 +397,7 @@ function auth_register()
 
 			$_SESSION['do_login'] = "yes";
 			$_SESSION['login'] = $_POST['email'];
-			$_SESSION['password'] = $password;
+			$_SESSION['reg_password'] = $password;
 			$_SESSION['POST'] = $_POST;
 			$_SESSION['id'] = db_get_field("ksh_users", "id", "`email` = '".db_escape($_POST['email'])."'");
 			$_SESSION['authed'] = 1;

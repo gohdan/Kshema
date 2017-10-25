@@ -492,6 +492,12 @@ function users_profile_view()
 
 
 		$content['group'] = users_get_group_title(stripslashes($row['group']));
+
+		if (isset($_SESSION['reg_password']))
+		{
+			$content['reg_password'] = $_SESSION['reg_password'];
+			unset($_SESSION['reg_password']);
+		}
 	}
 	else
 		$content['user_not_exists'] = "yes";

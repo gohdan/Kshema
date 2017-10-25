@@ -11,6 +11,7 @@
 
 {{if:id:ID: #id#<br>}}
 {{if:login:Логин: #login#<br>}}
+{{if:reg_password:Пароль: #reg_password#<br><b>Пожалуйста, запомните пароль, мы покажем его только один раз.</b><br>}}
 {{if:name:Имя: #name#<br>}}
 {{if:group: Группа: #group#<br>}}
 {{if:first_name: Имя: #first_name#<br>}}
