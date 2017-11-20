@@ -50,8 +50,8 @@ function create_table($table_name)
 
 	$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table_name)."`";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 	$rows_qty = $row['COUNT(*)'];
 	debug("rows_qty: ".$rows_qty);
 	if (!$rows_qty)

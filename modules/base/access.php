@@ -195,9 +195,9 @@ function add_default($module, $res_type, $res_id)
 		$groups = "0";
 		$sql_query = "SELECT `id` FROM `ksh_users_groups`";
 		$result = exec_query($sql_query);
-		while ($row = mysql_fetch_array($result))
+		while ($row = mysqli_fetch_array($result))
 			$groups .= "|".stripslashes($row['id']);
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		
 		debug("groups:".$groups, 2);
 
@@ -261,9 +261,9 @@ function create_table($table_name)
 		$result = exec_query($sql_query);
 		if ($result)
 		{
-			while ($row = mysql_fetch_array($result))
+			while ($row = mysqli_fetch_array($result))
 				$categories[] = stripslashes($row['id']);
-			mysql_free_result($result);
+			mysqli_free_result($result);
 		}
 
 		debug("categories:", 2);
