@@ -67,7 +67,7 @@ function view_by_category($category = 0)
 		$content['show_link_on_main'] = "yes";
 
 		// Get category info
-		$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
+		$sql_query = "SELECT * FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category)."'";
 		$result = exec_query($sql_query);
 		$row = mysqli_fetch_array($result);
 		mysqli_free_result($result);
@@ -79,7 +79,7 @@ function view_by_category($category = 0)
 		{
 			$parent = stripslashes($row['parent']);
 
-			$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($parent)."'";
+			$sql_query = "SELECT `name` FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($parent)."'";
 			$result_parent = exec_query($sql_query);
 			$row_parent = mysqli_fetch_array($result_parent);
 			mysqli_free_result($result_parent);
@@ -111,7 +111,7 @@ function view_by_category($category = 0)
 		debug("start page: ".$start_page);
 		$elements_on_page = $this -> elements_on_page;
 
-		$elements_qty = mysql_result(exec_query("SELECT COUNT(*) FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".$category."'"), 0, 0);
+		$elements_qty = mysql_result(exec_query("SELECT COUNT(*) FROM `".db_escape($elements_table)."` WHERE `category` = '".$category."'"), 0, 0);
 	    debug ("elements qty: ".$elements_qty);
 	    $pages_qty = ceil($elements_qty / $elements_on_page);
 	    debug ("pages qty: ".$pages_qty);
@@ -125,7 +125,7 @@ function view_by_category($category = 0)
 	        {
 				$content['category_pages'][$i]['id'] = $i;
 
-				$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
+				$sql_query = "SELECT `name` FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category)."'";
 				$result_cat = exec_query($sql_query);
 				$row_cat = mysqli_fetch_array($result_cat);
 				mysqli_free_result($result_cat);
@@ -182,11 +182,11 @@ function view_by_category($category = 0)
 		// Get elements
 		debug("getting elements");
 		debug("order_field: ".$this -> order_field);
-		$sql_query = "SELECT * from `".mysql_real_escape_string($elements_table)."`
-			WHERE `category` = '".mysql_real_escape_string($category)."'
-			ORDER BY `".mysql_real_escape_string($this -> order_field)."`
-			".mysql_real_escape_string($this -> order_type)."
-			LIMIT ".mysql_real_escape_string(($start_page - 1) * $elements_on_page).",".$elements_on_page;
+		$sql_query = "SELECT * from `".db_escape($elements_table)."`
+			WHERE `category` = '".db_escape($category)."'
+			ORDER BY `".db_escape($this -> order_field)."`
+			".db_escape($this -> order_type)."
+			LIMIT ".db_escape(($start_page - 1) * $elements_on_page).",".$elements_on_page;
 		$i = 0;
 		$result = exec_query($sql_query);
 		while ($row = mysqli_fetch_array($result, MYSQL_ASSOC))
@@ -291,7 +291,7 @@ function view_by_category($category = 0)
 
 	// Get subcategories
 	$i = 0;
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `parent` = '".mysql_real_escape_string($category)."'";
+	$sql_query = "SELECT * FROM `".db_escape($categories_table)."` WHERE `parent` = '".db_escape($category)."'";
 	$result = exec_query($sql_query);
 	if ($result && mysql_num_rows($result))
 		while ($row = mysqli_fetch_array($result))
@@ -360,7 +360,7 @@ function view_by_category($category = 0)
 	
 
 /*
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
+	$sql_query = "SELECT * FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category_id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -369,7 +369,7 @@ function view_by_category($category = 0)
 	$content['category_id'] = $category_id;
 
 	$i = 0;
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".mysql_real_escape_string($category_id)."'";
+	$sql_query = "SELECT * FROM `".db_escape($elements_table)."` WHERE `category` = '".db_escape($category_id)."'";
 	$result = exec_query($sql_query);
 	while ($row = mysqli_fetch_array($result))
 	{
@@ -408,7 +408,7 @@ function generate_unique_name($table, $title)
 			$new_name = $name."-".$i;
 		else
 			$new_name = $name;
-		$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table)."` WHERE `name` = '".mysql_real_escape_string($new_name)."'";
+		$sql_query = "SELECT COUNT(*) FROM `".db_escape($table)."` WHERE `name` = '".db_escape($new_name)."'";
 		$result_count = exec_query($sql_query);
 		$row_count = mysqli_fetch_array($result_count);
 		mysqli_free_result($result_count);
@@ -472,8 +472,8 @@ function view_by_user($view_user = 0)
     else
 		$start_page = 1; // Need to determine correct LIMIT
 
-	$elements_qty = mysql_result(exec_query("SELECT COUNT(*) FROM `".mysql_real_escape_string($this -> table)."`
-		WHERE `user` = '".mysql_real_escape_string($user_id)."'"), 0, 0);
+	$elements_qty = mysql_result(exec_query("SELECT COUNT(*) FROM `".db_escape($this -> table)."`
+		WHERE `user` = '".db_escape($user_id)."'"), 0, 0);
     debug ("elements qty: ".$elements_qty);
     $pages_qty = ceil($elements_qty / $this -> elements_on_page);
     debug ("pages qty: ".$pages_qty);
@@ -495,10 +495,10 @@ function view_by_user($view_user = 0)
 	
 
 	// Get elements 
-	$sql_query = "SELECT * from `".mysql_real_escape_string($this -> table)."`
-		WHERE `user` = '".mysql_real_escape_string($user_id)."'
-		ORDER BY `".mysql_real_escape_string($this -> order_field)."` ".mysql_real_escape_string($this -> order_type)."
-		LIMIT ".mysql_real_escape_string(($start_page - 1) * $this -> elements_on_page).",".$this -> elements_on_page;
+	$sql_query = "SELECT * from `".db_escape($this -> table)."`
+		WHERE `user` = '".db_escape($user_id)."'
+		ORDER BY `".db_escape($this -> order_field)."` ".db_escape($this -> order_type)."
+		LIMIT ".db_escape(($start_page - 1) * $this -> elements_on_page).",".$this -> elements_on_page;
 	$i = 0;
 	$result = exec_query($sql_query);
 	while ($row = mysqli_fetch_array($result))
@@ -545,14 +545,14 @@ function view_by_user($view_user = 0)
 		{
 			$categories_qty = count($post_categories);
 			if (1 == $categories_qty)
-				$sql_query .= " WHERE `category` = '".mysql_real_escape_string($post_categories[0])."'";
+				$sql_query .= " WHERE `category` = '".db_escape($post_categories[0])."'";
 			else
 				foreach ($post_categories as $k => $v)
 				{
 					if (0 == $k)
-						$sql_query .= " WHERE `category` = '".mysql_real_escape_string($post_categories[0])."'";
+						$sql_query .= " WHERE `category` = '".db_escape($post_categories[0])."'";
 					else
-						$sql_query .= " OR `category` = '".mysql_real_escape_string($post_categories[$k])."'";
+						$sql_query .= " OR `category` = '".db_escape($post_categories[$k])."'";
 				}
 		}
 		else
@@ -952,7 +952,7 @@ function add()
 				debug("POST:", 2);
 				dump($_POST);
 
-				$sql_query = "SHOW COLUMNS FROM `".mysql_real_escape_string($this -> table)."`";
+				$sql_query = "SHOW COLUMNS FROM `".db_escape($this -> table)."`";
 				$result = exec_query($sql_query);
 				$db_fields = array();
 				while ($row = mysqli_fetch_array($result))
@@ -969,8 +969,8 @@ function add()
 				{
 					if (isset($_POST[$v]))
 					{
-						$fields .= "`".mysql_real_escape_string($v)."`,";
-						$values .= "'".mysql_real_escape_string($_POST[$v])."',";
+						$fields .= "`".db_escape($v)."`,";
+						$values .= "'".db_escape($_POST[$v])."',";
 					}
 				}
 				$fields = rtrim($fields, ",");
@@ -979,28 +979,28 @@ function add()
 				if (in_array("user",  $db_fields))
 				{
 					$fields .= ", `user`";
-					$values .= ", '".mysql_real_escape_string($user['id'])."'";
+					$values .= ", '".db_escape($user['id'])."'";
 				}
 
 				if (in_array("date",  $db_fields) && !isset($_POST['date']))
 				{
 					$fields .= ", `date`";
-					$values .= ", '".mysql_real_escape_string(date("Y-m-d"))."'";
+					$values .= ", '".db_escape(date("Y-m-d"))."'";
 				}
 
 				if (in_array("time",  $db_fields))
 				{
 					$fields .= ", `time`";
-					$values .= ", '".mysql_real_escape_string(date("H:i:s"))."'";
+					$values .= ", '".db_escape(date("H:i:s"))."'";
 				}
 
 				if (in_array("datetime",  $db_fields))
 				{
 					$fields .= ", `datetime`";
-					$values .= ", '".mysql_real_escape_string(date("Y-m-d H:i:s"))."'";
+					$values .= ", '".db_escape(date("Y-m-d H:i:s"))."'";
 				}
 
-				$sql_query = "INSERT INTO `".mysql_real_escape_string($this -> table)."` (".$fields.") VALUES (".$values.")";
+				$sql_query = "INSERT INTO `".db_escape($this -> table)."` (".$fields.") VALUES (".$values.")";
 				debug($sql_query);
 
 				exec_query($sql_query);
@@ -1104,7 +1104,7 @@ function edit($element = 0)
 
 			$_POST['name'] = str_replace("/", "", $_POST['name']);
 
-			$sql_query = "SHOW COLUMNS FROM `".mysql_real_escape_string($this -> table)."`";
+			$sql_query = "SHOW COLUMNS FROM `".db_escape($this -> table)."`";
 			$result = exec_query($sql_query);
 			$db_fields = array();
 			while ($row = mysqli_fetch_array($result))
@@ -1115,11 +1115,11 @@ function edit($element = 0)
 			}
 			mysqli_free_result($result);
 
-			$sql_query = "UPDATE `".mysql_real_escape_string($this -> table)."` SET ";
+			$sql_query = "UPDATE `".db_escape($this -> table)."` SET ";
 			foreach($db_fields as $k => $v)
 				if (isset($_POST[$v]))
-					$sql_query .= "`".mysql_real_escape_string($v)."` = '".mysql_real_escape_string($_POST[$v])."',";
-			$sql_query = rtrim($sql_query, ",")." WHERE `id` = '".mysql_real_escape_string($element)."'";
+					$sql_query .= "`".db_escape($v)."` = '".db_escape($_POST[$v])."',";
+			$sql_query = rtrim($sql_query, ",")." WHERE `id` = '".db_escape($element)."'";
 
 			exec_query($sql_query);
 			if (0 != mysql_errno())
@@ -1197,7 +1197,7 @@ function get($id)
 
 	$element = array();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($this -> table)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
+	$sql_query = "SELECT * FROM `".db_escape($this -> table)."` WHERE `id` = '".db_escape($id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
 	mysqli_free_result($result);
@@ -1226,7 +1226,7 @@ function get_id_by_name($name)
 
 	$name = urldecode($name);
 
-	$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($this -> table)."` WHERE `name` = '".mysql_real_escape_string($name)."'";
+	$sql_query = "SELECT `id` FROM `".db_escape($this -> table)."` WHERE `name` = '".db_escape($name)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -1295,7 +1295,7 @@ function view($id = 0)
 			&& $config[$config['modules']['current_module']]['resemble_elements_qty'] > 0)
 	{
 		debug("getting resemble elements");
-		$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($this -> table)."` 
+		$sql_query = "SELECT COUNT(*) FROM `".db_escape($this -> table)."` 
 			WHERE `category` = '".$content['category_id']."' 
 			AND `id` < '".$content['id']."'
 			ORDER BY `id` DESC";
@@ -1312,7 +1312,7 @@ function view($id = 0)
 		debug("elements after: ".$elements_after_qty);
 	
 	
-		$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($this -> table)."` 
+		$sql_query = "SELECT `id` FROM `".db_escape($this -> table)."` 
 			WHERE `category` = '".$content['category_id']."' 
 			AND `id` < '".$content['id']."'
 			ORDER BY `id` DESC LIMIT ".$config[$config['modules']['current_module']]['resemble_elements_qty'];
@@ -1338,7 +1338,7 @@ function view($id = 0)
 
 		if ($elements_after_qty)
 		{
-			$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($this -> table)."` 
+			$sql_query = "SELECT `id` FROM `".db_escape($this -> table)."` 
 				WHERE `category` = '".$content['category_id']."' 
 				AND `id` > '".$content['id']."'
 				ORDER BY `id` ASC LIMIT ".$config[$config['modules']['current_module']]['resemble_elements_qty'];
@@ -1429,7 +1429,7 @@ function del($element)
 				$sat -> del_element($config[$config['modules']['current_module']]['table']."_".$config['bbcpanel']['bb_id'], $_POST['id']);
 			}
 
-			$sql_query = "DELETE FROM `".mysql_real_escape_string($this -> table)."` WHERE `id` = '".mysql_real_escape_string($element)."'";
+			$sql_query = "DELETE FROM `".db_escape($this -> table)."` WHERE `id` = '".db_escape($element)."'";
 			exec_query($sql_query);
 			if (0 == mysql_errno())
 				$content['result'] = "Удаление прошло успешно";

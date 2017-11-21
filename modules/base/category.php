@@ -27,7 +27,7 @@ function create_table($table_name)
 		$charset = " charset='utf8'";
 	}
 
-	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
+	$sql_query = "CREATE TABLE IF NOT EXISTS `".db_escape($table_name)."` (
 		`id` int unsigned auto_increment primary key,
 		`parent` int,
 		`position` int unsigned default '4294967295' not null,
@@ -48,7 +48,7 @@ function create_table($table_name)
 	exec_query($sql_query);
 	$content['result'] .= "<p>Таблица категорий успешно создана</p>";
 
-	$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table_name)."`";
+	$sql_query = "SELECT COUNT(*) FROM `".db_escape($table_name)."`";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -56,7 +56,7 @@ function create_table($table_name)
 	debug("rows_qty: ".$rows_qty);
 	if (!$rows_qty)
 	{
-		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+		$sql_query = "INSERT INTO `".db_escape($table_name)."` (
 			`id`,
 			`parent`,
 			`position`,
@@ -100,14 +100,14 @@ function update_table($table_name)
 
 		if (!in_array("image", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `image` tinytext";
+			$queries[] = "ALTER TABLE `".db_escape($table_name)."` ADD `image` tinytext";
 			$content['result'] .= "<p>В таблицу категорий добавлено поле image</p>";
 		}
 
 		if (!in_array("position", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `position` int unsigned default '4294967295' not null";
-			$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295'"; 
+			$queries[] = "ALTER TABLE `".db_escape($table_name)."` ADD `position` int unsigned default '4294967295' not null";
+			$queries[] = "UPDATE `".db_escape($table_name)."` SET `position` = '4294967295'"; 
 			$content['result'] .= "<p>В таблицу категорий добавлено поле position</p>";
 		}
 		else
@@ -117,35 +117,35 @@ function update_table($table_name)
 				{
 					if ("int(11)" == $fields['types'][$k])
 					{
-						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
-						$queries[] = "UPDATE `".mysql_real_escape_string($table_name)."` SET `position` = '4294967295' WHERE `position` = '0'";
+						$queries[] = "ALTER TABLE `".db_escape($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
+						$queries[] = "UPDATE `".db_escape($table_name)."` SET `position` = '4294967295' WHERE `position` = '0'";
 					}
 					if ("YES" == $fields['null'][$k])
-						$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
+						$queries[] = "ALTER TABLE `".db_escape($table_name)."` CHANGE `position` `position` int unsigned default '4294967295' not null";
 				}
 		}
 
 		if (!in_array("h1", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `h1` tinytext";
+			$queries[] = "ALTER TABLE `".db_escape($table_name)."` ADD `h1` tinytext";
 			$content['result'] .= "<p>В таблицу категорий добавлено поле h1</p>";
 		}
 
 		if (!in_array("description", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `description` mediumtext";
+			$queries[] = "ALTER TABLE `".db_escape($table_name)."` ADD `description` mediumtext";
 			$content['result'] .= "<p>В таблицу категорий добавлено поле description</p>";
 		}
 
 		if (!in_array("meta_keywords", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `meta_keywords` tinytext";
+			$queries[] = "ALTER TABLE `".db_escape($table_name)."` ADD `meta_keywords` tinytext";
 			$content['result'] .= "<p>В таблицу категорий добавлено поле meta_keywords</p>";
 		}
 
 		if (!in_array("meta_description", $fields['names']))
 		{
-			$queries[] = "ALTER TABLE `".mysql_real_escape_string($table_name)."` ADD `meta_description` tinytext";
+			$queries[] = "ALTER TABLE `".db_escape($table_name)."` ADD `meta_description` tinytext";
 			$content['result'] .= "<p>В таблицу категорий добавлено поле meta_description</p>";
 		}
 	}
@@ -174,7 +174,7 @@ function drop_table($table_name)
 		debug ("user is admin");
 
 
-		$sql_query = "DROP TABLE IF EXISTS `".mysql_real_escape_string($table_name)."`";
+		$sql_query = "DROP TABLE IF EXISTS `".db_escape($table_name)."`";
 		exec_query($sql_query);
 		$content['result'] = "<p>Таблица категорий успешно удалена</p>";
 	}
@@ -196,7 +196,7 @@ function get_category($table_name, $id)
 
 	$content = array();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
+	$sql_query = "SELECT * FROM `".db_escape($table_name)."` WHERE `id` = '".db_escape($id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -215,7 +215,7 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 	debug ("=== category: get_subcategories ===");
 	debug ("parent: ".$parent_id);
 	dump ($subcats);
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent_id."' ORDER BY `position` ASC, `id` ASC";
+	$sql_query = "SELECT * FROM `".db_escape($table_name)."` WHERE `parent` = '".$parent_id."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysqli_fetch_array($result))
@@ -244,7 +244,7 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 			$parent = stripslashes($row['parent']);
 			while ($parent > 0)
 			{
-				$sql_query = "SELECT `parent`, `title` FROM `".mysql_real_escape_string($table_name)."` WHERE `id` = '".mysql_real_escape_string($parent)."'";
+				$sql_query = "SELECT `parent`, `title` FROM `".db_escape($table_name)."` WHERE `id` = '".db_escape($parent)."'";
 				$res_parent = exec_query($sql_query);
 				$prnt = mysqli_fetch_array($res_parent);
 				mysqli_free_result($res_parent);
@@ -328,14 +328,14 @@ function add($table_name)
 				if (("position" == $k) && ("" == $v))
 						$v = '4294967295';
 
-				$fields .= "`".mysql_real_escape_string($k)."`, ";
-				$values .= "'".mysql_real_escape_string($v)."', ";
+				$fields .= "`".db_escape($k)."`, ";
+				$values .= "'".db_escape($v)."', ";
 			}
 
 		$fields = rtrim($fields, ", ");
 		$values = rtrim($values, ", ");
 
-		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (".$fields.") VALUES (".$values.")";
+		$sql_query = "INSERT INTO `".db_escape($table_name)."` (".$fields.") VALUES (".$values.")";
 		exec_query($sql_query);
 
 		$last_id = mysqli_insert_id($config['db']['conn_id']);
@@ -371,13 +371,13 @@ function del($categories_table, $elements_table, $category_id, $if_del_elements 
 
 	if (isset($_POST['do_del_category']))
 	{
-		$sql_query = "DELETE FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
+		$sql_query = "DELETE FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category_id)."'";
 		exec_query($sql_query);
 		$content['result'] .= "<p>Категория успешно удалена</p>";
 	
 		if ($if_del_elements)
 		{
-			$sql_query = "DELETE FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".mysql_real_escape_string($category_id)."'";
+			$sql_query = "DELETE FROM `".db_escape($elements_table)."` WHERE `category` = '".db_escape($category_id)."'";
 			exec_query($sql_query);
 			$content['result'] .= "<p>Элементы категории успешно удалены</p>";
 		}
@@ -385,7 +385,7 @@ function del($categories_table, $elements_table, $category_id, $if_del_elements 
 
 	if (!isset($_POST['do_del_category']))
 	{
-		$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
+		$sql_query = "SELECT * FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category_id)."'";
 		$result = exec_query($sql_query);
 		$row = mysqli_fetch_array($result);
 		mysqli_free_result($result);
@@ -433,22 +433,22 @@ function edit($categories_table, $category_id)
 		$fl = new File();
 		$_POST['image'] = $fl -> upload("image");
 
-		$sql_query = "UPDATE `".mysql_real_escape_string($categories_table)."` SET ";
+		$sql_query = "UPDATE `".db_escape($categories_table)."` SET ";
 		foreach($_POST as $k => $v)
 			if (db_field_exists($categories_table, $k))
 			{
 				if (("position" == $k) && ("" == $v))
 					$v = '4294967295';
-				$sql_query .= "`".mysql_real_escape_string($k)."` = '".mysql_real_escape_string($v)."', ";
+				$sql_query .= "`".db_escape($k)."` = '".db_escape($v)."', ";
 			}
 		$sql_query = rtrim($sql_query, ", ");
-		$sql_query .= " WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
+		$sql_query .= " WHERE `id` = '".db_escape($_POST['id'])."'";
 
 		exec_query($sql_query);
 		$content['result'] .= "<p>Изменения успешно записаны</p>";
 	}
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
+	$sql_query = "SELECT * FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category_id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -473,7 +473,7 @@ function get_list($categories_table)
 
 	$list = array ();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` ORDER BY `position` ASC, `id` ASC";
+	$sql_query = "SELECT * FROM `".db_escape($categories_table)."` ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 	while ($row = mysqli_fetch_array($result))
 	{
@@ -496,7 +496,7 @@ function get_ids($categories_table)
 
 	$list = array ();
 
-	$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($categories_table)."`";
+	$sql_query = "SELECT `id` FROM `".db_escape($categories_table)."`";
 	$result = exec_query($sql_query);
 	while ($row = mysqli_fetch_array($result))
 		$list[] = stripslashes($row['id']);
@@ -517,7 +517,7 @@ function get_parent($categories_table, $category)
 
 	$parent = 0;
 
-	$sql_query = "SELECT `parent` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
+	$sql_query = "SELECT `parent` FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category)."'";
 	$result = exec_query($sql_query);
 	if ($result && mysql_num_rows($result))
 	{
@@ -662,7 +662,7 @@ function get_title($categories_table, $id)
 	global $config;
 	debug ("=== category: get_title ===");
 
-	$sql_query = "SELECT `title` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
+	$sql_query = "SELECT `title` FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -678,7 +678,7 @@ function get_name($categories_table, $id)
 	global $config;
 	debug ("=== category: get_name ===");
 
-	$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
+	$sql_query = "SELECT `name` FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -694,7 +694,7 @@ function has_subcategories($categories_table, $id)
 	global $config;
 	debug ("=== category: has_subcategories ===");
 
-	$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($categories_table)."` WHERE `parent` = '".mysql_real_escape_string($id)."'";
+	$sql_query = "SELECT COUNT(*) FROM `".db_escape($categories_table)."` WHERE `parent` = '".db_escape($id)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);
@@ -716,7 +716,7 @@ function get_categories_list($table_name, $parent = 0, $subcats = array())
 	debug ("=== category: get_categories_list ===");
 	debug ("parent: ".$parent);
 	dump ($subcats);
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
+	$sql_query = "SELECT * FROM `".db_escape($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysqli_fetch_array($result))
@@ -741,7 +741,7 @@ function get_categories_level($table_name, $parent = 0)
 
 	$categories = array();
 
-	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
+	$sql_query = "SELECT * FROM `".db_escape($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
 	while ($row = mysqli_fetch_array($result))
@@ -764,7 +764,7 @@ function get_id_by_name($name)
 
 	debug("name: ".$name);
 
-	$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($this -> table)."` WHERE `name` = '".mysql_real_escape_string($name)."'";
+	$sql_query = "SELECT `id` FROM `".db_escape($this -> table)."` WHERE `name` = '".db_escape($name)."'";
 	$result = exec_query($sql_query);
 	$row = mysqli_fetch_array($result);
 	mysqli_free_result($result);

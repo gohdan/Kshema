@@ -39,7 +39,7 @@ function create_table($table_name)
 		$charset = " charset='utf8'";
 	}
 
-	$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
+	$sql_query = "CREATE TABLE IF NOT EXISTS `".db_escape($table_name)."` (
 		`uid` int auto_increment primary key,
 		`action` tinytext,
 		`type` tinytext,
@@ -51,7 +51,7 @@ function create_table($table_name)
 	exec_query($sql_query);
 	$content['result'] .= "<p>Таблица привилегий успешно создана</p>";
 
-	$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+	$sql_query = "INSERT INTO `".db_escape($table_name)."` (
 		`action`,
 		`type`,
 		`id`,
@@ -65,7 +65,7 @@ function create_table($table_name)
 		'1'
 		)";
 	exec_query($sql_query);
-	$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+	$sql_query = "INSERT INTO `".db_escape($table_name)."` (
 		`action`,
 		`type`,
 		`id`,
@@ -79,7 +79,7 @@ function create_table($table_name)
 		'0'
 		)";
 	exec_query($sql_query);
-	$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (
+	$sql_query = "INSERT INTO `".db_escape($table_name)."` (
 		`action`,
 		`type`,
 		`id`,
@@ -145,7 +145,7 @@ function drop_table($table_name)
 		debug ("user is admin");
 
 
-		$sql_query = "DROP TABLE IF EXISTS `".mysql_real_escape_string($table_name)."`";
+		$sql_query = "DROP TABLE IF EXISTS `".db_escape($table_name)."`";
 		exec_query($sql_query);
 		$content['result'] = "<p>Таблица привилегий успешно удалена</p>";
 	}
@@ -294,7 +294,7 @@ function edit($module = "")
 		{
 			debug("user has privilege to edit privileges");
 			$content['show_form'] = "yes";
-			$table = "`".mysql_real_escape_string("ksh_".$module."_privileges")."`";
+			$table = "`".db_escape("ksh_".$module."_privileges")."`";
 
 			if (isset($_POST['do_update']))
 			{
@@ -309,11 +309,11 @@ function edit($module = "")
 					$sql_query = "INSERT INTO ".$table."
 						(`action`, `type`, `id`, `read`, `write`)
 						VALUES (
-						'".mysql_real_escape_string($_POST['action_new'])."',
-						'".mysql_real_escape_string($_POST['type_new'])."',
-						'".mysql_real_escape_string($_POST['id_new'])."',
-						'".mysql_real_escape_string($_POST['read_new'])."',
-						'".mysql_real_escape_string($_POST['write_new'])."'
+						'".db_escape($_POST['action_new'])."',
+						'".db_escape($_POST['type_new'])."',
+						'".db_escape($_POST['id_new'])."',
+						'".db_escape($_POST['read_new'])."',
+						'".db_escape($_POST['write_new'])."'
 						)";
 					exec_query($sql_query);
 				}
@@ -323,7 +323,7 @@ function edit($module = "")
 					debug("processing row ".$v);
 					if ("" == $_POST['action_'.$v])
 					{
-						$sql_query = "DELETE FROM ".$table." WHERE `uid` = '".mysql_real_escape_string($v)."'";
+						$sql_query = "DELETE FROM ".$table." WHERE `uid` = '".db_escape($v)."'";
 						exec_query($sql_query);
 					}
 					else
@@ -334,7 +334,7 @@ function edit($module = "")
 							`id` = '".$_POST['id_'.$v]."',
 							`read` = '".$_POST['read_'.$v]."',
 							`write` = '".$_POST['write_'.$v]."'
-							WHERE `uid` = '".mysql_real_escape_string($v)."'
+							WHERE `uid` = '".db_escape($v)."'
 							";
 						exec_query($sql_query);
 					}

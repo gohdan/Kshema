@@ -19,10 +19,10 @@ function has ($module, $res_type, $res_id, $subj_type, $subj_id)
 
 	$r = 0;
 
-	$sql_query = "SELECT `subj_id` FROM `ksh_".mysql_real_escape_string($module)."_access` WHERE (
-		`res_type` = '".mysql_real_escape_string($res_type)."' AND 
-		`res_id` = '".mysql_real_escape_string($res_id)."' AND
-		`subj_type` = '".mysql_real_escape_string($subj_type)."'
+	$sql_query = "SELECT `subj_id` FROM `ksh_".db_escape($module)."_access` WHERE (
+		`res_type` = '".db_escape($res_type)."' AND 
+		`res_id` = '".db_escape($res_id)."' AND
+		`subj_type` = '".db_escape($subj_type)."'
 	)";
 	debug("sql query: ".$sql_query);
 	$result = exec_query($sql_query);
@@ -66,7 +66,7 @@ function edit($module = "")
 		{
 			debug("user has privilege to edit privileges");
 			$content['show_form'] = "yes";
-			$table = "`".mysql_real_escape_string("ksh_".$module."_access")."`";
+			$table = "`".db_escape("ksh_".$module."_access")."`";
 
 			if (isset($_POST['do_update']))
 			{
@@ -85,9 +85,9 @@ function edit($module = "")
 								$string .= $grp."|";
 						$rights = trim($string, "|");
 
-						$sql_query = "SELECT * FROM `ksh_".mysql_real_escape_string($module)."_access` WHERE (
+						$sql_query = "SELECT * FROM `ksh_".db_escape($module)."_access` WHERE (
 							`res_type` = 'category' AND 
-							`res_id` = '".mysql_real_escape_string($cat_id)."' AND
+							`res_id` = '".db_escape($cat_id)."' AND
 							`subj_type` = 'group'
 							)";
 						$result = exec_query($sql_query);
@@ -98,20 +98,20 @@ function edit($module = "")
 						mysqli_free_result($result);
 
 						if ("insert" == $type)
-							$sql_query = "INSERT INTO `ksh_".mysql_real_escape_string($module)."_access` 
+							$sql_query = "INSERT INTO `ksh_".db_escape($module)."_access` 
 								(`res_type`, `res_id`, `subj_type`, `subj_id`)
 								VALUES (
 									'category',
-									'".mysql_real_escape_string($cat_id)."',
+									'".db_escape($cat_id)."',
 									'group',
-									'".mysql_real_escape_string($rights)."'
+									'".db_escape($rights)."'
 								)";
 						else if ("update" == $type)
-							$sql_query = "UPDATE `ksh_".mysql_real_escape_string($module)."_access` 
-								SET `subj_id` = '".mysql_real_escape_string($rights)."'
+							$sql_query = "UPDATE `ksh_".db_escape($module)."_access` 
+								SET `subj_id` = '".db_escape($rights)."'
 								WHERE 
 								`res_type` = 'category' AND 
-								`res_id` = '".mysql_real_escape_string($cat_id)."' AND
+								`res_id` = '".db_escape($cat_id)."' AND
 								`subj_type` = 'group'
 								";
 
@@ -201,12 +201,12 @@ function add_default($module, $res_type, $res_id)
 		
 		debug("groups:".$groups, 2);
 
-		$sql_query = "INSERT INTO `ksh_".mysql_real_escape_string($module)."_access` 
+		$sql_query = "INSERT INTO `ksh_".db_escape($module)."_access` 
 			(`res_type`, `res_id`, `subj_type`, `subj_id`) VALUES	(
-			'".mysql_real_escape_string($res_type)."',
-			'".mysql_real_escape_string($res_id)."',
+			'".db_escape($res_type)."',
+			'".db_escape($res_id)."',
 			'group',
-			'".mysql_real_escape_string($groups)."'
+			'".db_escape($groups)."'
 			)";
 		$result = exec_query($sql_query);
 
@@ -242,7 +242,7 @@ function create_table($table_name)
 			$charset = " charset='utf8'";
 		}
 
-		$sql_query = "CREATE TABLE IF NOT EXISTS `".mysql_real_escape_string($table_name)."` (
+		$sql_query = "CREATE TABLE IF NOT EXISTS `".db_escape($table_name)."` (
 			`id` int auto_increment primary key,
 			`res_type` tinytext,
 			`res_id` int,
@@ -257,7 +257,7 @@ function create_table($table_name)
 		$module = $config['modules']['current_module'];
 
 		$categories = array();
-		$sql_query = "SELECT `id` FROM `ksh_".mysql_real_escape_string($module)."_categories` ORDER BY `id`";
+		$sql_query = "SELECT `id` FROM `ksh_".db_escape($module)."_categories` ORDER BY `id`";
 		$result = exec_query($sql_query);
 		if ($result)
 		{

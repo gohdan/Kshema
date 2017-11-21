@@ -142,7 +142,7 @@ function db_replace()
 		if (isset($_POST['search_string']))
 		{
 			$content['search_string'] = $_POST['search_string'];
-			$sql_query = "SELECT count(*) FROM ".mysql_real_escape_string($_POST['search_table'])." WHERE ".mysql_real_escape_string($_POST['search_field'])." LIKE '%".mysql_real_escape_string($_POST['search_string'])."%'";
+			$sql_query = "SELECT count(*) FROM ".db_escape($_POST['search_table'])." WHERE ".db_escape($_POST['search_field'])." LIKE '%".db_escape($_POST['search_string'])."%'";
 			$result = exec_query($sql_query);
 			$count = mysql_result($result, 0, 0);
 			mysql_free_result($result);
@@ -150,12 +150,12 @@ function db_replace()
 			
 			if (($count > 0) && (isset($_POST['if_replace'])))
 			{
-				$sql_query = "SELECT id, ".mysql_real_escape_string($_POST['search_field'])." FROM ".mysql_real_escape_string($_POST['search_table'])." WHERE ".mysql_real_escape_string($_POST['search_field'])." LIKE '%".mysql_real_escape_string($_POST['search_string'])."%'";
+				$sql_query = "SELECT id, ".db_escape($_POST['search_field'])." FROM ".db_escape($_POST['search_table'])." WHERE ".db_escape($_POST['search_field'])." LIKE '%".db_escape($_POST['search_string'])."%'";
 				$result = exec_query($sql_query);
 				while ($row = mysql_fetch_array($result))
 				{
 					$full_text = str_replace($_POST['search_string'], $_POST['replace_string'], stripslashes($row[$_POST['search_field']]));
-					$sql_query = "UPDATE ".mysql_real_escape_string($_POST['search_table'])." SET ".mysql_real_escape_string($_POST['search_field'])." = '".mysql_real_escape_string($full_text)."' WHERE id='".$row['id']."'";
+					$sql_query = "UPDATE ".db_escape($_POST['search_table'])." SET ".db_escape($_POST['search_field'])." = '".db_escape($full_text)."' WHERE id='".$row['id']."'";
 					debug ($sql_query);
 					exec_query ($sql_query);
 					
@@ -193,7 +193,7 @@ function db_field_exists($table, $field)
 
 	$fields = array();
 
-	$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table)."`";
+	$sql_query = "SHOW FIELDS IN `".db_escape($table)."`";
 	$result = exec_query($sql_query);
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		$fields[] = stripslashes($row['Field']);		
@@ -230,7 +230,7 @@ function db_fields_list($table)
 	if ("" != $table)
 	{
 		$i = 0;
-		$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table)."`";
+		$sql_query = "SHOW FIELDS IN `".db_escape($table)."`";
 		$result = exec_query($sql_query);
 		while ($row = mysql_fetch_array($result))
 		{
