@@ -69,8 +69,8 @@ function view_by_category($category = 0)
 		// Get category info
 		$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
 		$result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$row = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 		$content['category_title'] = stripslashes($row['title']);
 		$template['title'] .= " - ".$content['category_title'];
 		$content['category_id'] = stripslashes($row['id']);
@@ -81,8 +81,8 @@ function view_by_category($category = 0)
 
 			$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($parent)."'";
 			$result_parent = exec_query($sql_query);
-			$row_parent = mysql_fetch_array($result_parent);
-			mysql_free_result($result_parent);
+			$row_parent = mysqli_fetch_array($result_parent);
+			mysqli_free_result($result_parent);
 			$parent_name = stripslashes($row_parent['name']);
 			if ("" != $parent_name && NULL != $parent_name)
 				$content['parent_link'] = $parent_name;
@@ -127,8 +127,8 @@ function view_by_category($category = 0)
 
 				$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category)."'";
 				$result_cat = exec_query($sql_query);
-				$row_cat = mysql_fetch_array($result_cat);
-				mysql_free_result($result_cat);
+				$row_cat = mysqli_fetch_array($result_cat);
+				mysqli_free_result($result_cat);
 				$cat_name = stripslashes($row_cat['name']);
 				if ("" != $cat_name && NULL != $cat_name)
 					$content['category_pages'][$i]['category'] = $cat_name;
@@ -189,7 +189,7 @@ function view_by_category($category = 0)
 			LIMIT ".mysql_real_escape_string(($start_page - 1) * $elements_on_page).",".$elements_on_page;
 		$i = 0;
 		$result = exec_query($sql_query);
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
+		while ($row = mysqli_fetch_array($result, MYSQL_ASSOC))
 		{
 			foreach ($row as $k => $v)
 				$row[$k] = stripslashes($v);
@@ -282,7 +282,7 @@ function view_by_category($category = 0)
 
 			$i++;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 		debug("elements qty: ".count($content['elements']));
 
 	}
@@ -294,7 +294,7 @@ function view_by_category($category = 0)
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `parent` = '".mysql_real_escape_string($category)."'";
 	$result = exec_query($sql_query);
 	if ($result && mysql_num_rows($result))
-		while ($row = mysql_fetch_array($result))
+		while ($row = mysqli_fetch_array($result))
 		{
 			$content['subcategories'][$i]['id'] = stripslashes($row['id']);
 			$content['subcategories'][$i]['parent'] = stripslashes($row['parent']);
@@ -320,7 +320,7 @@ function view_by_category($category = 0)
 			$i++;
 		}
 	if ($result)
-		mysql_free_result($result);
+		mysqli_free_result($result);
 	debug("subcategories qty: ".count($content['subcategories']));
 
 	// Get parents
@@ -362,8 +362,8 @@ function view_by_category($category = 0)
 /*
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 
 	$content['category_title'] = stripslashes($row['title']);
 	$content['category_id'] = $category_id;
@@ -371,7 +371,7 @@ function view_by_category($category = 0)
 	$i = 0;
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($elements_table)."` WHERE `category` = '".mysql_real_escape_string($category_id)."'";
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 		debug ("processing element ".$i);
 		$content['elements'][$i]['id'] = stripslashes($row['id']);
@@ -386,7 +386,7 @@ function view_by_category($category = 0)
 
 		$i++;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 */
 	debug ("=== end: DataObject: view_by_category ***");
 	return $content;
@@ -410,8 +410,8 @@ function generate_unique_name($table, $title)
 			$new_name = $name;
 		$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($table)."` WHERE `name` = '".mysql_real_escape_string($new_name)."'";
 		$result_count = exec_query($sql_query);
-		$row_count = mysql_fetch_array($result_count);
-		mysql_free_result($result_count);
+		$row_count = mysqli_fetch_array($result_count);
+		mysqli_free_result($result_count);
 		$same_count = stripslashes($row_count['COUNT(*)']);
 		debug("same names: ".$same_count);
 	}
@@ -501,7 +501,7 @@ function view_by_user($view_user = 0)
 		LIMIT ".mysql_real_escape_string(($start_page - 1) * $this -> elements_on_page).",".$this -> elements_on_page;
 	$i = 0;
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 		$content['elements'][$i]['module_name'] = $config['modules']['current_module'];
 
@@ -518,7 +518,7 @@ function view_by_user($view_user = 0)
 
 		$i++;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 
 	/* Satellite sending part */
@@ -562,7 +562,7 @@ function view_by_user($view_user = 0)
 
 		$result = exec_query($sql_query);
 		$i = 0;
-		while ($row = mysql_fetch_array($result))
+		while ($row = mysqli_fetch_array($result))
 		{
 
 			$sat = new Satellite;
@@ -652,7 +652,7 @@ function view_by_user($view_user = 0)
 			else
 				debug("satellite doesn't has current module as open");
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 	}
 
 	debug ("POST:");
@@ -955,13 +955,13 @@ function add()
 				$sql_query = "SHOW COLUMNS FROM `".mysql_real_escape_string($this -> table)."`";
 				$result = exec_query($sql_query);
 				$db_fields = array();
-				while ($row = mysql_fetch_array($result))
+				while ($row = mysqli_fetch_array($result))
 				{
 					debug("row:", 2);
 					dump($row);
 					$db_fields[] = $row['Field'];
 				}
-				mysql_free_result($result);
+				mysqli_free_result($result);
 
 				$fields = "";
 				$values = "";
@@ -1107,13 +1107,13 @@ function edit($element = 0)
 			$sql_query = "SHOW COLUMNS FROM `".mysql_real_escape_string($this -> table)."`";
 			$result = exec_query($sql_query);
 			$db_fields = array();
-			while ($row = mysql_fetch_array($result))
+			while ($row = mysqli_fetch_array($result))
 			{
 				debug("row:", 2);
 				dump($row);
 				$db_fields[] = $row['Field'];
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 
 			$sql_query = "UPDATE `".mysql_real_escape_string($this -> table)."` SET ";
 			foreach($db_fields as $k => $v)
@@ -1199,8 +1199,8 @@ function get($id)
 
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($this -> table)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result, MYSQL_ASSOC);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	mysqli_free_result($result);
 
 	if ($row)
 		foreach ($row as $k => $v)
@@ -1228,8 +1228,8 @@ function get_id_by_name($name)
 
 	$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($this -> table)."` WHERE `name` = '".mysql_real_escape_string($name)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 
 	$id = stripslashes($row['id']);
 	debug("id: ".$id);
@@ -1300,8 +1300,8 @@ function view($id = 0)
 			AND `id` < '".$content['id']."'
 			ORDER BY `id` DESC";
 		$result = exec_query($sql_query);
-		$count_row = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$count_row = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 		$elements_before_qty = stripslashes($count_row['COUNT(*)']);
 		debug("elements before: ".$elements_before_qty);
 
@@ -1318,7 +1318,7 @@ function view($id = 0)
 			ORDER BY `id` DESC LIMIT ".$config[$config['modules']['current_module']]['resemble_elements_qty'];
 		$result = exec_query($sql_query);
 		$i = 0;
-		while ($el = mysql_fetch_array($result))
+		while ($el = mysqli_fetch_array($result))
 		{
 			$element = $this -> get(stripslashes($el['id'])); 
 			$content['resemble_elements'][$i] = $element;
@@ -1334,7 +1334,7 @@ function view($id = 0)
 
 			$i++;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 		if ($elements_after_qty)
 		{
@@ -1343,7 +1343,7 @@ function view($id = 0)
 				AND `id` > '".$content['id']."'
 				ORDER BY `id` ASC LIMIT ".$config[$config['modules']['current_module']]['resemble_elements_qty'];
 			$result = exec_query($sql_query);
-			while ($el = mysql_fetch_array($result))
+			while ($el = mysqli_fetch_array($result))
 			{
 				$element = $this -> get(stripslashes($el['id']));
 				$content['resemble_elements'][$i] = $element; 
@@ -1357,7 +1357,7 @@ function view($id = 0)
 
 				$i++;
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 		}
 	}
 	

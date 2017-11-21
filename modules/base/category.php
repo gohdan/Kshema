@@ -198,8 +198,8 @@ function get_category($table_name, $id)
 
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 
 	foreach($row as $k => $v)
 		$content[$k] = stripslashes($v);
@@ -218,7 +218,7 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent_id."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 		$id = stripslashes($row['id']);
 		debug ("processing category ".$id);
@@ -246,8 +246,8 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 			{
 				$sql_query = "SELECT `parent`, `title` FROM `".mysql_real_escape_string($table_name)."` WHERE `id` = '".mysql_real_escape_string($parent)."'";
 				$res_parent = exec_query($sql_query);
-				$prnt = mysql_fetch_array($res_parent);
-				mysql_free_result($res_parent);
+				$prnt = mysqli_fetch_array($res_parent);
+				mysqli_free_result($res_parent);
 				$parent = stripslashes($prnt['parent']);
 				//$subcats[$id]['chain'] = stripslashes($prnt['title']).$config['base']['categories']['chain_divider'].$subcats[$id]['chain'];
 				$subcats[$id]['chain'] = $config['base']['categories']['list_prefix'].$subcats[$id]['chain'];
@@ -257,7 +257,7 @@ function get_subcategories($table_name, $parent_id, $subcats = array(), $cur_pre
 		$subcats = $this -> get_subcategories($table_name, $id, $subcats, $cur_prefix.$config['base']['categories']['list_prefix']);
 
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug ("=== end: category: get_subcategories ===");
 	return $subcats;
@@ -338,7 +338,7 @@ function add($table_name)
 		$sql_query = "INSERT INTO `".mysql_real_escape_string($table_name)."` (".$fields.") VALUES (".$values.")";
 		exec_query($sql_query);
 
-		$last_id = mysql_insert_id();
+		$last_id = mysqli_insert_id($config['db']['conn_id']);
 		$module = $config['modules']['current_module'];
 		$acc = new Access();
 		$acc -> add_default($module, "category", $last_id);
@@ -387,8 +387,8 @@ function del($categories_table, $elements_table, $category_id, $if_del_elements 
 	{
 		$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
 		$result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$row = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 
 		$content['id'] = stripslashes($row['id']);
 		$content['title'] = stripslashes($row['title']);
@@ -450,8 +450,8 @@ function edit($categories_table, $category_id)
 
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($category_id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 
 	foreach($row as $k => $v)
 		$content[$k] = stripslashes($v);
@@ -475,14 +475,14 @@ function get_list($categories_table)
 
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($categories_table)."` ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 		$id = stripslashes($row['id']);
 		$title = stripslashes($row['title']);
 		debug ($id.":".$title);
 		$list[$id] = $title;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug ("=== end: category: get_list ===");
 	return $list;
@@ -498,9 +498,9 @@ function get_ids($categories_table)
 
 	$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($categories_table)."`";
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 		$list[] = stripslashes($row['id']);
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug ("=== end: category: get_list ===");
 	return $list;
@@ -521,12 +521,12 @@ function get_parent($categories_table, $category)
 	$result = exec_query($sql_query);
 	if ($result && mysql_num_rows($result))
 	{
-		$row = mysql_fetch_array($result);
+		$row = mysqli_fetch_array($result);
 		$parent = stripslashes($row['parent']);
 		debug("parent: ".$parent);
 	}
 	if ($result)
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 
 	debug ("=== end: category: get_parent ===");
@@ -664,8 +664,8 @@ function get_title($categories_table, $id)
 
 	$sql_query = "SELECT `title` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 	$title = stripslashes($row['title']);
 
 	debug ("=== end: category: get_title ===");
@@ -680,8 +680,8 @@ function get_name($categories_table, $id)
 
 	$sql_query = "SELECT `name` FROM `".mysql_real_escape_string($categories_table)."` WHERE `id` = '".mysql_real_escape_string($id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 	$name = stripslashes($row['name']);
 
 	debug ("=== end: category: get_name ===");
@@ -696,8 +696,8 @@ function has_subcategories($categories_table, $id)
 
 	$sql_query = "SELECT COUNT(*) FROM `".mysql_real_escape_string($categories_table)."` WHERE `parent` = '".mysql_real_escape_string($id)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 	$subcats_qty = stripslashes($row['COUNT(*)']);
 	if ($subcats_qty > 0)
 		$if_has_subcats = 1;
@@ -719,14 +719,14 @@ function get_categories_list($table_name, $parent = 0, $subcats = array())
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 		$id = stripslashes($row['id']);
 		debug ("category: ".$id);
 		$subcats[$id] = $id;
 		$subcats = $this -> get_categories_list($table_name, $id, $subcats);
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug ("=== end: category: get_categories_list ===");
 	return $subcats;
@@ -744,13 +744,13 @@ function get_categories_level($table_name, $parent = 0)
 	$sql_query = "SELECT * FROM `".mysql_real_escape_string($table_name)."` WHERE `parent` = '".$parent."' ORDER BY `position` ASC, `id` ASC";
 	$result = exec_query($sql_query);
 
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 		$id = stripslashes($row['id']);
 		debug ("category: ".$id);
 		$categories[] = $id;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug ("=== end: category: get_categories_level ===");
 	return $categories;
@@ -766,8 +766,8 @@ function get_id_by_name($name)
 
 	$sql_query = "SELECT `id` FROM `".mysql_real_escape_string($this -> table)."` WHERE `name` = '".mysql_real_escape_string($name)."'";
 	$result = exec_query($sql_query);
-	$row = mysql_fetch_array($result);
-	mysql_free_result($result);
+	$row = mysqli_fetch_array($result);
+	mysqli_free_result($result);
 
 	$id = stripslashes($row['id']);
 	debug("id: ".$id);

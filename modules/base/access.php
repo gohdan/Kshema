@@ -26,10 +26,10 @@ function has ($module, $res_type, $res_id, $subj_type, $subj_id)
 	)";
 	debug("sql query: ".$sql_query);
 	$result = exec_query($sql_query);
-	if (mysql_num_rows($result))
+	if (mysqli_num_rows($result))
 	{
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$row = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 
 		$subjects = explode("|", stripslashes($row['subj_id']));
 		if (in_array($subj_id, $subjects))
@@ -95,7 +95,7 @@ function edit($module = "")
 							$type = "update";
 						else
 							$type = "insert";
-						mysql_free_result($result);
+						mysqli_free_result($result);
 
 						if ("insert" == $type)
 							$sql_query = "INSERT INTO `ksh_".mysql_real_escape_string($module)."_access` 
@@ -132,13 +132,13 @@ function edit($module = "")
 			$groups = array(0 => 'Гости');
 			$sql_query = "SELECT * FROM `ksh_users_groups` ORDER BY `id`";
 			$result = exec_query($sql_query);
-			while ($row = mysql_fetch_array($result))
+			while ($row = mysqli_fetch_array($result))
 			{
 				$id = stripslashes($row['id']);
 				$title = stripslashes($row['title']);
 				$groups[$id] = $title;
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			
 			debug("groups:", 2);
 			dump($groups);

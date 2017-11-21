@@ -195,7 +195,7 @@ function db_field_exists($table, $field)
 
 	$sql_query = "SHOW FIELDS IN `".mysql_real_escape_string($table)."`";
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		$fields[] = stripslashes($row['Field']);		
 
 	dump($fields);
@@ -211,7 +211,7 @@ function db_field_exists($table, $field)
 		$res = 0;
 	}
 
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug("*** end: db_field_exists ***");
 	return $res;
