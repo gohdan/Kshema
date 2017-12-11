@@ -111,7 +111,8 @@ function view_by_category($category = 0)
 		debug("start page: ".$start_page);
 		$elements_on_page = $this -> elements_on_page;
 
-		$elements_qty = mysql_result(exec_query("SELECT COUNT(*) FROM `".db_escape($elements_table)."` WHERE `category` = '".$category."'"), 0, 0);
+		//$elements_qty = mysqli_result(exec_query("SELECT COUNT(*) FROM `".db_escape($elements_table)."` WHERE `category` = '".$category."'"), 0, 0);
+		$elements_qty = db_get_count($elements_table, "*", "`category` = '".$category."'");
 	    debug ("elements qty: ".$elements_qty);
 	    $pages_qty = ceil($elements_qty / $elements_on_page);
 	    debug ("pages qty: ".$pages_qty);
@@ -189,7 +190,7 @@ function view_by_category($category = 0)
 			LIMIT ".db_escape(($start_page - 1) * $elements_on_page).",".$elements_on_page;
 		$i = 0;
 		$result = exec_query($sql_query);
-		while ($row = mysqli_fetch_array($result, MYSQL_ASSOC))
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 			foreach ($row as $k => $v)
 				$row[$k] = stripslashes($v);
@@ -293,7 +294,7 @@ function view_by_category($category = 0)
 	$i = 0;
 	$sql_query = "SELECT * FROM `".db_escape($categories_table)."` WHERE `parent` = '".db_escape($category)."'";
 	$result = exec_query($sql_query);
-	if ($result && mysql_num_rows($result))
+	if ($result && mysqli_num_rows($result))
 		while ($row = mysqli_fetch_array($result))
 		{
 			$content['subcategories'][$i]['id'] = stripslashes($row['id']);
@@ -862,6 +863,7 @@ function add()
 {
 	global $user;
 	global $config;
+
 	debug ("*** DataObject: add ***");
 	$content = array(
 		'content' => '',
@@ -943,7 +945,12 @@ function add()
 			if ($result)
 			{
 				if (!isset($_POST['name']) || "" == $_POST['name'])
-					$_POST['name'] = $this -> generate_unique_name($this -> table, $_POST['title']);
+				{
+					if (isset($_POST['title']))
+						$_POST['name'] = $this -> generate_unique_name($this -> table, $_POST['title']);
+					else
+						$_POST['name'] = md5(rand());
+				}
 
 				$_POST['name'] = str_replace("/", "", $_POST['name']);
 
@@ -955,7 +962,7 @@ function add()
 				$sql_query = "SHOW COLUMNS FROM `".db_escape($this -> table)."`";
 				$result = exec_query($sql_query);
 				$db_fields = array();
-				while ($row = mysqli_fetch_array($result))
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 				{
 					debug("row:", 2);
 					dump($row);
@@ -1004,7 +1011,7 @@ function add()
 				debug($sql_query);
 
 				exec_query($sql_query);
-				if (0 == mysql_errno())
+				if (0 == mysqli_errno($config['db']['conn_id']))
 				{
 					$content['result'] = "Добавление прошло успешно";
 
@@ -1051,6 +1058,7 @@ function add()
 		$content['result'] = "Недостаточно прав";
 
 	debug ("*** end: DataObject: add ***");
+
 	return $content;	
 }
 

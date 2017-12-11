@@ -521,13 +521,20 @@ function format_date($date, $format)
 		default: $date_new = $date; break;
 
 		case "ru":
+			unset($dt);
 			$dt = explode("-", $date);
-			$date_new = $dt[2].".".$dt[1].".".$dt[0];
+			if (count($dt) >= 3)
+				$date_new = $dt[2].".".$dt[1].".".$dt[0];
+			else
+				$date_new = "";
 		break;
 
 		case "mysql":
 			$dt = explode(".", $date);
-			$date_new = $dt[2]."-".$dt[1]."-".$dt[0];
+			if (count($dt) >= 3)
+				$date_new = $dt[2]."-".$dt[1]."-".$dt[0];
+			else
+				$date_new = "";
 		break;
 
 	}

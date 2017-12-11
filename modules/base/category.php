@@ -519,7 +519,7 @@ function get_parent($categories_table, $category)
 
 	$sql_query = "SELECT `parent` FROM `".db_escape($categories_table)."` WHERE `id` = '".db_escape($category)."'";
 	$result = exec_query($sql_query);
-	if ($result && mysql_num_rows($result))
+	if ($result && mysqli_num_rows($result))
 	{
 		$row = mysqli_fetch_array($result);
 		$parent = stripslashes($row['parent']);
