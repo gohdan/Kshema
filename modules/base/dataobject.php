@@ -1130,7 +1130,7 @@ function edit($element = 0)
 			$sql_query = rtrim($sql_query, ",")." WHERE `id` = '".db_escape($element)."'";
 
 			exec_query($sql_query);
-			if (0 != mysql_errno())
+			if (0 != mysqli_errno($config['db']['conn_id']))
 				$content['result'] = "Не удалось обновить запись, ошибка базы данных";
 			else
 			{
@@ -1207,7 +1207,7 @@ function get($id)
 
 	$sql_query = "SELECT * FROM `".db_escape($this -> table)."` WHERE `id` = '".db_escape($id)."'";
 	$result = exec_query($sql_query);
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	mysqli_free_result($result);
 
 	if ($row)
