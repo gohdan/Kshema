@@ -110,9 +110,9 @@ function db_tables_list()
 
 	$sql_query = "SHOW TABLES";
 	$result = exec_query($sql_query);
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 		$tables[] = stripslashes($row['Tables_in_'.$config['db']['db_name']]);
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	debug("tables:", 2);
 	dump($tables);
