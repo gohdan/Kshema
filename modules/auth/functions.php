@@ -349,8 +349,9 @@ function auth_register()
 
 			debug ("DB passwd: ".$db_password);
 
-			$fields = "`email`, `login`, `password`, `group`";
+			$fields = "`email`, `name`, `login`, `password`, `group`";
 			$values = "'".db_escape($_POST['email'])."',
+				'".db_escape($_POST['email'])."',
 				'".db_escape($_POST['email'])."',
 				'".db_escape($db_password)."',
 				'2'";
