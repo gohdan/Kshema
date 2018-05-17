@@ -124,8 +124,8 @@ function modules_admin()
 	global $debug;
 	$content = array(
 		'content' => '',
-		'core_modules' => '',
-		'installed_modules' => ''
+		'core_modules' => array(),
+		'installed_modules' => array()
 	);
 
 	foreach ($config['modules']['core'] as $k => $v)
