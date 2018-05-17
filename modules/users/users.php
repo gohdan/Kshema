@@ -7,7 +7,7 @@ function users_users_list()
 	global $user;
 	$i = 0;
 	$result = exec_query ("SELECT * FROM `ksh_users` ORDER BY `id`");
-	while ($user = mysql_fetch_array($result))
+	while ($user = mysqli_fetch_array($result))
 	{
 
 			$users[$i]['id'] = stripslashes($user['id']);
@@ -26,7 +26,7 @@ function users_users_list()
 			$users[$i]['group'] = users_get_group_title(stripslashes($user['group']));
 		$i++;
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	debug ("*** end: users_users_list ***");
 	return $users;
 }
@@ -147,8 +147,8 @@ function users_profile_edit()
 	    }
 
 		$result = exec_query("SELECT * FROM ksh_users WHERE id='".mysql_real_escape_string($user['id'])."'");
-	    $user_data = mysql_fetch_array($result);
-	    mysql_free_result($result);
+	    $user_data = mysqli_fetch_array($result);
+	    mysqli_free_result($result);
 
 		$content['first_name'] = stripslashes($user_data['first_name']);
 		$content['second_name'] = stripslashes($user_data['second_name']);
@@ -184,8 +184,8 @@ function users_user_del()
 		debug ("user is admin");
 		debug ("authed");
 		$result = exec_query("SELECT * FROM ksh_users WHERE id='".mysql_real_escape_string($_GET['user'])."'");
-		$usr = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$usr = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 		foreach ($usr as $k => $v)
 			$usr[$k] = stripslashes($v);
 
@@ -258,6 +258,7 @@ function users_view_by_group()
         'group' => '',
 		'group_id' => '',
         'if_show_admin_link' => '',
+		'users' => array()
     );	
 	$i = 0;
 
@@ -324,7 +325,7 @@ function users_view_by_group()
 
     $result = exec_query($sql_query);
 
-    while ($row = mysql_fetch_array($result))
+    while ($row = mysqli_fetch_array($result))
     {
         debug("show users ".$row['id']);
 		foreach($row as $k => $v)
@@ -344,7 +345,7 @@ function users_view_by_group()
 		}
         $i++;
     }
-    mysql_free_result($result);
+    mysqli_free_result($result);
 	$content[$content['users_list_name']] = $content['users'];
 
     debug("*** end: users_view_by_group ***");
@@ -361,7 +362,7 @@ function users_change_group()
     	'content' => '',
         'result' => '',
 		'name' => '',
-		'groups_select' => ''
+		'groups_select' => array()
     );
 
 
@@ -383,8 +384,8 @@ function users_change_group()
 
 		$sql_query = "SELECT * FROM `ksh_users` WHERE id='".mysql_real_escape_string($_GET['user'])."'"; 
 		$result = exec_query($sql_query);
-		$usr = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$usr = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 
 		$content['id'] = stripslashes($usr['id']);
 		$content['name'] = stripslashes($usr['name']);
@@ -392,7 +393,7 @@ function users_change_group()
 		$sql_query = "SELECT * FROM `ksh_users_groups`";
 		$result = exec_query($sql_query);
 		$i = 0;
-		while ($row = mysql_fetch_array($result))
+		while ($row = mysqli_fetch_array($result))
 		{
 			debug ("show group ".$i);
 			$content['groups_select'][$i]['id'] = stripslashes($row['id']);
@@ -401,7 +402,7 @@ function users_change_group()
 				$content['groups_select'][$i]['if_selected'] = "selected";
 			$i++;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
     }
 	else
 		$content['content'] .= "Пожалуйста, войдите как администратор";

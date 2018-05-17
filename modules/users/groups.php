@@ -22,6 +22,8 @@ function users_groups_add()
             if ("" != $_POST['title'])
             {
                 debug ("group title isn't empty");
+				if (!isset($_POST['redirect']))
+					$_POST['redirect'] = "";
 				$sql_query = "INSERT INTO `ksh_users_groups` (`title`, `redirect`) VALUES (
 					'".mysql_real_escape_string($_POST['title'])."',
 					'".mysql_real_escape_string($_POST['redirect'])."'
@@ -71,8 +73,8 @@ function users_group_del()
 
 		$sql_query = "SELECT `title` FROM `ksh_users_groups` WHERE id='".mysql_real_escape_string($id)."'";
 		$result = exec_query($sql_query);
-		$row = mysql_fetch_array($result);
-		mysql_free_result($result);
+		$row = mysqli_fetch_array($result);
+		mysqli_free_result($result);
 
 		$content['title'] = stripslashes($row['title']);
 
@@ -94,7 +96,7 @@ function users_groups_view()
     global $user;
 	$content = array (
     	'content' => '',
-        'groups' => ''
+        'groups' => array()
     );
     $i = 0;
 
@@ -110,14 +112,14 @@ function users_groups_view()
         }
 
         $result = exec_query("SELECT * FROM `ksh_users_groups`");
-      	while ($group = mysql_fetch_array($result))
+      	while ($group = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 	       	$content['groups'][$i]['id'] = $group['id'];
             $content['groups'][$i]['name'] = $group['name'];
             $content['groups'][$i]['title'] = $group['title'];
 			$i++;
         }
-        mysql_free_result($result);
+        mysqli_free_result($result);
     }
     else
     {
@@ -181,8 +183,8 @@ function users_group_edit()
 
 		$sql_query = "SELECT * FROM `ksh_users_groups` WHERE `id` = '".mysql_real_escape_string($group_id)."'";
 		$result = exec_query($sql_query);
-        $group = mysql_fetch_array($result);
-        mysql_free_result($result);
+        $group = mysqli_fetch_array($result);
+        mysqli_free_result($result);
         $content['group_id'] = stripslashes($group['id']);
         $content['name'] = stripslashes($group['name']);
         $content['title'] = stripslashes($group['title']);
