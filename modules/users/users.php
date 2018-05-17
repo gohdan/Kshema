@@ -62,11 +62,11 @@ function users_add()
 		{
 			debug("have data to add");
 			$sql_query = "INSERT INTO `ksh_users` (`login`, `name`, `email`, `group`, `password`) VALUES (
-				'".mysql_real_escape_string($_POST['login'])."',
-				'".mysql_real_escape_string($_POST['name'])."',
-				'".mysql_real_escape_string($_POST['email'])."',
-				'".mysql_real_escape_string($_POST['group'])."',
-				'".mysql_real_escape_string(md5($_POST['login']."\n".$_POST['password']))."'
+				'".db_escape($_POST['login'])."',
+				'".db_escape($_POST['name'])."',
+				'".db_escape($_POST['email'])."',
+				'".db_escape($_POST['group'])."',
+				'".db_escape(md5($_POST['login']."\n".$_POST['password']))."'
 			)";
 			exec_query($sql_query);
 			$content['result'] = "Пользователь добавлен";
@@ -100,7 +100,7 @@ function users_view_users()
 
 		if (isset($_POST['do_del']))
 		{
-			$sql_query = "DELETE FROM ksh_users WHERE id='".mysql_real_escape_string($_POST['id'])."'";
+			$sql_query = "DELETE FROM ksh_users WHERE id='".db_escape($_POST['id'])."'";
 			exec_query($sql_query);
 			$content['result'] .= "Пользователь удалён.";
 		}
@@ -139,14 +139,14 @@ function users_profile_edit()
 
 	        $sql_query = "UPDATE ksh_users SET ";
 	        foreach ($_POST as $k => $v)
-				$sql_query .= $k."='".mysql_real_escape_string($v)."', ";
+				$sql_query .= $k."='".db_escape($v)."', ";
 	        $sql_query = ereg_replace(", $","",$sql_query)." WHERE id='".$user['id']."'";
 
 	        exec_query ($sql_query);
 	        $content['result'] .= "Ваши данные обновлены.";
 	    }
 
-		$result = exec_query("SELECT * FROM ksh_users WHERE id='".mysql_real_escape_string($user['id'])."'");
+		$result = exec_query("SELECT * FROM ksh_users WHERE id='".db_escape($user['id'])."'");
 	    $user_data = mysqli_fetch_array($result);
 	    mysqli_free_result($result);
 
@@ -183,7 +183,7 @@ function users_user_del()
 	{
 		debug ("user is admin");
 		debug ("authed");
-		$result = exec_query("SELECT * FROM ksh_users WHERE id='".mysql_real_escape_string($_GET['user'])."'");
+		$result = exec_query("SELECT * FROM ksh_users WHERE id='".db_escape($_GET['user'])."'");
 		$usr = mysqli_fetch_array($result);
 		mysqli_free_result($result);
 		foreach ($usr as $k => $v)
@@ -283,7 +283,7 @@ function users_view_by_group()
         if (isset($_POST['do_del']))
         {
             debug ("have users to delete");
-            exec_query("DELETE FROM ksh_users WHERE id='".mysql_real_escape_string($_POST['id'])."'");
+            exec_query("DELETE FROM ksh_users WHERE id='".db_escape($_POST['id'])."'");
             $content['result'] .= "Пользователь успешно удален";
         }
         else
@@ -297,7 +297,7 @@ function users_view_by_group()
 	// FIXME: Check if there are groups; else user has a warning
     debug ("group name: ".$content['group']);
 
-	$sql_query = "SELECT * FROM `ksh_users` WHERE `group` = '".mysql_real_escape_string($group)."'";
+	$sql_query = "SELECT * FROM `ksh_users` WHERE `group` = '".db_escape($group)."'";
 
 	if (isset($_POST['filter']))
 	{
@@ -313,9 +313,9 @@ function users_view_by_group()
 
 
 				if ($if_additional_field)
-					$sql_query .= " AND `".mysql_real_escape_string($filter_field)."` LIKE '%|".mysql_real_escape_string($_POST[$filter_field])."|%'";
+					$sql_query .= " AND `".db_escape($filter_field)."` LIKE '%|".db_escape($_POST[$filter_field])."|%'";
 				else
-					$sql_query .= " AND `".mysql_real_escape_string($filter_field)."` = '".mysql_real_escape_string($_POST[$filter_field])."'";
+					$sql_query .= " AND `".db_escape($filter_field)."` = '".db_escape($_POST[$filter_field])."'";
 				$content[$filter_field] = $_POST[$filter_field];
 			}
 		}
@@ -372,7 +372,7 @@ function users_change_group()
         if (isset($_POST['do_change']))
         {
             debug ("have users to change");
-            exec_query("UPDATE `ksh_users` SET `group` = '".mysql_real_escape_string($_POST['group'])."' WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'");
+            exec_query("UPDATE `ksh_users` SET `group` = '".db_escape($_POST['group'])."' WHERE `id` = '".db_escape($_POST['id'])."'");
             $content['result'] .= "Группа изменена";
         }
         else
@@ -382,7 +382,7 @@ function users_change_group()
 
         $content['if_show_admin_link'] = "yes";
 
-		$sql_query = "SELECT * FROM `ksh_users` WHERE id='".mysql_real_escape_string($_GET['user'])."'"; 
+		$sql_query = "SELECT * FROM `ksh_users` WHERE id='".db_escape($_GET['user'])."'"; 
 		$result = exec_query($sql_query);
 		$usr = mysqli_fetch_array($result);
 		mysqli_free_result($result);

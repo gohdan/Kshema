@@ -25,8 +25,8 @@ function users_groups_add()
 				if (!isset($_POST['redirect']))
 					$_POST['redirect'] = "";
 				$sql_query = "INSERT INTO `ksh_users_groups` (`title`, `redirect`) VALUES (
-					'".mysql_real_escape_string($_POST['title'])."',
-					'".mysql_real_escape_string($_POST['redirect'])."'
+					'".db_escape($_POST['title'])."',
+					'".db_escape($_POST['redirect'])."'
 					)";
                 exec_query($sql_query);
                 $content['result'] .= "Группа добавлена";
@@ -71,7 +71,7 @@ function users_group_del()
 
 		$content['id'] = $id;
 
-		$sql_query = "SELECT `title` FROM `ksh_users_groups` WHERE id='".mysql_real_escape_string($id)."'";
+		$sql_query = "SELECT `title` FROM `ksh_users_groups` WHERE id='".db_escape($id)."'";
 		$result = exec_query($sql_query);
 		$row = mysqli_fetch_array($result);
 		mysqli_free_result($result);
@@ -107,7 +107,7 @@ function users_groups_view()
         if (isset($_POST['do_del']))
         {
             debug ("deleting group ".$_POST['id']);
-			$sql_query = "DELETE FROM `ksh_users_groups` WHERE `id` = '".mysql_real_escape_string($_POST['id'])."'";
+			$sql_query = "DELETE FROM `ksh_users_groups` WHERE `id` = '".db_escape($_POST['id'])."'";
             exec_query ($sql_query);
         }
 
@@ -165,9 +165,9 @@ function users_group_edit()
             {
                 debug ("group title isn't empty");
 				$sql_query = "UPDATE `ksh_users_groups` SET
-					`title` = '".mysql_real_escape_string($_POST['title'])."',
-					`redirect` = '".mysql_real_escape_string($_POST['redirect'])."'
-					WHERE `id` = '".mysql_real_escape_string($group_id)."'";
+					`title` = '".db_escape($_POST['title'])."',
+					`redirect` = '".db_escape($_POST['redirect'])."'
+					WHERE `id` = '".db_escape($group_id)."'";
                 exec_query($sql_query);
                 $content['result'] .= "Изменения записаны";
             }
@@ -181,7 +181,7 @@ function users_group_edit()
             debug ("no data to update");
 
 
-		$sql_query = "SELECT * FROM `ksh_users_groups` WHERE `id` = '".mysql_real_escape_string($group_id)."'";
+		$sql_query = "SELECT * FROM `ksh_users_groups` WHERE `id` = '".db_escape($group_id)."'";
 		$result = exec_query($sql_query);
         $group = mysqli_fetch_array($result);
         mysqli_free_result($result);
