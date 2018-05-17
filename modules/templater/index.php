@@ -128,8 +128,7 @@ function gen_content($module, $template, $content)
 		debug ("; proceeding logical structure");
         $tpl = templater_logic($tpl, $content);
         debug ("; end: proceeding logical structure");
-
-		$pattern="/\{\{([a-z0-9\:_]+)\}\}/i";
+		$pattern="/\{\{([a-z0-9\_]+:)\}\}/i";
         if (preg_match_all($pattern, $tpl, $dynamic_content))
         {
             debug ("dynamic content exists");
