@@ -262,7 +262,7 @@ function templater_logic($tpl, $content)
 	debug ("*** templater_logic ***");
 	global $config;
 
-	$pattern = "/\{\{if:([a-z0-9_]+):([^{^}]+)\}\}/i";
+	$pattern = "/\{\{if:([a-z0-9_]+):([^{^}]*)\}\}/i";
     if(preg_match_all($pattern, $tpl, $branches))
     {
     	debug ("there are logic!", 2);
