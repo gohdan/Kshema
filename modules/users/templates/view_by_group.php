@@ -15,11 +15,11 @@
 
 <table summary="Users list table">
 <tr>
-<th>ID</th>
-<th>login</th>
-<th>Имя</th>
-<th>email</th>
-<th>Группа</th>
+<th style="padding: 5px">ID</th>
+<th style="padding: 5px">login</th>
+<th style="padding: 5px">Имя</th>
+<th style="padding: 5px">email</th>
+<th style="padding: 5px">Группа</th>
 </tr>
 #users#
 </table>

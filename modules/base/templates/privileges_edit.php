@@ -5,7 +5,7 @@
 {{if:result:<p>#result#</p>}}
 
 {{if:show_form:
-<p>Сотрите название объекта, чтобы удалить запись</p>
+<p>Сотрите название объекта или ID, чтобы удалить запись</p>
 
 <form action="/#module#/privileges_edit/" method="post">
 

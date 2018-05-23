@@ -280,7 +280,7 @@ function edit($module = "")
 
 	$content = array(
 		'module' => $module,
-		'privileges' => '',
+		'privileges' => array(),
 		'result' => '',
 		'show_form' => ''
 	);
@@ -321,7 +321,7 @@ function edit($module = "")
 				foreach($_POST['entries'] as $k => $v)
 				{
 					debug("processing row ".$v);
-					if ("" == $_POST['action_'.$v])
+					if (("" == $_POST['action_'.$v]) || ("" == $_POST['id_'.$v]))
 					{
 						$sql_query = "DELETE FROM ".$table." WHERE `uid` = '".db_escape($v)."'";
 						exec_query($sql_query);
@@ -342,10 +342,10 @@ function edit($module = "")
 				}
 			}
 
-			$sql_query = "SELECT * FROM ".$table;
+			$sql_query = "SELECT * FROM ".$table." ORDER BY `action` ASC, `type` ASC, `id` ASC, `uid` ASC";
 			$result = exec_query($sql_query);
 			$i = 0;
-			while ($row = mysql_fetch_array($result))
+			while ($row = mysqli_fetch_array($result))
 			{
 				$content['privileges'][$i]['uid'] = stripslashes($row['uid']);
 				$content['privileges'][$i]['action'] = stripslashes($row['action']);
@@ -366,7 +366,7 @@ function edit($module = "")
 
 				$i++;
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 		}
 		else
 			$content['result'] = "Недостаточно прав";

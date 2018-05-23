@@ -137,10 +137,11 @@ function users_profile_edit()
 	        debug ("writing to DB");
 	        unset ($_POST['do_change']);
 
-	        $sql_query = "UPDATE ksh_users SET ";
+	        $sql_query = "UPDATE `ksh_users` SET ";
 	        foreach ($_POST as $k => $v)
-				$sql_query .= $k."='".db_escape($v)."', ";
-	        $sql_query = ereg_replace(", $","",$sql_query)." WHERE id='".$user['id']."'";
+				$sql_query .= "`".$k."` = '".db_escape($v)."', ";
+			$sql_query = rtrim($sql_query, ", ");
+	        $sql_query .= " WHERE `id` = '".$user['id']."'";
 
 	        exec_query ($sql_query);
 	        $content['result'] .= "Ваши данные обновлены.";
@@ -277,7 +278,9 @@ function users_view_by_group()
 
 	debug("group: ".$content['group']);
 
-    if (1 == $user['id'])
+	$priv = new Privileges();
+
+    if ($priv->has("users", "admin", "write"))
     {
         debug ("user has admin rights");
         if (isset($_POST['do_del']))
@@ -365,8 +368,9 @@ function users_change_group()
 		'groups_select' => array()
     );
 
+	$priv = new Privileges();
 
-    if (1 == $user['id'])
+    if ($priv->has("users", "admin", "write"))
 	{
         debug ("user has admin rights");
         if (isset($_POST['do_change']))

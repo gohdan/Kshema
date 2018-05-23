@@ -100,9 +100,12 @@ function users_groups_view()
     );
     $i = 0;
 
-    if (1 == $user['id'])
+	$priv = new Privileges();
+
+    if ($priv->has("users", "admin", "write"))
     {
         debug ("user is admin");
+		$content['show_admin_link'] = "yes";
 
         if (isset($_POST['do_del']))
         {
