@@ -365,43 +365,38 @@ function auth_register()
 
             $content['if_success'] = "yes";
 
-			/* Mail block */
-
-			$cnt['site_url'] = $config['base']['site_url'];	
-			$cnt['site_name'] = $config['base']['site_name'];
-
-			$cnt['login'] = $_POST['email'];
-			$cnt['password'] = $password;
-			$cnt['admin_email'] = $config['base']['admin_email'];
-
-			$headers = "Content-type: text/plain; charset=utf-8 \r\n";
-			$to = $_POST['email'];
-			$subject = gen_content("auth", "mail_register_user_subject", $cnt);
-			$message = gen_content("auth", "mail_register_user_message", $cnt);
-
-			debug("to: ".$to);
-			debug("subject: ".$subject);
-			debug("headers: ".$headers);
-			debug("message: ".$message);
-
-			$res_mail = mail ($to, $subject, $message, $headers);
-
-			debug("res_mail: ".$res_mail);
-
-			$to = $config['base']['admin_email'];
-			$subject = gen_content("auth", "mail_register_admin_subject", $cnt);
-			$message = gen_content("auth", "mail_register_admin_message", $cnt);
-
-			mail ($to, $subject, $message, $headers);
-
-			/* End: Mail block */
-
 			$_SESSION['do_login'] = "yes";
 			$_SESSION['login'] = $_POST['email'];
 			$_SESSION['reg_password'] = $password;
 			$_SESSION['POST'] = $_POST;
 			$_SESSION['id'] = db_get_field("ksh_users", "id", "`email` = '".db_escape($_POST['email'])."'");
 			$_SESSION['authed'] = 1;
+
+			/* Mail block */
+
+			$mail_params = array(
+				'login' => $_SESSION['login'],
+				'email' => $_POST['email'],
+				'password' => $_SESSION['reg_password'],
+				'site_name' => $config['base']['site_name'],
+				'site_url' => $config['base']['site_url']
+			);
+
+			$mail = new Mail();
+			$mail -> to = $config['base']['admin_email'];
+			$mail -> subject = gen_content("auth", "mail_register_admin_subject", $mail_params);
+			$mail -> module = "auth";
+			$mail -> template = "mail_register_admin_message";
+			$mail -> send($mail_params);
+
+			$mail = new Mail();
+			$mail -> to = $_POST['email'];
+			$mail -> subject = gen_content("auth", "mail_register_user_subject", $mail_params);
+			$mail -> module = "auth";
+			$mail -> template = "mail_register_user_message";
+			$mail -> send($mail_params);
+
+			/* end: Mail block */
 
 			if (!headers_sent())
 				header("Location: /users/profile_view/");

@@ -18,6 +18,7 @@ include_once($config['modules']['location']."base/file.php");
 include_once($config['modules']['location']."base/templater.php");
 include_once($config['modules']['location']."base/config_class.php");
 include_once($config['modules']['location']."base/log.php");
+include_once($config['modules']['location']."base/mail.php");
 
 if ("yes" == $config['satellite']['use'])
 	include_once($config['modules']['location']."base/satellite.php");

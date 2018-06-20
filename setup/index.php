@@ -142,6 +142,28 @@ if (isset($_POST['do_save']))
 	file_put_contents($config_file, $config_params);
 
 
+	$config_file = $config_dir."/mail.php";
+	$config_params = "<?php
+
+\$config['mail'] = array(
+	'direct' => 'no', // set to 'yes' to send mail directly with mail() function
+	'admin_email' => 'admin@example.org',
+	'bcc_admin' => 'no', // set to 'no' to don't send copy of the emails to admin
+	'host' => 'smtp.example.org',
+	'port' => 465,
+	'ssl' => 'yes',
+	'username' => 'forms@example.org',
+	'password' => '********',
+	'from' => 'forms@example.org',
+	'from_name' => 'Site Mail Robot',
+	'subject' => 'Mail from your website'
+);
+
+?>
+";
+	file_put_contents($config_file, $config_params);
+
+
 	echo ("<br><p>Config files saved. Please check <b>/config/*.php</b> manually if needed. If the directory \"config\" didn't appear, please create it manually with the permissions to write and go through this setup again. And don't forget to delete /setup/ directory in the end.</p>");	
 	echo ("<p><a href=\"/base/install/\">Go to setup admin account and basic DB tables</a> or <a href=\"/setup\">go through this setup again</a>.</p>");
 
