@@ -4,7 +4,7 @@
 
 {{if:if_use_registration_form:<p>Пожалуйста, воспользуйтесь <a href="/auth/show_register_form/">формой регистрации</a>.</p>}}
 
-{{if:if_email_exists:<p>Такой e-mail уже зарегистрирован, вместо новой регистрации воспользуйтесь, пожалуйста, функцией напоминания пароля.</p>}}
+{{if:if_email_exists:<p>Такой e-mail уже зарегистрирован. <a href="/auth/reset_password/">Сбросить пароль</a></p>}}
 
 #content#
 
