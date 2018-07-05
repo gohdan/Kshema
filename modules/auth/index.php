@@ -96,9 +96,9 @@ function auth_default_action()
 				$content = gen_content("auth", "change_password", array_merge($module_data, auth_change_password()));
 			break;
 
-            case("psw_change"):
-                $content = "<p>Пароль успешно изменён</p>";
-            break;
+			case("reset_password"):
+				$content = gen_content("auth", "reset_password", array_merge($module_data, auth_reset_password()));
+			break;
 
             case("show_login_form"):
                 $content = gen_content("auth", "show_login_form", array_merge($module_data, auth_show_login_form()));

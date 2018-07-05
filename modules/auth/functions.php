@@ -99,31 +99,31 @@ function auth_login()
     {
         debug ("login data are available, trying to login");
 		$content['login'] = $login;
-		if ("" == $login && "" == $password)
+		if (("" == $login) || ("" == $password))
 		{
+			debug("login or password is empty");
 			$content['if_empty_fields'] = "yes";
-			$content['if_empty_login'] = "yes";
-			$content['if_empty_password'] = "yes";
-			$result = 0;
-		}
-		else if ("" == $login)
-		{
-			$content['if_empty_login'] = "yes";
-			$result = 0;
-		}
-		else if ("" == $password)
-		{
-			$content['if_empty_password'] = "yes";
 			$result = 0;
 		}
 		else
 		{
 			$if_exist = db_get_count("ksh_users", "*", "`login` = '".db_escape($login)."'");
+			debug("if exist login: ".$if_exist);
+			if ("1" == $if_exist)
+				$check_field = "login";
+			else
+			{
+				$if_exist = db_get_count("ksh_users", "*", "`email` = '".db_escape($login)."'");
+				debug("if exist email: ".$if_exist);
+
+				if ("1" == $if_exist)
+					$check_field = "email";
+			}
 
 	        if ("1" == $if_exist)
 	        {
 	            debug("user exists");
-				$psw = db_get_field("ksh_users", "password", "`login`= '".db_escape($login)."'");
+				$psw = db_get_field("ksh_users", "password", "`".$check_field."`= '".db_escape($login)."'");
 	            debug("DB passw: ".$psw);
 	            debug("given psw: ".md5($login."\n".$password));
 	            if ($psw == md5($login."\n".$password))
@@ -158,8 +158,6 @@ function auth_login()
         $result = 0;
     }
 
-    debug ("=== end: mod: auth; fn: login ===");
-
     if (1 == $result)
     {
 		$sql_query = "UPDATE `ksh_users` SET 
@@ -184,12 +182,12 @@ function auth_login()
 		}
     }
     else
-	{
 		$content['if_fail'] = "yes";
-	}
 
 	if ("yes" == $config['auth']['allow_registration'])
 		$content['if_show_register_link'] = "yes";
+
+    debug ("=== end: mod: auth; fn: login ===");
 
     return $content;
 }
@@ -458,13 +456,11 @@ function auth_gen_password()
 
 	debug ("*** auth_gen_password ***");
 
-	$length = 12;
+	$length = 13;
 
 	$psw="";
 	for($i=0; $i < $length; $i++)
 	{
-		//$psw.=chr(rand(48,57));
-		//$psw.=chr(rand(33,126));
 		$num = rand(48,122);
 		if ((($num > 57) && ($num < 65)) || (($num > 90) && ($num < 97)))
 			$num = rand(48, 57);
@@ -499,6 +495,86 @@ function auth_get_user_id($login)
     return $id;
 }
 
+function auth_reset_password()
+{
+    global $user;
+	global $config;
 
+	debug ("=== mod: auth; fn: reset_password ===");
+
+	$content = array(
+		'email' => '',
+		'if_show_form' => 'yes',
+		'password_changed' => '',
+		'empty_email' => '',
+		'no_email' => '',
+		'if_show_register_link' => ''
+	);
+
+	if (isset($_POST['do_reset']))
+	{
+		if (isset($_POST['email']))
+		{
+			if ("" == $_POST['email'])
+				$content['empty_email'] = "yes";
+			else
+			{
+				$email = $_POST['email'];
+				$content['email'] = $email;
+
+				$if_exist = db_get_count("ksh_users", "*", "`email` = '".db_escape($email)."'");
+				debug("if exist email: ".$if_exist);
+				if ("1" == $if_exist)
+				{
+					$login = db_get_field("ksh_users", "login", "`email`= '".db_escape($email)."'");
+					debug("login: ".$login);
+
+					$password = auth_gen_password();
+					debug("new password: ".$password);
+
+					$db_password = auth_crypt_password($login, $password);
+					debug ("DB passwd: ".$db_password);
+
+					$sql_query = "UPDATE `ksh_users` SET `password` = '".db_escape($db_password)."' WHERE `login` = '".db_escape($login)."' AND `email` = '".db_escape($email)."'";
+					exec_query($sql_query);
+
+					/* Mail block */
+
+					$mail_params = array(
+						'login' => $login,
+						'email' => $email,
+						'password' => $password,
+						'site_name' => $config['base']['site_name'],
+						'site_url' => $config['base']['site_url']
+					);
+
+					$mail = new Mail();
+					$mail -> to = $email;
+					$mail -> subject = gen_content("auth", "mail_change_password_user_subject", $mail_params);
+					$mail -> module = "auth";
+					$mail -> template = "mail_change_password_user_message";
+					$mail -> send($mail_params);
+
+					/* end: Mail block */
+
+					$content['password_changed'] = "yes";
+					$content['if_show_form'] = "no";
+				}
+				else
+					$content['no_email'] = "yes";
+			}
+
+		}
+
+	}
+
+
+	if ("yes" == $config['auth']['allow_registration'])
+		$content['if_show_register_link'] = "yes";
+
+    debug ("=== end: mod: auth; fn: reset_password ===");
+
+	return $content;
+}
 
 ?>

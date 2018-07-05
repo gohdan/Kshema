@@ -13,7 +13,7 @@
 }}
 
 {{if:if_password_dont_match:
-<p>Пароль не подходит.</p>
+<p>Пароль не подходит. <a href="/auth/reset_password/">Сбросить пароль</a></p>
 }}
 
 
@@ -22,17 +22,17 @@
 }}
 
 {{if:if_show_admin_link:
-<p><a href="/index.php?module=base&action=admin">Администрировать сайт</a></p>
+<p><a href="/base/admin/">Администрировать сайт</a></p>
 }}
 
 {{if:if_fail:
-<form class="auth_login" action="/index.php?module=auth&action=login" method="post">
-Ваш e-mail: <input type="text" name="login" value="#login#"><br>
-Пароль: <input type="password" name="password"><br>
+<form class="auth_login" action="/auth/login/" method="post">
+<input type="text" name="login" value="#login#" placeholder="Логин или email"><br>
+<input type="password" name="password" placeholder="Пароль"><br>
 <input type="submit" name="do_login" value="Войти">
 </form>
 }}
 
 {{if:if_show_register_link:
-<p>Ещё не регистрировались? <a href="/index.php?module=auth&action=show_register_form">Зарегистрируйтесь!</a></p>
+<p><a href="/auth/show_register_form">Зарегистрироваться</a></p>
 }}
