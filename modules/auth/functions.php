@@ -558,7 +558,7 @@ function auth_reset_password()
 					/* end: Mail block */
 
 					$content['password_changed'] = "yes";
-					$content['if_show_form'] = "no";
+					$content['if_show_form'] = "";
 				}
 				else
 					$content['no_email'] = "yes";
