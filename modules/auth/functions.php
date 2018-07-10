@@ -163,7 +163,7 @@ function auth_login()
 		$sql_query = "UPDATE `ksh_users` SET 
 			`last_login_date` = CURDATE(),
 			`last_login_time` = CURTIME()
-			WHERE `id` = '".mysql_real_escape_string($user['id'])."'";
+			WHERE `id` = '".db_escape($user['id'])."'";
 		exec_query($sql_query);
 
 		$content['if_success'] = "yes";
@@ -247,10 +247,7 @@ function auth_change_password()
 	{
 		if (isset($_POST['do_change']))
 		{
-			$sql_query = "SELECT `login`, `password` FROM `ksh_users` WHERE `id` = '".$user['id']."'";
-			$result = exec_query($sql_query);
-			$row = mysql_fetch_array($result);
-			mysql_free_result($result);
+			$row = db_get_row("ksh_users", "`id` = '".$user['id']."'");
 			$login = stripslashes($row['login']);
 			$db_old_password = $row['password'];
 			debug ("DB old password hash: ".$db_old_password);
@@ -273,9 +270,9 @@ function auth_change_password()
 				debug ("all OK, changing");
 				$new_password = md5($login."\n".$_POST['new_password_1']);
 				debug ("new password hash: ".$new_password);
-				$sql_query = "UPDATE `ksh_users` SET `password` = '".mysql_real_escape_string($new_password)."' WHERE `id` = '".mysql_real_escape_string($user['id'])."'";
+				$sql_query = "UPDATE `ksh_users` SET `password` = '".db_escape($new_password)."' WHERE `id` = '".db_escape($user['id'])."'";
 				$result = exec_query($sql_query);
-				if (0 == mysql_errno())
+				if (0 == mysqli_errno($config['db']['conn_id']))
 				{
 					debug ("OK");
 					$content['res_success'] = "yes";
@@ -283,7 +280,7 @@ function auth_change_password()
 				}
 				else
 				{
-					debug ("Error ".mysql_errno() . ": " . mysql_error());
+					debug ("Error ".mysqli_errno($config['db']['conn_id']) . ": " . mysqli_error($config['db']['conn_id']));
 					$content['res_db_error'] = "yes";
 				}
 			}
